@@ -1,0 +1,23 @@
+---
+id: ninja-rmm-public-api-2-0
+sidebar_label: Introduction
+sidebar_position: 0
+hide_title: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+<span className={"theme-doc-version-badge badge badge--secondary"}>Version: 2.0.9-draft</span>
+
+# Ninja RMM Public API 2.0
+
+
+
+Ninja RMM Public API documentation. <br><br>
+See also: <br> 
+<a href="https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Device+Filter+Syntax.pdf">Device Filter syntax</a><br>
+<a href="https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Webhooks.pdf">Webhooks</a>
+
+<div style={{"marginBottom":"2rem"}}><h2 id={"authentication"} style={{"marginBottom":"1rem"}}>Authentication</h2><Tabs><TabItem label={"OAuth 2.0"} value={"oauth2"}><div><table><tbody><tr><th>Security Scheme Type:</th><td>oauth2</td></tr><tr><th>authorizationCode OAuth Flow:</th><td><p>Token URL: /ws/oauth/token</p><p>Authorization URL: /ws/oauth/authorize</p><span>Scopes:</span><ul><li>monitoring: Monitoring APIs</li><li>Management: Management APIs</li></ul></td></tr><tr><th>clientCredentials OAuth Flow:</th><td><p>Token URL: /ws/oauth/token</p><span>Scopes:</span><ul><li>monitoring: Monitoring APIs</li><li>Management: Management APIs</li></ul></td></tr></tbody></table></div></TabItem><TabItem label={"Session Key"} value={"sessionKey"}><div><table><tbody><tr><th>Security Scheme Type:</th><td>apiKey</td></tr><tr><th>Header parameter name:</th><td>sessionKey</td></tr></tbody></table></div></TabItem><TabItem label={"Bearer"} value={"bearer"}><div><table><tbody><tr><th>Security Scheme Type:</th><td>http</td></tr><tr><th>HTTP Authorization Scheme:</th><td>bearer</td></tr><tr><th>Bearer format:</th><td></td></tr></tbody></table></div></TabItem></Tabs></div><div style={{"display":"flex","flexDirection":"column","marginBottom":"var(--ifm-paragraph-margin-bottom)"}}><h3 style={{"marginBottom":"0.25rem"}}>Contact</h3><span><a href={"mailto:api@ninjarmm.com"}>api@ninjarmm.com</a></span></div>
+      

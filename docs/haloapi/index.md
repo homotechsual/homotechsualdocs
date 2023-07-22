@@ -1,4 +1,8 @@
-# HaloAPI - A [PowerShell](https://microsoft.com/powershell) module for [Halo Service Solutions](https://haloservicesolutions.com/) software
+---
+title: Overview
+hide_title: true
+sidebar_position: 0
+---
 
 [![Azure DevOps Pipeline Status](https://img.shields.io/azure-devops/tests/MSPsUK/HaloAPI/4?style=for-the-badge)](https://dev.azure.com/MSPsUK/HaloAPI/_build?definitionId=4)
 [![Azure DevOps Code Coverage](https://img.shields.io/azure-devops/coverage/MSPsUK/HaloAPI/4?style=for-the-badge)](https://dev.azure.com/MSPsUK/HaloAPI/_build?definitionId=4)
@@ -13,7 +17,13 @@
 This module is published to the PowerShell Gallery and can be installed from within PowerShell with `Install-Module`
 
 ```PowerShell
-Install-Module HaloAPI
+Install-Module -Name HaloAPI
+```
+
+If you want to install a beta or other version of the module, you can use the following command:
+
+```PowerShell
+Install-Module -Name HaloAPI -AllowPrerelease
 ```
 
 ## Getting Started
@@ -46,3 +56,9 @@ For example *HaloAPI PS Module*.
 
 1. Grant the application the permissions required for your purposes.  
 *Generally speaking you want to limit the API to only the permissions it needs to do the job you're scripting for.*
+
+## Known Issues
+
+Not all of Halo's API endpoints are implemented but all documented endpoints have been implemented in this module, along with many other undocumented endpoints. Want an endpoint / functionality implemented? Log an issue on [GitHub](https://github.com/homotechsual/haloapi/issues) and we'll see if we can implement it, alternatively you can implement it yourself.
+
+For little used or one-off endpoints you can call `Invoke-HaloRequest` directly to reuse the same authentication token/connection and run arbitrary requests. See the [cmdlet documentation](docs/haloapi/Invoke-HaloRequest.md) for more information.

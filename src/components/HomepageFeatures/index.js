@@ -1,49 +1,84 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import { siteVersion } from '@generated/site-metadata';
+
+const GitHubSvg = require('@site/static/img/GitHub.svg').default
+const PSGallerySvg = require('@site/static/img/PowerShell.svg').default
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'HaloAPI',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        A PowerShell module for interacting with the Halo Service Solutions software API.
+        Includes Halo PSA, Halo ITSM and Halo Service Desk.
       </>
     ),
+    link: {
+      href: '/docs/haloapi',
+      label: 'Documentation',
+    },
+    github: {
+      href: 'https://github.com/homotechsual/haloapi'
+    },
+    psgallery: {
+      href: 'https://www.powershellgallery.com/packages/HaloAPI'
+    }
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'MSGraphMail',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        A PowerShell module for interacting with the Microsoft Graph API for sending emails.
       </>
     ),
+    link: {
+      href: '/docs/msgraphmail',
+      label: 'Documentation',
+    },
+    github: {
+      href: 'https://github.com/homotechsual/msgraphmail'
+    },
+    psgallery: {
+      href: 'https://www.powershellgallery.com/packages/MSGraphMail'
+    }
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'NinjaOne',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        A PowerShell module for interacting with the NinjaOne v2 API.
       </>
     ),
+    link: {
+      href: '/docs/ninjaone',
+      label: 'Documentation',
+    },
+    github: {
+      href: 'https://github.com/homotechsual/ninjaone'
+    },
+    psgallery: {
+      href: 'https://www.powershellgallery.com/packages/NinjaOne'
+    }
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({title, description, link, github, psgallery}) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
+      <div className={clsx('card', styles.feature)}>
+        <div className={clsx('text--center card__header padding-horiz--md')}>
+          <h3>{title}</h3>
+        </div>
+        <div className={clsx('text--center card__body padding-horiz--md')}>
+          <p>{description}</p>
+        </div>
+        <div className={clsx('text--center card__footer padding-horiz--md')}>
+          <a href={link.href} className="button button--primary margin-horiz--xs">{link.label}</a>
+          <a href={github.href} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}><GitHubSvg className="icon--github" role="img" /></a>
+          <a href={psgallery.href} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}><PSGallerySvg className="icon--psgallery" role="img" /></a>
+        </div>
       </div>
     </div>
   );

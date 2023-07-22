@@ -1,0 +1,95 @@
+---
+id: list-organizations-detailed
+sidebar_label: List organizations (Detailed)
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["System"],"description":"Returns list of organizations with locations and policy mappings","operationId":"getOrganizationsDetailed","parameters":[{"name":"pageSize","in":"query","description":"Limit number of organizations to return","schema":{"type":"integer","format":"int32"}},{"name":"after","in":"query","description":"Last Organization Identifier from previous page","schema":{"type":"integer","format":"int32"}}],"responses":{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string","description":"Organization full name"},"description":{"type":"string","description":"Organization Description"},"userData":{"type":"object","additionalProperties":true,"description":"Custom attributes"},"nodeApprovalMode":{"type":"string","description":"Device Approval Mode","enum":["AUTOMATIC","MANUAL","REJECT"]},"tags":{"type":"array","description":"Tags","items":{"type":"string","description":"Tags"}},"fields":{"type":"object","additionalProperties":{"type":"object","description":"Custom Fields"},"description":"Custom Fields"},"id":{"type":"integer","description":"Organization identifier","format":"int32"},"locations":{"type":"array","description":"List of locations","items":{"type":"object","properties":{"name":{"type":"string","description":"Location name"},"address":{"type":"string","description":"Address"},"description":{"type":"string","description":"Description"},"userData":{"type":"object","additionalProperties":true,"description":"Custom attributes"},"tags":{"type":"array","description":"Tags","items":{"type":"string","description":"Tags"}},"fields":{"type":"object","additionalProperties":{"type":"object","description":"Custom Fields"},"description":"Custom Fields"},"id":{"type":"integer","description":"Location identifier","format":"int32"}},"description":"Location"}},"policies":{"type":"array","description":"Node role policy assignments","items":{"type":"object","properties":{"nodeRoleId":{"type":"integer","description":"Node Role Identifier","format":"int32"},"policyId":{"type":"integer","description":"Policy Identifier","format":"int32"}},"description":"Node role policy assignments"}},"settings":{"type":"object","properties":{"trayicon":{"type":"object","properties":{"product":{"type":"string","description":"Configured product code"},"enabled":{"type":"boolean","description":"Is enabled"},"targets":{"type":"array","description":"Feature deployment targets","items":{"type":"string","description":"Feature deployment targets"}},"options":{"type":"object","additionalProperties":{"type":"object","description":"Feature options"},"description":"Feature options"}},"description":"Feature/product/integration configuration settings"},"splashtop":{"type":"object","properties":{"product":{"type":"string","description":"Configured product code"},"enabled":{"type":"boolean","description":"Is enabled"},"targets":{"type":"array","description":"Feature deployment targets","items":{"type":"string","description":"Feature deployment targets"}},"options":{"type":"object","additionalProperties":{"type":"object","description":"Feature options"},"description":"Feature options"}},"description":"Feature/product/integration configuration settings"},"teamviewer":{"type":"object","properties":{"product":{"type":"string","description":"Configured product code"},"enabled":{"type":"boolean","description":"Is enabled"},"targets":{"type":"array","description":"Feature deployment targets","items":{"type":"string","description":"Feature deployment targets"}},"options":{"type":"object","additionalProperties":{"type":"object","description":"Feature options"},"description":"Feature options"}},"description":"Feature/product/integration configuration settings"},"backup":{"type":"object","properties":{"product":{"type":"string","description":"Configured product code"},"enabled":{"type":"boolean","description":"Is enabled"},"targets":{"type":"array","description":"Feature deployment targets","items":{"type":"string","description":"Feature deployment targets"}},"options":{"type":"object","additionalProperties":{"type":"object","description":"Feature options"},"description":"Feature options"}},"description":"Feature/product/integration configuration settings"},"psa":{"type":"object","properties":{"product":{"type":"string","description":"Configured product code"},"enabled":{"type":"boolean","description":"Is enabled"},"targets":{"type":"array","description":"Feature deployment targets","items":{"type":"string","description":"Feature deployment targets"}},"options":{"type":"object","additionalProperties":{"type":"object","description":"Feature options"},"description":"Feature options"}},"description":"Feature/product/integration configuration settings"}},"description":"Organization settings"}}}}}}}},"method":"get","path":"/api/v2/organizations-detailed","servers":[{"url":"https://eu.ninjarmm.com","description":"EU instance"},{"url":"https://app.ninjarmm.com","description":"US instance"},{"url":"https://oc.ninjarmm.com","description":"Oceania instance"}],"security":[{"oauth2":["monitoring","Management","control"]},{"sessionKey":["monitoring","Management","control"]},{"bearer":["monitoring","Management","control"]}],"securitySchemes":{"oauth2":{"type":"oauth2","flows":{"authorizationCode":{"authorizationUrl":"/ws/oauth/authorize","tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}},"clientCredentials":{"tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}}}},"sessionKey":{"type":"apiKey","name":"sessionKey","in":"cookie"},"bearer":{"type":"http","scheme":"bearer"}},"info":{"title":"Ninja RMM Public API 2.0","description":"Ninja RMM Public API documentation. <br><br>\nSee also: <br> \n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Device+Filter+Syntax.pdf\">Device Filter syntax</a><br>\n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Webhooks.pdf\">Webhooks</a>","contact":{"email":"api@ninjarmm.com"},"version":"2.0.9-draft"},"postman":{"name":"List organizations (Detailed)","description":{"content":"Returns list of organizations with locations and policy mappings","type":"text/plain"},"url":{"path":["api","v2","organizations-detailed"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"Limit number of organizations to return","type":"text/plain"},"key":"pageSize","value":""},{"disabled":false,"description":{"content":"Last Organization Identifier from previous page","type":"text/plain"},"key":"after","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: api/ninjaone//ninja-rmm-public-api-2-0
+---
+
+import ParamsItem from "@theme/ParamsItem";
+import SchemaItem from "@theme/SchemaItem"
+import ApiTabs from "@theme/ApiTabs";
+import TabItem from "@theme/TabItem";
+
+## List organizations (Detailed)
+
+
+
+Returns list of organizations with locations and policy mappings
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"pageSize","in":"query","description":"Limit number of organizations to return","schema":{"type":"integer","format":"int32"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"after","in":"query","description":"Last Organization Identifier from previous page","schema":{"type":"integer","format":"int32"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"default"} value={"default"}><div>
+
+default response
+
+</div><div><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><ul><SchemaItem collapsible={false} name={"name"} required={false} schemaDescription={"Organization full name"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"description"} required={false} schemaDescription={"Organization Description"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>userData</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Custom attributes
+
+</div></div></details></SchemaItem><SchemaItem collapsible={false} name={"nodeApprovalMode"} required={false} schemaDescription={"Device Approval Mode"} schemaName={"string"} qualifierMessage={"**Possible values:** [`AUTOMATIC`, `MANUAL`, `REJECT`]"}></SchemaItem><SchemaItem collapsible={false} name={"tags"} required={false} schemaDescription={"Tags"} schemaName={"string[]"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>fields</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Custom Fields
+
+</div></div></details></SchemaItem><SchemaItem collapsible={false} name={"id"} required={false} schemaDescription={"Organization identifier"} schemaName={"int32"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>locations</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+List of locations
+
+</div><ul><SchemaItem collapsible={false} name={"name"} required={false} schemaDescription={"Location name"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"address"} required={false} schemaDescription={"Address"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"description"} required={false} schemaDescription={"Description"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>userData</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Custom attributes
+
+</div></div></details></SchemaItem><SchemaItem collapsible={false} name={"tags"} required={false} schemaDescription={"Tags"} schemaName={"string[]"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>fields</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Custom Fields
+
+</div></div></details></SchemaItem><SchemaItem collapsible={false} name={"id"} required={false} schemaDescription={"Location identifier"} schemaName={"int32"} qualifierMessage={undefined}></SchemaItem></ul></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>policies</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Node role policy assignments
+
+</div><ul><SchemaItem collapsible={false} name={"nodeRoleId"} required={false} schemaDescription={"Node Role Identifier"} schemaName={"int32"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"policyId"} required={false} schemaDescription={"Policy Identifier"} schemaName={"int32"} qualifierMessage={undefined}></SchemaItem></ul></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>settings</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Organization settings
+
+</div><ul><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>trayicon</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Feature/product/integration configuration settings
+
+</div><ul><SchemaItem collapsible={false} name={"product"} required={false} schemaDescription={"Configured product code"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"enabled"} required={false} schemaDescription={"Is enabled"} schemaName={"boolean"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"targets"} required={false} schemaDescription={"Feature deployment targets"} schemaName={"string[]"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>options</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Feature options
+
+</div></div></details></SchemaItem></ul></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>splashtop</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Feature/product/integration configuration settings
+
+</div><ul><SchemaItem collapsible={false} name={"product"} required={false} schemaDescription={"Configured product code"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"enabled"} required={false} schemaDescription={"Is enabled"} schemaName={"boolean"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"targets"} required={false} schemaDescription={"Feature deployment targets"} schemaName={"string[]"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>options</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Feature options
+
+</div></div></details></SchemaItem></ul></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>teamviewer</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Feature/product/integration configuration settings
+
+</div><ul><SchemaItem collapsible={false} name={"product"} required={false} schemaDescription={"Configured product code"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"enabled"} required={false} schemaDescription={"Is enabled"} schemaName={"boolean"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"targets"} required={false} schemaDescription={"Feature deployment targets"} schemaName={"string[]"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>options</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Feature options
+
+</div></div></details></SchemaItem></ul></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>backup</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Feature/product/integration configuration settings
+
+</div><ul><SchemaItem collapsible={false} name={"product"} required={false} schemaDescription={"Configured product code"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"enabled"} required={false} schemaDescription={"Is enabled"} schemaName={"boolean"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"targets"} required={false} schemaDescription={"Feature deployment targets"} schemaName={"string[]"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>options</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Feature options
+
+</div></div></details></SchemaItem></ul></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>psa</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Feature/product/integration configuration settings
+
+</div><ul><SchemaItem collapsible={false} name={"product"} required={false} schemaDescription={"Configured product code"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"enabled"} required={false} schemaDescription={"Is enabled"} schemaName={"boolean"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"targets"} required={false} schemaDescription={"Feature deployment targets"} schemaName={"string[]"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>options</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Feature options
+
+</div></div></details></SchemaItem></ul></div></details></SchemaItem></ul></div></details></SchemaItem></ul></div></li></ul></details></div></TabItem></ApiTabs></div>
+      

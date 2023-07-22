@@ -3,9 +3,24 @@
   align-items: center;
   padding: 2rem 0;
   width: 100%;
+  background-color: #1f6ab7;
 }
 
 .featureSvg {
   height: 200px;
   width: 200px;
+}
+
+.feature {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.iconbutton {
+  align-self: center;
+  align-items: center;
+  display: inline-flex;
+  height: 100%;
 }

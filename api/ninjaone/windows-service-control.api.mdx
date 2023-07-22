@@ -1,0 +1,27 @@
+---
+id: windows-service-control
+sidebar_label: Windows service control
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Management"],"description":"Start/Stop/Restart Windows Service on a device","operationId":"controlWindowsService","parameters":[{"name":"id","in":"path","description":"Device identifier","required":true,"schema":{"type":"integer","format":"int32"}},{"name":"serviceId","in":"path","description":"Service identifier","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"type":"object","properties":{"action":{"type":"string","description":"Action","enum":["START","PAUSE","STOP","RESTART"]}}}}}},"responses":{"default":{"description":"default response","content":{"*/*":{}}}},"method":"post","path":"/api/v2/device/{id}/windows-service/{serviceId}/control","servers":[{"url":"https://eu.ninjarmm.com","description":"EU instance"},{"url":"https://app.ninjarmm.com","description":"US instance"},{"url":"https://oc.ninjarmm.com","description":"Oceania instance"}],"security":[{"oauth2":["monitoring","Management","control"]},{"sessionKey":["monitoring","Management","control"]},{"bearer":["monitoring","Management","control"]}],"securitySchemes":{"oauth2":{"type":"oauth2","flows":{"authorizationCode":{"authorizationUrl":"/ws/oauth/authorize","tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}},"clientCredentials":{"tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}}}},"sessionKey":{"type":"apiKey","name":"sessionKey","in":"cookie"},"bearer":{"type":"http","scheme":"bearer"}},"jsonRequestBodyExample":{"action":"START"},"info":{"title":"Ninja RMM Public API 2.0","description":"Ninja RMM Public API documentation. <br><br>\nSee also: <br> \n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Device+Filter+Syntax.pdf\">Device Filter syntax</a><br>\n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Webhooks.pdf\">Webhooks</a>","contact":{"email":"api@ninjarmm.com"},"version":"2.0.9-draft"},"postman":{"name":"Windows service control","description":{"content":"Start/Stop/Restart Windows Service on a device","type":"text/plain"},"url":{"path":["api","v2","device",":id","windows-service",":serviceId","control"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) Device identifier","type":"text/plain"},"type":"any","value":"","key":"id"},{"disabled":false,"description":{"content":"(Required) Service identifier","type":"text/plain"},"type":"any","value":"","key":"serviceId"}]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"*/*"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}}}}
+sidebar_class_name: "post api-method"
+info_path: api/ninjaone//ninja-rmm-public-api-2-0
+---
+
+import ParamsItem from "@theme/ParamsItem";
+import SchemaItem from "@theme/SchemaItem"
+import ApiTabs from "@theme/ApiTabs";
+import TabItem from "@theme/TabItem";
+
+## Windows service control
+
+
+
+Start/Stop/Restart Windows Service on a device
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","in":"path","description":"Device identifier","required":true,"schema":{"type":"integer","format":"int32"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"serviceId","in":"path","description":"Service identifier","required":true,"schema":{"type":"string"}}}></ParamsItem></ul></div></details><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"action"} required={false} schemaDescription={"Action"} schemaName={"string"} qualifierMessage={"**Possible values:** [`START`, `PAUSE`, `STOP`, `RESTART`]"}></SchemaItem></ul></details><div><ApiTabs><TabItem label={"default"} value={"default"}><div>
+
+default response
+
+</div><div></div></TabItem></ApiTabs></div>
+      

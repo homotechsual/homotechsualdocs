@@ -1,0 +1,27 @@
+---
+id: run-script-or-built-in-action
+sidebar_label: Run script or built-in action
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Management"],"description":"Run script or built-in action on a device","operationId":"runScriptOnDevice","parameters":[{"name":"id","in":"path","description":"Device identifier","required":true,"schema":{"type":"integer","format":"int32"}}],"requestBody":{"content":{"application/json":{"schema":{"type":"object","properties":{"type":{"type":"string","description":"Type","enum":["ACTION","SCRIPT"]},"id":{"type":"integer","description":"Script identifier","format":"int32"},"uid":{"type":"string","description":"Built-in action identifier","format":"uuid"},"parameters":{"type":"string","description":"Action/Script parameters"},"runAs":{"type":"string","description":"Credential role/identifier"}}}}}},"responses":{"default":{"description":"default response","content":{"*/*":{}}}},"method":"post","path":"/api/v2/device/{id}/script/run","servers":[{"url":"https://eu.ninjarmm.com","description":"EU instance"},{"url":"https://app.ninjarmm.com","description":"US instance"},{"url":"https://oc.ninjarmm.com","description":"Oceania instance"}],"security":[{"oauth2":["monitoring","Management","control"]},{"sessionKey":["monitoring","Management","control"]},{"bearer":["monitoring","Management","control"]}],"securitySchemes":{"oauth2":{"type":"oauth2","flows":{"authorizationCode":{"authorizationUrl":"/ws/oauth/authorize","tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}},"clientCredentials":{"tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}}}},"sessionKey":{"type":"apiKey","name":"sessionKey","in":"cookie"},"bearer":{"type":"http","scheme":"bearer"}},"jsonRequestBodyExample":{"type":"ACTION","id":0,"uid":"3fa85f64-5717-4562-b3fc-2c963f66afa6","parameters":"string","runAs":"string"},"info":{"title":"Ninja RMM Public API 2.0","description":"Ninja RMM Public API documentation. <br><br>\nSee also: <br> \n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Device+Filter+Syntax.pdf\">Device Filter syntax</a><br>\n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Webhooks.pdf\">Webhooks</a>","contact":{"email":"api@ninjarmm.com"},"version":"2.0.9-draft"},"postman":{"name":"Run script or built-in action","description":{"content":"Run script or built-in action on a device","type":"text/plain"},"url":{"path":["api","v2","device",":id","script","run"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) Device identifier","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"*/*"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}}}}
+sidebar_class_name: "post api-method"
+info_path: api/ninjaone//ninja-rmm-public-api-2-0
+---
+
+import ParamsItem from "@theme/ParamsItem";
+import SchemaItem from "@theme/SchemaItem"
+import ApiTabs from "@theme/ApiTabs";
+import TabItem from "@theme/TabItem";
+
+## Run script or built-in action
+
+
+
+Run script or built-in action on a device
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","in":"path","description":"Device identifier","required":true,"schema":{"type":"integer","format":"int32"}}}></ParamsItem></ul></div></details><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"type"} required={false} schemaDescription={"Type"} schemaName={"string"} qualifierMessage={"**Possible values:** [`ACTION`, `SCRIPT`]"}></SchemaItem><SchemaItem collapsible={false} name={"id"} required={false} schemaDescription={"Script identifier"} schemaName={"int32"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"uid"} required={false} schemaDescription={"Built-in action identifier"} schemaName={"uuid"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"parameters"} required={false} schemaDescription={"Action/Script parameters"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"runAs"} required={false} schemaDescription={"Credential role/identifier"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem></ul></details><div><ApiTabs><TabItem label={"default"} value={"default"}><div>
+
+default response
+
+</div><div></div></TabItem></ApiTabs></div>
+      

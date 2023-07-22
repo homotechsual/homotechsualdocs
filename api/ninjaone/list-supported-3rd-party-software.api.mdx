@@ -1,0 +1,27 @@
+---
+id: list-supported-3rd-party-software
+sidebar_label: List supported 3rd party software
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["System"],"description":"Returns available software products (3rd party patching)","operationId":"getSoftwareProducts","responses":{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string","description":"Product identifier","format":"uuid"},"vendorName":{"type":"string","description":"Vendor Name"},"productName":{"type":"string","description":"Product Name"},"installable":{"type":"boolean","description":"Installable"},"active":{"type":"boolean","description":"Active"}}}}}}}},"method":"get","path":"/api/v2/software-products","servers":[{"url":"https://eu.ninjarmm.com","description":"EU instance"},{"url":"https://app.ninjarmm.com","description":"US instance"},{"url":"https://oc.ninjarmm.com","description":"Oceania instance"}],"security":[{"oauth2":["monitoring","Management","control"]},{"sessionKey":["monitoring","Management","control"]},{"bearer":["monitoring","Management","control"]}],"securitySchemes":{"oauth2":{"type":"oauth2","flows":{"authorizationCode":{"authorizationUrl":"/ws/oauth/authorize","tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}},"clientCredentials":{"tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}}}},"sessionKey":{"type":"apiKey","name":"sessionKey","in":"cookie"},"bearer":{"type":"http","scheme":"bearer"}},"info":{"title":"Ninja RMM Public API 2.0","description":"Ninja RMM Public API documentation. <br><br>\nSee also: <br> \n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Device+Filter+Syntax.pdf\">Device Filter syntax</a><br>\n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Webhooks.pdf\">Webhooks</a>","contact":{"email":"api@ninjarmm.com"},"version":"2.0.9-draft"},"postman":{"name":"List supported 3rd party software","description":{"content":"Returns available software products (3rd party patching)","type":"text/plain"},"url":{"path":["api","v2","software-products"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: api/ninjaone//ninja-rmm-public-api-2-0
+---
+
+import ParamsItem from "@theme/ParamsItem";
+import SchemaItem from "@theme/SchemaItem"
+import ApiTabs from "@theme/ApiTabs";
+import TabItem from "@theme/TabItem";
+
+## List supported 3rd party software
+
+
+
+Returns available software products (3rd party patching)
+
+<div><ApiTabs><TabItem label={"default"} value={"default"}><div>
+
+default response
+
+</div><div><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><ul><SchemaItem collapsible={false} name={"id"} required={false} schemaDescription={"Product identifier"} schemaName={"uuid"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"vendorName"} required={false} schemaDescription={"Vendor Name"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"productName"} required={false} schemaDescription={"Product Name"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"installable"} required={false} schemaDescription={"Installable"} schemaName={"boolean"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"active"} required={false} schemaDescription={"Active"} schemaName={"boolean"} qualifierMessage={undefined}></SchemaItem></ul></div></li></ul></details></div></TabItem></ApiTabs></div>
+      

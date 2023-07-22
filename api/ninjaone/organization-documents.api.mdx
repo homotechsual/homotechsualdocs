@@ -1,0 +1,39 @@
+---
+id: organization-documents
+sidebar_label: Organization Documents
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Organization"],"description":"Returns organization documents","operationId":"getOrganizationDocuments","parameters":[{"name":"id","in":"path","description":"Organization identifier","required":true,"schema":{"type":"integer","format":"int32"}}],"responses":{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"documentName":{"type":"string","description":"Document Name","writeOnly":true},"fields":{"type":"array","description":"Fields","writeOnly":true,"items":{"type":"object","properties":{"name":{"type":"string","description":"Name","writeOnly":true},"value":{"type":"object","description":"Value"},"valueUpdateTime":{"type":"number","description":"Value Last Updated","format":"double"},"attributeName":{"type":"string"}}}},"clientDocumentName":{"type":"string"},"attributeValues":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string","description":"Name","writeOnly":true},"value":{"type":"object","description":"Value"},"valueUpdateTime":{"type":"number","description":"Value Last Updated","format":"double"},"attributeName":{"type":"string"}}}}}}}}}}},"method":"get","path":"/api/v2/organization/{id}/documents","servers":[{"url":"https://eu.ninjarmm.com","description":"EU instance"},{"url":"https://app.ninjarmm.com","description":"US instance"},{"url":"https://oc.ninjarmm.com","description":"Oceania instance"}],"security":[{"oauth2":["monitoring","Management","control"]},{"sessionKey":["monitoring","Management","control"]},{"bearer":["monitoring","Management","control"]}],"securitySchemes":{"oauth2":{"type":"oauth2","flows":{"authorizationCode":{"authorizationUrl":"/ws/oauth/authorize","tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}},"clientCredentials":{"tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}}}},"sessionKey":{"type":"apiKey","name":"sessionKey","in":"cookie"},"bearer":{"type":"http","scheme":"bearer"}},"info":{"title":"Ninja RMM Public API 2.0","description":"Ninja RMM Public API documentation. <br><br>\nSee also: <br> \n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Device+Filter+Syntax.pdf\">Device Filter syntax</a><br>\n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Webhooks.pdf\">Webhooks</a>","contact":{"email":"api@ninjarmm.com"},"version":"2.0.9-draft"},"postman":{"name":"Organization Documents","description":{"content":"Returns organization documents","type":"text/plain"},"url":{"path":["api","v2","organization",":id","documents"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) Organization identifier","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: api/ninjaone//ninja-rmm-public-api-2-0
+---
+
+import ParamsItem from "@theme/ParamsItem";
+import SchemaItem from "@theme/SchemaItem"
+import ApiTabs from "@theme/ApiTabs";
+import TabItem from "@theme/TabItem";
+
+## Organization Documents
+
+
+
+Returns organization documents
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","in":"path","description":"Organization identifier","required":true,"schema":{"type":"integer","format":"int32"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"default"} value={"default"}><div>
+
+default response
+
+</div><div><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><ul><SchemaItem collapsible={false} name={"documentName"} required={false} schemaDescription={"Document Name"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>fields</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Fields
+
+</div><ul><SchemaItem collapsible={false} name={"name"} required={false} schemaDescription={"Name"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>value</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Value
+
+</div></div></details></SchemaItem><SchemaItem collapsible={false} name={"valueUpdateTime"} required={false} schemaDescription={"Value Last Updated"} schemaName={"double"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"attributeName"} required={false} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined}></SchemaItem></ul></div></details></SchemaItem><SchemaItem collapsible={false} name={"clientDocumentName"} required={false} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>attributeValues</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><ul><SchemaItem collapsible={false} name={"name"} required={false} schemaDescription={"Name"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>value</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Value
+
+</div></div></details></SchemaItem><SchemaItem collapsible={false} name={"valueUpdateTime"} required={false} schemaDescription={"Value Last Updated"} schemaName={"double"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"attributeName"} required={false} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined}></SchemaItem></ul></div></details></SchemaItem></ul></div></li></ul></details></div></TabItem></ApiTabs></div>
+      

@@ -1,0 +1,31 @@
+---
+id: list-device-roles
+sidebar_label: List device roles
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["System"],"description":"Returns list of device roles","operationId":"getNodeRoles","responses":{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"id":{"type":"integer","description":"Device Role identifier","format":"int32"},"name":{"type":"string","description":"Name"},"description":{"type":"string","description":"Description"},"nodeClass":{"type":"string","description":"Node Class","enum":["WINDOWS_SERVER","WINDOWS_WORKSTATION","LINUX_WORKSTATION","MAC","ANDROID","VMWARE_VM_HOST","VMWARE_VM_GUEST","HYPERV_VMM_HOST","HYPERV_VMM_GUEST","LINUX_SERVER","MAC_SERVER","CLOUD_MONITOR_TARGET","NMS_SWITCH","NMS_ROUTER","NMS_FIREWALL","NMS_PRIVATE_NETWORK_GATEWAY","NMS_PRINTER","NMS_SCANNER","NMS_DIAL_MANAGER","NMS_WAP","NMS_IPSLA","NMS_COMPUTER","NMS_VM_HOST","NMS_APPLIANCE","NMS_OTHER","NMS_SERVER","NMS_PHONE","NMS_VIRTUAL_MACHINE","NMS_NETWORK_MANAGEMENT_AGENT"]},"custom":{"type":"boolean","description":"Is custom node role?"},"chassisType":{"type":"string","description":"Chassis Type","enum":["UNKNOWN","DESKTOP","LAPTOP","MOBILE"]},"created":{"type":"number","description":"Date created","format":"double"},"tags":{"type":"array","description":"Tags","items":{"type":"string","description":"Tags"}},"fields":{"type":"object","additionalProperties":{"type":"object","description":"Custom Fields"},"description":"Custom Fields"}},"description":"Device Role"}}}}}},"method":"get","path":"/api/v2/roles","servers":[{"url":"https://eu.ninjarmm.com","description":"EU instance"},{"url":"https://app.ninjarmm.com","description":"US instance"},{"url":"https://oc.ninjarmm.com","description":"Oceania instance"}],"security":[{"oauth2":["monitoring","Management","control"]},{"sessionKey":["monitoring","Management","control"]},{"bearer":["monitoring","Management","control"]}],"securitySchemes":{"oauth2":{"type":"oauth2","flows":{"authorizationCode":{"authorizationUrl":"/ws/oauth/authorize","tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}},"clientCredentials":{"tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}}}},"sessionKey":{"type":"apiKey","name":"sessionKey","in":"cookie"},"bearer":{"type":"http","scheme":"bearer"}},"info":{"title":"Ninja RMM Public API 2.0","description":"Ninja RMM Public API documentation. <br><br>\nSee also: <br> \n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Device+Filter+Syntax.pdf\">Device Filter syntax</a><br>\n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Webhooks.pdf\">Webhooks</a>","contact":{"email":"api@ninjarmm.com"},"version":"2.0.9-draft"},"postman":{"name":"List device roles","description":{"content":"Returns list of device roles","type":"text/plain"},"url":{"path":["api","v2","roles"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: api/ninjaone//ninja-rmm-public-api-2-0
+---
+
+import ParamsItem from "@theme/ParamsItem";
+import SchemaItem from "@theme/SchemaItem"
+import ApiTabs from "@theme/ApiTabs";
+import TabItem from "@theme/TabItem";
+
+## List device roles
+
+
+
+Returns list of device roles
+
+<div><ApiTabs><TabItem label={"default"} value={"default"}><div>
+
+default response
+
+</div><div><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><ul><SchemaItem collapsible={false} name={"id"} required={false} schemaDescription={"Device Role identifier"} schemaName={"int32"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={false} schemaDescription={"Name"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"description"} required={false} schemaDescription={"Description"} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"nodeClass"} required={false} schemaDescription={"Node Class"} schemaName={"string"} qualifierMessage={"**Possible values:** [`WINDOWS_SERVER`, `WINDOWS_WORKSTATION`, `LINUX_WORKSTATION`, `MAC`, `ANDROID`, `VMWARE_VM_HOST`, `VMWARE_VM_GUEST`, `HYPERV_VMM_HOST`, `HYPERV_VMM_GUEST`, `LINUX_SERVER`, `MAC_SERVER`, `CLOUD_MONITOR_TARGET`, `NMS_SWITCH`, `NMS_ROUTER`, `NMS_FIREWALL`, `NMS_PRIVATE_NETWORK_GATEWAY`, `NMS_PRINTER`, `NMS_SCANNER`, `NMS_DIAL_MANAGER`, `NMS_WAP`, `NMS_IPSLA`, `NMS_COMPUTER`, `NMS_VM_HOST`, `NMS_APPLIANCE`, `NMS_OTHER`, `NMS_SERVER`, `NMS_PHONE`, `NMS_VIRTUAL_MACHINE`, `NMS_NETWORK_MANAGEMENT_AGENT`]"}></SchemaItem><SchemaItem collapsible={false} name={"custom"} required={false} schemaDescription={"Is custom node role?"} schemaName={"boolean"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"chassisType"} required={false} schemaDescription={"Chassis Type"} schemaName={"string"} qualifierMessage={"**Possible values:** [`UNKNOWN`, `DESKTOP`, `LAPTOP`, `MOBILE`]"}></SchemaItem><SchemaItem collapsible={false} name={"created"} required={false} schemaDescription={"Date created"} schemaName={"double"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"tags"} required={false} schemaDescription={"Tags"} schemaName={"string[]"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>fields</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Custom Fields
+
+</div></div></details></SchemaItem></ul></div></li></ul></details></div></TabItem></ApiTabs></div>
+      

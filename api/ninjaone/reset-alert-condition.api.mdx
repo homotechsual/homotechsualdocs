@@ -1,0 +1,39 @@
+---
+id: reset-alert-condition
+sidebar_label: Reset alert/condition
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Management"],"description":"Resets alert/condition by UID","operationId":"resetAlert","security":[{"bearer":["Management"]},{"sessionKey":["Management"]},{"oauth2":["Management"]}],"parameters":[{"name":"uid","in":"path","required":true,"schema":{"type":"string","format":"uuid"},"example":"f8c6f8c6-f8c6-f8c6-f8c6-f8c6f8c6f8c6"}],"responses":{"200":{"description":"The request completed successfully."},"400":{"description":"The request was invalid or cannot be otherwise served.","content":{"application/json":{"schema":{"type":"object","properties":{"resultCode":{"type":"string"},"errorMessage":{"type":"string"}},"required":["resultCode","errorMessage"]}}}},"401":{"description":"The request was a valid request, but the server is refusing to respond to it.","content":{"application/json":{"schema":{"type":"object","properties":{"resultCode":{"type":"string"},"errorMessage":{"type":"string"}},"required":["resultCode","errorMessage"]}}}},"404":{"description":"The requested resource was not found.","content":{"application/json":{"schema":{"type":"object","properties":{"resultCode":{"type":"string"},"errorMessage":{"type":"string"}},"required":["resultCode","errorMessage"]}}}}},"x-codeSamples":[{"lang":"Bash","source":"curl -X DELETE https://eu.ninjarmm.com/api/v2/alert/f8c6f8c6-f8c6-f8c6-f8c6-f8c6f8c6f8c6 -H 'authorization: Bearer <token>'"},{"lang":"PowerShell","source":"Invoke-WebRequest -Method DELETE -Uri https://eu.ninjarmm.com/api/v2/alert/f8c6f8c6-f8c6-f8c6-f8c6-f8c6f8c6f8c6 -Headers @{ 'authorization' = 'Bearer <token>' } -ContentType 'application/json'"},{"lang":"NinjaOne Module","source":"Reset-NinjaOneAlert -uid 'f8c6f8c6-f8c6-f8c6-f8c6-f8c6f8c6f8c6'"}],"method":"delete","path":"/api/v2/alert/{uid}","servers":[{"url":"https://eu.ninjarmm.com","description":"EU instance"},{"url":"https://app.ninjarmm.com","description":"US instance"},{"url":"https://oc.ninjarmm.com","description":"Oceania instance"}],"securitySchemes":{"oauth2":{"type":"oauth2","flows":{"authorizationCode":{"authorizationUrl":"/ws/oauth/authorize","tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}},"clientCredentials":{"tokenUrl":"/ws/oauth/token","scopes":{"monitoring":"Monitoring APIs","Management":"Management APIs"}}}},"sessionKey":{"type":"apiKey","name":"sessionKey","in":"cookie"},"bearer":{"type":"http","scheme":"bearer"}},"info":{"title":"Ninja RMM Public API 2.0","description":"Ninja RMM Public API documentation. <br><br>\nSee also: <br> \n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Device+Filter+Syntax.pdf\">Device Filter syntax</a><br>\n<a href=\"https://resources.ninjarmm.com/API/Ninja+RMM+Public+API+v2.0.5+Webhooks.pdf\">Webhooks</a>","contact":{"email":"api@ninjarmm.com"},"version":"2.0.9-draft"},"postman":{"name":"Reset alert/condition","description":{"content":"Resets alert/condition by UID","type":"text/plain"},"url":{"path":["api","v2","alert",":uid"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"uid"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"DELETE","auth":{"type":"bearer","bearer":[{"type":"any","value":"<Bearer Token>","key":"token"}]}}}
+sidebar_class_name: "delete api-method"
+info_path: api/ninjaone//ninja-rmm-public-api-2-0
+---
+
+import ParamsItem from "@theme/ParamsItem";
+import SchemaItem from "@theme/SchemaItem"
+import ApiTabs from "@theme/ApiTabs";
+import TabItem from "@theme/TabItem";
+
+## Reset alert/condition
+
+
+
+Resets alert/condition by UID
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"uid","in":"path","required":true,"schema":{"type":"string","format":"uuid"},"example":"f8c6f8c6-f8c6-f8c6-f8c6-f8c6f8c6f8c6"}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+The request completed successfully.
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+The request was invalid or cannot be otherwise served.
+
+</div><div><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"resultCode"} required={true} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"errorMessage"} required={true} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined}></SchemaItem></ul></details></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+The request was a valid request, but the server is refusing to respond to it.
+
+</div><div><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"resultCode"} required={true} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"errorMessage"} required={true} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined}></SchemaItem></ul></details></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+The requested resource was not found.
+
+</div><div><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"resultCode"} required={true} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined}></SchemaItem><SchemaItem collapsible={false} name={"errorMessage"} required={true} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined}></SchemaItem></ul></details></div></TabItem></ApiTabs></div>
+      
