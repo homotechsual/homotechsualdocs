@@ -3,7 +3,29 @@
   align-items: center;
   padding: 2rem 0;
   width: 100%;
-  background-color: #1f6ab7;
+  background-color: #006ABA;
+}
+
+.featurestopdivider {
+  background-color: var(--ifm-color-primary);
+  background-image: url("./HomotechsualBlueBorder.svg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 110% 4rem;
+  display: block;
+  width: 100%;
+  padding-top: 2rem;
+}
+
+.featuresbottomdivider {
+  background-color: var(--ifm-background-color);
+  background-image: url("./HomotechsualBlueBorder.svg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 110% 4rem;
+  display: block;
+  width: 100%;
+  padding-bottom: 2rem;
 }
 
 .featureSvg {
@@ -23,4 +45,5 @@
   align-items: center;
   display: inline-flex;
   height: 100%;
+  --ifm-button-padding-horizontal: 1rem;
 }

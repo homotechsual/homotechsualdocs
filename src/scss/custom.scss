@@ -26,6 +26,7 @@
   --ht-font-color-base-rgb: rgb(10, 10, 10);
   --ht-color-primary-rgb: rgb(144, 75, 147);
   --ifm-color-emphasis-200: var(--ifm-color-gray-800);
+  --ifm-color-info: #006ABA;
 }
 
 html[data-theme='dark'] {
@@ -66,6 +67,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   justify-content: center;
   margin-bottom: var(--ifm-leading);
   text-align: center;
+  font-family: 'Open Sans';
 
   .hero__title {
     font-size: 2rem;
@@ -179,7 +181,7 @@ html[data-theme='light'] .github-link {
     color: #c96198;
 
     &:before {
-      animation: heart 1000ms infinite;
+      animation: heart 2000ms infinite;
     }
   }
 }
@@ -204,6 +206,12 @@ html[data-theme='light'] .github-link {
       background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjODdiZDNiIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDMuNzVBLjc1Ljc1IDAgMDEuNzUgM2g3LjQ5N2MxLjU2NiAwIDIuOTQ1LjggMy43NTEgMi4wMTRBNC40OTYgNC40OTYgMCAwMTE1Ljc1IDNoNy41YS43NS43NSAwIDAxLjc1Ljc1djE1LjA2M2EuNzUuNzUgMCAwMS0uNzU1Ljc1bC03LjY4Mi0uMDUyYTMgMyAwIDAwLTIuMTQyLjg3OGwtLjg5Ljg5MWEuNzUuNzUgMCAwMS0xLjA2MSAwbC0uOTAyLS45MDFhMyAzIDAgMDAtMi4xMjEtLjg3OUguNzVhLjc1Ljc1IDAgMDEtLjc1LS43NXYtMTV6bTExLjI0NyAzLjc0N2EzIDMgMCAwMC0zLTIuOTk3SDEuNVYxOGg2Ljk0N2E0LjUgNC41IDAgMDEyLjgwMy45OGwtLjAwMy0xMS40ODN6bTEuNTAzIDExLjQ4NVY3LjVhMyAzIDAgMDEzLTNoNi43NXYxMy41NThsLTYuOTI3LS4wNDdhNC41IDQuNSAwIDAwLTIuODIzLjk3MXoiLz48L3N2Zz4=") 0 0/contain;
     }
   }
+}
+
+/* Navbar */
+
+.navbar__inner {
+  align-content: center;
 }
 
 /* Details */
@@ -288,4 +296,152 @@ div#__docusaurus {
       }
     }
   }
+}
+
+/* Code Example - PowerShell */
+.code__tab--powershell::after {
+  content: "";
+  width: 32px;
+  height: 32px;
+  background: url(./img/PowerShell.svg) no-repeat;
+  margin-block: auto;
+}
+
+.code__tab--powershell {
+  color: var(--ifm-color-primary);
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.code__tab--powershell.tabs__item--active {
+  border-bottom-color: var(--ifm-color-primary);
+}
+
+.language-powershell {
+  max-height: 500px;
+  overflow: auto;
+}
+
+/* API Menu Items */
+.api-method > .menu__link {
+  align-items: center;
+  justify-content: start;
+}
+
+.api-method > .menu__link::before {
+  width: 50px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  border: 1px solid;
+  margin-right: var(--ifm-spacing-horizontal);
+  text-align: center;
+  flex-shrink: 0;
+  border-color: transparent;
+  color: white;
+}
+
+.get > .menu__link::before {
+  content: "get";
+  background-color: var(--ifm-color-primary);
+}
+
+.post > .menu__link::before {
+  content: "post";
+  background-color: var(--openapi-code-green);
+}
+
+.delete > .menu__link::before {
+  content: "del";
+  background-color: var(--openapi-code-red);
+}
+
+.put > .menu__link::before {
+  content: "put";
+  background-color: var(--openapi-code-blue);
+}
+
+.patch > .menu__link::before {
+  content: "patch";
+  background-color: var(--openapi-code-orange);
+}
+
+.head > .menu__link::before {
+  content: "head";
+  background-color: var(--ifm-color-secondary-darkest);
+}
+
+/* Custom Admonitions */
+
+.alert--discord {
+  --ifm-alert-background-color: rgba(114, 137, 218, 0.5);
+  --ifm-alert-background-color-highlight: rgba(84, 199, 236, 0.15);
+  --ifm-alert-foreground-color: rgb(66,69,73);
+  --ifm-alert-border-color: #5865F2;
+}
+
+html[data-theme='dark'] .alert--discord {
+  --ifm-alert-background-color: rgba(114, 137, 218, 0.5);
+  --ifm-alert-background-color-highlight: rgba(84, 199, 236, 0.15);
+  --ifm-alert-foreground-color: rgb(255,255,255);
+  --ifm-alert-border-color: #5865F2;
+}
+
+.alert--powershell {
+  --ifm-alert-background-color: rgba(90, 179, 220, 0.5);
+  --ifm-alert-background-color-highlight: rgba(90,179,220, 0.15);
+  --ifm-alert-foreground-color: rgb(66,69,73);
+  --ifm-alert-border-color: #5ab3dc;
+}
+
+html[data-theme='dark'] .alert--powershell {
+  --ifm-alert-background-color: rgba(90, 179, 220, 0.5);
+  --ifm-alert-background-color-highlight: rgba(90,179,220, 0.15);
+  --ifm-alert-foreground-color: rgb(255,255,255);
+  --ifm-alert-border-color: #5ab3dc;
+}
+
+.alert--security {
+  --ifm-alert-background-color: rgba(212, 53, 28, 0.5);
+  --ifm-alert-background-color-highlight: rgba(212, 53, 28, 0.15);
+  --ifm-alert-foreground-color: rgb(66,69,73);
+  --ifm-alert-border-color: #5ab3dc;
+}
+
+html[data-theme='dark'] .alert--security {
+  --ifm-alert-background-color: rgba(212, 53, 28, 0.5);
+  --ifm-alert-background-color-highlight: rgba(212, 53, 28, 0.15);
+  --ifm-alert-foreground-color: rgb(255,255,255);
+  --ifm-alert-border-color: #d4351c;
+}
+
+.alert--ninja {
+  --ifm-alert-background-color: rgba(59, 161, 196, 0.5);
+  --ifm-alert-background-color-highlight: rgba(59, 161, 196, 0.15);
+  --ifm-alert-foreground-color: rgb(66,69,73);
+  --ifm-alert-border-color: #3ba1c4;
+}
+
+html[data-theme='dark'] .alert--ninja {
+  --ifm-alert-background-color: rgba(59, 161, 196, 0.5);
+  --ifm-alert-background-color-highlight: rgba(59, 161, 196, 0.15);
+  --ifm-alert-foreground-color: rgb(255,255,255);
+  --ifm-alert-border-color: #3ba1c4;
+}
+
+.alert--release {
+  --ifm-alert-background-color: rgba(242, 193, 78, 0.5);
+  --ifm-alert-background-color-highlight: rgba(242, 193, 78, 0.15);
+  --ifm-alert-foreground-color: rgb(66,69,73);
+  --ifm-alert-border-color: #F2C14E;
+}
+
+html[data-theme='dark'] .alert--release {
+  --ifm-alert-background-color: rgba(242, 193, 78, 0.5);
+  --ifm-alert-background-color-highlight: rgba(242, 193, 78, 0.15);
+  --ifm-alert-foreground-color: rgb(255,255,255);
+  --ifm-alert-border-color: #F2C14E;
 }

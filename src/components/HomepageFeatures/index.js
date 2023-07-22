@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import { siteVersion } from '@generated/site-metadata';
 
 const GitHubSvg = require('@site/static/img/GitHub.svg').default
 const PSGallerySvg = require('@site/static/img/PowerShell.svg').default
@@ -16,11 +15,13 @@ const FeatureList = [
       </>
     ),
     link: {
-      href: '/docs/haloapi',
+      href: '/modules/haloapi',
       label: 'Documentation',
     },
     github: {
-      href: 'https://github.com/homotechsual/haloapi'
+      href: 'https://github.com/homotechsual/haloapi',
+      repo: 'haloapi',
+      owner: 'homotechsual'
     },
     psgallery: {
       href: 'https://www.powershellgallery.com/packages/HaloAPI'
@@ -34,11 +35,13 @@ const FeatureList = [
       </>
     ),
     link: {
-      href: '/docs/msgraphmail',
+      href: '/modules/haloapi',
       label: 'Documentation',
     },
     github: {
-      href: 'https://github.com/homotechsual/msgraphmail'
+      href: 'https://github.com/homotechsual/msgraphmail',
+      repo: 'msgraphmail',
+      owner: 'homotechsual'
     },
     psgallery: {
       href: 'https://www.powershellgallery.com/packages/MSGraphMail'
@@ -52,11 +55,13 @@ const FeatureList = [
       </>
     ),
     link: {
-      href: '/docs/ninjaone',
+      href: '/modules/ninjaone',
       label: 'Documentation',
     },
     github: {
-      href: 'https://github.com/homotechsual/ninjaone'
+      href: 'https://github.com/homotechsual/ninjaone',
+      repo: 'ninjaone',
+      owner: 'homotechsual'
     },
     psgallery: {
       href: 'https://www.powershellgallery.com/packages/NinjaOne'
@@ -86,14 +91,18 @@ function Feature({title, description, link, github, psgallery}) {
 
 export default function HomepageFeatures() {
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
+    <>
+      <div className={styles.featurestopdivider}></div>
+      <section className={styles.features}>
+        <div className="container">
+          <div className="row">
+            {FeatureList.map((props, idx) => (
+              <Feature key={idx} {...props} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <div className={styles.featuresbottomdivider}></div>
+    </>
   );
 }
