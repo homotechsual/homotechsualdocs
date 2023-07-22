@@ -27,6 +27,9 @@
   --ht-color-primary-rgb: rgb(144, 75, 147);
   --ifm-color-emphasis-200: var(--ifm-color-gray-800);
   --ifm-color-info: #006ABA;
+  //--ifm-menu-link-sublist-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="rgb(255,0,0)" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+  //--ifm-menu-link-sublist-icon-hover: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="rgb(255,136,0)" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+  //--ifm-menu-link-sublist-icon-filter: none;
 }
 
 html[data-theme='dark'] {
@@ -206,6 +209,12 @@ html[data-theme='light'] .github-link {
       background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjODdiZDNiIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDMuNzVBLjc1Ljc1IDAgMDEuNzUgM2g3LjQ5N2MxLjU2NiAwIDIuOTQ1LjggMy43NTEgMi4wMTRBNC40OTYgNC40OTYgMCAwMTE1Ljc1IDNoNy41YS43NS43NSAwIDAxLjc1Ljc1djE1LjA2M2EuNzUuNzUgMCAwMS0uNzU1Ljc1bC03LjY4Mi0uMDUyYTMgMyAwIDAwLTIuMTQyLjg3OGwtLjg5Ljg5MWEuNzUuNzUgMCAwMS0xLjA2MSAwbC0uOTAyLS45MDFhMyAzIDAgMDAtMi4xMjEtLjg3OUguNzVhLjc1Ljc1IDAgMDEtLjc1LS43NXYtMTV6bTExLjI0NyAzLjc0N2EzIDMgMCAwMC0zLTIuOTk3SDEuNVYxOGg2Ljk0N2E0LjUgNC41IDAgMDEyLjgwMy45OGwtLjAwMy0xMS40ODN6bTEuNTAzIDExLjQ4NVY3LjVhMyAzIDAgMDEzLTNoNi43NXYxMy41NThsLTYuOTI3LS4wNDdhNC41IDQuNSAwIDAwLTIuODIzLjk3MXoiLz48L3N2Zz4=") 0 0/contain;
     }
   }
+}
+
+/* Tables */
+
+table p {
+  margin-bottom: 0;
 }
 
 /* Navbar */
@@ -408,7 +417,7 @@ html[data-theme='dark'] .alert--powershell {
   --ifm-alert-background-color: rgba(212, 53, 28, 0.5);
   --ifm-alert-background-color-highlight: rgba(212, 53, 28, 0.15);
   --ifm-alert-foreground-color: rgb(66,69,73);
-  --ifm-alert-border-color: #5ab3dc;
+  --ifm-alert-border-color: #d4351c;
 }
 
 html[data-theme='dark'] .alert--security {
@@ -444,4 +453,37 @@ html[data-theme='dark'] .alert--release {
   --ifm-alert-background-color-highlight: rgba(242, 193, 78, 0.15);
   --ifm-alert-foreground-color: rgb(255,255,255);
   --ifm-alert-border-color: #F2C14E;
+}
+
+/* Menu Caret Tests */
+
+/*
+.menu__caret:before {
+  background: var(--ifm-menu-link-sublist-icon) 50%/2rem 2rem;
+}
+
+.menu__caret:before, .menu__link--sublist-caret:after {
+  filter: none;
+}
+
+.menu__caret:hover:before {
+  background: var(--ifm-menu-link-sublist-icon-hover) 50%/2rem 2rem;
+}
+
+.menu__link--sublist-caret:hover:after {
+  background: var(--ifm-menu-link-sublist-icon-hover) 50%/2rem 2rem;
+}
+*/
+
+.sidebar-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.sidebar-spacer {
+  height: 0rem;
+  border-bottom: 1px dashed var(--ifm-color-emphasis-300);
 }

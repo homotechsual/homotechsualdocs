@@ -67,11 +67,31 @@ const FeatureList = [
       href: 'https://www.powershellgallery.com/packages/NinjaOne'
     }
   },
+  {
+    title: 'NinjaGet',
+    description: (
+      <>
+        🏗️ Coming Soon! 🏗️ A set of PowerShell scripts, NinjaOne custom fields and Documentation fields to automate the installation, removal and updating of applications using Microsoft's WinGet package manager.
+      </>
+    ),
+    link: {
+      href: '#',
+      label: 'Documentation',
+    },
+    github: {
+      href: '#',
+      repo: 'ninjaget',
+      owner: 'homotechsual'
+    },
+    psgallery: {
+      href: '#'
+    }
+  }
 ];
 
 function Feature({title, description, link, github, psgallery}) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--4 margin-bottom--lg')}>
       <div className={clsx('card', styles.feature)}>
         <div className={clsx('text--center card__header padding-horiz--md')}>
           <h3>{title}</h3>

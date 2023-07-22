@@ -15,12 +15,14 @@ level: warning
 filters: 
   - allowlist(ing)?(ed)?
   - anonymised
-  - Homotechsual
+  - cmdlet
+  - cmdlets
   - config
   - Cyber
   - Docusaurus
   - Gavsto
   - Helpdesk
+  - Homotechsual
   - Intellisense
   - Intune
   - IntuneWin
