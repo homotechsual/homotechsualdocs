@@ -5,8 +5,9 @@ const lightCodeTheme = require('prism-react-renderer/themes/vsLight');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 const remarkCodeSnippets = require('remark-code-snippets');
 const remarkGridTables = require('remark-grid-tables');
-  
-const TwitterSvg = '<svg style="fill: #1DA1F2; vertical-align: middle; margin-left: 3px;" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>';
+
+const GitHubSVG = '<svg class="icon--github" height="1rem" width="1rem" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid"><path fill="currentColor" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>'
+const MastodonSVG = '<svg class="icon--mastodon" height="1rem" width="1rem" viewBox="-9 0 274 274" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid"><g><path d="M249.874103,164.084793 C246.121107,183.392442 216.260831,204.522765 181.966269,208.61788 C164.083135,210.751705 146.475762,212.712995 127.700462,211.851797 C96.9952088,210.444977 72.7666374,204.522765 72.7666374,204.522765 C72.7666374,207.511889 72.9509692,210.357972 73.3196328,213.019724 C77.3115222,243.322396 103.36719,245.137696 128.048481,245.984147 C152.959817,246.836498 175.141568,239.842212 175.141568,239.842212 L176.164978,262.363134 C176.164978,262.363134 158.740462,271.719816 127.700462,273.440737 C110.584149,274.381567 89.33143,273.010138 64.5778816,266.458249 C10.8916144,252.248479 1.65880329,195.021567 0.246084399,136.955576 C-0.184514679,119.715392 0.080923109,103.458802 0.080923109,89.8624885 C0.080923109,30.4870046 38.9837803,13.0831336 38.9837803,13.0831336 C58.5996328,4.07447005 92.258619,0.286082949 127.250693,0 L128.110416,0 C163.10249,0.286082949 196.783596,4.07447005 216.397974,13.0831336 C216.397974,13.0831336 255.299356,30.4870046 255.299356,89.8624885 C255.299356,89.8624885 255.787467,133.670046 249.874103,164.084793" fill="#3088D4"></path><path d="M209.412536,94.4687189 L209.412536,166.362544 L180.929587,166.362544 L180.929587,96.5818986 C180.929587,81.8722212 174.740462,74.4060461 162.360739,74.4060461 C148.672997,74.4060461 141.812905,83.2628203 141.812905,100.775816 L141.812905,138.970839 L113.498066,138.970839 L113.498066,100.775816 C113.498066,83.2628203 106.636499,74.4060461 92.9487572,74.4060461 C80.5690337,74.4060461 74.3799093,81.8722212 74.3799093,96.5818986 L74.3799093,166.362544 L45.89696,166.362544 L45.89696,94.4687189 C45.89696,79.7752627 49.6381581,68.0989493 57.1529968,59.460424 C64.9023056,50.8218986 75.050877,46.3935115 87.6488494,46.3935115 C102.224333,46.3935115 113.262121,51.9957235 120.560186,63.2016221 L127.654748,75.0947097 L134.750785,63.2016221 C142.047375,51.9957235 153.085163,46.3935115 167.662121,46.3935115 C180.258619,46.3935115 190.40719,50.8218986 198.157974,59.460424 C205.671338,68.0989493 209.412536,79.7752627 209.412536,94.4687189" fill="#FFFFFF"></path></g></svg>';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -30,7 +31,7 @@ const config = {
         docs: {
           path: 'docs/haloapi',
           routeBasePath: 'modules/haloapi',
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve('./haloapisidebar.js'),
           editUrl: 'https://github.com/homotechsual/moduledocs/tree/main',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
@@ -85,21 +86,32 @@ const config = {
                 label: 'HaloAPI',
                 docsPluginId: 'default',
               },
-              /*{
+              {
                 type: 'doc',
-                docId: 'index/index',
+                docId: 'index',
                 label: 'NinjaOne',
                 docsPluginId: 'ninjaone',
-              },*/
+              },
+              /*{
+                type: 'doc',
+                docId: 'index',
+                label: 'MSGraphMail',
+                docsPluginId: 'msgraphmail',
+              }*/
             ],  
           },
-          /* {
-            type: 'doc',
-            docId: 'index',
+          /*{
+            label: 'Tool Documentation',
             position: 'left',
-            label: 'MSGraphMail',
-            docsPluginId: 'msgraphmail',
-          },*/ 
+            items: [
+              {
+                type: 'doc',
+                docId: 'index',
+                label: 'NinjaGet',
+                docsPluginId: 'ninjaget',
+              },
+            ],
+          },*/
           /*{ 
             label: 'API Documentation',
             position: 'left',
@@ -140,6 +152,11 @@ const config = {
                 label: 'NinjaOne',
                 target: '_blank',
               },
+              {
+                to: 'https://github.com/homotechsual/NinjaGet',
+                label: 'NinjaGet',
+                target: '_blank',
+              },
             ],
           },
         ],
@@ -174,16 +191,16 @@ const config = {
             title: 'More Homotechsual',
             items: [
               {
-                to: 'pathname:///rss.xml',
-                label: 'RSS Feed',
+                to: 'https://homotechsual.dev',
+                label: 'Blog',
               },
               {
                 to: 'https://github.com/homotechsual',
                 label: 'GitHub',
               },
               {
-                to: 'https://twitter.com/homotechsual',
-                label: 'Twitter',
+                to: 'https://tech.lgbt/@homotechsual',
+                label: 'Mastodon',
               }
             ],
           },
@@ -238,7 +255,7 @@ const config = {
       },
       announcementBar: {
         id: 'announcementBar-0',
-        content: `⭐️ If you like any of the PowerShell modules or projects, give them a star or sponsor one or more of the authors on <a target="_blank" rel="noopener noreferrer" href="https://github.com/homotechsual">GitHub</a> and follow me on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/homotechsual">Twitter${TwitterSvg}</a>`,
+        content: `⭐️ If you like any of the PowerShell modules or projects, give them a star or sponsor one or more of the authors on <a target="_blank" rel="noopener noreferrer" href="https://github.com/homotechsual">${GitHubSVG}GitHub</a> and follow me on <a target="_blank" rel="noopener noreferrer" href="https://tech.lgbt/@homotechsual">${MastodonSVG}Mastodon</a>`,
       },
       docs: {
         sidebar: {
@@ -262,16 +279,50 @@ const config = {
       [
         'docusaurus-plugin-plausible',
         {
-          domain: 'homotechsual.dev',
+          domain: 'docs.homotechsual.dev',
         },
       ],
-      /*[
+      [
         '@docusaurus/plugin-content-docs',
         {
           id: 'ninjaone',
           path: 'docs/ninjaone',
           routeBasePath: 'modules/ninjaone',
           sidebarPath: require.resolve('./ninjaonesidebar.js'),
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
+          sidebarCollapsible: true,
+          sidebarCollapsed: true,
+          remarkPlugins: [
+            remarkCodeSnippets,
+            remarkGridTables
+          ]
+        },
+      ],
+      /*[
+        '@docusaurus/plugin-content-docs',
+        {
+          id: 'msgraphmail',
+          path: 'docs/msgraphmail',
+          routeBasePath: 'modules/msgraphmail',
+          sidebarPath: require.resolve('./msgraphmailsidebar.js'),
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
+          sidebarCollapsible: true,
+          sidebarCollapsed: true,
+          remarkPlugins: [
+            remarkCodeSnippets,
+            remarkGridTables
+          ]
+        },
+      ],
+      [
+        '@docusaurus/plugin-content-docs',
+        {
+          id: 'ninjaget',
+          path: 'docs/ninjaget',
+          routeBasePath: 'tools/ninjaget',
+          sidebarPath: require.resolve('./ninjagetsidebar.js'),
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
           sidebarCollapsible: true,

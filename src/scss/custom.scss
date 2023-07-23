@@ -487,3 +487,12 @@ html[data-theme='dark'] .alert--release {
   height: 0rem;
   border-bottom: 1px dashed var(--ifm-color-emphasis-300);
 }
+
+div[class^="announcementBar"] {
+  svg {
+    vertical-align: middle;
+  }
+  svg.icon--mastodon {
+    margin-right: 0.25rem;
+  }
+}

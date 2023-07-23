@@ -1,0 +1,60 @@
+---
+id: Start-OAuthHTTPListener
+title: Start-OAuthHTTPListener
+hide_title: false
+hide_table_of_contents: false
+---
+
+## SYNOPSIS
+
+Instantiates and starts a .NET HTTP listener to handle OAuth authorization code responses.
+
+## SYNTAX
+
+```powershell
+Start-OAuthHTTPListener [-OpenURI] <UriBuilder> [<CommonParameters>]
+```
+
+## DESCRIPTION
+
+Utilises the `System.Net.HttpListener` class to create a simple HTTP listener on a user-defined port
+
+## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+New-NinjaOnePATCHRequest -OpenURI 'http://localhost:9090'
+```
+
+## PARAMETERS
+
+### -OpenURI
+
+{{ Fill OpenURI Description }}
+
+```yaml
+Type: UriBuilder
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+### Outputs an object containing the response from the web request.
+
+## NOTES
+
+## RELATED LINKS
