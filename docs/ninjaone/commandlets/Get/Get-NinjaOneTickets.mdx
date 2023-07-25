@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneTickets
 title: Get-NinjaOneTickets
+description: Retrieves tickets from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -20,7 +21,9 @@ Get-NinjaOneTickets -ticketId <Int32> [<CommonParameters>]
 ### Board
 
 ```powershell
-Get-NinjaOneTickets -boardId <String> [-filters <Hashtable>] [-includeMetadata] [<CommonParameters>]
+Get-NinjaOneTickets -boardId <String> [-sort <NinjaOneTicketBoardSort[]>]
+ [-filters <NinjaOneTicketBoardFilter[]>] [-lastCursorId <String>] [-pageSize <Int32>]
+ [-searchCriteria <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -29,13 +32,29 @@ Retrieves tickets from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneTickets -ticketId 1
 ```
 
-{{ Add example description here }}
+Gets the ticket with id 1.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneTickets -boardId 1
+```
+
+Gets all tickets for the board with id 1.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneTickets -boardId 1 -filters @{status = 'open'}
+```
+
+Gets all open tickets for the board with id 1.
 
 ## PARAMETERS
 
@@ -71,34 +90,82 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -sort
+
+The sort rules to apply to the request.
+
+```yaml
+Type: NinjaOneTicketBoardSort[]
+Parameter Sets: Board
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -filters
 
 Any filters to apply to the request.
 
 ```yaml
-Type: Hashtable
+Type: NinjaOneTicketBoardFilter[]
 Parameter Sets: Board
 Aliases:
 
 Required: False
 Position: Named
-Default value: @{}
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -includeMetadata
+### -lastCursorId
 
-Return the full response including metadata
+The last cursor id to use for the request.
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: Board
 Aliases:
 
 Required: False
 Position: Named
-Default value: False
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -pageSize
+
+The number of results to return.
+
+```yaml
+Type: Int32
+Parameter Sets: Board
+Aliases:
+
+Required: False
+Position: Named
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -searchCriteria
+
+The search criteria to apply to the request.
+
+```yaml
+Type: String
+Parameter Sets: Board
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

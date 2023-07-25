@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOnePolicyOverrides
 title: Get-NinjaOnePolicyOverrides
+description: Retrieves the policy override sections by device from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -22,13 +23,21 @@ Retrieves the policy override sections by device from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOnePolicyOverrides
 ```
 
-{{ Add example description here }}
+Gets the policy overrides by device.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOnePolicyOverrides -deviceFilter 'org = 1'
+```
+
+Gets the policy overrides by device for the organisation with id 1.
 
 ## PARAMETERS
 

@@ -7,16 +7,22 @@
 	"settings": {
 		"cSpell.words": [
 			"CIPP",
+			"clsx",
 			"Commandlet",
 			"Commandlets",
 			"easyops",
+			"featuresbottomdivider",
+			"featurestopdivider",
 			"Gavsto",
 			"haloapi",
 			"haloapisidebar",
 			"hideable",
 			"Homotechsual",
+			"horiz",
+			"iconbutton",
 			"ignorecase",
 			"Infima",
+			"ITSM",
 			"Mendy",
 			"Mikey",
 			"msgraphmail",
@@ -30,6 +36,7 @@
 			"noopener",
 			"noreferrer",
 			"openapi",
+			"psgallery",
 			"sublist",
 			"xlink"
 		]

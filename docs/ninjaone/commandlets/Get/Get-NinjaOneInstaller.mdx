@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneInstaller
 title: Get-NinjaOneInstaller
+description: Retrieves agent installer URL from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -22,13 +23,21 @@ Retrieves agent installer URL from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneInstaller -organisationID 1 -locationID 1 -installerType WINDOWS_MSI
 ```
 
-{{ Add example description here }}
+Gets the agent installer URL for the location with id 1 in the organisation with id 1 for the Windows MSI installer.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneInstaller -organisationID 1 -locationID 1 -installerType MAC_PKG
+```
+
+Gets the agent installer URL for the location with id 1 in the organisation with id 1 for the Mac PKG installer.
 
 ## PARAMETERS
 

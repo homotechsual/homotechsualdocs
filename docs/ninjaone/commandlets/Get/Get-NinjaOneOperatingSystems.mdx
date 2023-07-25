@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneOperatingSystems
 title: Get-NinjaOneOperatingSystems
+description: Retrieves the operating systems from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -22,13 +23,29 @@ Retrieves the operating systems from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneOperatingSystems
 ```
 
-{{ Add example description here }}
+Gets all operating systems.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneOperatingSystems -deviceFilter 'org = 1'
+```
+
+Gets the operating systems for the organisation with id 1.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneOperatingSystems -timeStamp 1619712000
+```
+
+Gets the operating systems with a monitoring timestamp at or after 1619712000.
 
 ## PARAMETERS
 

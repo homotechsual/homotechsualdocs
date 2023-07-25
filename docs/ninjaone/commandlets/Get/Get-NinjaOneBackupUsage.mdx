@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneBackupUsage
 title: Get-NinjaOneBackupUsage
+description: Retrieves the backup usage by device from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -21,13 +22,29 @@ Retrieves the backup usage by device from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneBackupUsage
 ```
 
-{{ Add example description here }}
+Gets the backup usage by device.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneBackupUsage -includeDeleted
+```
+
+Gets the backup usage by device including deleted devices.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneBackupUsage | Where-Object { ($_.references.backupUsage.cloudTotalSize -ne 0) -or ($_.references.backupUsage.localTotalSize -ne 0) }
+```
+
+Gets the backup usage by device where the cloud or local total size is not 0.
 
 ## PARAMETERS
 

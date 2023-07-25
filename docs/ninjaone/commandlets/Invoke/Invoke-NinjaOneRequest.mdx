@@ -1,6 +1,7 @@
 ---
 id: Invoke-NinjaOneRequest
 title: Invoke-NinjaOneRequest
+description: Wrapper function to send web requests to the NinjaOne API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -12,7 +13,7 @@ Sends a request to the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneRequest [[-WebRequestParams] <Hashtable>] [<CommonParameters>]
+Invoke-NinjaOneRequest [-Method] <String> [-Uri] <String> [[-Body] <String>] [-Raw] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,25 +25,73 @@ Wrapper function to send web requests to the NinjaOne API.
 ### EXAMPLE 1
 
 ```powershell
-Make a GET request to the activities resource.
+Invoke-NinjaOneRequest -Method 'GET' -Uri 'https://eu.ninjarmm.com/v2/activities'
 ```
 
-PS ~&gt; Invoke-NinjaOneRequest -WebRequestParams @{ Method = 'GET'; Uri = 'https://eu.ninjarmm.com/v2/activities' }
+Make a GET request to the activities resource.
 
 ## PARAMETERS
 
-### -WebRequestParams
+### -Method
 
-Hashtable containing the web request parameters.
+HTTP method to use.
 
 ```yaml
-Type: Hashtable
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Uri
+
+The URI to send the request to.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Body
+
+The body of the request.
+
+```yaml
+Type: String
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 1
+Position: 3
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Raw
+
+Return the raw response - don't convert from JSON.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

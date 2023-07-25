@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneJobs
 title: Get-NinjaOneJobs
+description: Retrieves jobs from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -22,13 +23,37 @@ Retrieves jobs from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneJobs
 ```
 
-{{ Add example description here }}
+Gets all jobs.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneJobs -jobType SOFTWARE_PATCH_MANAGEMENT
+```
+
+Gets software patch management jobs.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneJobs -deviceFilter 'organization in (1,2,3)'
+```
+
+Gets jobs for devices in organisations 1, 2 and 3.
+
+### EXAMPLE 4
+
+```powershell
+Get-NinjaOneJobs -deviceId 1
+```
+
+Gets jobs for the device with id 1.
 
 ## PARAMETERS
 

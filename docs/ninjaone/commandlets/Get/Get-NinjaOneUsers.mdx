@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneUsers
 title: Get-NinjaOneUsers
+description: Retrieves users from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -21,13 +22,29 @@ Retrieves users from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneUsers
 ```
 
-{{ Add example description here }}
+Gets all users.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneUsers -userType TECHNICIAN
+```
+
+Gets all technicians (users with the TECHNICIAN user type).
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneUsers -organisationID 1
+```
+
+Gets all users for the organisation with ID 1 (only works for users with the END_USER user type).
 
 ## PARAMETERS
 

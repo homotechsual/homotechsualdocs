@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneComputerSystems
 title: Get-NinjaOneComputerSystems
+description: Retrieves the computer systems from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -22,13 +23,29 @@ Retrieves the computer systems from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneComputerSystems
 ```
 
-{{ Add example description here }}
+Gets all computer systems.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneComputerSystems -deviceFilter 'org = 1'
+```
+
+Gets the computer systems for the organisation with id 1.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneComputerSystems -timeStamp 1619712000
+```
+
+Gets the computer systems with a monitoring timestamp at or after 1619712000.
 
 ## PARAMETERS
 

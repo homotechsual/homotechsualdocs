@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneOSPatches
 title: Get-NinjaOneOSPatches
+description: Retrieves the OS patches from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -22,13 +23,53 @@ Retrieves the OS patches from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneOSPatches
 ```
 
-{{ Add example description here }}
+Gets all OS patches.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneOSPatches -deviceFilter 'org = 1'
+```
+
+Gets the OS patches for the organisation with id 1.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneOSPatches -timeStamp 1619712000
+```
+
+Gets the OS patches with a monitoring timestamp at or after 1619712000.
+
+### EXAMPLE 4
+
+```powershell
+Get-NinjaOneOSPatches -status 'APPROVED'
+```
+
+Gets the OS patches with a status of APPROVED.
+
+### EXAMPLE 5
+
+```powershell
+Get-NinjaOneOSPatches -type 'SECURITY_UPDATES'
+```
+
+Gets the OS patches with a type of SECURITY_UPDATES.
+
+### EXAMPLE 6
+
+```powershell
+Get-NinjaOneOSPatches -severity 'CRITICAL'
+```
+
+Gets the OS patches with a severity of CRITICAL.
 
 ## PARAMETERS
 

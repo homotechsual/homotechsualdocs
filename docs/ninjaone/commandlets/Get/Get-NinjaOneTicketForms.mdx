@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneTicketForms
 title: Get-NinjaOneTicketForms
+description: Retrieves ticket forms from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -21,13 +22,21 @@ Retrieves ticket forms from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneTicketForms
 ```
 
-{{ Add example description here }}
+Gets all ticket forms.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneTicketForms -ticketFormId 1
+```
+
+Gets ticket form with id 1.
 
 ## PARAMETERS
 

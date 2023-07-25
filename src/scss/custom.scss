@@ -27,6 +27,7 @@
   --ht-color-primary-rgb: rgb(144, 75, 147);
   --ifm-color-emphasis-200: var(--ifm-color-gray-800);
   --ifm-color-info: #006ABA;
+  --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="LightGray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" width="16px"><path d="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z" /></svg>') !important;
   //--ifm-menu-link-sublist-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="rgb(255,0,0)" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
   //--ifm-menu-link-sublist-icon-hover: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="rgb(255,136,0)" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
   //--ifm-menu-link-sublist-icon-filter: none;
@@ -45,6 +46,7 @@ html[data-theme='dark'] {
   --ht-background-color-rgb: rgb(10, 10, 10);
   --ht-font-color-base-rgb: rgb(250, 250, 250);
   --ht-color-primary-rgb: rgb(135, 193, 74);
+  --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="LightGray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" width="16px"><path d="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z" /></svg>') !important;
 }
 
 footer {
@@ -490,9 +492,12 @@ html[data-theme='dark'] .alert--release {
 
 div[class^="announcementBar"] {
   svg {
-    vertical-align: middle;
+    vertical-align: text-bottom;
   }
   svg.icon--mastodon {
+    margin-right: 0.25rem;
+  }
+  svg.icon--github {
     margin-right: 0.25rem;
   }
 }

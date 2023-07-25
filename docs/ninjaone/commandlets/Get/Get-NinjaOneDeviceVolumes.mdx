@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneDeviceVolumes
 title: Get-NinjaOneDeviceVolumes
+description: Retrieves device volumes from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -26,6 +27,16 @@ Retrieves device volumes from the NinjaOne v2 API.
 ```powershell
 Get-NinjaOneDeviceVolumes -deviceId 1
 ```
+
+Gets the volumes for the device with id 1.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneDeviceVolumes -deviceId 1 -include bl
+```
+
+Gets the volumes for the device with id 1 and includes BitLocker status.
 
 ## PARAMETERS
 

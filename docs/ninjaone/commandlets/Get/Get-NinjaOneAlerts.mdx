@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneAlerts
 title: Get-NinjaOneAlerts
+description: Retrieves alerts from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -22,13 +23,29 @@ Retrieves alerts from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneAlerts
 ```
 
-{{ Add example description here }}
+Gets all alerts.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneAlerts -sourceType 'CONDITION_CUSTOM_FIELD'
+```
+
+Gets all alerts with source type CONDITION_CUSTOM_FIELD.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneAlerts -deviceFilter 'status eq APPROVED'
+```
+
+Gets alerts for all approved devices.
 
 ## PARAMETERS
 

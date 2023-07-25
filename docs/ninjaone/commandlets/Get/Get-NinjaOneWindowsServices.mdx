@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneWindowsServices
 title: Get-NinjaOneWindowsServices
+description: Retrieves the windows services from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -22,13 +23,37 @@ Retrieves the windows services from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneWindowsServices
 ```
 
-{{ Add example description here }}
+Gets the windows services.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneWindowsServices -deviceFilter 'organization in (1,2,3)'
+```
+
+Gets the windows services for devices in organisations 1, 2 and 3.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneWindowsServices -name 'NinjaOne'
+```
+
+Gets the windows services with the name 'NinjaOne'.
+
+### EXAMPLE 4
+
+```powershell
+Get-NinjaOneWindowsServices -state 'RUNNING'
+```
+
+Gets the windows services with the state 'RUNNING'.
 
 ## PARAMETERS
 

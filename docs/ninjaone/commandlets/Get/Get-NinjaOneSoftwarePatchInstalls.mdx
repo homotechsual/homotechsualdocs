@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneSoftwarePatchInstalls
 title: Get-NinjaOneSoftwarePatchInstalls
+description: Retrieves the software patch installs from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -24,13 +25,93 @@ Retrieves the software patch installs from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneSoftwarePatchInstalls
 ```
 
-{{ Add example description here }}
+Gets all software patch installs.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneSoftwarePatchInstalls -deviceFilter 'org = 1'
+```
+
+Gets the software patch installs for the organisation with id 1.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneSoftwarePatchInstalls -timeStamp 1619712000
+```
+
+Gets the software patch installs with a monitoring timestamp at or after 1619712000.
+
+### EXAMPLE 4
+
+```powershell
+Get-NinjaOneSoftwarePatchInstalls -type 'PATCH'
+```
+
+Gets the software patch installs with a type of 'PATCH'.
+
+### EXAMPLE 5
+
+```powershell
+Get-NinjaOneSoftwarePatchInstalls -impact 'OPTIONAL'
+```
+
+Gets the software patch installs with an impact of 'OPTIONAL'.
+
+### EXAMPLE 6
+
+```powershell
+Get-NinjaOneSoftwarePatchInstalls -status 'FAILED'
+```
+
+Gets the software patch installs with a status of 'FAILED'.
+
+### EXAMPLE 7
+
+```powershell
+Get-NinjaOneSoftwarePatchInstalls -productIdentifier 23e4567-e89b-12d3-a456-426614174000
+```
+
+Gets the software patch installs with a product identifier of '23e4567-e89b-12d3-a456-426614174000'.
+
+### EXAMPLE 8
+
+```powershell
+Get-NinjaOneSoftwarePatchInstalls -installedBefore (Get-Date)
+```
+
+Gets the software patch installs installed before the current date.
+
+### EXAMPLE 9
+
+```powershell
+Get-NinjaOneSoftwarePatchInstalls -installedBeforeUnixEpoch 1619712000
+```
+
+Gets the software patch installs installed before 1619712000.
+
+### EXAMPLE 10
+
+```powershell
+Get-NinjaOneSoftwarePatchInstalls -installedAfter (Get-Date)
+```
+
+Gets the software patch installs installed after the current date.
+
+### EXAMPLE 11
+
+```powershell
+Get-NinjaOneSoftwarePatchInstalls -installedAfterUnixEpoch 1619712000
+```
+
+Gets the software patch installs installed after 1619712000.
 
 ## PARAMETERS
 

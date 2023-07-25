@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneActivities
 title: Get-NinjaOneActivities
+description: Retrieves activities from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -25,13 +26,93 @@ Retrieves activities from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneActivities
 ```
 
-{{ Add example description here }}
+Gets all activities.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneActivities -deviceId 1
+```
+
+Gets activities for the device with id 1.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneActivities -class SYSTEM
+```
+
+Gets system activities.
+
+### EXAMPLE 4
+
+```powershell
+Get-NinjaOneActivities -before ([DateTime]::Now.AddDays(-1))
+```
+
+Gets activities from before yesterday.
+
+### EXAMPLE 5
+
+```powershell
+Get-NinjaOneActivities -after ([DateTime]::Now.AddDays(-1))
+```
+
+Gets activities from after yesterday.
+
+### EXAMPLE 6
+
+```powershell
+Get-NinjaOneActivities -olderThan 1
+```
+
+Gets activities older than activity id 1.
+
+### EXAMPLE 7
+
+```powershell
+Get-NinjaOneActivities -newerThan 1
+```
+
+Gets activities newer than activity id 1.
+
+### EXAMPLE 8
+
+```powershell
+Get-NinjaOneActivities -type 'Action'
+```
+
+Gets activities of type 'Action'.
+
+### EXAMPLE 9
+
+```powershell
+Get-NinjaOneActivities -status 'COMPLETED'
+```
+
+Gets activities with status 'COMPLETED'.
+
+### EXAMPLE 10
+
+```powershell
+Get-NinjaOneActivities -seriesUid '23e4567-e89b-12d3-a456-426614174000'
+```
+
+Gets activities for the alert series with uid '23e4567-e89b-12d3-a456-426614174000'.
+
+### EXAMPLE 11
+
+```powershell
+Get-NinjaOneActivities -deviceFilter 'organization in (1,2,3)'
+```
+
+Gets activities for devices in organisations 1, 2 and 3.
 
 ## PARAMETERS
 

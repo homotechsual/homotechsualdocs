@@ -35,7 +35,7 @@ const FeatureList = [
       </>
     ),
     link: {
-      href: '/modules/haloapi',
+      href: '/modules/msgraphmail',
       label: 'Documentation',
     },
     github: {
@@ -71,21 +71,19 @@ const FeatureList = [
     title: 'NinjaGet',
     description: (
       <>
-        🏗️ Coming Soon! 🏗️ A set of PowerShell scripts, NinjaOne custom fields and Documentation fields to automate the installation, removal and updating of applications using Microsoft's WinGet package manager.
+        A set of PowerShell scripts, NinjaOne custom fields and Documentation fields to automate the installation, removal and updating of applications using Microsoft's WinGet package manager.
       </>
     ),
     link: {
-      href: '#',
+      href: '/tools/ninjaget',
       label: 'Documentation',
     },
     github: {
-      href: '#',
+      href: 'https://github.com/homotechsual/ninjaget',
       repo: 'ninjaget',
       owner: 'homotechsual'
     },
-    psgallery: {
-      href: '#'
-    }
+    psgallery: false
   }
 ];
 
@@ -100,9 +98,21 @@ function Feature({title, description, link, github, psgallery}) {
           <p>{description}</p>
         </div>
         <div className={clsx('text--center card__footer padding-horiz--md')}>
-          <a href={link.href} className="button button--primary margin-horiz--xs">{link.label}</a>
-          <a href={github.href} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}><GitHubSvg className="icon--github" role="img" /></a>
-          <a href={psgallery.href} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}><PSGallerySvg className="icon--psgallery" role="img" /></a>
+          {link && link.href && link.href.length > 0 && (
+            <a href={link.href} className="button button--primary margin-horiz--xs">
+              {link.label}
+            </a>
+          )}
+          {github && github.href && github.href.length > 0 && (
+            <a href={github.href} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}>
+              <GitHubSvg className="icon--github" role="img" />
+            </a>
+          )}
+          {psgallery && psgallery.href && psgallery.href.length > 0 && (
+            <a href={psgallery.href} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}>
+              <PSGallerySvg className="icon--psgallery" role="img" />
+            </a>
+          )}
         </div>
       </div>
     </div>

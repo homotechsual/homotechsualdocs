@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneVolumes
 title: Get-NinjaOneVolumes
+description: Retrieves the volumes from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -22,13 +23,29 @@ Retrieves the volumes from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneVolumes
 ```
 
-{{ Add example description here }}
+Gets all volumes.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneVolumes -deviceFilter 'org = 1'
+```
+
+Gets the volumes for the organisation with id 1.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneVolumes -timeStamp 1619712000
+```
+
+Gets the volumes with a monitoring timestamp at or after 1619712000.
 
 ## PARAMETERS
 

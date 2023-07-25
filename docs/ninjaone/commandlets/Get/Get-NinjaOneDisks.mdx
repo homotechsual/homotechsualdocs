@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneDisks
 title: Get-NinjaOneDisks
+description: Retrieves the disks from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -22,13 +23,29 @@ Retrieves the disks from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneDisks
 ```
 
-{{ Add example description here }}
+Gets all disks.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneDisks -deviceFilter 'org = 1'
+```
+
+Gets the disks for the organisation with id 1.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneDisks -timeStamp 1619712000
+```
+
+Gets the disks with a monitoring timestamp at or after 1619712000.
 
 ## PARAMETERS
 

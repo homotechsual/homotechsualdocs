@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneLocations
 title: Get-NinjaOneLocations
+description: Retrieves locations from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -21,13 +22,29 @@ Retrieves locations from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneLocations
 ```
 
-{{ Add example description here }}
+Gets all locations.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneLocations -after 1
+```
+
+Gets all locations after location ID 1.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneLocations -organisationID 1
+```
+
+Gets all locations for the organisation with id 1.
 
 ## PARAMETERS
 

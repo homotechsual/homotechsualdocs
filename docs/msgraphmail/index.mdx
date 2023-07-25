@@ -1,0 +1,45 @@
+---
+title: Overview
+hide_title: true
+sidebar_position: 0
+---
+
+[![Azure DevOps Pipeline Status](https://img.shields.io/azure-devops/tests/MSPsUK/msgraphmail/4?style=for-the-badge)](https://dev.azure.com/MSPsUK/MSGraphMail/_build?definitionId=4)
+[![Azure DevOps Code Coverage](https://img.shields.io/azure-devops/coverage/MSPsUK/msgraphmail/4?style=for-the-badge)](https://dev.azure.com/MSPsUK/MSGraphMail/_build?definitionId=4)
+[![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/msgraphmail?style=for-the-badge)](https://www.powershellgallery.com/packages/MSGraphMail/)
+[![License](https://img.shields.io/github/license/homotechsual/msgraphmail?style=for-the-badge)](https://mit.license.homotechsual.dev)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/homotechsual?style=for-the-badge)](https://github.com/sponsors/homotechsual/)
+[![Stable Release](https://img.shields.io/powershellgallery/v/MSGraphMail?label=Stable+Release&style=for-the-badge)](https://www.powershellgallery.com/packages/MSGraphMail/)
+[![Preview Release](https://img.shields.io/powershellgallery/v/MSGraphMail?label=Preview+Release&include_prereleases&style=for-the-badge)](https://www.powershellgallery.com/packages/MSGraphMail/)
+
+## About
+
+This module provides a PowerShell wrapper around Microsoft Graph's Mail API. It is designed to be a lightweight and easy-to-use tool for interacting with Microsoft Graph's Mail API. It is not designed to be a full-featured mail library, but rather a tool for automating common tasks.
+
+## Installing
+
+This module is published to the [PowerShell Gallery](https://www.powershellgallery.com/packages/MSGraphMail/). You can install it using the following command:
+
+```powershell
+Install-Module -Name MSGraphMail
+```
+
+From time-to-time, preview releases will be published to the PowerShell Gallery. These are not considered stable and should not be used in production. You can install preview releases using the following command:
+
+```powershell
+Install-Module -Name MSGraphMail -AllowPrerelease
+```
+
+## Getting Started
+
+The first and probably most important requirement for this module is getting it connected to Microsoft Graph.
+
+### Creating an application in Microsoft Entra ID (Azure AD)
+
+Rather than attempting to maintain documentation on how to create an application in Microsoft Entra ID (Azure AD), please refer to the [official documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) for creating an application in Microsoft Entra ID (Azure AD).
+
+You should ensure your application has the appropriate scopes for the operations you wish to perform. For example, if you wish to send mail on behalf of a user, you will need to ensure your application has the `Mail.Send` scope. If you wish to read mail on behalf of a user, you will need to ensure your application has the `Mail.Read` scope. You can find a full list of scopes [here](https://docs.microsoft.com/en-us/graph/permissions-reference#mail-permissions). You can also find a list of permissions required for each operation in the [commandlet documentation](/modules/msgraphmail/commandlets/).
+
+## Known Issues
+
+Known issues will be tracked in the [GitHub issue tracker](https://github.com/homotechsual/msgraphmail/issues). If you find a bug, please open an issue.

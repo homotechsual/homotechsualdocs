@@ -77,6 +77,11 @@ const config = {
         },
         items: [
           {
+            label: 'Blog',
+            position: 'left',
+            to: 'https://homotechsual.dev',
+          },
+          {
             label: 'Module Documentation',
             position: 'left',
             items: [
@@ -92,12 +97,12 @@ const config = {
                 label: 'NinjaOne',
                 docsPluginId: 'ninjaone',
               },
-              /*{
+              {
                 type: 'doc',
                 docId: 'index',
                 label: 'MSGraphMail',
                 docsPluginId: 'msgraphmail',
-              }*/
+              }
             ],  
           },
           /*{
@@ -134,17 +139,17 @@ const config = {
           {
             type: 'dropdown',
             position: 'right',
-            label: 'GitHub Projects',
+            label: 'Modules on GitHub',
             className: 'github-link',
             items: [
               {
-                to: 'https://github.com/homotechsual/MSGraphMail',
-                label: 'MSGraphMail',
+                to: 'https://github.com/homotechsual/HaloAPI',
+                label: 'HaloAPI',
                 target: '_blank',
               },
               {
-                to: 'https://github.com/homotechsual/HaloAPI',
-                label: 'HaloAPI',
+                to: 'https://github.com/homotechsual/MSGraphMail',
+                label: 'MSGraphMail',
                 target: '_blank',
               },
               {
@@ -152,13 +157,26 @@ const config = {
                 label: 'NinjaOne',
                 target: '_blank',
               },
-              {
+              /*{
                 to: 'https://github.com/homotechsual/NinjaGet',
                 label: 'NinjaGet',
                 target: '_blank',
-              },
+              },*/
             ],
           },
+          {
+            type: 'dropdown',
+            position: 'right',
+            label: 'Other Stuff on GitHub',
+            className: 'github-link',
+            items: [
+              {
+                to: 'https://githum.com/homotechsual/macOS-MDM-Profiles',
+                label: 'macOS MDM Profiles',
+                target: '_blank',
+              },
+            ],
+          }
         ],
       },
       footer: {
@@ -184,6 +202,14 @@ const config = {
               {
                 to: 'https://winadmins.io/',
                 label: 'WinAdmins',
+              },
+              {
+                to: 'https://discord.gg/ninjaone/',
+                label: 'NinjaOne Discord',
+              },
+              {
+                to: 'https://discord.halopsa.community/',
+                label: 'HaloPSA Community Discord',
               }
             ],
           },
@@ -226,6 +252,10 @@ const config = {
               {
                 to: 'https://mendyonline.com',
                 label: 'MendyOnline'
+              },
+              {
+                to: 'https://therandomadmin.com',
+                label: 'TheRandomAdmin'
               }
             ],
           }
@@ -299,7 +329,7 @@ const config = {
           ]
         },
       ],
-      /*[
+      [
         '@docusaurus/plugin-content-docs',
         {
           id: 'msgraphmail',
@@ -332,7 +362,7 @@ const config = {
             remarkGridTables
           ]
         },
-      ],*/
+      ],
     ],
   themes: [
     [

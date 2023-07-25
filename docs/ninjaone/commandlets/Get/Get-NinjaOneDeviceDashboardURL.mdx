@@ -1,6 +1,7 @@
 ---
 id: Get-NinjaOneDeviceDashboardURL
 title: Get-NinjaOneDeviceDashboardURL
+description: Retrieves device dashboard URL from the NinjaOne v2 API.
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -21,13 +22,13 @@ Retrieves device dashboard URL from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-NinjaOneDeviceDashboardURL -deviceId 1
 ```
 
-{{ Add example description here }}
+Gets the device dashboard URL for the device with ID 1.
 
 ## PARAMETERS
 
@@ -50,6 +51,7 @@ Accept wildcard characters: False
 ### -redirect
 
 Return redirect response.
+This is largely useless as it will return a HTML redirect page source.
 
 ```yaml
 Type: SwitchParameter
