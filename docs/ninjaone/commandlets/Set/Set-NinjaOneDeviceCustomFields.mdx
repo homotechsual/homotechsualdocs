@@ -1,7 +1,7 @@
 ---
 id: Set-NinjaOneDeviceCustomFields
 title: Set-NinjaOneDeviceCustomFields
-description: Sets the value of the specified device custom fields using the NinjaOne v2 API.
+description: "Sets the value of the specified device custom fields using the NinjaOne v2 API."
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -13,7 +13,7 @@ Sets the value of the specified device custom fields.
 ## SYNTAX
 
 ```powershell
-Set-NinjaOneDeviceCustomFields [-deviceId] <String[]> [-customFields] <Object> [-WhatIf] [-Confirm]
+Set-NinjaOneDeviceCustomFields [-deviceId] <String[]> [-deviceCustomFields] <Object> [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Sets the value of the specified device custom fields using the NinjaOne v2 API.
 Set-NinjaOneDeviceCustomFields -deviceId 1 -customFields @{ CustomField1 = 'Value1'; CustomField2 = 'Value2' }
 ```
 
-Set `CustomField1` to `Value1` and `CustomField2` to `Value2` respectively.
+Set `CustomField1` to `Value1` and `CustomField2` to `Value2` respectively for the device with id 1.
 
 ## PARAMETERS
 
@@ -49,14 +49,14 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -customFields
+### -deviceCustomFields
 
 The custom field(s) body object.
 
 ```yaml
 Type: Object
 Parameter Sets: (All)
-Aliases:
+Aliases: customFields, body
 
 Required: True
 Position: 2
