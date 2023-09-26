@@ -1,0 +1,104 @@
+---
+id: Get-NinjaOneInstaller
+title: Get-NinjaOneInstaller
+description: "Retrieves agent installer URL from the NinjaOne v2 API."
+hide_title: false
+hide_table_of_contents: false
+---
+
+## SYNOPSIS
+
+Gets agent installer URL from the NinjaOne API.
+
+## SYNTAX
+
+```powershell
+Get-NinjaOneInstaller [-organisationID] <Int32> [-locationID] <Int32> [-installerType] <String>
+ [<CommonParameters>]
+```
+
+## DESCRIPTION
+
+Retrieves agent installer URL from the NinjaOne v2 API.
+
+## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+Get-NinjaOneInstaller -organisationID 1 -locationID 1 -installerType WINDOWS_MSI
+```
+
+Gets the agent installer URL for the location with id 1 in the organisation with id 1 for the Windows MSI installer.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneInstaller -organisationID 1 -locationID 1 -installerType MAC_PKG
+```
+
+Gets the agent installer URL for the location with id 1 in the organisation with id 1 for the Mac PKG installer.
+
+## PARAMETERS
+
+### -organisationID
+
+Organisation ID
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases: organizationID
+
+Required: True
+Position: 1
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -locationID
+
+Location ID
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 2
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -installerType
+
+Installer type/platform.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+### A powershell object containing the response.
+
+## NOTES
+
+## RELATED LINKS

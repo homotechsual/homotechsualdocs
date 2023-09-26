@@ -1,0 +1,29 @@
+---
+title: Docusaurus
+hide_title: true
+sidebar_position: 1
+---
+
+This site is built using [Docusaurus 2](https://docusaurus.io/), built using CloudFlare Workers and deployed to CloudFlare Pages.
+
+The deployed version of the site includes a mixture of generated documentation and manually written documentation. Generated documentation is updated directly from the relevant source code repositories, while manually written documentation is updated by editing the Markdown files in the `docs` directory of this repository. Generated source files are indicated with an admonition at the top of the page.
+
+## How does the generated documentation get built?
+
+The generated documentation is built using a Microsoft Azure DevOps pipeline. The pipeline is triggered by any changes to the source code and triggers a custom build script which utilises a mixture of custom PowerShell and the `Alt.Docusaurus.PowerShell` PowerShell module to build the documentation into a format that can be consumed by Docusaurus.
+
+The pipeline then commits the generated documentation to the `docs` directory of this repository, which is then deployed to CloudFlare Pages.
+
+## Docusaurus-compatible Markdown generation script
+
+You'll can find an example of the script used to generate our Docusaurus-compatible documentation in each of the module (or tool) repositories. The script will be part of the repository's `*.build.ps1` script file where `*` is the name of the module (or tool).
+
+The script starts by building a module/tool specific list of files to exclude from the documentation. The way this is done depends on the module/tool, but generally involves excluding files that are not relevant to the documentation, such as build scripts, test scripts, etc and files which contain private or internal functions.
+
+Gradually documentation will expand to cover private and internal functions, but for now we're only documenting public functions.
+
+The script then builds parameters for the `New-DocusaurusMarkdown` function from the `Alt.Docusaurus.PowerShell` module. The parameters vary slightly depending on the structure/style of the module/tool.
+
+The script then calls the `New-DocusaurusMarkdown` function to generate the Docusaurus-compatible Markdown files and rebuilds the docusaurus site.
+
+After generating the docs the system goes through and adds some additional scaffolding files like `_category_.json` files used to mark sidebar categories for Docusaurus.

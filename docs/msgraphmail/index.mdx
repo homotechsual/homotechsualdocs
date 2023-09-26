@@ -4,6 +4,9 @@ hide_title: true
 sidebar_position: 0
 ---
 
+[![Discord](https://img.shields.io/discord/1075421628424523816?style=for-the-badge&logo=discord&logoColor=white&label=Discord)
+](https://discord.gg/NrCjh5ht7K)
+[![GitHub contributors](https://img.shields.io/github/contributors/homotechsual/msgraphmail?style=for-the-badge&logo=github)](https://github.com/homotechsual/msgraphmail/)
 [![Azure DevOps Pipeline Status](https://img.shields.io/azure-devops/tests/MSPsUK/msgraphmail/4?style=for-the-badge)](https://dev.azure.com/MSPsUK/MSGraphMail/_build?definitionId=4)
 [![Azure DevOps Code Coverage](https://img.shields.io/azure-devops/coverage/MSPsUK/msgraphmail/4?style=for-the-badge)](https://dev.azure.com/MSPsUK/MSGraphMail/_build?definitionId=4)
 [![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/msgraphmail?style=for-the-badge)](https://www.powershellgallery.com/packages/MSGraphMail/)
@@ -38,7 +41,38 @@ The first and probably most important requirement for this module is getting it 
 
 Rather than attempting to maintain documentation on how to create an application in Microsoft Entra ID (Azure AD), please refer to the [official documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) for creating an application in Microsoft Entra ID (Azure AD).
 
-You should ensure your application has the appropriate scopes for the operations you wish to perform. For example, if you wish to send mail on behalf of a user, you will need to ensure your application has the `Mail.Send` scope. If you wish to read mail on behalf of a user, you will need to ensure your application has the `Mail.Read` scope. You can find a full list of scopes [here](https://docs.microsoft.com/en-us/graph/permissions-reference#mail-permissions). You can also find a list of permissions required for each operation in the [commandlet documentation](/modules/msgraphmail/commandlets/).
+You should ensure your application has the appropriate scopes for the operations you wish to perform. For example, if you wish to send mail on behalf of a user, you will need to ensure your application has the `Mail.Send` scope. If you wish to read mail on behalf of a user, you will need to ensure your application has the `Mail.Read` scope. You can find a full list of scopes [here](https://docs.microsoft.com/en-us/graph/permissions-reference#mail-permissions). You can also find a list of permissions required for each operation in the commandlet documentation.
+
+### Connecting to the Microsoft Graph API
+
+Connecting to the Microsoft Graph API uses the Azure AD Application information and the Connect-MSGraphMail client application.
+
+Using the **Splatting** technique:
+
+Splatting is a system in PowerShell that lets us put our parameters in a nicely formatted easy to read object (a HashTable to be specific!) and then "splat" them at the command. To do this, first things first setup a PowerShell object to hold your credentials. For example:
+
+```powershell
+$MSGraphMailConnectionParameters = @{
+    ApplicationID = '<YOUR APPLICATION ID>'
+    ApplicationSecret = '<YOUR APPLICATION SECRET>'
+    TenantID = '<YOUR TENANT ID>'
+}
+Connect-MSGraphMail @MSGraphMailConnectionParameters
+```
+
+Using the **Traditional** technique:
+
+If you don't want to - or can't "splat" - we can fall back on a more traditional route:
+
+```powershell
+Connect-MSGraphMail -ApplicationID '<YOUR APPLICATION ID>' -ApplicationSecret '<YOUR APPLICATION SECRET>' -TenantID '<YOUR TENANT ID>'
+```
+
+For more information on the Connect-MSGraphMail commandlet, please see the [documentation](./commandlets/Connect/Connect-MSGraphMail.mdx).
+
+## Examples
+
+Check the [examples](./category/examples/) documentation for detailed examples of how to use this module.
 
 ## Known Issues
 

@@ -1,0 +1,366 @@
+---
+id: New-MSGraphMail
+title: New-MSGraphMail
+description: "Uses the Microsoft Graph API to create a new message, optionally sending it, and optionally saving it to a folder. If the message is not sent, it will be saved as a draft. If the message is sent, it will be saved to the Sent Items folder. The message can be created using a standard set of parameters, or by providing a MIME message."
+hide_title: false
+hide_table_of_contents: false
+---
+
+## SYNOPSIS
+
+Creates, and optionally sends, a new message using the Microsoft Graph API.
+
+## SYNTAX
+
+### MIME
+
+```powershell
+New-MSGraphMail -Mailbox <String> -MIMEMessage <String> [-Folder <String>] [-Pipeline] [-Send] [-SaveandSend]
+ [<CommonParameters>]
+```
+
+### Standard
+
+```powershell
+New-MSGraphMail -From <String[]> -To <String[]> [-CC <String[]>] [-BCC <String[]>] [-Subject <String>]
+ -BodyContent <String> [-FooterContent <String>] -BodyFormat <String> [-Folder <String>]
+ [-Attachments <String[]>] [-InlineAttachments <String[]>] [-Draft] [-RequestDeliveryReceipt]
+ [-RequestReadReceipt] [-Pipeline] [-Send] [-SaveandSend] [<CommonParameters>]
+```
+
+## DESCRIPTION
+
+Uses the Microsoft Graph API to create a new message, optionally sending it, and optionally saving it to a folder.
+If the message is not sent, it will be saved as a draft.
+If the message is sent, it will be saved to the Sent Items folder.
+The message can be created using a standard set of parameters, or by providing a MIME message.
+
+## EXAMPLES
+
+### Example 1
+
+```powershell
+PS C:\> {{ Add example code here }}
+```
+
+{{ Add example description here }}
+
+## PARAMETERS
+
+### -Mailbox
+
+The mailbox to use to send the message.
+
+```yaml
+Type: String
+Parameter Sets: MIME
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -From
+
+The sender of the message.
+
+```yaml
+Type: String[]
+Parameter Sets: Standard
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -To
+
+The recipient(s) of the message.
+
+```yaml
+Type: String[]
+Parameter Sets: Standard
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -CC
+
+The CC recipient(s) of the message.
+
+```yaml
+Type: String[]
+Parameter Sets: Standard
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BCC
+
+The BCC recipient(s) of the message.
+
+```yaml
+Type: String[]
+Parameter Sets: Standard
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Subject
+
+The subject of the message.
+
+```yaml
+Type: String
+Parameter Sets: Standard
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BodyContent
+
+The body of the message.
+
+```yaml
+Type: String
+Parameter Sets: Standard
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FooterContent
+
+The footer of the message.
+
+```yaml
+Type: String
+Parameter Sets: Standard
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BodyFormat
+
+The format of the message body.
+
+```yaml
+Type: String
+Parameter Sets: Standard
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -MIMEMessage
+
+The MIME message to send.
+
+```yaml
+Type: String
+Parameter Sets: MIME
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Folder
+
+The folder to save the message to.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Attachments
+
+The attachments to add to the message.
+
+```yaml
+Type: String[]
+Parameter Sets: Standard
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -InlineAttachments
+
+The inline attachments to add to the message.
+
+```yaml
+Type: String[]
+Parameter Sets: Standard
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Draft
+
+Mark the message as a draft.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Standard
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -RequestDeliveryReceipt
+
+Request a delivery receipt.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Standard
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -RequestReadReceipt
+
+Request a read receipt.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Standard
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Pipeline
+
+Process the message through the pipeline.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Send
+
+Send the message.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SaveandSend
+
+Save the message to the Sent Items folder.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+### A powershell object containing the response.
+
+## NOTES
+
+## RELATED LINKS

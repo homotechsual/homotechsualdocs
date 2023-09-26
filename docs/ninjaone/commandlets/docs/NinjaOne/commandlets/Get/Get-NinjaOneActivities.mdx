@@ -1,0 +1,391 @@
+---
+id: Get-NinjaOneActivities
+title: Get-NinjaOneActivities
+description: "Retrieves activities from the NinjaOne v2 API."
+hide_title: false
+hide_table_of_contents: false
+---
+
+## SYNOPSIS
+
+Gets activities from the NinjaOne API.
+
+## SYNTAX
+
+```powershell
+Get-NinjaOneActivities [[-deviceId] <Int32>] [[-class] <String>] [[-before] <DateTime>]
+ [[-beforeUnixEpoch] <Int32>] [[-after] <DateTime>] [[-afterUnixEpoch] <Int32>] [[-olderThan] <Int32>]
+ [[-newerThan] <Int32>] [[-type] <String>] [[-status] <String>] [[-user] <String>] [[-seriesUid] <String>]
+ [[-deviceFilter] <String>] [[-pageSize] <Int32>] [[-languageTag] <String>] [[-timeZone] <String>]
+ [<CommonParameters>]
+```
+
+## DESCRIPTION
+
+Retrieves activities from the NinjaOne v2 API.
+
+## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+Get-NinjaOneActivities
+```
+
+Gets all activities.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneActivities -deviceId 1
+```
+
+Gets activities for the device with id 1.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneActivities -class SYSTEM
+```
+
+Gets system activities.
+
+### EXAMPLE 4
+
+```powershell
+Get-NinjaOneActivities -before ([DateTime]::Now.AddDays(-1))
+```
+
+Gets activities from before yesterday.
+
+### EXAMPLE 5
+
+```powershell
+Get-NinjaOneActivities -after ([DateTime]::Now.AddDays(-1))
+```
+
+Gets activities from after yesterday.
+
+### EXAMPLE 6
+
+```powershell
+Get-NinjaOneActivities -olderThan 1
+```
+
+Gets activities older than activity id 1.
+
+### EXAMPLE 7
+
+```powershell
+Get-NinjaOneActivities -newerThan 1
+```
+
+Gets activities newer than activity id 1.
+
+### EXAMPLE 8
+
+```powershell
+Get-NinjaOneActivities -type 'Action'
+```
+
+Gets activities of type 'Action'.
+
+### EXAMPLE 9
+
+```powershell
+Get-NinjaOneActivities -status 'COMPLETED'
+```
+
+Gets activities with status 'COMPLETED'.
+
+### EXAMPLE 10
+
+```powershell
+Get-NinjaOneActivities -seriesUid '23e4567-e89b-12d3-a456-426614174000'
+```
+
+Gets activities for the alert series with uid '23e4567-e89b-12d3-a456-426614174000'.
+
+### EXAMPLE 11
+
+```powershell
+Get-NinjaOneActivities -deviceFilter 'organization in (1,2,3)'
+```
+
+Gets activities for devices in organisations 1, 2 and 3.
+
+## PARAMETERS
+
+### -deviceId
+
+Filter by device ID.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases: id
+
+Required: False
+Position: 1
+Default value: 0
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -class
+
+Activity class.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -before
+
+Return activities from before this date.
+PowerShell DateTime object.
+
+```yaml
+Type: DateTime
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -beforeUnixEpoch
+
+Return activities from before this date.
+Unix Epoch time.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -after
+
+Return activities from after this date.
+PowerShell DateTime object.
+
+```yaml
+Type: DateTime
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 5
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -afterUnixEpoch
+
+Return activities from after this date.
+Unix Epoch time.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 6
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -olderThan
+
+Return activities older than this activity ID.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 7
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -newerThan
+
+Return activities newer than this activity ID.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 8
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -type
+
+Return activities of this type.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 9
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -status
+
+Return activities with this status.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 10
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -user
+
+Return activities for this user.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 11
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -seriesUid
+
+Return activities for this alert series.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 12
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -deviceFilter
+
+Return activities matching this device filter.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: df
+
+Required: False
+Position: 13
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -pageSize
+
+Number of results per page.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 14
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -languageTag
+
+Filter by language tag.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: lang
+
+Required: False
+Position: 15
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -timeZone
+
+Filter by timezone.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: tz
+
+Required: False
+Position: 16
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+### A powershell object containing the response.
+
+## NOTES
+
+## RELATED LINKS

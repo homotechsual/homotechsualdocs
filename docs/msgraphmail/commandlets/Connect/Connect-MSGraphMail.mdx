@@ -1,0 +1,140 @@
+---
+id: Connect-MSGraphMail
+title: Connect-MSGraphMail
+description: "Uses the provided application id and secret to retrieve an access token for the Microsoft Graph API. If the token has expired, a new one will be retrieved. If the token has not expired, the existing token will be returned. If the token has expired, but the refresh token has not, the token will be refreshed. If the token has expired, and the refresh token has expired, a new token will be retrieved."
+hide_title: false
+hide_table_of_contents: false
+---
+
+## SYNOPSIS
+
+Retrieves an access token for the Microsoft Graph API.
+
+## SYNTAX
+
+### Connect
+
+```powershell
+Connect-MSGraphMail -ApplicationID <String> -ApplicationSecret <String> [-Scope <Uri>] [-TenantID <String>]
+ [<CommonParameters>]
+```
+
+### Reconnect
+
+```powershell
+Connect-MSGraphMail [-Reconnect] [<CommonParameters>]
+```
+
+## DESCRIPTION
+
+Uses the provided application id and secret to retrieve an access token for the Microsoft Graph API.
+If the token has expired, a new one will be retrieved.
+If the token has not expired, the existing token will be returned.
+If the token has expired, but the refresh token has not, the token will be refreshed.
+If the token has expired, and the refresh token has expired, a new token will be retrieved.
+
+## EXAMPLES
+
+### Example 1
+
+```powershell
+PS C:\> {{ Add example code here }}
+```
+
+{{ Add example description here }}
+
+## PARAMETERS
+
+### -ApplicationID
+
+Azure AD application id.
+
+```yaml
+Type: String
+Parameter Sets: Connect
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ApplicationSecret
+
+Azure AD application secret.
+
+```yaml
+Type: String
+Parameter Sets: Connect
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Scope
+
+Graph permission scope.
+
+```yaml
+Type: Uri
+Parameter Sets: Connect
+Aliases:
+
+Required: False
+Position: Named
+Default value: [uri]'https://graph.microsoft.com/.default'
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TenantID
+
+Tenant ID.
+
+```yaml
+Type: String
+Parameter Sets: Connect
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Reconnect
+
+Reconnect mode
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Reconnect
+Aliases:
+
+Required: True
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+### A powershell object containing the response.
+
+## NOTES
+
+## RELATED LINKS

@@ -8,7 +8,7 @@ import { Icon } from '@iconify/react';
 export default {
   // Re-use the default mapping
   ...MDXComponents,
-  icon: Icon,
-  tabs: Tabs,
-  tabitem: TabItem,
+  Icon,
+  Tabs,
+  TabItem
 };

@@ -29,10 +29,9 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          path: 'docs/haloapi',
-          routeBasePath: 'modules/haloapi',
-          sidebarPath: require.resolve('./haloapisidebar.js'),
-          editUrl: 'https://github.com/homotechsual/moduledocs/tree/main',
+          path: 'docs/common',
+          routeBasePath: 'docs',
+          sidebarPath: require.resolve('./commonsidebar.js'),
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           sidebarCollapsed: false,
@@ -89,7 +88,7 @@ const config = {
                 type: 'doc',
                 docId: 'index',
                 label: 'HaloAPI',
-                docsPluginId: 'default',
+                docsPluginId: 'haloapi',
               },
               {
                 type: 'doc',
@@ -117,6 +116,18 @@ const config = {
               },
             ],
           },*/
+          {
+            label: 'Other Documentation',
+            position: 'left',
+            items: [
+              {
+                type: 'doc',
+                docId: 'index',
+                label: 'Common Documentation',
+                docsPluginId: 'default',
+              },
+            ],
+          },
           /*{ 
             label: 'API Documentation',
             position: 'left',
@@ -315,6 +326,41 @@ const config = {
       [
         '@docusaurus/plugin-content-docs',
         {
+          id: 'haloapi',
+          path: 'docs/haloapi',
+          routeBasePath: 'modules/haloapi',
+          sidebarPath: require.resolve('./haloapisidebar.js'),
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
+          sidebarCollapsible: true,
+          sidebarCollapsed: true,
+          admonitions: {
+            tag: ':::',
+            keywords: [
+              'discord',
+              'info',
+              'success',
+              'danger',
+              'note',
+              'tip',
+              'warning',
+              'important',
+              'caution',
+              'powershell',
+              'security',
+              'ninja',
+              'release'
+            ],
+          },
+          remarkPlugins: [
+            remarkCodeSnippets,
+            remarkGridTables
+          ]
+        },
+      ],
+      [
+        '@docusaurus/plugin-content-docs',
+        {
           id: 'ninjaone',
           path: 'docs/ninjaone',
           routeBasePath: 'modules/ninjaone',
@@ -323,6 +369,24 @@ const config = {
           showLastUpdateAuthor: true,
           sidebarCollapsible: true,
           sidebarCollapsed: true,
+          admonitions: {
+            tag: ':::',
+            keywords: [
+              'discord',
+              'info',
+              'success',
+              'danger',
+              'note',
+              'tip',
+              'warning',
+              'important',
+              'caution',
+              'powershell',
+              'security',
+              'ninja',
+              'release'
+            ],
+          },
           remarkPlugins: [
             remarkCodeSnippets,
             remarkGridTables
@@ -340,6 +404,24 @@ const config = {
           showLastUpdateAuthor: true,
           sidebarCollapsible: true,
           sidebarCollapsed: true,
+          admonitions: {
+            tag: ':::',
+            keywords: [
+              'discord',
+              'info',
+              'success',
+              'danger',
+              'note',
+              'tip',
+              'warning',
+              'important',
+              'caution',
+              'powershell',
+              'security',
+              'ninja',
+              'release'
+            ],
+          },
           remarkPlugins: [
             remarkCodeSnippets,
             remarkGridTables
@@ -357,6 +439,24 @@ const config = {
           showLastUpdateAuthor: true,
           sidebarCollapsible: true,
           sidebarCollapsed: true,
+          admonitions: {
+            tag: ':::',
+            keywords: [
+              'discord',
+              'info',
+              'success',
+              'danger',
+              'note',
+              'tip',
+              'warning',
+              'important',
+              'caution',
+              'powershell',
+              'security',
+              'ninja',
+              'release'
+            ],
+          },
           remarkPlugins: [
             remarkCodeSnippets,
             remarkGridTables
