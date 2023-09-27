@@ -1,14 +1,14 @@
 {
-  "link": {
-    "type": "generated-index",
-    "title": "Remove Data"
-  },
   "collapsible": true,
-  "position": 0.6,
-  "className": "category-remove",
-  "collapsed": true,
   "label": "Remove Data",
+  "collapsed": true,
   "customProps": {
     "description": "This category contains commands for removing data, objects, settings and more."
+  },
+  "position": 0.6,
+  "className": "category-remove",
+  "link": {
+    "title": "Remove Data",
+    "type": "generated-index"
   }
 }
