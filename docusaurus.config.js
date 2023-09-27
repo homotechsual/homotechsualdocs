@@ -318,7 +318,7 @@ const config = {
         }
       ],
       [
-        'docusaurus-plugin-plausible',
+        require.resolve('docusaurus-plugin-plausible'),
         {
           domain: 'docs.homotechsual.dev',
         },
