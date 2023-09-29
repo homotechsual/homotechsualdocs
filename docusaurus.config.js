@@ -182,7 +182,7 @@ const config = {
             className: 'github-link',
             items: [
               {
-                to: 'https://githum.com/homotechsual/macOS-MDM-Profiles',
+                to: 'https://github.com/homotechsual/macOS-MDM-Profiles',
                 label: 'macOS MDM Profiles',
                 target: '_blank',
               },

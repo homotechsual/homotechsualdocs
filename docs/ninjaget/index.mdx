@@ -15,14 +15,85 @@ sidebar_position: 0
 
 ## About
 
-
+NinjaGet is the evolution of a script we developed in-house to automate our third-party patching using, whereever possible, the Microsoft WinGet package manager - part of our continuing drive to reduce additional attack surface and third-party dependencies on our endpoints. Windows includes a package manager, we thought, so why not use it. In various discussions in the NinjaOne users community I mentioned this and was asked to share it. I was quick to say "sure" and started looking at what it'd take to polish it up and make it a bit more "consumable" for the wider community. I quickly realised that it was going to be a lot more work than I'd anticipated. So, I decided to start from scratch and build something that was more "community friendly" from the ground up. NinjaGet is the result of that effort, around 12 months of work and morphing into something which isn't easily comparable to the original script that inspired it. 
 
 ## Installing
 
+Installing NinjaGet is basically as simple as putting the contents of the [GitHub Repository](https://github.com/homotechsual/ninjaget) somewhere on your endpoints and running the `NinjaGetEntryPoint.ps1` file in Setup mode. Setup mode will create the required folders and files and then exit. Read the note below about security before you do this though and then checkout the [Example Install Script](#example-install-script) section for an example of how you might do this.
 
+:::security Forking Review it!
+
+In the interests of security, I **strongly** recommend that you fork the repository and review the code before installing it. I'm not saying that we're doing anything malicious, but I am saying that you should be careful about what you install on your endpoints. I'm not responsible for any damage caused by the use of this tool.
+
+The code is available on [GitHub](https://github.com/homotechsual/ninjaget) and contributions and feedback are welcomed. Code is all plain-text PowerShell and should be easy to review. If you find any issues, please raise them on the [GitHub Issues](https://github.com/homotechsual/ninjaget/issues) page.
+
+:::
+
+### Example Install Script
+
+```powershell
+# URL to your fork of the repository
+$NinjaGetRepo = 'https://github.com/YOURUSERNAME/ninjaget' # Note the lack of trailing `/` please.
+$NinjaGetPath = (Join-Path -Path $ENV:ProgramData -ChildPath 'NinjaGet')
+
+# Download the repository
+$NinjaGetDownloadZip = ('{0}/archive/main.zip' -f $NinjaGetRepo)
+$NinjaGetDownloadFile = ('{0}\NinjaGet.zip' -f $ENV:Temp)
+
+# Create the NinjaGet folder
+if (-not (Test-Path -Path $NinjaGetPath)) {
+    New-Item -Path $NinjaGetPath -ItemType Directory -Force
+}
+
+# Download the repository
+Invoke-WebRequest -Uri $NinjaGetDownloadFile -OutFile $NinjaGetPath
+
+# Extract the zip file
+Expand-Archive -Path $NinjaGetDownloadPath -DestinationPath $NinjaGetPath -Force
+
+# Remove the downloaded zip file
+Remove-Item -Path $NinjaGetDownloadPath -Force
+
+# Confirm that we have the `NinjaGetEntryPoint.ps1` file
+if (-not (Test-Path -Path ('{0}\NinjaGetEntryPoint.ps1' -f $NinjaGetPath))) {
+    throw 'Unable to find the NinjaGetEntryPoint.ps1 file. Please check the installation.'
+}
+
+# Setup parameters
+$SetupParameters = @{
+    Operation = 'Setup'
+    InstallPath = $NinjaGetPath
+}
+
+# Run the entry point in setup mode
+
+Set-Location -Path $NinjaGetPath
+.\NinjaGetEntryPoint.ps1 @SetupParameters
+```
+
+This example downloads the ZIP containing the NinjaGet source to `C:\ProgramData\NinjaGet\`
+
+## Project Structure
+
+The project splits functions over various files grouped, broadly, by theme - e.g `NinjaGet.Functions.RMM.ps1` holds RMM related functions.
+
+Full documentation of the functions is available in the [Functions](./functions/) section of the documentation.
+
+**ToDo:** Write functions documentation.
+
+## Settings
+
+The `NinjaGetEntryPoint.ps1` file allows you to configure a number of settings, generally used alongside the `Setup` operation and written to the registry at `HKLM:\SOFTWARE\NinjaGet`. These settings are used by the various functions to control their behaviour. The settings are documented in the [Settings](./settings/) section of the documentation.
 
 ## Getting Started
 
+### Setting up NinjaOne
+
+For NinjaGet to work we need to create some device custom fields in NinjaOne. We need the following fields:
+
+| Purpose                       | Type               | Default Name      |
+| ----------------------------- | ------------------ | ----------------- |
+| Store the last run date/time. | Date
 
 
 ## Known Issues

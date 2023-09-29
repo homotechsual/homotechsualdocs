@@ -1,0 +1,57 @@
+---
+title: Settings Reference
+sidebar_position: 2
+---
+
+This settings reference guide describes each parameter of the `NinjaGetEntryPoint.ps1` script settings are listed in the order they appear in the script source.
+
+## Main Settings
+
+| Setting / Parameter    | Type          | Description                                       | Mandatory | Default Value               |
+| ---------------------- | ------------- | ------------------------------------------------- | --------- | --------------------------- |
+| `Operation`            | String        | The operation to perform.                         | Yes       | N/A                         |
+| `PackageSource`        | String        | Where to install packages from.                   | No        | `winget`                    |
+| `InstallPath`          | DirectoryInfo | The path to install NinjaGet files to.            | No        | `$ENV:ProgramData\NinjaGet` |
+| `LogPath`              | DirectoryInfo | The path to write log files to.                   | No        | `$InstallPath\Logs`         |
+| `TrackingPath`         | DirectoryInfo | The path to write tracking files to.              | No        | `$InstallPath\Tracking`     |
+| `AutoUpdate`           | Boolean       | Automatically update supported apps.              | No        | `$true`                     |
+| `AutoUpdateBlocklist`  | String[]      | A list of apps to exclude from updates.           | No        | N/A                         |
+| `NotificationLevel`    | String        | The level of notifications to display.            | No        | `Full`                      |
+| `RMMPlatform`          | String        | The RMM platform to integrate with.               | No        | `NinjaOne`                  |
+| `LastRunField`         | String        | The RMM field to store last run date time.        | No        | `NGLastRun`                 |
+| `LastRunStatusField`   | String        | The RMM field to store last run status.           | No        | `NGLastRunStatus`           |
+| `InstallField`         | String        | The RMM field to store the apps to install.       | No        | `NGInstall`                 |
+| `UninstallField`       | String        | The RMM field to store the apps to uninstall.     | No        | `NGUninstall`               |
+| `NotificationImageURL` | String        | The URL to the notification image.                | No        |                             |
+| `NotificationTitle`    | String        | The title of the notification.                    | No        | `NinjaGet`                  |
+| `UpdateInterval`       | String        | The interval to check for updates.                | No        | `Daily`                     |
+| `UpdateTime`           | String        | The time of day to check for updates.             | No        | `16:00`                     |
+| `UpdateOnLogin`        | Boolean       | Check for updates when a user logs in.            | No        | `$true`                     |
+| `DisableOnMetered`     | Boolean       | Disable NinjaGet when on metered connections.     | No        | `$true`                     |
+| `MachineScopeOnly`     | Boolean       | Only install packages which install machine-wide. | No        | `$false`                    |
+| `UseTaskScheduler`     | Boolean       | Use Task Scheduler to schedule updates.           | No        | `$true`                     |
+| `UseMSIX`              | Boolean       | Use the MSIX package to install/update WinGet.    | No        | `$false`                    |
+
+## Uninstall Settings
+
+The following settings are only used when `Operation` is `Uninstall`:
+
+| Setting / Parameter | Type          | Description                                       | Mandatory | Default Value |
+| ------------------- | ------------- | ------------------------------------------------- | --------- | ------------- |
+| `RemoveSettings`    | Boolean       | Remove NinjaGet settings when uninstalling.       | No        | `$false`      |
+| `RemoveLogs`        | Boolean       | Remove NinjaGet logs when uninstalling.           | No        | `$false`      |
+
+## Setting Validation
+
+Some parameters validate their input, and will throw an error if the input is invalid as follows:
+
+* Operation - Setup | Info | Uninstall | Process | Update
+* PackageSource - winget | msstore
+* NotificationLevel - Full | SuccessOnly | ErrorOnly | None
+* RMMPlatform - NinjaOne
+* UpdateInterval - Daily | Every2Days | Weekly | Every2Weeks | Monthly
+* UpdateTime - between 00:00 and 23:59
+
+## Warnings
+
+Use the `UseMSIX` setting with caution. Once you install the MSIX package WinGet will no longer update itself via the Microsoft Store and you will need to update it manually or via NinjaGet.

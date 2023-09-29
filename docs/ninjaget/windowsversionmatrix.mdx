@@ -1,0 +1,47 @@
+---
+title: Windows Versions with WinGet
+sidebar_position: 1
+---
+
+[WinGet](https://learn.microsoft.com/en-gb/windows/package-manager/) is a package manager for Windows developed and maintained by Microsoft. It is a command-line tool that allows you to install, update, and uninstall applications. It is similar to [Chocolatey](https://chocolatey.org/) and [Scoop](https://scoop.sh/). WinGet got it's first stable release in May 2021. It is compatible with Windows 10 version 1809 and later.
+
+The following table shows the versions of Windows which *should* come with WinGet pre-installed.
+
+| Windows Major Version | Windows Minor Version | WinGet Included? |
+| --------------------- | --------------------- | ---------------- |
+| 11                    | 23H2                  | Yes              |
+| 11                    | 22H2                  | Yes              |
+| 11                    | 21H2                  | Yes              |
+| 10                    | 22H2                  | Yes              |
+| 10                    | 21H2                  | No *             |
+| 10                    | 21H1                  | No *             |
+| 10                    | 20H2                  | No *             |
+| 10                    | 20H1                  | No *             |
+| 10                    | 19H2                  | No +             |
+
+\* WinGet should be installed on these versions automatically as the Desktop App Installer (App Installer) component is updated via the Microsoft Store.  
+\+ WinGet needs to be installed manually on this version **and any earlier version** of Windows 10.
+
+## Installing WinGet
+
+### NinjaGet Install / Upgrade Process
+
+NinjaGet will attempt to automatically install or update WinGet if it is not installed or is not the latest version. The methodology used to install WinGet is as follows:
+
+1. Check if WinGet is installed.
+    1. If WinGet is not installed, attempt to install it via the Microsoft Store.
+    1. If a Store installation is not possible, attempt to install it via the MSIX bundle from [GitHub](https://github.com/microsoft/winget-cli/) **only if the `-UseMSIX` [setting](./settings/) is used.
+1. If WinGet is installed, check if it is the latest version.
+    1. If WinGet is not the latest version, attempt to update it via the Microsoft Store.
+    1. If a Store update is not possible, attempt to update it via the MSIX bundle from [GitHub](https://github.com/microsoft/winget-cli/).
+3. If WinGet is installed and is the latest version, do nothing.
+
+### Manual Install / Upgrade Process
+
+If you wish to install or upgrade WinGet manually, consult [Microsoft's Documentation](https://learn.microsoft.com/en-gb/windows/package-manager/winget/#install-winget).
+
+### Scripted Install / Upgrade Process
+
+The following functions are imported into the documentation directly from the [NinjaGet source code](https://github.com/homotechsual/ninjaget) and can be used to install or upgrade WinGet in your own scripts. Functions are provided for Store and MSIX installations and updates.
+
+**ToDo:** Add functions.
