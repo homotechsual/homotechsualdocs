@@ -49,6 +49,7 @@ The code is available on [GitHub](https://github.com/homotechsual/ninjaget) and 
 # URL to your fork of the repository
 $NinjaGetRepo = 'https://github.com/YOURUSERNAME/ninjaget' # Note the lack of trailing `/` please.
 $NinjaGetPath = (Join-Path -Path $ENV:ProgramData -ChildPath 'NinjaGet')
+$NinjaGetTempExtractionPath = (Join-Path -Path $ENV:Temp -ChildPath 'NinjaGet')
 
 # Download the repository
 $NinjaGetDownloadZip = ('{0}/archive/main.zip' -f $NinjaGetRepo)
@@ -60,13 +61,20 @@ if (-not (Test-Path -Path $NinjaGetPath)) {
 }
 
 # Download the repository
-Invoke-WebRequest -Uri $NinjaGetDownloadFile -OutFile $NinjaGetPath
+Invoke-WebRequest -Uri $NinjaGetDownloadZip -OutFile $NinjaGetDownloadFile
 
-# Extract the zip file
-Expand-Archive -Path $NinjaGetDownloadPath -DestinationPath $NinjaGetPath -Force
+# Extract the zip file to temp.
+Expand-Archive -Path $NinjaGetDownloadFile -DestinationPath $NinjaGetTempExtractionPath -Force
+
+# Move the contents of the extracted folder to the NinjaGet folder
+
+Move-Item -Path ('{0}\*\' -f $NinjaGetTempExtractionPath) -Destination $NinjaGetPath -Force -Verbose -Recurse
 
 # Remove the downloaded zip file
-Remove-Item -Path $NinjaGetDownloadPath -Force
+Remove-Item -Path $NinjaGetDownloadFile -Force
+
+# Remove the extracted folder
+Remove-Item -Path $NinjaGetTempExtractionPath -Force -Recurse
 
 # Confirm that we have the `NinjaGetEntryPoint.ps1` file
 if (-not (Test-Path -Path ('{0}\NinjaGetEntryPoint.ps1' -f $NinjaGetPath))) {
