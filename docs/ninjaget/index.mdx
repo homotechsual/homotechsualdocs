@@ -13,9 +13,21 @@ sidebar_position: 0
 [![License](https://img.shields.io/github/license/homotechsual/HaloAPI?style=for-the-badge)](https://mit.license.homotechsual.dev)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/homotechsual?style=for-the-badge)](https://github.com/sponsors/homotechsual/)
 
+:::warning This is a work in progress
+
+NinjaGet and it's documentation are a work in progress and may not be 100% feature complete. Work continues with the expectation being that it'll be at our minimum viable product (MVP) stage by the 15th October 2023. At this stage consider this alpha quality and use for testing and feedback only!
+
+:::
+
 ## About
 
-NinjaGet is the evolution of a script we developed in-house to automate our third-party patching using, whereever possible, the Microsoft WinGet package manager - part of our continuing drive to reduce additional attack surface and third-party dependencies on our endpoints. Windows includes a package manager, we thought, so why not use it. In various discussions in the NinjaOne users community I mentioned this and was asked to share it. I was quick to say "sure" and started looking at what it'd take to polish it up and make it a bit more "consumable" for the wider community. I quickly realised that it was going to be a lot more work than I'd anticipated. So, I decided to start from scratch and build something that was more "community friendly" from the ground up. NinjaGet is the result of that effort, around 12 months of work and morphing into something which isn't easily comparable to the original script that inspired it. 
+NinjaGet is the evolution of a script we developed in-house to automate our third-party patching using, whereever possible, the Microsoft WinGet package manager - part of our continuing drive to reduce additional attack surface and third-party dependencies on our endpoints.
+
+Windows includes a package manager, we thought, so why not use it.
+
+In various discussions in the NinjaOne users community I mentioned this and was asked to share it. I was quick to say "sure" and started looking at what it'd take to polish it up and make it a bit more "consumable" for the wider community. I quickly realised that it was going to be a lot more work than I'd anticipated.
+
+So, I decided to start from scratch and build something that was more "community friendly" from the ground up. NinjaGet is the result of that effort, around 12 months of work and morphing into something which isn't easily comparable to the original script that inspired it. 
 
 ## Installing
 
@@ -87,15 +99,15 @@ The `NinjaGetEntryPoint.ps1` file allows you to configure a number of settings, 
 
 ## Getting Started
 
-### Setting up NinjaOne
+This section has outgrown this page and has been moved to it's own [Getting Started](./ninjaget/category/getting-started/) section.
 
-For NinjaGet to work we need to create some device custom fields in NinjaOne. We need the following fields:
+## Still To Come
 
-| Purpose                       | Type               | Default Name      |
-| ----------------------------- | ------------------ | ----------------- |
-| Store the last run date/time. | Date
+There's a bunch of functionality that exists in theory but hasn't been 'wired up' yet, so things to look forward to are:
 
-
-## Known Issues
-
-
+1. Invoke the app install and uninstall methods separately from the process loop.
+2. Uninstall NinjaGet from devices - exists but the entry point hasn't been wired up yet.
+3. Reporting to NinjaOne, so you can see what's been installed and uninstalled. This will be in your script run activities anyway but it'll be nice to have it in the UI as well - might need changes on the NinjaOne side for this.
+4. Logic to close apps before updating or uninstalling them with the ability for users to defer the update or uninstall if they're busy (longer term goal - at the moment using the update at login option via Task Scheduler or NinjaOne automation scheduling is probably the best way to handle this).
+5. Logic to handle apps that require a reboot after install, update or uninstall.
+5. Feature requests from the community.
