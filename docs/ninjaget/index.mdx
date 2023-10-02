@@ -4,6 +4,9 @@ hide_title: true
 sidebar_position: 0
 ---
 
+import SetupScriptMain from './_scripts/_setupscriptmain.mdx';
+import SetupScriptDev from './_scripts/_setupscriptdev.mdx';
+
 [![Homotechsual Discord](https://img.shields.io/discord/1075421628424523816?style=for-the-badge&logo=discord&logoColor=white&label=Homotechsual%20Discord)](https://discord.gg/NrCjh5ht7K)
 [![NinjaOne Discord](https://img.shields.io/discord/676451788395642880?style=for-the-badge&logo=discord&logoColor=white&label=NinjaOne%20Discord)](https://discord.gg/NinjaOne)
 ](https://discord.gg/NrCjh5ht7K)
@@ -45,55 +48,18 @@ The code is available on [GitHub](https://github.com/homotechsual/ninjaget) and 
 
 ### Example Install Script
 
-```powershell
-# URL to your fork of the repository
-$NinjaGetRepo = 'https://github.com/YOURUSERNAME/ninjaget' # Note the lack of trailing `/` please.
-$NinjaGetPath = (Join-Path -Path $ENV:ProgramData -ChildPath 'NinjaGet')
-$NinjaGetTempExtractionPath = (Join-Path -Path $ENV:Temp -ChildPath 'NinjaGet')
+You'll need to run the below as SYSTEM. Use NinjaOne or PSExec
 
-# Download the repository
-$NinjaGetDownloadZip = ('{0}/archive/main.zip' -f $NinjaGetRepo)
-$NinjaGetDownloadFile = ('{0}\NinjaGet.zip' -f $ENV:Temp)
+<Tabs groupid='stability' queryString='stability'>
+    <TabItem value='stable' label='🚀 Stable'>
+        <SetupScriptMain />
+    </TabItem>
+    <TabItem value='dev' label='🚧 Dev'>
+        <SetupScriptDev />
+    </TabItem>
+</Tabs>
 
-# Create the NinjaGet folder
-if (-not (Test-Path -Path $NinjaGetPath)) {
-    New-Item -Path $NinjaGetPath -ItemType Directory -Force
-}
-
-# Download the repository
-Invoke-WebRequest -Uri $NinjaGetDownloadZip -OutFile $NinjaGetDownloadFile
-
-# Extract the zip file to temp.
-Expand-Archive -Path $NinjaGetDownloadFile -DestinationPath $NinjaGetTempExtractionPath -Force
-
-# Move the contents of the extracted folder to the NinjaGet folder
-
-Move-Item -Path ('{0}\*\' -f $NinjaGetTempExtractionPath) -Destination $NinjaGetPath -Force -Verbose -Recurse
-
-# Remove the downloaded zip file
-Remove-Item -Path $NinjaGetDownloadFile -Force
-
-# Remove the extracted folder
-Remove-Item -Path $NinjaGetTempExtractionPath -Force -Recurse
-
-# Confirm that we have the `NinjaGetEntryPoint.ps1` file
-if (-not (Test-Path -Path ('{0}\NinjaGetEntryPoint.ps1' -f $NinjaGetPath))) {
-    throw 'Unable to find the NinjaGetEntryPoint.ps1 file. Please check the installation.'
-}
-
-# Setup parameters
-$SetupParameters = @{
-    Operation = 'Setup'
-    InstallPath = $NinjaGetPath
-}
-
-# Run the entry point in setup mode
-
-Set-Location -Path $NinjaGetPath
-.\NinjaGetEntryPoint.ps1 @SetupParameters
-```
-
-This example downloads the ZIP containing the NinjaGet source to `C:\ProgramData\NinjaGet\`
+This example downloads the ZIP containing the NinjaGet source to `$ENV:Temp` and then extracts the contents to `C:\ProgramData\NinjaGet\`.
 
 ## Project Structure
 

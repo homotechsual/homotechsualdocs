@@ -1,0 +1,47 @@
+```powershell
+# URL to your fork of the repository
+$NinjaGetRepo = 'https://github.com/homotechsual/ninjaget' # Note the lack of trailing `/` please.
+$NinjaGetPath = (Join-Path -Path $ENV:ProgramData -ChildPath 'NinjaGet')
+$NinjaGetTempExtractionPath = (Join-Path -Path $ENV:Temp -ChildPath 'NinjaGet')
+
+# Download the repository
+$NinjaGetDownloadZip = ('{0}/archive/dev.zip' -f $NinjaGetRepo)
+$NinjaGetDownloadFile = ('{0}\NinjaGet.zip' -f $ENV:Temp)
+
+# Create the NinjaGet folder
+if (-not (Test-Path -Path $NinjaGetPath)) {
+    New-Item -Path $NinjaGetPath -ItemType Directory -Force
+}
+
+# Download the repository
+Invoke-WebRequest -Uri $NinjaGetDownloadZip -OutFile $NinjaGetDownloadFile
+
+# Extract the zip file to temp.
+Expand-Archive -Path $NinjaGetDownloadFile -DestinationPath $NinjaGetTempExtractionPath -Force
+
+# Copy the contents of the extracted folder to the NinjaGet folder
+
+Copy-Item -Path ('{0}\ninjaget-dev\*' -f $NinjaGetTempExtractionPath) -Destination $NinjaGetPath -Force -Verbose -Recurse
+
+# Remove the downloaded zip file
+Remove-Item -Path $NinjaGetDownloadFile -Force
+
+# Remove the extracted folder
+Remove-Item -Path $NinjaGetTempExtractionPath -Force -Recurse
+
+# Confirm that we have the `NinjaGetEntryPoint.ps1` file
+if (-not (Test-Path -Path ('{0}\NinjaGetEntryPoint.ps1' -f $NinjaGetPath))) {
+    throw 'Unable to find the NinjaGetEntryPoint.ps1 file. Please check the installation.'
+}
+
+# Setup parameters
+$SetupParameters = @{
+    Operation = 'Setup'
+    InstallPath = $NinjaGetPath
+}
+
+# Run the entry point in setup mode
+
+Set-Location -Path $NinjaGetPath
+.\NinjaGetEntryPoint.ps1 @SetupParameters
+```
