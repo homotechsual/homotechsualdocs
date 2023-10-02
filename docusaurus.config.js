@@ -81,7 +81,7 @@ const config = {
             to: 'https://homotechsual.dev',
           },
           {
-            label: 'Module Documentation',
+            label: 'Module Docs',
             position: 'left',
             items: [
               {
@@ -104,8 +104,8 @@ const config = {
               }
             ],  
           },
-          /*{
-            label: 'Tool Documentation',
+          {
+            label: 'Tool Docs',
             position: 'left',
             items: [
               {
@@ -115,9 +115,9 @@ const config = {
                 docsPluginId: 'ninjaget',
               },
             ],
-          },*/
+          },
           {
-            label: 'Other Documentation',
+            label: 'Other Docs',
             position: 'left',
             items: [
               {
@@ -150,7 +150,7 @@ const config = {
           {
             type: 'dropdown',
             position: 'right',
-            label: 'Modules on GitHub',
+            label: 'GitHub',
             className: 'github-link',
             items: [
               {
@@ -168,19 +168,11 @@ const config = {
                 label: 'NinjaOne',
                 target: '_blank',
               },
-              /*{
+              {
                 to: 'https://github.com/homotechsual/NinjaGet',
                 label: 'NinjaGet',
                 target: '_blank',
-              },*/
-            ],
-          },
-          {
-            type: 'dropdown',
-            position: 'right',
-            label: 'Other Stuff on GitHub',
-            className: 'github-link',
-            items: [
+              },
               {
                 to: 'https://github.com/homotechsual/macOS-MDM-Profiles',
                 label: 'macOS MDM Profiles',
