@@ -1,5 +1,5 @@
 ```powershell
-# URL to your fork of the repository
+# URL to the main repository - we don't use a fork because we're grabbing the dev branch.
 $NinjaGetRepo = 'https://github.com/homotechsual/ninjaget' # Note the lack of trailing `/` please.
 $NinjaGetPath = (Join-Path -Path $ENV:ProgramData -ChildPath 'NinjaGet')
 $NinjaGetTempExtractionPath = (Join-Path -Path $ENV:Temp -ChildPath 'NinjaGet')
