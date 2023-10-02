@@ -50,22 +50,14 @@ In the interests of making testing the development version easier - you shouldn'
 
 ### Installing the Dev Branch
 
-If you're installing the dev branch there's a couple of extra steps since a lot of the setup logic assumes it'll run as SYSTEM. You'll need to run the install script as SYSTEM using PSExec or NinjaOne. It's easier than ever to get PSExec on Windows 10 and 11 systems using (you guessed it) WinGet.
+If you're installing the dev branch there's a couple of extra steps since a lot of the setup logic assumes it'll run as SYSTEM. You'll need to run the install script as SYSTEM using PSExec or NinjaOne. Unfortunately getting PSExec is a bit of a pain (it's not on WinGet yet!).
 
-```ps
-winget install -e Microsoft.Sysinternals.ProcessExplorer --accept-package-agreements --accept-source-agreements
-```
-
-Relaunch your shell session and you should have `PSExec` on your path or refresh your PATH variables using:
-
-```ps
-$ENV:Path = ('{0};{1}' -f [System.Environment]::GetEnvironmentVariable("Path","Machine"), [System.Environment]::GetEnvironmentVariable("Path","User"))
-```
+You can download PSExec from [Microsoft's Sysinternals site](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec).
 
 You can then invoke the install script using:
 
 ```ps
-psexec -s -i powershell.exe -File .\ExampleInstallScript.ps1
+C:\path\to\psexec -s -i powershell.exe -File .\ExampleInstallScript.ps1
 ```
 
 You might need to adjust your execution policy to allow the script to run. You can do this using:
