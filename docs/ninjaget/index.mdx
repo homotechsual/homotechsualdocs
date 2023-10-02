@@ -44,7 +44,35 @@ In the interests of security, I **strongly** recommend that you fork the reposit
 
 The code is available on [GitHub](https://github.com/homotechsual/ninjaget) and contributions and feedback are welcomed. Code is all plain-text PowerShell and should be easy to review. If you find any issues, please raise them on the [GitHub Issues](https://github.com/homotechsual/ninjaget/issues) page.
 
+In the interests of making testing the development version easier - you shouldn't fork the dev branch and instead when testing the development version you should use the [main repository](https://github.com/homotechsual/ninjaget). The example install script for dev below reflects this.
+
 :::
+
+### Installing the Dev Branch
+
+If you're installing the dev branch there's a couple of extra steps since a lot of the setup logic assumes it'll run as SYSTEM. You'll need to run the install script as SYSTEM using PSExec or NinjaOne. It's easier than ever to get PSExec on Windows 10 and 11 systems using (you guessed it) WinGet.
+
+```ps
+winget install -e Microsoft.Sysinternals.ProcessExplorer --accept-package-agreements
+```
+
+Relaunch your shell session and you should have `PSExec` on your path or refresh your PATH variables using:
+
+```ps
+$ENV:Path = ('{0};{1}' -f [System.Environment]::GetEnvironmentVariable("Path","Machine"), [System.Environment]::GetEnvironmentVariable("Path","User"))
+```
+
+You can then invoke the install script using:
+
+```ps
+psexec -s -i powershell.exe -File .\ExampleInstallScript.ps1
+```
+
+You might need to adjust your execution policy to allow the script to run. You can do this using:
+
+```ps
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+```
 
 ### Example Install Script
 
