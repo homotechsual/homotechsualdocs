@@ -53,7 +53,7 @@ In the interests of making testing the development version easier - you shouldn'
 If you're installing the dev branch there's a couple of extra steps since a lot of the setup logic assumes it'll run as SYSTEM. You'll need to run the install script as SYSTEM using PSExec or NinjaOne. It's easier than ever to get PSExec on Windows 10 and 11 systems using (you guessed it) WinGet.
 
 ```ps
-winget install -e Microsoft.Sysinternals.ProcessExplorer --accept-package-agreements
+winget install -e Microsoft.Sysinternals.ProcessExplorer --accept-package-agreements --accept-source-agreements
 ```
 
 Relaunch your shell session and you should have `PSExec` on your path or refresh your PATH variables using:
