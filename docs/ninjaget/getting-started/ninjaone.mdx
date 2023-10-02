@@ -47,7 +47,7 @@ Process mode is the "all in one" mode of operation which handles processing inst
 ```powershell
 $NinjaGetInstallPath = Get-ItemProperty -Path 'HKLM:\SOFTWARE\NinjaGet' -Name 'InstallPath' | Select-Object -ExpandProperty 'InstallPath'
 if (-not($NinjaGetInstallPath)) {
-    Write-Error -Message 'NinjaGet doesn't appear to be installed.'
+    Write-Error -Message "NinjaGet doesn't appear to be installed."
     Exit 1
 }
 $NinjaGetEntryPoint = Join-Path -Path $NinjaGetInstallPath -ChildPath 'NinjaGetEntryPoint.ps1'
@@ -68,7 +68,7 @@ Update mode is used to process updates only. It will not process installs or uni
 ```powershell
 $NinjaGetInstallPath = Get-ItemProperty -Path 'HKLM:\SOFTWARE\NinjaGet' -Name 'InstallPath' | Select-Object -ExpandProperty 'InstallPath'
 if (-not($NinjaGetInstallPath)) {
-    Write-Error -Message 'NinjaGet doesn't appear to be installed.'
+    Write-Error -Message "NinjaGet doesn't appear to be installed."
     Exit 1
 }
 $NinjaGetEntryPoint = Join-Path -Path $NinjaGetInstallPath -ChildPath 'NinjaGetEntryPoint.ps1'
