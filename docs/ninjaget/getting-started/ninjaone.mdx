@@ -13,10 +13,10 @@ In the permissions column below, `S` means the permissions for `Automations` for
 
 | Purpose                       | Type       | Name Used In Docs | Permissions                         | Role/Global | Definition Scopes       | 
 | ----------------------------- | ---------- | ----------------- | ----------------------------------- | ----------- | ----------------------- |
-| Store the last run date/time. | Date/Time  | NGLastRun         | S: Write | T: Read | A: None        | Role        | N/A                     |
-| Store the last run status.    | Text       | NGLastRunStatus   | S: Write | T: Read | A: None        | Role        | N/A                     |
-| Store apps to install.        | Multiline  | NGInstall         | S: Read | T: Read / Write | A: None | Global      | Organisation + Location |
-| Store apps to uninstall.      | Multiline  | NGUninstall       | S: Read | T: Read / Write | A: None | Global      | Organisation + Location |
+| Store the last run date/time. | Date/Time  | NGLastRun         | S: Write T: Read A: None        | Role        | N/A                     |
+| Store the last run status.    | Text       | NGLastRunStatus   | S: Write T: Read A: None        | Role        | N/A                     |
+| Store apps to install.        | Multiline  | NGInstall         | S: Read T: Read / Write A: None | Global      | Organisation + Location |
+| Store apps to uninstall.      | Multiline  | NGUninstall       | S: Read T: Read / Write A: None | Global      | Organisation + Location |
 
 The `NGInstall` and `NGUninstall` fields are used to store the list of apps to install and remove respectively. These are multiline fields, so you can store multiple apps in them. The format of the apps in the field is as follows:
 
