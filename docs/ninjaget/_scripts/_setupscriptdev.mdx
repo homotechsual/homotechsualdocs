@@ -24,7 +24,7 @@ Expand-Archive -Path $NinjaGetDownloadFile -DestinationPath $NinjaGetTempExtract
 
 # Copy the contents of the extracted folder to the NinjaGet folder
 
-$null = Copy-Item -Path ('{0}\ninjaget-dev\*' -f $NinjaGetTempExtractionPath) -Destination $NinjaGetPath -Force -Verbose -Recurse
+$null = Copy-Item -Path ('{0}\ninjaget-dev\*' -f $NinjaGetTempExtractionPath) -Destination $NinjaGetPath -Force -Recurse
 
 # Remove the downloaded zip file
 Remove-Item -Path $NinjaGetDownloadFile -Force
