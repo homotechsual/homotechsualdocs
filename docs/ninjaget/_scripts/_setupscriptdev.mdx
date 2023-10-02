@@ -10,10 +10,10 @@ $NinjaGetDownloadFile = ('{0}\NinjaGet.zip' -f $ENV:Temp)
 
 # Create the NinjaGet folder if it doesn't exist otherwise delete it and recreate it - because we're in dev and we want a clean slate.
 if (-not (Test-Path -Path $NinjaGetPath)) {
-    New-Item -Path $NinjaGetPath -ItemType Directory -Force | Out-Null
+    $null = New-Item -Path $NinjaGetPath -ItemType Directory -Force
 } else {
-    Remove-Item -Recurse -Force -Path $NinjaGetPath | Out-Null
-    New-Item -Path $NinjaGetPath -ItemType Directory -Force | Out-Null
+    $null = Remove-Item -Recurse -Force -Path $NinjaGetPath
+    $null = New-Item -Path $NinjaGetPath -ItemType Directory -Force
 }
 
 # Download the repository
@@ -24,7 +24,7 @@ Expand-Archive -Path $NinjaGetDownloadFile -DestinationPath $NinjaGetTempExtract
 
 # Copy the contents of the extracted folder to the NinjaGet folder
 
-Copy-Item -Path ('{0}\ninjaget-dev\*' -f $NinjaGetTempExtractionPath) -Destination $NinjaGetPath -Force -Verbose -Recurse
+$null = Copy-Item -Path ('{0}\ninjaget-dev\*' -f $NinjaGetTempExtractionPath) -Destination $NinjaGetPath -Force -Verbose -Recurse
 
 # Remove the downloaded zip file
 Remove-Item -Path $NinjaGetDownloadFile -Force
