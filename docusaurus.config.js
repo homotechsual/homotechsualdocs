@@ -294,7 +294,11 @@ const config = {
         sidebar: {
           hideable: true
         },
-      }
+      },
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 4,
+      },
     }),
     plugins: [
       require.resolve('docusaurus-plugin-sass'),
