@@ -45,7 +45,7 @@ Invoking NinjaGet is done by triggering the `NinjaGetEntryPoint.ps1` script with
 Process mode is the "all in one" mode of operation which handles processing installs, uninstalls and updates. It's the default mode of operation and the one you'll probably use most often.
 
 ```powershell
-$NinjaGetInstallPath = Get-ItemProperty -Path 'HKLM:\SOFTWARE\NinjaGet' -Name 'InstallPath' | Select-Object -ExpandProperty 'InstallPath'
+$NinjaGetInstallPath = Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NinjaGet' -Name 'InstallLocation' | Select-Object -ExpandProperty 'InstallLocation'
 if (-not($NinjaGetInstallPath)) {
     Write-Error -Message "NinjaGet doesn't appear to be installed."
     Exit 1
@@ -61,12 +61,33 @@ $NinjaGetParams = @{
 . $NinjaGetEntryPoint @NinjaGetParams
 ```
 
-#### Update Mode
+#### Info Mode
 
-Update mode is used to process updates only. It will not process installs or uninstalls. This mode of operation is designed to be run on a schedule, for example once a day.
+Info mode asks NinjaGet to determine which WinGet-supported packages are installed on the device, which, if any, are outdated. It will also evaluate your `NGInstall` and `NGUninstall` fields to determine which apps should be installed or uninstalled and show a "what if" scenario of what would happen if you ran the `Process` operation.
 
 ```powershell
-$NinjaGetInstallPath = Get-ItemProperty -Path 'HKLM:\SOFTWARE\NinjaGet' -Name 'InstallPath' | Select-Object -ExpandProperty 'InstallPath'
+$NinjaGetInstallPath = Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NinjaGet' -Name 'InstallLocation' | Select-Object -ExpandProperty 'InstallLocation'
+if (-not($NinjaGetInstallPath)) {
+    Write-Error -Message "NinjaGet doesn't appear to be installed."
+    Exit 1
+}
+$NinjaGetEntryPoint = Join-Path -Path $NinjaGetInstallPath -ChildPath 'NinjaGetEntryPoint.ps1'
+if (-not(Test-Path -Path $NinjaGetEntryPoint)) {
+    Write-Error -Message 'NinjaGetEntryPoint.ps1 not found.'
+    Exit 1
+}
+$NinjaGetParams = @{
+    Operation = 'Info'
+}
+. $NinjaGetEntryPoint @NinjaGetParams
+```
+
+#### Update Mode
+
+Update mode is used to process updates only. It will not process installs or uninstalls. This mode of operation is designed to be run on a schedule, for example once a day. It will only process updates for apps that are already installed on the device.
+
+```powershell
+$NinjaGetInstallPath = Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NinjaGet' -Name 'InstallLocation' | Select-Object -ExpandProperty 'InstallLocation'
 if (-not($NinjaGetInstallPath)) {
     Write-Error -Message "NinjaGet doesn't appear to be installed."
     Exit 1
