@@ -23,8 +23,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`${siteConfig.title}`}
-      description="Documentation for various open source projects by Homotechsual.">
+      title={`Documentation for various open source projects by Homotechsual.`}
+    >
       <HomepageHeader />
       <main>
         <HomepageFeatures />

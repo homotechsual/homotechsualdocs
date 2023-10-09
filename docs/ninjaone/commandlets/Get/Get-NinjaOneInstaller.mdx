@@ -13,7 +13,7 @@ Gets agent installer URL from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneInstaller [-organisationID] <Int32> [-locationID] <Int32> [-installerType] <String>
+Get-NinjaOneInstaller [-organisationId] <Int32> [-locationId] <Int32> [-installerType] <String>
  [<CommonParameters>]
 ```
 
@@ -41,14 +41,14 @@ Gets the agent installer URL for the location with id 1 in the organisation with
 
 ## PARAMETERS
 
-### -organisationID
+### -organisationId
 
 Organisation ID
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: organizationID
+Aliases: id, organizationId
 
 Required: True
 Position: 1
@@ -57,7 +57,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -locationID
+### -locationId
 
 Location ID
 
