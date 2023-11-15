@@ -12,8 +12,18 @@ Gets the custom fields from the NinjaOne API.
 
 ## SYNTAX
 
+### Default (Default)
+
 ```powershell
 Get-NinjaOneCustomFields [[-deviceFilter] <String>] [[-cursor] <String>] [[-pageSize] <Int32>]
+ [[-updatedAfter] <DateTime>] [[-updatedAfterUnixEpoch] <Int32>] [[-fields] <String[]>] [-detailed]
+ [<CommonParameters>]
+```
+
+### Scoped
+
+```powershell
+Get-NinjaOneCustomFields [[-cursor] <String>] [[-pageSize] <Int32>] [[-scopes] <String[]>]
  [[-updatedAfter] <DateTime>] [[-updatedAfterUnixEpoch] <Int32>] [[-fields] <String[]>] [-detailed]
  [<CommonParameters>]
 ```
@@ -80,7 +90,7 @@ Filter devices.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Default
 Aliases: df
 
 Required: False
@@ -122,6 +132,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -scopes
+
+Custom field scopes to filter by.
+
+```yaml
+Type: String[]
+Parameter Sets: Scoped
+Aliases:
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
 ### -updatedAfter
 
 Custom fields updated after the specified date.
@@ -150,7 +176,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 5
+Position: 4
 Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -166,7 +192,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 6
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -174,7 +200,7 @@ Accept wildcard characters: False
 
 ### -detailed
 
-Get the detailed version of this .
+Get the detailed custom fields report(s).
 
 ```yaml
 Type: SwitchParameter

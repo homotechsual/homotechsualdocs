@@ -13,7 +13,7 @@ Gets the backup usage by device from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneBackupUsage [[-cursor] <String>] [-includeDeleted] [[-pageSize] <Int32>] [<CommonParameters>]
+Get-NinjaOneBackupUsage [[-cursor] <String>] [[-pageSize] <Int32>] [-includeDeleted] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -46,6 +46,14 @@ Get-NinjaOneBackupUsage | Where-Object { ($_.references.backupUsage.cloudTotalSi
 
 Gets the backup usage by device where the cloud or local total size is not 0.
 
+### EXAMPLE 4
+
+```powershell
+Get-NinjaOneBackupUsage -includeDeleted | Where-Object { ($_.references.backupUsage.cloudTotalSize -ne 0) -and ($_.references.backupUsage.localTotalSize -ne 0) -and ($_.references.backupUsage.revisionsTotalSize -ne 0) }
+```
+
+Gets the backup usage where the cloud, local and revisions total size is not 0 including deleted devices.
+
 ## PARAMETERS
 
 ### -cursor
@@ -64,22 +72,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -includeDeleted
-
-Include deleted devices.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: includeDeletedDevices
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -pageSize
 
 Number of results per page.
@@ -92,6 +84,22 @@ Aliases:
 Required: False
 Position: 2
 Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -includeDeleted
+
+Include deleted devices.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: includeDeletedDevices
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

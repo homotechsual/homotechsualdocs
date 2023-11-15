@@ -13,8 +13,9 @@ Gets the antivirus status from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneAntivirusStatus [[-deviceFilter] <String>] [[-timeStamp] <Int32>] [[-productState] <String>]
- [[-productName] <String>] [[-cursor] <String>] [[-pageSize] <Int32>] [<CommonParameters>]
+Get-NinjaOneAntivirusStatus [[-deviceFilter] <String>] [[-timeStamp] <DateTime>]
+ [[-timeStampUnixEpoch] <Int32>] [[-productState] <String>] [[-productName] <String>] [[-cursor] <String>]
+ [[-pageSize] <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -78,9 +79,25 @@ Accept wildcard characters: False
 Monitoring timestamp filter.
 
 ```yaml
-Type: Int32
+Type: DateTime
 Parameter Sets: (All)
 Aliases: ts
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -timeStampUnixEpoch
+
+Monitoring timestamp filter in unix time.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
 
 Required: False
 Position: 2
@@ -117,7 +134,7 @@ Aliases:
 Required: False
 Position: 4
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 

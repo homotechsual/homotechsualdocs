@@ -15,15 +15,15 @@ Gets tickets from the NinjaOne API.
 ### Single
 
 ```powershell
-Get-NinjaOneTickets -ticketId <Int32> [<CommonParameters>]
+Get-NinjaOneTickets [-ticketId] <Int32> [<CommonParameters>]
 ```
 
 ### Board
 
 ```powershell
-Get-NinjaOneTickets -boardId <String> [-sort <NinjaOneTicketBoardSort[]>]
- [-filters <NinjaOneTicketBoardFilter[]>] [-lastCursorId <String>] [-pageSize <Int32>]
- [-searchCriteria <String>] [<CommonParameters>]
+Get-NinjaOneTickets [-boardId] <String> [[-sort] <NinjaOneTicketBoardSort[]>]
+ [[-filters] <NinjaOneTicketBoardFilter[]>] [[-lastCursorId] <String>] [[-pageSize] <Int32>]
+ [[-searchCriteria] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -60,23 +60,23 @@ Gets all open tickets for the board with id 1.
 
 ### -ticketId
 
-The ticket ID to get.
+The ticket id to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: Single
-Aliases:
+Aliases: id
 
 Required: True
-Position: Named
+Position: 1
 Default value: 0
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
 ### -boardId
 
-The board ID to get tickets for.
+The board id to get tickets for.
 
 ```yaml
 Type: String
@@ -84,15 +84,16 @@ Parameter Sets: Board
 Aliases:
 
 Required: True
-Position: Named
+Position: 1
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
 ### -sort
 
 The sort rules to apply to the request.
+Create these using `[NinjaOneTicketBoardSort]::new()`.
 
 ```yaml
 Type: NinjaOneTicketBoardSort[]
@@ -100,7 +101,7 @@ Parameter Sets: Board
 Aliases:
 
 Required: False
-Position: Named
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -109,6 +110,7 @@ Accept wildcard characters: False
 ### -filters
 
 Any filters to apply to the request.
+Create these using `[NinjaOneTicketBoardFilter]::new()`.
 
 ```yaml
 Type: NinjaOneTicketBoardFilter[]
@@ -116,7 +118,7 @@ Parameter Sets: Board
 Aliases:
 
 Required: False
-Position: Named
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -132,7 +134,7 @@ Parameter Sets: Board
 Aliases:
 
 Required: False
-Position: Named
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -148,7 +150,7 @@ Parameter Sets: Board
 Aliases:
 
 Required: False
-Position: Named
+Position: 5
 Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -164,7 +166,7 @@ Parameter Sets: Board
 Aliases:
 
 Required: False
-Position: Named
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

@@ -28,13 +28,13 @@ Retrieves device dashboard URL from the NinjaOne v2 API.
 Get-NinjaOneDeviceDashboardURL -deviceId 1
 ```
 
-Gets the device dashboard URL for the device with ID 1.
+Gets the device dashboard URL for the device with id 1.
 
 ## PARAMETERS
 
 ### -deviceId
 
-Device ID
+The device id to get the dashboard URL for.
 
 ```yaml
 Type: Int32
@@ -44,13 +44,13 @@ Aliases: id
 Required: True
 Position: 1
 Default value: 0
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
 ### -redirect
 
-Return redirect response.
+return redirect response.
 This is largely useless as it will return a HTML redirect page source.
 
 ```yaml
@@ -59,7 +59,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 2
 Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False

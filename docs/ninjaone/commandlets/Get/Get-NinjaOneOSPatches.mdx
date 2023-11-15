@@ -13,8 +13,9 @@ Gets the OS patches from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneOSPatches [[-deviceFilter] <String>] [[-timeStamp] <String>] [[-status] <String>]
- [[-type] <String>] [[-severity] <String>] [[-cursor] <String>] [[-pageSize] <Int32>] [<CommonParameters>]
+Get-NinjaOneOSPatches [[-deviceFilter] <String>] [[-timeStamp] <DateTime>] [[-timeStampUnixEpoch] <Int32>]
+ [[-status] <String>] [[-type] <String>] [[-severity] <String>] [[-cursor] <String>] [[-pageSize] <Int32>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -94,13 +95,29 @@ Accept wildcard characters: False
 Monitoring timestamp filter.
 
 ```yaml
-Type: String
+Type: DateTime
 Parameter Sets: (All)
 Aliases: ts
 
 Required: False
 Position: 2
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -timeStampUnixEpoch
+
+Monitoring timestamp filter in unix time.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -117,7 +134,7 @@ Aliases:
 Required: False
 Position: 3
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -133,7 +150,7 @@ Aliases:
 Required: False
 Position: 4
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -149,7 +166,7 @@ Aliases:
 Required: False
 Position: 5
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 

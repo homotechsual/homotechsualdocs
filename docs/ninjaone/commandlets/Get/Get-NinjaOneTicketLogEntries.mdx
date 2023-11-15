@@ -13,7 +13,7 @@ Gets ticket log entries from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneTicketLogEntries [-ticketID] <String> [[-type] <String>] [<CommonParameters>]
+Get-NinjaOneTicketLogEntries [-ticketId] <String> [[-type] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -25,7 +25,7 @@ Retrieves ticket log entries from the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Get-NinjaOneTicketLogEntries -ticketID 1
+Get-NinjaOneTicketLogEntries -ticketId 1
 ```
 
 Gets all ticket log entries for ticket with id 1.
@@ -33,16 +33,16 @@ Gets all ticket log entries for ticket with id 1.
 ### EXAMPLE 2
 
 ```powershell
-Get-NinjaOneTicketLogEntries -ticketID 1 -type DESCRIPTION
+Get-NinjaOneTicketLogEntries -ticketId 1 -type DESCRIPTION
 ```
 
 Gets all ticket log entries for ticket with id 1 with type DESCRIPTION.
 
 ## PARAMETERS
 
-### -ticketID
+### -ticketId
 
-Filter by ticket ID.
+Filter by ticket id.
 
 ```yaml
 Type: String

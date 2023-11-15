@@ -13,9 +13,10 @@ Gets the OS patch installs from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneOSPatchInstalls [[-deviceFilter] <String>] [[-timeStamp] <String>] [[-status] <String>]
- [[-installedBefore] <DateTime>] [[-installedBeforeUnixEpoch] <Int32>] [[-installedAfter] <DateTime>]
- [[-installedAfterUnixEpoch] <Int32>] [[-cursor] <String>] [[-pageSize] <Int32>] [<CommonParameters>]
+Get-NinjaOneOSPatchInstalls [[-deviceFilter] <String>] [[-timeStamp] <DateTime>]
+ [[-timeStampUnixEpoch] <Int32>] [[-status] <String>] [[-installedBefore] <DateTime>]
+ [[-installedBeforeUnixEpoch] <Int32>] [[-installedAfter] <DateTime>] [[-installedAfterUnixEpoch] <Int32>]
+ [[-cursor] <String>] [[-pageSize] <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -109,15 +110,33 @@ Accept wildcard characters: False
 ### -timeStamp
 
 Monitoring timestamp filter.
+PowerShell DateTime object.
 
 ```yaml
-Type: String
+Type: DateTime
 Parameter Sets: (All)
 Aliases: ts
 
 Required: False
 Position: 2
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -timeStampUnixEpoch
+
+Monitoring timestamp filter.
+Unix Epoch time.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -134,7 +153,7 @@ Aliases:
 Required: False
 Position: 3
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
@@ -165,7 +184,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 5
+Position: 4
 Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -182,7 +201,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 6
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -199,7 +218,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 7
+Position: 5
 Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -215,7 +234,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 8
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -231,7 +250,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 9
+Position: 7
 Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False

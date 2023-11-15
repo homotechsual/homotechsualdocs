@@ -21,14 +21,14 @@ Get-NinjaOneRelatedItems [-all] [<CommonParameters>]
 ### relatedTo
 
 ```powershell
-Get-NinjaOneRelatedItems [-relatedTo] -entityType <String> [-entityId <Int64>] [-scope <String>]
+Get-NinjaOneRelatedItems [-relatedTo] [-entityType] <String> [[-entityId] <Int64>] [[-scope] <String>]
  [<CommonParameters>]
 ```
 
 ### relatedFrom
 
 ```powershell
-Get-NinjaOneRelatedItems [-relatedFrom] -entityType <String> [-entityId <Int64>] [-scope <String>]
+Get-NinjaOneRelatedItems [-relatedFrom] [-entityType] <String> [[-entityId] <Int64>] [[-scope] <String>]
  [<CommonParameters>]
 ```
 
@@ -138,7 +138,7 @@ Parameter Sets: relatedTo, relatedFrom
 Aliases:
 
 Required: True
-Position: Named
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -146,7 +146,7 @@ Accept wildcard characters: False
 
 ### -entityId
 
-The entity ID to get related items for.
+The entity id to get related items for.
 
 ```yaml
 Type: Int64
@@ -154,7 +154,7 @@ Parameter Sets: relatedTo, relatedFrom
 Aliases:
 
 Required: False
-Position: Named
+Position: 2
 Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -170,7 +170,7 @@ Parameter Sets: relatedTo, relatedFrom
 Aliases:
 
 Required: False
-Position: Named
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

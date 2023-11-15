@@ -1,14 +1,14 @@
 ---
 id: Set-NinjaOneLocationCustomFields
 title: Set-NinjaOneLocationCustomFields
-description: "Updates location custom field values using the NinjaOne v2 API."
+description: "Sets location custom field values using the NinjaOne v2 API."
 hide_title: false
 hide_table_of_contents: false
 ---
 
 ## SYNOPSIS
 
-Updates an location's custom fields.
+Sets an location's custom fields.
 
 ## SYNTAX
 
@@ -19,7 +19,7 @@ Set-NinjaOneLocationCustomFields [-organisationId] <Int32> [-locationId] <Int32>
 
 ## DESCRIPTION
 
-Updates location custom field values using the NinjaOne v2 API.
+Sets location custom field values using the NinjaOne v2 API.
 
 ## EXAMPLES
 
@@ -49,7 +49,7 @@ Aliases: id, organizationId
 Required: True
 Position: 1
 Default value: 0
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -65,7 +65,7 @@ Aliases:
 Required: True
 Position: 2
 Default value: 0
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -81,7 +81,7 @@ Aliases: customFields, body
 Required: True
 Position: 3
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 

@@ -1,65 +1,40 @@
 ---
-id: Update-NinjaOneDevice
-title: Update-NinjaOneDevice
-description: "Updates device information using the NinjaOne v2 API."
+id: New-HaloOutcome
+title: New-HaloOutcome
+description: "Function to send a outcome creation request to the Halo API"
 hide_title: false
 hide_table_of_contents: false
 ---
 
 ## SYNOPSIS
 
-Updates device information, like friendly name, user data etc.
+Creates one or more outcomes via the Halo API.
 
 ## SYNTAX
 
 ```powershell
-Update-NinjaOneDevice [-deviceId] <Int32> [-deviceInformation] <Object> [-WhatIf] [-Confirm]
- [<CommonParameters>]
+New-HaloOutcome [-Outcome] <Object[]> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Updates device information using the NinjaOne v2 API.
+Function to send a outcome creation request to the Halo API
 
 ## EXAMPLES
 
-### Example 1
-
-```powershell
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
-
 ## PARAMETERS
 
-### -deviceId
+### -Outcome
 
-The device to set the information for.
+Object or array of objects containing properties and values used to create one or more new outcomes.
 
 ```yaml
-Type: Int32
+Type: Object[]
 Parameter Sets: (All)
 Aliases:
 
 Required: True
 Position: 1
-Default value: 0
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -deviceInformation
-
-The device information body object.
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -106,7 +81,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### A powershell object containing the response.
+### Outputs an object containing the response from the web request.
 
 ## NOTES
 

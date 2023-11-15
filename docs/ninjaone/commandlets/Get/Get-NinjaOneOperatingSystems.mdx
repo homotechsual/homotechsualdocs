@@ -13,8 +13,8 @@ Gets the operating systems from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneOperatingSystems [[-deviceFilter] <String>] [[-timeStamp] <String>] [[-cursor] <String>]
- [[-pageSize] <Int32>] [<CommonParameters>]
+Get-NinjaOneOperatingSystems [[-deviceFilter] <String>] [[-timeStamp] <DateTime>]
+ [[-timeStampUnixEpoch] <Int32>] [[-cursor] <String>] [[-pageSize] <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -47,6 +47,14 @@ Get-NinjaOneOperatingSystems -timeStamp 1619712000
 
 Gets the operating systems with a monitoring timestamp at or after 1619712000.
 
+### EXAMPLE 4
+
+```powershell
+Get-NinjaOneOperatingSystems | Group-Object -Property 'name'
+```
+
+Gets all operating systems grouped by the name property.
+
 ## PARAMETERS
 
 ### -deviceFilter
@@ -70,13 +78,29 @@ Accept wildcard characters: False
 Monitoring timestamp filter.
 
 ```yaml
-Type: String
+Type: DateTime
 Parameter Sets: (All)
 Aliases: ts
 
 Required: False
 Position: 2
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -timeStampUnixEpoch
+
+Monitoring timestamp filter in unix time.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

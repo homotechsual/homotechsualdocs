@@ -1,41 +1,41 @@
 ---
-id: Get-HaloCustomField
-title: Get-HaloCustomField
-description: "Retrieves Custom Fields from the Halo API - supports a variety of filtering parameters."
+id: Get-HaloOutcome
+title: Get-HaloOutcome
+description: "Retrieves outcomes from the Halo API - supports a variety of filtering parameters."
 hide_title: false
 hide_table_of_contents: false
 ---
 
 ## SYNOPSIS
 
-Gets Custom Fields from the Halo API.
+Gets outcomes from the Halo API.
 
 ## SYNTAX
 
 ### Multi (Default)
 
 ```powershell
-Get-HaloCustomField [-Count <Int64>] [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String>]
+Get-HaloOutcome [-Count <Int64>] [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String>]
  [-OrderDesc] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloCustomField -CustomFieldID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloOutcome -OutcomeId <Int64> [-IncludeDetails] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Retrieves Custom Fields from the Halo API - supports a variety of filtering parameters.
+Retrieves outcomes from the Halo API - supports a variety of filtering parameters.
 
 ## EXAMPLES
 
 ## PARAMETERS
 
-### -CustomFieldID
+### -OutcomeId
 
-Item ID
+The id of the outcome to retrieve.
 
 ```yaml
 Type: Int64
@@ -51,7 +51,7 @@ Accept wildcard characters: False
 
 ### -Count
 
-Number of records to return
+The number of results to return.
 
 ```yaml
 Type: Int64
@@ -67,7 +67,7 @@ Accept wildcard characters: False
 
 ### -Paginate
 
-Paginate results
+Enable pagination.
 
 ```yaml
 Type: SwitchParameter
@@ -83,7 +83,7 @@ Accept wildcard characters: False
 
 ### -PageSize
 
-Number of results per page.
+The number of results per page.
 
 ```yaml
 Type: Int32
@@ -99,7 +99,7 @@ Accept wildcard characters: False
 
 ### -PageNo
 
-Which page to return.
+The page number to return.
 
 ```yaml
 Type: Int32
@@ -115,7 +115,7 @@ Accept wildcard characters: False
 
 ### -Order
 
-The name of the first field to order by
+The field to order results by.
 
 ```yaml
 Type: String
@@ -131,7 +131,7 @@ Accept wildcard characters: False
 
 ### -OrderDesc
 
-Whether to order ascending or descending
+Order results in descending order (respects the field choice in '-Order')
 
 ```yaml
 Type: SwitchParameter
@@ -147,7 +147,7 @@ Accept wildcard characters: False
 
 ### -IncludeDetails
 
-Include extra objects in the result.
+Include details in the response.
 
 ```yaml
 Type: SwitchParameter

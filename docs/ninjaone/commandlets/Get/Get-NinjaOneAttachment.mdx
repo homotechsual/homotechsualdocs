@@ -1,40 +1,32 @@
 ---
 id: Get-NinjaOneAttachment
 title: Get-NinjaOneAttachment
-description: "Retrieves an attachment from the NinjaOne v2 API."
+description: "Retrieves a help request form / systray help form attachment from the NinjaOne v2 API."
 hide_title: false
 hide_table_of_contents: false
 ---
 
 ## SYNOPSIS
 
-Gets an attachment from the NinjaOne API.
+Gets a help request form / systray help form attachment from the NinjaOne API.
 
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneAttachment [-attachmentID] <String> [<CommonParameters>]
+Get-NinjaOneAttachment [-attachmentId] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Retrieves an attachment from the NinjaOne v2 API.
+Retrieves a help request form / systray help form attachment from the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
-
-```powershell
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
-
 ## PARAMETERS
 
-### -attachmentID
+### -attachmentId
 
-Filter by device ID.
+The attachment id to retrieve.
 
 ```yaml
 Type: String
@@ -44,7 +36,7 @@ Aliases: id
 Required: True
 Position: 1
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 

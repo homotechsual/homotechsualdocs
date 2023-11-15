@@ -13,7 +13,7 @@ Reboots a device using the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Restart-NinjaOneDevice [-deviceId] <String> [-mode] <String> [[-reason] <String>] [-WhatIf] [-Confirm]
+Restart-NinjaOneDevice [-deviceId] <Int32> [-mode] <String> [-reason <String>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -23,29 +23,21 @@ Triggers a device reboot using the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
-
-```powershell
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
-
 ## PARAMETERS
 
 ### -deviceId
 
-The device ID to reset status for.
+The device Id to reset status for.
 
 ```yaml
-Type: String
+Type: Int32
 Parameter Sets: (All)
-Aliases:
+Aliases: id
 
 Required: True
 Position: 1
-Default value: None
-Accept pipeline input: False
+Default value: 0
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
@@ -61,7 +53,7 @@ Aliases:
 Required: True
 Position: 2
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -75,7 +67,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

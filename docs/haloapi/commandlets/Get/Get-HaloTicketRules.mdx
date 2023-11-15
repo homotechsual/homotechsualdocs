@@ -1,7 +1,7 @@
 ---
 id: Get-HaloTicketRules
 title: Get-HaloTicketRules
-description: Retrieves Ticket Rule from the Halo API. By default it retrieves global rules AND workflow step rules. Use "-ExcludeWorkflow" to limit the list to only Global Rules.
+description: "Retrieves Ticket Rule from the Halo API. By default it retrieves global rules AND workflow step rules. Use `-ExcludeWorkflow` to limit the list to only Global Rules."
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -28,17 +28,9 @@ Get-HaloTicketRules -RuleID <Int64> [-IncludeDetails] [-IncludeCriteriaInfo] [<C
 
 Retrieves Ticket Rule from the Halo API.
 By default it retrieves global rules AND workflow step rules.
-Use "-ExcludeWorkflow" to limit the list to only Global Rules.
+Use `-ExcludeWorkflow` to limit the list to only Global Rules.
 
 ## EXAMPLES
-
-### Example 1
-
-```powershell
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
@@ -60,7 +52,7 @@ Accept wildcard characters: False
 
 ### -IncludeDetails
 
-{{ Fill IncludeDetails Description }}
+Include details in the response.
 
 ```yaml
 Type: SwitchParameter
@@ -76,7 +68,7 @@ Accept wildcard characters: False
 
 ### -IncludeCriteriaInfo
 
-{{ Fill IncludeCriteriaInfo Description }}
+Include criteria info in the response.
 
 ```yaml
 Type: SwitchParameter
@@ -92,7 +84,7 @@ Accept wildcard characters: False
 
 ### -ExcludeWorkflow
 
-Include Workflow Step Rules
+Exclude Workflow Step Rules
 
 ```yaml
 Type: SwitchParameter
@@ -108,7 +100,7 @@ Accept wildcard characters: False
 
 ### -ShowAll
 
-ShowAll
+Show all rules, including those that have been deleted.
 
 ```yaml
 Type: SwitchParameter

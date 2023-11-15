@@ -1,57 +1,48 @@
 ---
-id: Update-NinjaOneOrganisation
-title: Update-NinjaOneOrganisation
-description: "Updates organisation information using the NinjaOne v2 API."
+id: Set-NinjaOneDevice
+title: Set-NinjaOneDevice
+description: "Sets device information using the NinjaOne v2 API."
 hide_title: false
 hide_table_of_contents: false
 ---
 
 ## SYNOPSIS
 
-Updates organisation information, like name, node approval mode etc.
+Sets device information, like friendly name, user data etc.
 
 ## SYNTAX
 
 ```powershell
-Update-NinjaOneOrganisation [-organisationId] <Int32> [-organisationInformation] <Object> [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Set-NinjaOneDevice [-deviceId] <Int32> [-deviceInformation] <Object> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Updates organisation information using the NinjaOne v2 API.
+Sets device information using the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
-
-```powershell
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
-
 ## PARAMETERS
 
-### -organisationId
+### -deviceId
 
-The organisation to set the information for.
+The device to set the information for.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: id, organizationId
+Aliases: id
 
 Required: True
 Position: 1
 Default value: 0
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -organisationInformation
+### -deviceInformation
 
-The organisation information body object.
+The device information body object.
 
 ```yaml
 Type: Object
@@ -61,7 +52,7 @@ Aliases:
 Required: True
 Position: 2
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 

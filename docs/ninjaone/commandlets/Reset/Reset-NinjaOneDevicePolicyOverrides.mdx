@@ -13,7 +13,7 @@ Resets (removes) device policy overrides using the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Reset-NinjaOneDevicePolicyOverrides [-deviceId] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
+Reset-NinjaOneDevicePolicyOverrides [-deviceId] <Int32> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -22,29 +22,21 @@ Resets (removes) all configured device policy overrides using the NinjaOne v2 AP
 
 ## EXAMPLES
 
-### Example 1
-
-```powershell
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
-
 ## PARAMETERS
 
 ### -deviceId
 
-The device ID to reset policy overrides for.
+The device Id to reset policy overrides for.
 
 ```yaml
-Type: String
+Type: Int32
 Parameter Sets: (All)
-Aliases:
+Aliases: id
 
 Required: True
 Position: 1
-Default value: None
-Accept pipeline input: False
+Default value: 0
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 

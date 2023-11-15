@@ -13,8 +13,8 @@ Gets alerts from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneAlerts [[-sourceType] <String>] [[-deviceFilter] <String>] [[-languageTag] <String>]
- [[-timeZone] <String>] [[-deviceId] <Int32>] [<CommonParameters>]
+Get-NinjaOneAlerts [[-deviceId] <Int32>] [[-sourceType] <String>] [[-deviceFilter] <String>]
+ [[-languageTag] <String>] [[-timeZone] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -49,6 +49,22 @@ Gets alerts for all approved devices.
 
 ## PARAMETERS
 
+### -deviceId
+
+Filter by device id.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases: id
+
+Required: False
+Position: 1
+Default value: 0
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
 ### -sourceType
 
 Filter by source type.
@@ -59,7 +75,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 1
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -75,7 +91,7 @@ Parameter Sets: (All)
 Aliases: df
 
 Required: False
-Position: 2
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -91,7 +107,7 @@ Parameter Sets: (All)
 Aliases: lang
 
 Required: False
-Position: 3
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -107,25 +123,9 @@ Parameter Sets: (All)
 Aliases: tz
 
 Required: False
-Position: 4
+Position: 5
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -deviceId
-
-Filter by device ID.
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases: id
-
-Required: False
-Position: 5
-Default value: 0
-Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 

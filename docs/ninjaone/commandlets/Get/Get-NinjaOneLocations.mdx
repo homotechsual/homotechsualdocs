@@ -36,12 +36,12 @@ Gets all locations.
 Get-NinjaOneLocations -after 1
 ```
 
-Gets all locations after location ID 1.
+Gets all locations after location id 1.
 
 ### EXAMPLE 3
 
 ```powershell
-Get-NinjaOneLocations -organisationID 1
+Get-NinjaOneLocations -organisationId 1
 ```
 
 Gets all locations for the organisation with id 1.
@@ -66,7 +66,7 @@ Accept wildcard characters: False
 
 ### -after
 
-Start results from location ID.
+Start results from location id.
 
 ```yaml
 Type: Int32
@@ -82,7 +82,7 @@ Accept wildcard characters: False
 
 ### -organisationId
 
-Filter by organisation ID.
+Filter by organisation id.
 
 ```yaml
 Type: Int32
@@ -92,7 +92,7 @@ Aliases: id, organizationId
 Required: False
 Position: 3
 Default value: 0
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 

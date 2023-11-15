@@ -13,7 +13,7 @@ Searches for devices from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Find-NinjaOneDevices [[-limit] <Int32>] [-searchQuery] <String> [<CommonParameters>]
+Find-NinjaOneDevices [-limit <Int32>] [-searchQuery] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -29,7 +29,7 @@ Cannot be used with client credentials authentication at present.
 Find-NinjaOneDevices -limit 10 -searchQuery 'ABCD'
 ```
 
-Returns an object containing the query and matching devices.
+returns an object containing the query and matching devices.
 Raw data return
 
 ### EXAMPLE 2
@@ -38,7 +38,7 @@ Raw data return
 (Find-NinjaOneDevices -limit 10 -searchQuery 'ABCD').devices
 ```
 
-Returns an array of device objects matching the query.
+returns an array of device objects matching the query.
 
 ## PARAMETERS
 
@@ -52,7 +52,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 1
+Position: Named
 Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -68,9 +68,9 @@ Parameter Sets: (All)
 Aliases: q
 
 Required: True
-Position: 2
+Position: 1
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
@@ -87,3 +87,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://docs.homotechsual.dev/modules/ninjaone/commandlets/find/find-ninjaonedevices](https://docs.homotechsual.dev/modules/ninjaone/commandlets/find/find-ninjaonedevices)

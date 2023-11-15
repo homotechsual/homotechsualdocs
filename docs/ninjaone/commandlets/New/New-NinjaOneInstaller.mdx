@@ -14,7 +14,7 @@ Creates a new installer using the NinjaOne API.
 
 ```powershell
 New-NinjaOneInstaller [-organisationId] <Int32> [-locationId] <Int32> [-installerType] <String>
- [[-usageLimit] <Int32>] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [[-usageLimit] <Int32>] [[-nodeRoleId] <Object>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,19 +23,11 @@ Create a new installer download link using the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
-
-```powershell
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
-
 ## PARAMETERS
 
 ### -organisationId
 
-The organization ID to use when creating the installer.
+The organization id to use when creating the installer.
 
 ```yaml
 Type: Int32
@@ -51,7 +43,7 @@ Accept wildcard characters: False
 
 ### -locationId
 
-The location ID to use when creating the installer.
+The location id to use when creating the installer.
 
 ```yaml
 Type: Int32
@@ -93,6 +85,22 @@ Aliases:
 Required: False
 Position: 4
 Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -nodeRoleId
+
+The node role id to use when creating the installer.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 5
+Default value: Auto
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

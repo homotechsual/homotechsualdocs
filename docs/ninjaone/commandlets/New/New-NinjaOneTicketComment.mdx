@@ -23,35 +23,27 @@ Create a ticket comment using the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
-
-```powershell
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
-
 ## PARAMETERS
 
 ### -ticketId
 
-The ticket ID to use when creating the comment.
+The ticket Id to use when creating the ticket comment.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases:
+Aliases: id
 
 Required: True
 Position: 1
 Default value: 0
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
 ### -comment
 
-An object containing the ticket to create.
+An object containing the ticket comment to create.
 
 ```yaml
 Type: Object
@@ -67,7 +59,7 @@ Accept wildcard characters: False
 
 ### -show
 
-Show the organisation that was created.
+Show the ticket comment that was created.
 
 ```yaml
 Type: SwitchParameter

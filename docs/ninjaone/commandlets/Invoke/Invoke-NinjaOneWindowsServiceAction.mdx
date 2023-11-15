@@ -23,14 +23,6 @@ Runs an action against a windows service on a single device using the NinjaOne v
 
 ## EXAMPLES
 
-### Example 1
-
-```powershell
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
-
 ## PARAMETERS
 
 ### -deviceId
@@ -40,12 +32,12 @@ The device(s) to change service configuration for.
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases:
+Aliases: id
 
 Required: True
 Position: 1
 Default value: 0
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 

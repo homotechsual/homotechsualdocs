@@ -1,50 +1,75 @@
 ---
-id: Update-NinjaOneWebhook
-title: Update-NinjaOneWebhook
-description: "Updates webhook configuration for the current application/API client using the NinjaOne v2 API."
+id: Set-NinjaOneOrganisationDocument
+title: Set-NinjaOneOrganisationDocument
+description: "Sets organisation documents using the NinjaOne v2 API."
 hide_title: false
 hide_table_of_contents: false
 ---
 
 ## SYNOPSIS
 
-Updates webhook configuration for the current application/API client.
+Sets an organisation document.
 
 ## SYNTAX
 
 ```powershell
-Update-NinjaOneWebhook [-webhookConfiguration] <Object> [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-NinjaOneOrganisationDocument [-organisationId] <Int32> [-documentId] <Int32>
+ [-organisationDocument] <Object> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Updates webhook configuration for the current application/API client using the NinjaOne v2 API.
+Sets organisation documents using the NinjaOne v2 API.
 
 ## EXAMPLES
 
-### Example 1
-
-```powershell
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
-
 ## PARAMETERS
 
-### -webhookConfiguration
+### -organisationId
 
-The webhook configuration object.
+The organisation to set the information for.
 
 ```yaml
-Type: Object
+Type: Int32
+Parameter Sets: (All)
+Aliases: id, organizationId
+
+Required: True
+Position: 1
+Default value: 0
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
+### -documentId
+
+The organisation document id to update.
+
+```yaml
+Type: Int32
 Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 1
+Position: 2
+Default value: 0
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -organisationDocument
+
+The organisation information body object.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases: organizationDocument, body
+
+Required: True
+Position: 3
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 

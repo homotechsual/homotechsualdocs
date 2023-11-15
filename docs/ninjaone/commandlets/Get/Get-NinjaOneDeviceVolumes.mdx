@@ -42,7 +42,7 @@ Gets the volumes for the device with id 1 and includes BitLocker status.
 
 ### -deviceId
 
-Device ID
+Device id to get volumes for.
 
 ```yaml
 Type: Int32
@@ -52,13 +52,13 @@ Aliases: id
 Required: True
 Position: 1
 Default value: 0
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
 ### -include
 
-Additional information to include (bl - BitLocker status)
+Additional information to include currently known options are 'bl' for BitLocker status.
 
 ```yaml
 Type: String

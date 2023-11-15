@@ -15,21 +15,21 @@ Creates a new connection to a NinjaOne instance.
 ### Authorisation Code (Default)
 
 ```powershell
-Connect-NinjaOne [-UseWebAuth] -Instance <String> -ClientID <String> -ClientSecret <String>
+Connect-NinjaOne [-UseWebAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
  [-Scopes <String[]>] [-RedirectURL <Uri>] [-Port <Int32>] [-ShowTokens] [<CommonParameters>]
 ```
 
 ### Token Authentication
 
 ```powershell
-Connect-NinjaOne [-UseTokenAuth] -Instance <String> -ClientID <String> -ClientSecret <String>
+Connect-NinjaOne [-UseTokenAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
  [-Scopes <String[]>] [-RefreshToken <String>] [-ShowTokens] [<CommonParameters>]
 ```
 
 ### Client Credentials
 
 ```powershell
-Connect-NinjaOne [-UseClientAuth] -Instance <String> -ClientID <String> -ClientSecret <String>
+Connect-NinjaOne [-UseClientAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
  [-Scopes <String[]>] [-ShowTokens] [<CommonParameters>]
 ```
 
@@ -122,9 +122,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ClientID
+### -ClientId
 
-The Client ID for the application configured in NinjaOne.
+The Client Id for the application configured in NinjaOne.
 
 ```yaml
 Type: String

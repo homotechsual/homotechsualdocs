@@ -13,8 +13,8 @@ Gets the processors from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneProcessors [[-deviceFilter] <String>] [[-timeStamp] <String>] [[-cursor] <String>]
- [[-pageSize] <Int32>] [<CommonParameters>]
+Get-NinjaOneProcessors [[-deviceFilter] <String>] [[-timeStamp] <DateTime>] [[-timeStampUnixEpoch] <Int32>]
+ [[-cursor] <String>] [[-pageSize] <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -68,15 +68,33 @@ Accept wildcard characters: False
 ### -timeStamp
 
 Monitoring timestamp filter.
+PowerShell DateTime object.
 
 ```yaml
-Type: String
+Type: DateTime
 Parameter Sets: (All)
 Aliases: ts
 
 Required: False
 Position: 2
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -timeStampUnixEpoch
+
+Monitoring timestamp filter.
+Unix Epoch time.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

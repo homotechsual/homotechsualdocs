@@ -13,8 +13,8 @@ Gets the disks from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneDisks [[-deviceFilter] <String>] [[-timeStamp] <String>] [[-cursor] <String>] [[-pageSize] <Int32>]
- [<CommonParameters>]
+Get-NinjaOneDisks [[-deviceFilter] <String>] [[-timeStamp] <DateTime>] [[-timeStampUnixEpoch] <Int32>]
+ [[-cursor] <String>] [[-pageSize] <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -70,13 +70,29 @@ Accept wildcard characters: False
 Monitoring timestamp filter.
 
 ```yaml
-Type: String
+Type: DateTime
 Parameter Sets: (All)
 Aliases: ts
 
 Required: False
 Position: 2
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -timeStampUnixEpoch
+
+Monitoring timestamp filter in unix time.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
