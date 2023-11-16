@@ -4172,6 +4172,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react@npm:^18.2.37":
+  version: 18.2.37
+  resolution: "@types/react@npm:18.2.37"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    "@types/scheduler": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 79dd5d23da05bec54e7423ca17096e345eb8fd80a3bf8dd916bb5cdd60677d27c298523aa5b245d090fcc4ec100cfd58c1af4631fbac709d0a9d8be75f9d78a9
+  languageName: node
+  linkType: hard
+
 "@types/responselike@npm:^1.0.0":
   version: 1.0.3
   resolution: "@types/responselike@npm:1.0.3"
@@ -9051,6 +9062,7 @@ __metadata:
     "@iconify/react": "npm:^4.1.1"
     "@mdx-js/react": "npm:^3.0.0"
     "@octokit/core": "npm:^5.0.1"
+    "@types/react": "npm:^18.2.37"
     clsx: "npm:^2.0.0"
     docusaurus-plugin-openapi-docs: "npm:^2.0.0"
     docusaurus-plugin-plausible: "npm:^0.0.5"
