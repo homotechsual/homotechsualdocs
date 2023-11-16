@@ -3,12 +3,10 @@ import React from 'react';
 import MDXComponents from '@theme-original/MDXComponents';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import { Icon } from '@iconify/react';
 
 export default {
   // Re-use the default mapping
   ...MDXComponents,
-  Icon,
   Tabs,
   TabItem
 };
