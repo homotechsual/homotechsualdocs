@@ -1,49 +1,32 @@
 ---
-id: New-NinjaOneTicketComment
-title: New-NinjaOneTicketComment
-description: "Create a ticket comment using the NinjaOne v2 API."
+title: Update Webhook
+id: webhook
+description: "Updates webhook configuration for the current application/API client using the NinjaOne v2 API."
 hide_title: false
 hide_table_of_contents: false
 ---
 
 ## SYNOPSIS
 
-Creates a new ticket comment using the NinjaOne API.
+Update webhook configuration for the current application/API client.
 
 ## SYNTAX
 
 ```powershell
-New-NinjaOneTicketComment [-ticketId] <Int32> [-comment] <Object> [-show] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Update-NinjaOneWebhook [-webhookConfiguration] <Object> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Create a ticket comment using the NinjaOne v2 API.
+Updates webhook configuration for the current application/API client using the NinjaOne v2 API.
 
 ## EXAMPLES
 
 ## PARAMETERS
 
-### -ticketId
+### -webhookConfiguration
 
-The ticket Id to use when creating the ticket comment.
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases: id
-
-Required: True
-Position: 1
-Default value: 0
-Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
-```
-
-### -comment
-
-An object containing the ticket comment to create.
+The webhook configuration object.
 
 ```yaml
 Type: Object
@@ -51,24 +34,8 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 2
+Position: 1
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -show
-
-Show the ticket comment that was created.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

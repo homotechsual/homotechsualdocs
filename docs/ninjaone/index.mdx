@@ -34,6 +34,27 @@ From time-to-time, preview releases will be published to the PowerShell Gallery.
 Install-Module -Name NinjaOne -AllowPrerelease
 ```
 
+## updating
+
+You can update the module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/NinjaOne/) using the following command:
+
+```powershell
+Update-Module -Name NinjaOne
+```
+
+If you want to update to the latest preview release you can use the following command:
+
+```powershell
+Update-Module -Name NinjaOne -AllowPrerelease
+```
+
+After updating you should re-import the module in any open PowerShell sessions using the following commands:
+
+```powershell
+Remove-Module -Name NinjaOne
+Import-Module -Name NinjaOne
+```
+
 ## Getting Started
 
 The first and probably most important requirement for this module is getting it connected to NinjaOne.
@@ -91,17 +112,17 @@ Connect-NinjaOne @ConnectNinjaOneParams
 
 This uses the hashtable splatting operator (`@`) to pass the hashtable to the `Connect-NinjaOne` commandlet. To learn more about splatting see [about_Splatting](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_splatting?view=powershell-7.1).
 
-For more detailed examples of how to use `Connect-NinjaOne`, including using other authentication types see [Connect-NinjaOne](./commandlets/Connect/Connect-NinjaOne.mdx).
+For more detailed examples of how to use `Connect-NinjaOne`, including using other authentication types see [Connect-NinjaOne](./commandlets/connect/Connect-NinjaOne.mdx).
 
 ### Running a command
 
 Once you have connected to NinjaOne you can run commands against the API. For example, to get a list of all devices in NinjaOne you can use the following command:
 
 ```powershell
-Get-NinjaOneDevice
+Get-NinjaOneDevices
 ```
 
-This will return a list of all devices in NinjaOne. For more detailed examples of how to use `Get-NinjaOneDevice` see [Get-NinjaOneDevice](./commandlets/Get/Get-NinjaOneDevices.mdx).
+This will return a list of all devices in NinjaOne. For more detailed examples of how to use `Get-NinjaOneDevice` see [Get-NinjaOneDevice](./commandlets/get/Get-NinjaOneDevices.mdx).
 
 ## Known Issues
 
