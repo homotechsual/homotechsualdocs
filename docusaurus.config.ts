@@ -25,11 +25,9 @@ const admonitionsConfig = {
   },
 }
 const remarkCodeSnippets = require('remark-code-snippets');
-const remarkGridTables = require('remark-grid-tables');
 const remarkPluginsConfig = {
   remarkPlugins: [
     remarkCodeSnippets,
-    remarkGridTables
   ]
 }
 
@@ -314,17 +312,6 @@ const config = {
     }),
     plugins: [
       require.resolve('docusaurus-plugin-sass'),
-      [
-        require.resolve('@docusaurus/plugin-client-redirects'),
-        {
-          redirects: [
-            {
-              from: [ '/tenant/developer/', '/admin/developer/', '/analyst/developer/'],
-              to: '/',
-            }
-          ]
-        }
-      ],
       [
         require.resolve('docusaurus-plugin-plausible'),
         {
