@@ -6,6 +6,10 @@ hide_title: false
 hide_table_of_contents: false
 ---
 
+:::powershell[Generated Cmdlet Help]
+This page has been generated from the NinjaOne PowerShell module source. To make changes please edit the appropriate PowerShell source file.
+:::
+
 ## SYNOPSIS
 
 Gets device scripting options from the NinjaOne API.
@@ -13,7 +17,8 @@ Gets device scripting options from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneDeviceScriptingOptions [-deviceId] <Int32> [[-LanguageTag] <String>] [<CommonParameters>]
+Get-NinjaOneDeviceScriptingOptions [-deviceId] <Int32> [[-LanguageTag] <String>] [-Categories] [-Scripts]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -33,10 +38,18 @@ Gets the device scripting options for the device with id 1.
 ### EXAMPLE 2
 
 ```powershell
-(Get-NinjaOneDeviceScriptingOptions -deviceId 1).scripts
+Get-NinjaOneDeviceScriptingOptions -deviceId 1 -Scripts
 ```
 
 Gets the scripts for the device with id 1.
+
+### EXAMPLE 3
+
+```powershell
+Get-NinjaOneDeviceScriptingOptions -deviceId 1 -Categories
+```
+
+Gets the categories for the device with id 1.
 
 ## PARAMETERS
 
@@ -68,6 +81,38 @@ Aliases: lang
 Required: False
 Position: 2
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Categories
+
+Return the categories list only.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Scripts
+
+Return the scripts list only.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
