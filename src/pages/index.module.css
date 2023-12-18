@@ -16,6 +16,10 @@
   }
 }
 
+.heroBanner h1 {
+  --ifm-heading-color: var(--ifm-hero-text-color);
+}
+
 .buttons {
   display: flex;
   align-items: center;
