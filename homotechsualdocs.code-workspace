@@ -12,6 +12,7 @@
 			"Commandlets",
 			"commonsidebar",
 			"easyops",
+			"Entra",
 			"featuresbottomdivider",
 			"featurestopdivider",
 			"fontawesome",
@@ -42,8 +43,65 @@
 			"noreferrer",
 			"openapi",
 			"psgallery",
+			"rehype",
 			"sublist",
 			"xlink"
-		]
+		],
+		"cSpell.language": "en-GB",
+		"cSpell.checkOnlyEnabledFileTypes": false,
+		"cSpell.ignorePaths": [
+			"package-lock.json",
+			"node_modules",
+			"vscode-extension",
+			".git/objects",
+			".vscode",
+			".vscode-insiders",
+			"*.json",
+			"**.*.json",
+			"*.code-workspace",
+			"**.*.code-workspace",
+			"*.yml",
+			"**.*.yml",
+			"*.yaml",
+			"**.*.yaml",
+		],
+		"cSpell.allowCompoundWords": true,
+		"cSpell.ignoreRegExpList": [
+			"Urls",
+			"HexValues",
+			"EscapeCharacters",
+			"Base64",
+			"Email",
+			"^id:\\s.*$"
+		],
+		"cSpell.spellCheckOnlyWorkspaceFiles": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": "explicit"
+		},
+		"eslint.execArgv": [
+			"--max_old_space_size=8192"
+		],
+		"eslint.options": {
+			"extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
+		},
+		"eslint.runtime": "node",
+		"eslint.validate": [
+			"markdown",
+			"mdx",
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact"
+		],
+		"markdown.validate.enabled": false,
+		"markdown.validate.referenceLinks.enabled": "ignore",
+		"[mdx]": {
+			"editor.defaultFormatter": "unifiedjs.vscode-mdx",
+			"workbench.editor.languageDetection": false,
+		},
+		"files.associations": {
+			"*.md": "markdown",
+			"*.mdx": "MDX"
+		},
 	}
 }

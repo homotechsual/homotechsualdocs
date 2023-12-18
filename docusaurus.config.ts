@@ -3,8 +3,8 @@
 
 import { themes as prismThemes } from 'prism-react-renderer';
 
-const lightCodeTheme = prismThemes.vsLight;
-const darkCodeTheme = prismThemes.vsDark;
+const lightCodeTheme = prismThemes.oneLight;
+const darkCodeTheme = prismThemes.oneDark;
 const admonitionsConfig = {
   admonitions: {
     keywords: [
@@ -82,7 +82,7 @@ const config = {
         hideOnScroll: false,
         logo: {
           alt: 'Homotechsual Logo',
-          src: 'img/Logo-LightText.svg',
+          src: 'img/Logo.svg',
         },
         items: [
           {
@@ -278,7 +278,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['powershell'],
+        additionalLanguages: ['powershell', 'python'],
         magicComments: [
           {
             className: 'theme-code-block-highlighted-line',

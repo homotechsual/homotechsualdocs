@@ -19,7 +19,7 @@ Gets device OS patch installs from the NinjaOne API.
 ```powershell
 Get-NinjaOneDeviceOSPatchInstalls [-deviceId] <Int32> [[-status] <String>] [[-installedBefore] <DateTime>]
  [[-installedBeforeUnixEpoch] <Int32>] [[-installedAfter] <DateTime>] [[-installedAfterUnixEpoch] <Int32>]
- [<CommonParameters>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -152,6 +152,7 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
 
 ## OUTPUTS
 

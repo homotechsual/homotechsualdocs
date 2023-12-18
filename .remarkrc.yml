@@ -1,0 +1,12 @@
+settings:
+  bullet: "*"
+  emphasis: "*"
+  strong: "*"
+plugins:
+  - rehype-raw
+  - rehype-stringify
+  - remark-directive
+  - remark-emoji
+  - remark-frontmatter
+  - remark-gfm
+  - remark-rehype

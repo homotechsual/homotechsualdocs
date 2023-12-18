@@ -19,13 +19,14 @@ Gets users from the NinjaOne API.
 ### Default (Default)
 
 ```powershell
-Get-NinjaOneUsers [[-userType] <String>] [<CommonParameters>]
+Get-NinjaOneUsers [[-userType] <String>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Organisation
 
 ```powershell
-Get-NinjaOneUsers [-organisationId] <Int32> [[-userType] <String>] [<CommonParameters>]
+Get-NinjaOneUsers [-organisationId] <Int32> [[-userType] <String>] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -98,6 +99,7 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
 
 ## OUTPUTS
 

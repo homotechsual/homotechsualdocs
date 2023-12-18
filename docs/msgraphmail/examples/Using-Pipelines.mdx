@@ -4,8 +4,8 @@ sidebar_position: 2
 description: How to pass emails between commandlets using the pipeline.
 ---
 
-For many tasks you can "pipe" output from a cmdlet (like [`New-MSGraphMail`](../commandlets/New/New-MSGraphMail.mdx)) into further commandlets to take action on the object you just created or fetched.
+For many tasks you can "pipe" output from a cmdlet (like [`New-MSGraphMail`](../commandlets/new/New-MSGraphMail.mdx)) into further commandlets to take action on the object you just created or fetched.
 
-You can pipe emails into [`Send-MSGraphMail`](../commandlets/Send/Send-MSGraphMail.mdx) to send them, into [`Move-MSGraphMail`](../commandlets/Move/Move-MSGraphMail.mdx) to move them to another folder, or into [`Remove-MSGraphMail`](../commandlets/Remove/Remove-MSGraphMail.mdx) to delete them.
+You can pipe emails into [`Send-MSGraphMail`](../commandlets/send/Send-MSGraphMail.mdx) to send them, into [`Move-MSGraphMail`](../commandlets/move/Move-MSGraphMail.mdx) to move them to another folder, or into [`Remove-MSGraphMail`](../commandlets/remove/Remove-MSGraphMail.mdx) to delete them.
 
 When using the pipeline you should pass the parameter `-Pipeline` to the commandlet which generates the objects you want to pipe. This will make sure that the objects are in a suitable format for the next commandlet to process them.

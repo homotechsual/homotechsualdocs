@@ -18,7 +18,7 @@ Gets device windows services from the NinjaOne API.
 
 ```powershell
 Get-NinjaOneDeviceWindowsServices [-deviceId] <Int32> [[-name] <String>] [[-state] <String>]
- [<CommonParameters>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -72,6 +72,7 @@ Accept wildcard characters: False
 ### -name
 
 Filter by service name.
+Ninja interprets this case sensitively.
 
 ```yaml
 Type: String
@@ -106,6 +107,7 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
 
 ## OUTPUTS
 

@@ -17,8 +17,8 @@ Runs an action against the given Windows Service for the given device.
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneWindowsServiceAction [-deviceId] <Int32> [-serviceId] <String> [-action] <String> [-WhatIf]
- [-Confirm] [<CommonParameters>]
+Invoke-NinjaOneWindowsServiceAction [-deviceId] <Int32> [-serviceId] <String> [-action] <String>
+ [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -26,6 +26,12 @@ Invoke-NinjaOneWindowsServiceAction [-deviceId] <Int32> [-serviceId] <String> [-
 Runs an action against a windows service on a single device using the NinjaOne v2 API.
 
 ## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+
+```
 
 ## PARAMETERS
 
@@ -52,7 +58,7 @@ The service to alter configuration for.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: service, serviceName
 
 Required: True
 Position: 2
@@ -116,9 +122,12 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+
 ## OUTPUTS
 
-### A powershell object containing the response.
+### System.Void
+
+This commandlet returns no output. A success message will be written to the information stream if the API returns a 204 success code. Use `-InformationAction Continue` to see this message.
 
 ## NOTES
 

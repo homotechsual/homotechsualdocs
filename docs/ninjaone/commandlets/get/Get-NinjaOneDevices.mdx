@@ -20,19 +20,19 @@ Gets devices from the NinjaOne API.
 
 ```powershell
 Get-NinjaOneDevices [[-deviceFilter] <String>] [[-pageSize] <Int32>] [[-after] <Int32>] [-detailed]
- [<CommonParameters>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-NinjaOneDevices [-deviceId] <Int32> [<CommonParameters>]
+Get-NinjaOneDevices [-deviceId] <Int32> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Organisation
 
 ```powershell
-Get-NinjaOneDevices [-organisationId] <Int32> [<CommonParameters>]
+Get-NinjaOneDevices [-organisationId] <Int32> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -192,6 +192,7 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
 
 ## OUTPUTS
 

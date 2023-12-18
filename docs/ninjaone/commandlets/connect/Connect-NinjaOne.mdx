@@ -20,21 +20,23 @@ Creates a new connection to a NinjaOne instance.
 
 ```powershell
 Connect-NinjaOne [-UseWebAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
- [-Scopes <String[]>] [-RedirectURL <Uri>] [-Port <Int32>] [-ShowTokens] [<CommonParameters>]
+ [-Scopes <String[]>] [-RedirectURL <Uri>] [-Port <Int32>] [-ShowTokens] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### Token Authentication
 
 ```powershell
 Connect-NinjaOne [-UseTokenAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
- [-Scopes <String[]>] [-RefreshToken <String>] [-ShowTokens] [<CommonParameters>]
+ [-Scopes <String[]>] [-RefreshToken <String>] [-ShowTokens] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### Client Credentials
 
 ```powershell
 Connect-NinjaOne [-UseClientAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
- [-Scopes <String[]>] [-ShowTokens] [<CommonParameters>]
+ [-Scopes <String[]>] [-ShowTokens] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -250,6 +252,7 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
 
 ## OUTPUTS
 

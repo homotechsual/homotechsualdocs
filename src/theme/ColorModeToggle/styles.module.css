@@ -18,6 +18,10 @@
   background: var(--ifm-color-emphasis-200);
 }
 
+.toggleButton:hover .toggleIcon {
+  color: var(--ifm-navbar-link-hover-color);
+}
+
 [data-theme='light'] .darkToggleIcon,
 [data-theme='dark'] .lightToggleIcon {
   display: none;
@@ -25,7 +29,12 @@
 
 [data-theme='light'] .lightToggleIcon,
 [data-theme='dark'] .darkToggleIcon {
-  color: white;
+  color: var(--ifm-navbar-color);
+}
+
+[data-theme='light'] .lightToggleIcon:hover,
+[data-theme='dark'] .darkToggleIcon:hover {
+  color: var(--ifm-navbar-link-hover-color);
 }
 
 .toggleButtonDisabled {

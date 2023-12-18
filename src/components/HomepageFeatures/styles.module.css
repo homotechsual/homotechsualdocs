@@ -3,12 +3,12 @@
   align-items: center;
   padding: 2rem 0 0 0;
   width: 100%;
-  background-color: #006ABA;
+  background-color: var(--ht-color-primary-rgb);
 }
 
 .featurestopdivider {
   background-color: var(--ifm-color-primary);
-  background-image: url("./HomotechsualBlueBorder.svg");
+  background-image: url("./img/HomotechsualScruffyBorder.svg");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: 110% 4rem;
@@ -18,8 +18,8 @@
 }
 
 .featuresbottomdivider {
-  background-color: var(--ifm-background-color);
-  background-image: url("./HomotechsualBlueBorder.svg");
+  background-color: var(--ifm-navbar-background-color);
+  background-image: url("./img/HomotechsualScruffyBorder.svg");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: 110% 4rem;

@@ -1,3 +1,47 @@
 {
-    "typescript.validate.enable": false
+    "cSpell.words": [
+        "CIPP",
+        "clsx",
+        "Commandlet",
+        "Commandlets",
+        "commonsidebar",
+        "easyops",
+        "featuresbottomdivider",
+        "featurestopdivider",
+        "fontawesome",
+        "fortawesome",
+        "Gavsto",
+        "haloapi",
+        "haloapisidebar",
+        "hideable",
+        "Homotechsual",
+        "homotechsualdocs",
+        "horiz",
+        "iconbutton",
+        "iconify",
+        "ignorecase",
+        "Infima",
+        "ITSM",
+        "Mendy",
+        "Mikey",
+        "msgraphmail",
+        "msgraphmailsidebar",
+        "MSPP",
+        "ninjaget",
+        "ninjagetsidebar",
+        "ninjaone",
+        "ninjaoneapi",
+        "ninjaonesidebar",
+        "noopener",
+        "noreferrer",
+        "openapi",
+        "psgallery",
+        "sublist",
+        "xlink"
+    ],
+    "cSpell.language": "en-GB",
+    "cSpell.checkOnlyEnabledFileTypes": false,
+    "cSpell.enableFiletypes": [
+        "!json"
+    ]
 }
