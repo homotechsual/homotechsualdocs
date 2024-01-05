@@ -2,6 +2,7 @@
 title: Admonitions
 hide_title: true
 sidebar_position: 1
+unlisted: true
 ---
 
 :::discord

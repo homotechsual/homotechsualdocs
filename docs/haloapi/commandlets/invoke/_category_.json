@@ -1,14 +1,14 @@
 {
-  "className": "category-invoke",
+  "collapsed": true,
   "customProps": {
     "description": "This category contains commands for invoking actions, this may include running scripts, executing commands and more. For API modules, this category will contain commands for sending arbitrary requests to the API - that is requests not covered by existing commands."
   },
-  "collapsible": true,
+  "className": "category-invoke",
   "label": "Invoke Actions",
-  "collapsed": true,
   "link": {
-    "title": "Invoke Actions",
-    "type": "generated-index"
+    "type": "generated-index",
+    "title": "Invoke Actions"
   },
+  "collapsible": true,
   "position": 0.4
 }

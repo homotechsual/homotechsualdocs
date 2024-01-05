@@ -1,7 +1,7 @@
 ---
-title: Set-HaloCategory
-id: set-halocategory
-description: "Function to send an Category update request to the Halo API"
+title: Invoke-HaloSQL
+id: invoke-halosql
+description: "Function to run a report preview with a SQL query parameter. Use -IncludeFullReport to get the entire report object instead of just the results"
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -12,28 +12,29 @@ This page has been generated from the HaloAPI PowerShell module source. To make 
 
 ## SYNOPSIS
 
-Updates a Category via the Halo API.
+Uses the Reports API endpoint to run arbitrary SQL.
 
 ## SYNTAX
 
 ```powershell
-Set-HaloCategory [-Category] <Object> [-SkipValidation] [-WhatIf] [-Confirm] [<CommonParameters>]
+Invoke-HaloSQL [-SQLQuery] <String> [-IncludeFullReport] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Function to send an Category update request to the Halo API
+Function to run a report preview with a SQL query parameter.
+Use -IncludeFullReport to get the entire report object instead of just the results
 
 ## EXAMPLES
 
 ## PARAMETERS
 
-### -Category
+### -SQLQuery
 
-Object containing properties and values used to update an existing knowedgebase article.
+String or Here String for SQL Statement
 
 ```yaml
-Type: Object
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -44,9 +45,9 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
-### -SkipValidation
+### -IncludeFullReport
 
-Skip validation checks.
+Return Full Report Object.
 
 ```yaml
 Type: SwitchParameter

@@ -45,6 +45,7 @@ module.exports = [
     'commandlets/get/Get-HaloSoftwareLicence',
     'commandlets/get/Get-HaloStatus',
     'commandlets/get/Get-HaloSupplier',
+    'commandlets/get/Get-HaloSuppliersFromQBO',
     'commandlets/get/Get-HaloTeam',
     'commandlets/get/Get-HaloTicket',
     'commandlets/get/Get-HaloTicketRules',
@@ -164,5 +165,6 @@ module.exports = [
     'commandlets/set/Set-HaloWorkday',
     'commandlets/connect/Connect-HaloAPI',
     'commandlets/restore/Restore-HaloTicket',
-    'commandlets/invoke/Invoke-HaloRequest'
+    'commandlets/invoke/Invoke-HaloRequest',
+    'commandlets/invoke/Invoke-HaloSQL'
 ];
