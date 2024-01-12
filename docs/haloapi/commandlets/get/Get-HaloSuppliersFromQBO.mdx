@@ -1,7 +1,7 @@
 ---
 title: Get-HaloSuppliersFromQBO
 id: get-halosuppliersfromqbo
-description: "{{ Fill in the Description }}"
+description: "Retrieves QuickBooks Online suppliers from the Halo API."
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -12,30 +12,60 @@ This page has been generated from the HaloAPI PowerShell module source. To make 
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Gets QuickBooks Online suppliers from the Halo API
 
 ## SYNTAX
 
 ```powershell
-Get-HaloSuppliersFromQBO
+Get-HaloSuppliersFromQBO [[-ConnectionID] <Int32>] [[-DataType] <String>]
 ```
 
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+Retrieves QuickBooks Online suppliers from the Halo API.
 
 ## EXAMPLES
 
 ## PARAMETERS
 
+### -ConnectionID
+
+{{ Fill ConnectionID Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 1
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DataType
+
+{{ Fill DataType Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: Vendor
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ## INPUTS
 
 
-### None
-
 ## OUTPUTS
 
-### System.Object
+### A powershell object containing the response.
 
 ## NOTES
 
