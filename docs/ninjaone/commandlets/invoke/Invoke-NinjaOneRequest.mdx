@@ -17,8 +17,7 @@ Sends a request to the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneRequest [-Method] <String> [-Uri] <String> [[-Body] <String>] [-Raw]
- [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Invoke-NinjaOneRequest [-Method] <String> [-Uri] <String> [[-Body] <String>] [-Raw] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -49,7 +48,7 @@ Aliases:
 Required: True
 Position: 1
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -65,7 +64,7 @@ Aliases:
 Required: True
 Position: 2
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 

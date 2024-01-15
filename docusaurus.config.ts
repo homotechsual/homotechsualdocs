@@ -64,7 +64,7 @@ const config = {
       ({
         docs: {
           path: 'docs/common',
-          routeBasePath: 'docs',
+          routeBasePath: 'common',
           sidebarPath: require.resolve('./commonsidebar.js'),
           ...commonDocsPluginConfig
         },
@@ -136,6 +136,12 @@ const config = {
                 label: 'Common Documentation',
                 docsPluginId: 'default',
               },
+              {
+                type: 'doc',
+                docId: 'index',
+                label: 'Examples',
+                docsPluginId: 'examples',
+              }
             ],
           },
           /*{ 
@@ -355,6 +361,16 @@ const config = {
           path: 'docs/ninjaget',
           routeBasePath: 'tools/ninjaget',
           sidebarPath: require.resolve('./ninjagetsidebar.js'),
+          ...commonDocsPluginConfig
+        },
+      ],
+      [
+        '@docusaurus/plugin-content-docs',
+        {
+          id: 'examples',
+          path: 'docs/examples',
+          routeBasePath: 'examples',
+          sidebarPath: require.resolve('./commonsidebar.js'),
           ...commonDocsPluginConfig
         },
       ],

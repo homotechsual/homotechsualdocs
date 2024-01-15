@@ -101,7 +101,7 @@
 		},
 		"files.associations": {
 			"*.md": "markdown",
-			"*.mdx": "MDX"
+			"*.mdx": "mdx"
 		},
 	}
 }

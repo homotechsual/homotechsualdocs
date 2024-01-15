@@ -17,8 +17,8 @@ Reboots a device using the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Restart-NinjaOneDevice [-deviceId] <Int32> [-mode] <String> [-reason <String>]
- [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Restart-NinjaOneDevice [-deviceId] <Int32> [-mode] <String> [[-reason] <String>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -71,9 +71,9 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 4
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 

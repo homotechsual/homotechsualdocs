@@ -20,23 +20,21 @@ Creates a new connection to a NinjaOne instance.
 
 ```powershell
 Connect-NinjaOne [-UseWebAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
- [-Scopes <String[]>] [-RedirectURL <Uri>] [-Port <Int32>] [-ShowTokens] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+ [-Scopes <String[]>] [-RedirectURL <Uri>] [-Port <Int32>] [-ShowTokens] [<CommonParameters>]
 ```
 
 ### Token Authentication
 
 ```powershell
 Connect-NinjaOne [-UseTokenAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
- [-Scopes <String[]>] [-RefreshToken <String>] [-ShowTokens] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+ [-Scopes <String[]>] [-RefreshToken <String>] [-ShowTokens] [<CommonParameters>]
 ```
 
 ### Client Credentials
 
 ```powershell
 Connect-NinjaOne [-UseClientAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
- [-Scopes <String[]>] [-ShowTokens] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [-Scopes <String[]>] [-ShowTokens] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

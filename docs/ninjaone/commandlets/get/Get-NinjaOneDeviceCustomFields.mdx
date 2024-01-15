@@ -16,9 +16,16 @@ Gets device custom fields from the NinjaOne API.
 
 ## SYNTAX
 
+### Single
+
 ```powershell
-Get-NinjaOneDeviceCustomFields [[-deviceId] <Int32>] [-withInheritance] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+Get-NinjaOneDeviceCustomFields [-deviceId] <Int32> [<CommonParameters>]
+```
+
+### Multi
+
+```powershell
+Get-NinjaOneDeviceCustomFields [[-scope] <String[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -67,29 +74,29 @@ Device id to get custom field values for a specific device.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
+Parameter Sets: Single
 Aliases: id
 
-Required: False
+Required: True
 Position: 1
 Default value: 0
 Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -withInheritance
+### -scope
 
-Inherit custom field values from parent location and/or organisation.
+The scopes to get custom field definitions for.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
+Type: String[]
+Parameter Sets: Multi
 Aliases:
 
 Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
+Position: 1
+Default value: All
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 

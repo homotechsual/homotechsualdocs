@@ -1,0 +1,38 @@
+---
+title: NinjaOne Devices to Halo Assets
+description: Link NinjaOne devices to Halo assets
+---
+import Script from './_script.mdx'
+
+This example shows how you can use the [NinjaOne](/modules/ninjaone) module and the [HaloAPI](/modules/haloapi) module to link existing Halo assets to NinjaOne devices. This is useful if you want to prevent duplicate device creation in Halo when using the NinjaOne integration.
+
+## Prerequisites
+
+- [NinjaOne](/modules/ninjaone)
+- [HaloAPI](/modules/haloapi)
+
+You'll need both of these modules installed and you'll need to have connected to both in the PowerShell session you use to run this script.
+
+## Dry run
+
+The script supports a dry run mode that will show you what would happen if you ran the script without the dry run flag. To run the script in dry run mode, use the `-ReportOnly` flag. This will report on the devices that would be linked, but won't actually link them.
+
+<Script />
+
+## Running the script
+
+First you'll need to connect to both the NinjaOne and HaloAPI modules. You can do this by running the commands documented in the [NinjaOne](/modules/ninjaone/commandlets/connect/ninjaone) and [HaloAPI](/haloapi/commandlets/connect/connect-haloapi) modules.
+
+For a dry run of the script, run the following command:
+
+```powershell
+.\Invoke-NinjaOneDevicesToHaloAssetsSync.ps1 -ReportOnly
+```
+
+To actually link the devices, run the following command:
+
+```powershell
+.\Invoke-NinjaOneDevicesToHaloAssetsSync.ps1
+```
+
+You can use the `-Verbose` flag to see more information about what the script is doing.

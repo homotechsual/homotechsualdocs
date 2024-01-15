@@ -17,8 +17,8 @@ Creates a new policy using the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-New-NinjaOnePolicy [-mode] <String> [-policy] <Object> [[-templatePolicyId] <Int32>] [-show]
- [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-NinjaOnePolicy [-mode] <String> [-policy] <Object> [[-templatePolicyId] <Int32>] [-show] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -41,7 +41,7 @@ Aliases:
 Required: True
 Position: 1
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -57,7 +57,7 @@ Aliases:
 Required: True
 Position: 2
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
@@ -68,12 +68,12 @@ The Id of the template policy to copy from.
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases:
+Aliases: templateId
 
 Required: False
 Position: 3
 Default value: 0
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 

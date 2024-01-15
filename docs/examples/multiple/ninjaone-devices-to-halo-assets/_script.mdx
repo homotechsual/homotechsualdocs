@@ -1,0 +1,77 @@
+```powershell title="Invoke-NinjaOneDevicesToHaloAssetsSync.ps1"
+<#
+    .SYNOPSIS
+        NinjaOne Devices to Halo Assets
+    .DESCRIPTION
+        This script utilises the NinjaOne API to retrieve device information and then updates assets in Halo matching by serial number. Requires that your current session has an active connection to the NinjaOne API (see https://docs.homotechsual.dev/modules/ninjaone/commandlets/connect/ninjaone/ for more information on how to do this) and the Halo API (see https://docs.homotechsual.dev/modules/haloapi/commandlets/connect/connect-haloapi for more information on how to do this).
+    .NOTES
+        2024-01-15: Extracted from internal scheduled task
+    .LINK
+        https://docs.homotechsual.dev/examples/multiple/ninjaone-devices-to-halo-assets/
+#>
+[CmdletBinding()]
+param(
+    # Report only - do not update assets in Halo
+    [Switch]$ReportOnly
+)
+# Try and get devices from NinjaOne
+try {
+    # Filter out devices with default serial numbers and null serial numbers.
+    $NinjaOneDevices = Get-NinjaOneDevices -detailed | Where-Object { 
+        $_.system.serialNumber -ne '$(DEFAULT_STRING)' -and $_.system.serialNumber -ne 'Default string' -and $_.system.serialNumber -ne $null -and $_.system.serialNumber -ne 'To Be Filled By O.E.M.' -and $_.system.serialNumber -ne 'chassis serial number' -and ![string]::IsNullOrWhiteSpace($_.system.serialNumber) 
+    }
+} catch {
+    Write-Warning "Could not retrieve devices from NinjaOne."
+    Write-Warning $_
+    exit 1
+}
+# Try and get assets from Halo
+try {
+    $HaloAssets = Get-HaloAsset -columns_id 5
+} catch {
+    Write-Warning "Could not retrieve assets from Halo."
+    Write-Warning $_
+    exit 1
+}
+# Loop through Halo assets and try and match them with NinjaOne devices
+foreach ($Asset in $HaloAssets) {
+    Write-Verbose ('Checking asset {0} ({1})' -f $Asset.inventory_number, $Asset.id)
+    # Grab the Halo serial number field
+    $HaloSerialNumberField = $Asset.fields | Where-Object { $_.name -eq 'Serial Number' }
+    $NinjaDevice = $NinjaOneDevices | Where-Object { ($_.system.serialNumber -eq $HaloSerialNumberField.value) -or ($_.system.serialNumber -eq $Asset.inventory_number) }
+    if ($null -ne $HaloSerialNumberField.value) {
+        $SerialNumber = $HaloSerialNumberField.value
+    } elseif ($null -ne $Asset.inventory_number) {
+        $SerialNumber = $Asset.inventory_number
+    } else {
+        Write-Warning ('Could not find serial number for asset {0} ({1})' -f $Asset.inventory_number, $Asset.id)
+        continue
+    }
+    if ($NinjaDevice.Count -gt 1) {
+        Write-Warning ('Found multiple NinjaOne devices with serial number {0} - skipping...' -f $SerialNumber)
+        continue
+    } elseif ($NinjaDevice) {
+        if ($ReportOnly) {
+            Write-Host ('Matched Halo asset {0} ({1}) with NinjaOne device {2} ({3})' -f $SerialNumber, $Asset.id, $NinjaDevice.systemName, $NinjaDevice.id) -ForegroundColor Blue
+        } else {
+            Write-Verbose ('Matched Halo asset {0} ({1}) with NinjaOne device {2} ({3})' -f $SerialNumber, $Asset.id, $NinjaDevice.systemName, $NinjaDevice.id)
+        }
+        # If the Halo asset has a NinjaOne device ID, skip it
+        if ($Asset.ninjarmm_id) {
+            Write-Warning ('Asset {0} ({1}) already has a NinjaOne device ID - skipping...' -f $SerialNumber, $Asset.id)
+            continue
+        } else {
+            # Update the asset in Halo with the NinjaOne device information
+            try {
+                Set-HaloAsset -Asset @{ id = $Asset.id; ninjarmm_id = $NinjaDevice.id }
+            } catch {
+                Write-Warning "Could not update asset in Halo."
+                Write-Warning "$_"
+            }
+        }
+    } else {
+        Write-Warning ('Could not find NinjaOne device with serial number {0} - skipping...' -f $SerialNumber)
+        continue
+    }
+}
+```
