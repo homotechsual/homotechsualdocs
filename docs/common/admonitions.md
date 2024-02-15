@@ -9,11 +9,15 @@ unlisted: true
 
 Discord Admonition
 
+[Link](admonitions.md)
+
 :::
 
 :::info
 
 Info Admonition
+
+[Link](admonitions.md)
 
 :::
 
@@ -21,11 +25,15 @@ Info Admonition
 
 Success Admonition
 
+[Link](admonitions.md)
+
 :::
 
 :::danger
 
 Danger Admonition
+
+[Link](admonitions.md)
 
 :::
 
@@ -33,11 +41,15 @@ Danger Admonition
 
 Note Admonition
 
+[Link](admonitions.md)
+
 :::
 
 :::tip
 
 Tip Admonition
+
+[Link](admonitions.md)
 
 :::
 
@@ -45,11 +57,15 @@ Tip Admonition
 
 Warning Admonition
 
+[Link](admonitions.md)
+
 :::
 
 :::important
 
 Important Admonition
+
+[Link](admonitions.md)
 
 :::
 
@@ -57,10 +73,22 @@ Important Admonition
 
 Caution Admonition
 
+[Link](admonitions.md)
+
 :::
 
-:::version
+:::release
 
-The feature described here exists from version 1.2.1 onwards.
+Release Admonition
+
+[Link](admonitions.md)
+
+:::
+
+:::ninja
+
+Ninja Admonition
+
+[Link](admonitions.md)
 
 :::
