@@ -1,14 +1,14 @@
 {
+  "className": "category-find",
   "collapsible": true,
+  "collapsed": false,
   "position": 0.2,
   "link": {
-    "type": "generated-index",
-    "title": "Find Information"
+    "title": "Find Information",
+    "type": "generated-index"
   },
-  "className": "category-find",
-  "label": "Find Information",
   "customProps": {
     "description": "This category contains commands for finding information from services, this may include data, objects, settings and more."
   },
-  "collapsed": false
+  "label": "Find Information"
 }
