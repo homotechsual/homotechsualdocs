@@ -19,7 +19,7 @@ Gets tickets from the NinjaOne API.
 ### Single
 
 ```powershell
-Get-NinjaOneTickets [-ticketId] <Int32> [<CommonParameters>]
+Get-NinjaOneTickets [-ticketId] <Int32> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Board
@@ -27,7 +27,7 @@ Get-NinjaOneTickets [-ticketId] <Int32> [<CommonParameters>]
 ```powershell
 Get-NinjaOneTickets [-boardId] <String> [[-sort] <NinjaOneTicketBoardSort[]>]
  [[-filters] <NinjaOneTicketBoardFilter[]>] [[-lastCursorId] <String>] [[-pageSize] <Int32>]
- [[-searchCriteria] <String>] [<CommonParameters>]
+ [[-searchCriteria] <String>] [-includeMetadata] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -172,6 +172,22 @@ Aliases:
 Required: False
 Position: 6
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -includeMetadata
+
+Include the metadata in the response.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Board
+Aliases:
+
+Required: False
+Position: 7
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

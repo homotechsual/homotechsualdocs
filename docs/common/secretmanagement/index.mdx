@@ -1,0 +1,66 @@
+---
+title: Secret Management
+hide_title: true
+sidebar_position: 0
+---
+
+Several of the modules documented on this site can leverage the "Secret Management" module from Microsoft to store and retrieve authentication and configuration information.
+
+Before you can use the secret management module you will need to install it and perform some setup steps which are documented here:
+
+## Installing
+
+The secret management module is installed from the PowerShell Gallery (PSGallery) with the following command:
+
+```ps
+Install-Module -Name 'Microsoft.PowerShell.SecretManagement'
+```
+
+## Configuring
+
+Next you need to add a secret management vault. There are a few options available to you here including, but not limited to, the following:
+
+* Azure Key Vault (provided by the `Az.KeyVault` module)
+* Keeper Secret Manager (provided by the `SecretManagement.Keeper` module)
+* KeePass (provided by the `SecretManagement.KeePass` module)
+* LastPass (provided by the `SecretManagement.LastPass` module)
+* HashiCorp Vault (provided by the `SecretManagement.HashiCorp.Vault.KV` module)
+* BitWarden (provided by the `SecretManagement.Bitwarden` module)
+* 1Password (provided by the `SecretManagement.1Password` module)
+* CyberArk (provided by the `SecretManagement.CyberArk` module)
+* AWS (provided by the `SecretManagement.Aws` module)
+* Mac OS KeyChain (provided by the `SecretManagement.KeyChain` module)
+* Windows Credential Manager (provided by the `SecretManagement.JustinGrote.CredMan` module)
+
+You can look for more modules on the [PowerShell Gallery](https://www.powershellgallery.com/packages?q=SecretManagement) or by running the following command:
+
+```ps
+Find-Module -Name '*SecretManagement*'
+```
+
+Once you have installed the module for your chosen secret management vault, you need to register it with the secret management module. For example, to register an Azure Key Vault you would run the following command:
+
+```ps
+$VaultParameters = @{
+    SubscriptionId = '00000000-0000-0000-0000-000000000000'
+    AzKVVaultName = 'homotechsual'
+}
+Register-SecretVault -Name 'AzureKeyVault' -ModuleName 'Az.KeyVault' -VaultParameters $VaultParameters
+```
+
+So here we are registering our KeyVault 'homotechsual' in the subscription '00000000-0000-0000-0000-000000000000' with the name 'AzureKeyVault' using the 'Az.KeyVault' module. The specific parameters required will depend on the secret management vault you are using - please refer to the documentation for the specific module you are using.
+
+You can check what vaults you have registered with the following command:
+
+```ps
+Get-SecretVault
+```
+
+Please ensure you authenticate your secret management vault before attempting to use it. For example, to authenticate to an Azure Key Vault you would run the following command:
+
+```ps
+Connect-AzAccount
+Set-AzContext -SubscriptionId '00000000-0000-0000-0000-000000000000'
+```
+
+This will prompt you to authenticate to your Azure subscription and then set the context to the subscription with the ID '00000000-0000-0000-0000-000000000000' which is the subscription we registered our KeyVault with earlier.

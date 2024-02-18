@@ -20,21 +20,40 @@ Creates a new connection to a NinjaOne instance.
 
 ```powershell
 Connect-NinjaOne [-UseWebAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
- [-Scopes <String[]>] [-RedirectURL <Uri>] [-Port <Int32>] [-ShowTokens] [<CommonParameters>]
+ [-Scopes <String[]>] [-RedirectURL <Uri>] [-Port <Int32>] [-ShowTokens] [-UseSecretManagement]
+ [-VaultName <String>] [-WriteToSecretVault] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+```
+
+### Secret Vault Write
+
+```powershell
+Connect-NinjaOne [-UseWebAuth] [-UseTokenAuth] [-UseClientAuth] -Instance <String> -ClientId <String>
+ -ClientSecret <String> [-Scopes <String[]>] [-RedirectURL <Uri>] [-Port <Int32>] [-RefreshToken <String>]
+ [-UseSecretManagement] -VaultName <String> [-WriteToSecretVault] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### Token Authentication
 
 ```powershell
 Connect-NinjaOne [-UseTokenAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
- [-Scopes <String[]>] [-RefreshToken <String>] [-ShowTokens] [<CommonParameters>]
+ [-Scopes <String[]>] [-RefreshToken <String>] [-ShowTokens] [-UseSecretManagement] [-VaultName <String>]
+ [-WriteToSecretVault] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Client Credentials
 
 ```powershell
 Connect-NinjaOne [-UseClientAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
- [-Scopes <String[]>] [-ShowTokens] [<CommonParameters>]
+ [-Scopes <String[]>] [-ShowTokens] [-UseSecretManagement] [-VaultName <String>] [-WriteToSecretVault]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
+```
+
+### Secret Vault Read
+
+```powershell
+Connect-NinjaOne [-UseSecretManagement] -VaultName <String> [-WriteToSecretVault] [-ReadFromSecretVault]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -59,6 +78,30 @@ Connect-NinjaOne -Instance 'eu' -ClientId 'AAaaA1aaAaAA-aaAaaA11a1A-aA' -ClientS
 
 This logs into NinjaOne using the authorization code flow.
 
+### EXAMPLE 3
+
+```powershell
+Connect-NinjaOne -Instance 'eu' -ClientId 'AAaaA1aaAaAA-aaAaaA11a1A-aA' -ClientSecret '00Z00zzZzzzZzZzZzZzZZZ0zZ0zzZ_0zzz0zZZzzZz0Z0ZZZzz0z0Z' -RefreshToken 'a1a11a11-aa11-11a1-a111-a1a111aaa111.11AaaAaaa11aA-AA1aaaAAA111aAaaaaA1AAAA1_AAa' -UseTokenAuth
+```
+
+This logs into NinjaOne using the refresh token flow.
+
+### EXAMPLE 4
+
+```powershell
+Connect-NinjaOne -UseSecretManagement -VaultName 'NinjaOneVault' -WriteToSecretVault -Instance 'eu' -ClientId 'AAaaA1aaAaAA-aaAaaA11a1A-aA' -ClientSecret '00Z00zzZzzzZzZzZzZzZZZ0zZ0zzZ_0zzz0zZZzzZz0Z0ZZZzz0z0Z' -UseClientAuth
+```
+
+This logs into NinjaOne using the client credentials flow and writes the connection information to the secret vault.
+
+### EXAMPLE 5
+
+```powershell
+Connect-NinjaOne -UseSecretManagement -VaultName 'NinjaOneVault' -ReadFromSecretVault
+```
+
+This reads the connection information from the secret vault.
+
 ## PARAMETERS
 
 ### -UseWebAuth
@@ -77,9 +120,33 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+```yaml
+Type: SwitchParameter
+Parameter Sets: Secret Vault Write
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -UseTokenAuth
 
 Use the "Token Authentication" flow - useful if you already have a refresh token.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Secret Vault Write
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ```yaml
 Type: SwitchParameter
@@ -96,6 +163,18 @@ Accept wildcard characters: False
 ### -UseClientAuth
 
 Use the "Client Credentials" flow - useful if you already have a client ID and secret.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Secret Vault Write
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ```yaml
 Type: SwitchParameter
@@ -116,7 +195,7 @@ Choose from 'eu', 'oc' or 'us'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Authorisation Code, Secret Vault Write, Token Authentication, Client Credentials
 Aliases:
 
 Required: True
@@ -132,7 +211,7 @@ The Client Id for the application configured in NinjaOne.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Authorisation Code, Secret Vault Write, Token Authentication, Client Credentials
 Aliases:
 
 Required: True
@@ -148,7 +227,7 @@ The Client Secret for the application configured in NinjaOne.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Authorisation Code, Secret Vault Write, Token Authentication, Client Credentials
 Aliases:
 
 Required: True
@@ -166,7 +245,7 @@ Limited by the scopes granted to the application in NinjaOne.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
+Parameter Sets: Authorisation Code, Secret Vault Write, Token Authentication, Client Credentials
 Aliases:
 
 Required: False
@@ -185,7 +264,7 @@ https://redirect.example.uk:9090/auth
 
 ```yaml
 Type: Uri
-Parameter Sets: Authorisation Code
+Parameter Sets: Authorisation Code, Secret Vault Write
 Aliases:
 
 Required: False
@@ -203,7 +282,7 @@ If not set defaults to '9090'.
 
 ```yaml
 Type: Int32
-Parameter Sets: Authorisation Code
+Parameter Sets: Authorisation Code, Secret Vault Write
 Aliases:
 
 Required: False
@@ -219,7 +298,7 @@ The refresh token to use for "Token Authentication" flow.
 
 ```yaml
 Type: String
-Parameter Sets: Token Authentication
+Parameter Sets: Secret Vault Write, Token Authentication
 Aliases:
 
 Required: False
@@ -235,7 +314,107 @@ Output the tokens - useful when using "Authorisation Code" flow - to use with "T
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: Authorisation Code, Token Authentication, Client Credentials
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -UseSecretManagement
+
+Use the secret management module to retrieve credentials and store tokens.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Authorisation Code, Token Authentication, Client Credentials
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Secret Vault Write, Secret Vault Read
+Aliases:
+
+Required: True
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -VaultName
+
+The name of the secret vault to use.
+
+```yaml
+Type: String
+Parameter Sets: Authorisation Code, Token Authentication, Client Credentials
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+```yaml
+Type: String
+Parameter Sets: Secret Vault Write, Secret Vault Read
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WriteToSecretVault
+
+Write updated credentials to secret management vault.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Authorisation Code, Token Authentication, Client Credentials, Secret Vault Read
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Secret Vault Write
+Aliases:
+
+Required: True
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ReadFromSecretVault
+
+Read the authentication information from secret management vault.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Secret Vault Read
 Aliases:
 
 Required: False

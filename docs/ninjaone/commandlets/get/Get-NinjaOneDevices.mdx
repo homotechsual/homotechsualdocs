@@ -20,19 +20,19 @@ Gets devices from the NinjaOne API.
 
 ```powershell
 Get-NinjaOneDevices [[-deviceFilter] <String>] [[-pageSize] <Int32>] [[-after] <Int32>] [-detailed]
- [<CommonParameters>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-NinjaOneDevices [-deviceId] <Int32> [<CommonParameters>]
+Get-NinjaOneDevices [-deviceId] <Int32> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Organisation
 
 ```powershell
-Get-NinjaOneDevices [-organisationId] <Int32> [<CommonParameters>]
+Get-NinjaOneDevices [-organisationId] <Int32> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
