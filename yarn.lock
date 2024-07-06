@@ -1885,7 +1885,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/module-type-aliases@npm:3.4.0, @docusaurus/module-type-aliases@npm:^3.3.2":
+"@docusaurus/module-type-aliases@npm:3.4.0, @docusaurus/module-type-aliases@npm:^3.4.0":
   version: 3.4.0
   resolution: "@docusaurus/module-type-aliases@npm:3.4.0"
   dependencies:
@@ -2221,7 +2221,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/tsconfig@npm:^3.3.2":
+"@docusaurus/tsconfig@npm:^3.4.0":
   version: 3.4.0
   resolution: "@docusaurus/tsconfig@npm:3.4.0"
   checksum: 10c0/62b992e3f4d941de88ef5a753c677268ced75d83acd48a04bb06a1852be915d058af6f9508b87c3dfd59da0cbb6ee185dd3cba021eb66f115ce4b96585709903
@@ -7964,11 +7964,11 @@ __metadata:
   resolution: "homotechsualdocs@workspace:."
   dependencies:
     "@docusaurus/core": "npm:^3.4.0"
-    "@docusaurus/module-type-aliases": "npm:^3.3.2"
+    "@docusaurus/module-type-aliases": "npm:^3.4.0"
     "@docusaurus/plugin-client-redirects": "npm:^3.4.0"
     "@docusaurus/preset-classic": "npm:^3.4.0"
     "@docusaurus/theme-mermaid": "npm:^3.4.0"
-    "@docusaurus/tsconfig": "npm:^3.3.2"
+    "@docusaurus/tsconfig": "npm:^3.4.0"
     "@easyops-cn/docusaurus-search-local": "npm:^0.44.2"
     "@fortawesome/fontawesome-svg-core": "npm:^6.5.2"
     "@fortawesome/free-brands-svg-icons": "npm:^6.5.2"
