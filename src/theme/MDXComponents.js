@@ -5,8 +5,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 export default {
-  // Re-use the default mapping
-  ...MDXComponents,
-  Tabs,
-  TabItem
+    ...MDXComponents,
+    Tabs,
+    TabItem,
 };

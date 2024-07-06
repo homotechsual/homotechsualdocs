@@ -115,18 +115,6 @@ const config = {
             ],  
           },
           {
-            label: 'Tool Docs',
-            position: 'left',
-            items: [
-              {
-                type: 'doc',
-                docId: 'index',
-                label: 'NinjaGet',
-                docsPluginId: 'ninjaget',
-              },
-            ],
-          },
-          {
             label: 'Other Docs',
             position: 'left',
             items: [
@@ -182,11 +170,6 @@ const config = {
               {
                 to: 'https://github.com/homotechsual/NinjaOne',
                 label: 'NinjaOne',
-                target: '_blank',
-              },
-              {
-                to: 'https://github.com/homotechsual/NinjaGet',
-                label: 'NinjaGet',
                 target: '_blank',
               },
               {
@@ -352,16 +335,6 @@ const config = {
           routeBasePath: 'modules/msgraphmail',
           sidebarPath: require.resolve('./msgraphmailsidebar.js'),
           
-        },
-      ],
-      [
-        '@docusaurus/plugin-content-docs',
-        {
-          id: 'ninjaget',
-          path: 'docs/ninjaget',
-          routeBasePath: 'tools/ninjaget',
-          sidebarPath: require.resolve('./ninjagetsidebar.js'),
-          ...commonDocsPluginConfig
         },
       ],
       [
