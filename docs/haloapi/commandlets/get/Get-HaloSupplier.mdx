@@ -21,13 +21,14 @@ Gets suppliers from the Halo API.
 ```powershell
 Get-HaloSupplier [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String>] [-OrderDesc]
  [-Search <String>] [-Count <Int32>] [-TopLevelID <Int32>] [-IncludeActive] [-IncludeInactive]
- [<CommonParameters>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloSupplier -SupplierID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloSupplier -SupplierID <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

@@ -20,13 +20,14 @@ Gets Custom Fields from the Halo API.
 
 ```powershell
 Get-HaloCustomField [-Count <Int64>] [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String>]
- [-OrderDesc] [<CommonParameters>]
+ [-OrderDesc] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloCustomField -CustomFieldID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloCustomField -CustomFieldID <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

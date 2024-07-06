@@ -21,14 +21,14 @@ Gets actions from the Halo API.
 ```powershell
 Get-HaloAction [-Count <Int64>] -TicketID <Int32> [-ExcludeSys] [-ConversationOnly] [-AgentOnly]
  [-SupplierOnly] [-ExcludePrivate] [-IncludeHTMLNote] [-IncludeHTMLEmail] [-IncludeAttachments]
- [-ImportantOnly] [-SLAOnly] [-IsChildNotes] [<CommonParameters>]
+ [-ImportantOnly] [-SLAOnly] [-IsChildNotes] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
 Get-HaloAction -ActionID <Int64> -TicketID <Int32> [-AgentOnly] [-IncludeEmail] [-IncludeDetails] [-MostRecent]
- [-EmailOnly] [-NonSystem] [<CommonParameters>]
+ [-EmailOnly] [-NonSystem] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

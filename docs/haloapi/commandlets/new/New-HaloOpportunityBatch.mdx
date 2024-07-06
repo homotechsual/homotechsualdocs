@@ -17,8 +17,8 @@ Creates multiple opportunities via the Halo API.
 ## SYNTAX
 
 ```powershell
-New-HaloOpportunityBatch [-Opportunitys] <Array[]> [[-BatchSize] <Int32>] [[-BatchWait] <Int32>] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+New-HaloOpportunityBatch [-Opportunities] <Array[]> [[-BatchSize] <Int32>] [[-BatchWait] <Int32>]
+ [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -29,7 +29,7 @@ Function to send a batch of opportunity creation requests to the Halo API
 
 ## PARAMETERS
 
-### -Opportunitys
+### -Opportunities
 
 Array of objects containing properties and values used to create one or more new opportunities.
 

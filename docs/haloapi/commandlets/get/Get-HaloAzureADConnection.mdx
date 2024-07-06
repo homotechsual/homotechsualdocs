@@ -19,14 +19,15 @@ Gets Azure AD Connection information from the Halo API.
 ### Multi (Default)
 
 ```powershell
-Get-HaloAzureADConnection [-Type <String>] [-ShowAll <String>] [<CommonParameters>]
+Get-HaloAzureADConnection [-Type <String>] [-ShowAll <String>] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
 Get-HaloAzureADConnection -AzureConnectionID <Int64> [-Type <String>] [-IncludeDetails] [-IncludeTenants]
- [<CommonParameters>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

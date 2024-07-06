@@ -20,13 +20,15 @@ Gets contracts from the Halo API.
 
 ```powershell
 Get-HaloContract [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String>] [-OrderDesc]
- [-Search <String>] [-Count <Int32>] [-FullObjects] [-ClientID <Int32>] [<CommonParameters>]
+ [-Search <String>] [-Count <Int32>] [-FullObjects] [-ClientID <Int32>] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloContract -ContractID <Int64> [-includeDetails] [<CommonParameters>]
+Get-HaloContract -ContractID <Int64> [-includeDetails] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

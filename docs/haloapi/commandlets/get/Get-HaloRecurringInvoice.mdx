@@ -23,13 +23,14 @@ Get-HaloRecurringInvoice [-Count <Int32>] [-Search <String>] [-Paginate] [-PageS
  [-OrderBy <String>] [-OrderByDesc] [-OrderBy2 <String>] [-OrderByDesc2] [-OrderBy3 <String>] [-OrderByDesc3]
  [-OrderBy4 <String>] [-OrderByDesc4] [-OrderBy5 <String>] [-OrderByDesc5] [-includeinactive]
  [-includeinvoices] [-includecredits] [-includeLines] [-TicketID <Int32>] [-ClientID <Int32>] [-SiteID <Int32>]
- [-UserID <Int32>] [-FullObjects] [<CommonParameters>]
+ [-UserID <Int32>] [-FullObjects] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloRecurringInvoice -RecurringInvoiceID <Int64> [-includeDetails] [<CommonParameters>]
+Get-HaloRecurringInvoice -RecurringInvoiceID <Int64> [-includeDetails] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

@@ -20,13 +20,14 @@ Gets software Licences from the Halo API.
 
 ```powershell
 Get-HaloSoftwareLicence [-ClientID <Int64>] [-Count <Int64>] [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>]
- [-Order <String>] [-OrderDesc] [<CommonParameters>]
+ [-Order <String>] [-OrderDesc] [-IncludeInactive] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloSoftwareLicence -LicenceID <Int64> -ClientID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloSoftwareLicence -LicenceID <Int64> -ClientID <Int64> [-IncludeDetails]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -184,6 +185,22 @@ Include extra objects in the result.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: Single
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -IncludeInactive
+
+Include inactive software licenses / subscriptions.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Multi
 Aliases:
 
 Required: False

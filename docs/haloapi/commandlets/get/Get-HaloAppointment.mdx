@@ -21,13 +21,14 @@ Gets appointments from the Halo API.
 ```powershell
 Get-HaloAppointment [-ShowAll] [-StartDate <String>] [-EndDate <String>] [-Agents <String>] [-ShowHolidays]
  [-ShowProjects] [-ShowChanges] [-ShowAppointments] [-Search <String>] [-AppointmentsOnly] [-TasksOnly]
- [-HideCompleted] [-TicketID <Int64>] [<CommonParameters>]
+ [-HideCompleted] [-TicketID <Int64>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloAppointment -AppointmentID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloAppointment -AppointmentID <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

@@ -31,13 +31,14 @@ Get-HaloAsset [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>] [-Search <String
  [-Order2 <String>] [-OrderDesc2] [-Order3 <String>] [-OrderDesc3] [-Order4 <String>] [-OrderDesc4]
  [-Order5 <String>] [-OrderDesc5] [-ServiceId <Int32>] [-ServiceIds <Int32[]>] [-StockBinId <Int32>]
  [-StockBinIds <Int32[]>] [-SupplierContractId <Int32>] [-SupplierId <Int32>] [-SupplierContracts <Int32[]>]
- [-TicketTypeId <Int32>] [-UserId <Int32>] [<CommonParameters>]
+ [-TicketTypeId <Int32>] [-UserId <Int32>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloAsset -AssetID <Int64> [-IncludeDetails] [-IncludeDiagramDetails] [<CommonParameters>]
+Get-HaloAsset -AssetID <Int64> [-IncludeDetails] [-IncludeDiagramDetails] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

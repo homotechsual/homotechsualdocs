@@ -21,13 +21,14 @@ Gets sales orders from the Halo API.
 ```powershell
 Get-HaloSalesOrder [-Count <Int64>] [-Search <String>] [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>]
  [-Open] [-Closed] [-NeedsOrdering] [-IncludeActive] [-IncludeInactive] [-Order <String>] [-OrderDesc]
- [-ClientID <Int64>] [-SiteID <Int64>] [<CommonParameters>]
+ [-ClientID <Int64>] [-SiteID <Int64>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloSalesOrder -SalesOrderID <Int64> [-IncludeDetails] [-IncludeBillingInfo] [<CommonParameters>]
+Get-HaloSalesOrder -SalesOrderID <Int64> [-IncludeDetails] [-IncludeBillingInfo]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

@@ -20,13 +20,13 @@ Gets statuses from the Halo API.
 
 ```powershell
 Get-HaloStatus [-Type <String>] [-ShowCounts] [-Domain <String>] [-ViewID <Int32>] [-ExcludePending]
- [-ExcludeClosed] [<CommonParameters>]
+ [-ExcludeClosed] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloStatus -StatusID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloStatus -StatusID <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

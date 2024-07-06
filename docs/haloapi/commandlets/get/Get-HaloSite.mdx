@@ -21,13 +21,13 @@ Gets sites from the Halo API.
 ```powershell
 Get-HaloSite [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String>] [-OrderDesc]
  [-Search <String>] [-TopLevelID <Int32>] [-ClientID <Int32>] [-IncludeInactive] [-IncludeActive]
- [-Count <Int32>] [-FullObjects] [<CommonParameters>]
+ [-Count <Int32>] [-FullObjects] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloSite -SiteID <Int64> [<CommonParameters>]
+Get-HaloSite -SiteID <Int64> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

@@ -21,19 +21,20 @@ Gets agents from the Halo API.
 ```powershell
 Get-HaloAgent [-Team <String>] [-Search <String>] [-SectionID <Int32>] [-DepartmentID <Int32>]
  [-ClientID <Int32>] [-Role <String>] [-IncludeEnabled] [-IncludeDisabled] [-IncludeUnassigned] [-IncludeRoles]
- [-ShowAll] [-IncludeAPIAgents] [-CanEditOnly] [-IncludeNamedCount] [<CommonParameters>]
+ [-ShowAll] [-IncludeAPIAgents] [-CanEditOnly] [-IncludeNamedCount] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### Me
 
 ```powershell
-Get-HaloAgent [-Me] [<CommonParameters>]
+Get-HaloAgent [-Me] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloAgent -AgentID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloAgent -AgentID <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

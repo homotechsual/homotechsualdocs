@@ -22,13 +22,14 @@ Gets quotes from the Halo API.
 Get-HaloQuote [-Count <Int64>] [-Search <String>] [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>]
  [-OrderBy <String>] [-OrderByDesc] [-OrderBy2 <String>] [-OrderByDesc2] [-OrderBy3 <String>] [-OrderByDesc3]
  [-OrderBy4 <String>] [-OrderByDesc4] [-OrderBy5 <String>] [-OrderByDesc5] [-TicketID <Int64>]
- [-ClientID <Int64>] [-SiteID <Int64>] [-UserID <Int64>] [<CommonParameters>]
+ [-ClientID <Int64>] [-SiteID <Int64>] [-UserID <Int64>] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloQuote -QuoteID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloQuote -QuoteID <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

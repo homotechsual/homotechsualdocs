@@ -19,13 +19,14 @@ Gets Halo Ticket Rules information from the Halo API.
 ### Multi (Default)
 
 ```powershell
-Get-HaloTicketRules [-ExcludeWorkflow] [-ShowAll] [<CommonParameters>]
+Get-HaloTicketRules [-ExcludeWorkflow] [-ShowAll] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloTicketRules -RuleID <Int64> [-IncludeDetails] [-IncludeCriteriaInfo] [<CommonParameters>]
+Get-HaloTicketRules -RuleID <Int64> [-IncludeDetails] [-IncludeCriteriaInfo]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

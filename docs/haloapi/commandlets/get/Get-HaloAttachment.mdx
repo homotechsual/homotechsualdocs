@@ -20,25 +20,28 @@ Gets attachments from the Halo API.
 
 ```powershell
 Get-HaloAttachment -TicketID <Int64> [-ActionID <Int64>] [-Type <Int64>] [-UniqueID <Int64>]
- [<CommonParameters>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### SinglePath
 
 ```powershell
-Get-HaloAttachment -AttachmentID <Int64> -OutPath <String> [<CommonParameters>]
+Get-HaloAttachment -AttachmentID <Int64> -OutPath <String> [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### SingleFile
 
 ```powershell
-Get-HaloAttachment -AttachmentID <Int64> -OutFile <String> [<CommonParameters>]
+Get-HaloAttachment -AttachmentID <Int64> -OutFile <String> [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloAttachment -AttachmentID <Int64> [-IncludeDetails] [-AsBase64] [-GetToken] [<CommonParameters>]
+Get-HaloAttachment -AttachmentID <Int64> [-IncludeDetails] [-AsBase64] [-GetToken]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

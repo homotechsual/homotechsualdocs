@@ -20,13 +20,14 @@ Gets teams from the Halo API.
 
 ```powershell
 Get-HaloTeam [-Type <String>] [-IncludeAgentsForTeams <String>] [-MemberOnly] [-ShowCounts] [-Domain <String>]
- [-ViewID <Int32>] [-IncludeEnabled] [-IncludeDisabled] [-DepartmentID <Int32>] [<CommonParameters>]
+ [-ViewID <Int32>] [-IncludeEnabled] [-IncludeDisabled] [-DepartmentID <Int32>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloTeam -TeamID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloTeam -TeamID <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

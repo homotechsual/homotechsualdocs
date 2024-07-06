@@ -21,13 +21,14 @@ Gets clients from the Halo API.
 ```powershell
 Get-HaloClient [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String>] [-OrderDesc]
  [-Search <String>] [-TopLevelID <Int32>] [-IncludeActive] [-IncludeInactive] [-Count <Int32>] [-FullObjects]
- [<CommonParameters>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloClient -ClientID <Int64> [-IncludeDetails] [-IncludeActivity] [<CommonParameters>]
+Get-HaloClient -ClientID <Int64> [-IncludeDetails] [-IncludeActivity] [-IncludePrepay]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -249,6 +250,22 @@ Accept wildcard characters: False
 ### -IncludeActivity
 
 Include ticket activity in the result.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Single
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -IncludePrepay
+
+Include prepay objects in the result.
 
 ```yaml
 Type: SwitchParameter

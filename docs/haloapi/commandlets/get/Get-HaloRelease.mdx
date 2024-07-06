@@ -20,13 +20,14 @@ Gets software releases from the Halo API.
 
 ```powershell
 Get-HaloRelease [-Count <Int64>] [-Search <String>] [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>]
- [-Order <String>] [-OrderDesc] [-IncludeNoteCount] [-ProductID <Int32>] [<CommonParameters>]
+ [-Order <String>] [-OrderDesc] [-IncludeNoteCount] [-ProductID <Int32>] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloRelease -ReleaseID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloRelease -ReleaseID <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

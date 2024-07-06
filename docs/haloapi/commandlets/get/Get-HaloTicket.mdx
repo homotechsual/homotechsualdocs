@@ -33,13 +33,14 @@ Get-HaloTicket [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String
  [-SearchSummary <String>] [-SearchDetails <String>] [-SearchReportedBy <String>] [-SearchVersion <String>]
  [-SearchRelease1 <String>] [-SearchRelease2 <String>] [-SearchRelease3 <String>] [-SearchReleaseNote <String>]
  [-SearchInventoryNumber <String>] [-SearchOppContactName <String>] [-SearchOppCompanyName <String>]
- [-FullObjects] [-Deleted] [<CommonParameters>]
+ [-FullObjects] [-Deleted] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloTicket -TicketID <Int64> [-TicketIDOnly] [-IncludeDetails] [-IncludeLastAction] [<CommonParameters>]
+Get-HaloTicket -TicketID <Int64> [-TicketIDOnly] [-IncludeDetails] [-IncludeLastAction]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

@@ -19,13 +19,15 @@ Removes an action from the Halo API.
 ### Single
 
 ```powershell
-Remove-HaloAction -ActionID <Int64> -TicketID <Int64> [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-HaloAction -ActionID <Int64> -TicketID <Int64> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### Batch
 
 ```powershell
-Remove-HaloAction -Action <Object> [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-HaloAction -Action <Object> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

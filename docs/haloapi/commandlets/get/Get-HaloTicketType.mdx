@@ -20,13 +20,14 @@ Gets ticket types from the Halo API.
 
 ```powershell
 Get-HaloTicketType [-ShowCounts] [-Domain <String>] [-ViewID <Int32>] [-ShowInactive] [-ClientID <Int32>]
- [<CommonParameters>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloTicketType -TicketTypeID <Int64> [-IncludeDetails] [-IncludeConfig] [<CommonParameters>]
+Get-HaloTicketType -TicketTypeID <Int64> [-IncludeDetails] [-IncludeConfig]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

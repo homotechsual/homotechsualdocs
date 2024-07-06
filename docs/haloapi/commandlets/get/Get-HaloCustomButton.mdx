@@ -19,13 +19,15 @@ Gets custom buttons from the Halo API.
 ### Multi (Default)
 
 ```powershell
-Get-HaloCustomButton [-Type <String>] [-TypeID <Int64>] [-IsButtonSetup] [-IncludeDetails] [<CommonParameters>]
+Get-HaloCustomButton [-Type <String>] [-TypeID <Int64>] [-IsButtonSetup] [-IncludeDetails]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloCustomButton -CustomButtonID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloCustomButton -CustomButtonID <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

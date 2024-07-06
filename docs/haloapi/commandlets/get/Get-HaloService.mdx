@@ -21,13 +21,14 @@ Gets services from the Halo API.
 ```powershell
 Get-HaloService [-Count <Int64>] [-Search <String>] [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>]
  [-Order <String>] [-OrderDesc] [-UserID <Int32>] [-ServiceStatusIDs <Int32[]>] [-ServiceCatalogueType <Int32>]
- [-ServiceCategoryIDs <Int32[]>] [-ITILTicketType <Int32>] [-IncludeStatusInfo] [<CommonParameters>]
+ [-ServiceCategoryIDs <Int32[]>] [-ITILTicketType <Int32>] [-IncludeStatusInfo]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloService -ServiceID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloService -ServiceID <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

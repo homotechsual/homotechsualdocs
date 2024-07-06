@@ -23,13 +23,14 @@ Get-HaloReport [-Count <Int64>] [-Search <String>] [-Paginate] [-PageSize <Int32
  [-OrderBy <String>] [-OrderByDesc] [-OrderBy2 <String>] [-OrderByDesc2] [-OrderBy3 <String>] [-OrderByDesc3]
  [-OrderBy4 <String>] [-OrderByDesc4] [-OrderBy5 <String>] [-OrderByDesc5] [-TicketID <Int64>]
  [-ClientID <Int64>] [-SiteID <Int64>] [-UserID <Int64>] [-ReportGroupID <Int64>] [-ChartOnly]
- [<CommonParameters>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloReport -ReportID <Int64> [-IncludeDetails] [-LoadReport] [<CommonParameters>]
+Get-HaloReport -ReportID <Int64> [-IncludeDetails] [-LoadReport] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

@@ -19,13 +19,14 @@ Gets billing templates from the Halo API.
 ### Multi (Default)
 
 ```powershell
-Get-HaloBillingTemplate [-ShowAll] [<CommonParameters>]
+Get-HaloBillingTemplate [-ShowAll] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloBillingTemplate -TemplateID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloBillingTemplate -TemplateID <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

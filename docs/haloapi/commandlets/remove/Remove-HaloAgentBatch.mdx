@@ -17,8 +17,8 @@ Removes multiple agents via the Halo API.
 ## SYNTAX
 
 ```powershell
-Remove-HaloAgentBatch [-Agents] <Array[]> [[-BatchSize] <Int32>] [[-BatchWait] <Int32>] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Remove-HaloAgentBatch [-Agents] <Int64[]> [[-BatchSize] <Int32>] [[-BatchWait] <Int32>]
+ [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -35,7 +35,7 @@ Array of objects containing properties and values used to remove one or more age
 This should be an array of agent ids.
 
 ```yaml
-Type: Array[]
+Type: Int64[]
 Parameter Sets: (All)
 Aliases:
 

@@ -20,13 +20,14 @@ Gets Workflows from the Halo API.
 
 ```powershell
 Get-HaloWorkflow [-Count <Int64>] [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String>]
- [-OrderDesc] [<CommonParameters>]
+ [-OrderDesc] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloWorkflow -WorkflowID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloWorkflow -WorkflowID <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

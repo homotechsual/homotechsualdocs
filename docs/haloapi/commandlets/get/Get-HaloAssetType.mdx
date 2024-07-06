@@ -21,13 +21,14 @@ Gets asset types from the Halo API.
 ```powershell
 Get-HaloAssetType [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String>] [-OrderDesc]
  [-Search <String>] [-AssetGroupID <Int64>] [-includeinactive] [-includeactive] [-FullObjects] [-ShowAll]
- [<CommonParameters>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloAssetType -AssetTypeID <Int64> [-IncludeDetails] [-IncludeDiagramDetails] [<CommonParameters>]
+Get-HaloAssetType -AssetTypeID <Int64> [-IncludeDetails] [-IncludeDiagramDetails]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

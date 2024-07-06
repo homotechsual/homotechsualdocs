@@ -22,13 +22,15 @@ Gets users from the Halo API.
 Get-HaloUser [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String>] [-OrderDesc]
  [-Search <String>] [-SearchPhoneNumbers] [-TopLevelID <Int32>] [-ClientID <Int32>] [-SiteID <Int32>]
  [-OrganisationID <Int32>] [-DepartmentID <Int32>] [-AssetID <Int32>] [-IncludeActive] [-IncludeInactive]
- [-ApproversOnly] [-ExcludeAgents] [-Count <Int32>] [-FullObjects] [<CommonParameters>]
+ [-ApproversOnly] [-ExcludeAgents] [-Count <Int32>] [-FullObjects] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloUser -UserID <Int64> [-IncludeDetails] [-IncludeActivity] [-IncludePopups] [<CommonParameters>]
+Get-HaloUser -UserID <Int64> [-IncludeDetails] [-IncludeActivity] [-IncludePopups]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

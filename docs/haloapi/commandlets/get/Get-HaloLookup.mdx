@@ -19,13 +19,15 @@ Gets lookup information from the Halo API.
 ### Multi (Default)
 
 ```powershell
-Get-HaloLookup [-Lookup <String>] [-LookupID <Int64>] [-ShowAll] [-ExcludeZero] [<CommonParameters>]
+Get-HaloLookup [-Lookup <String>] [-LookupID <Int64>] [-ShowAll] [-ExcludeZero]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloLookup -ItemID <Int64> [-Lookup <String>] [-LookupID <Int64>] [<CommonParameters>]
+Get-HaloLookup -ItemID <Int64> [-Lookup <String>] [-LookupID <Int64>] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

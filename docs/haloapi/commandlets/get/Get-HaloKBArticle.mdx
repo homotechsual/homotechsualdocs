@@ -20,13 +20,15 @@ Gets knowledgebase articles from the Halo API.
 
 ```powershell
 Get-HaloKBArticle [-Count <Int64>] [-Search <String>] [-AdvancedSearch <String>] [-Paginate]
- [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String>] [-OrderDesc] [<CommonParameters>]
+ [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String>] [-OrderDesc] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-HaloKBArticle -KBArticleID <Int64> [-IncludeDetails] [<CommonParameters>]
+Get-HaloKBArticle -KBArticleID <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
