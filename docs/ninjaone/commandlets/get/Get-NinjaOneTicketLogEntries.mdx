@@ -17,8 +17,8 @@ Gets ticket log entries from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneTicketLogEntries [-ticketId] <String> [[-type] <String>] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+Get-NinjaOneTicketLogEntries [-ticketId] <String> [[-createTime] <String>] [[-pageSize] <Int32>]
+ [[-type] <String>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -57,7 +57,39 @@ Aliases: id
 Required: True
 Position: 1
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
+### -createTime
+
+Filter by create time.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -pageSize
+
+The number of results to return.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: 0
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -71,9 +103,9 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 4
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 

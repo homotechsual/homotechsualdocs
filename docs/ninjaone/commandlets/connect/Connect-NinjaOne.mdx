@@ -29,8 +29,8 @@ Connect-NinjaOne [-UseWebAuth] -Instance <String> -ClientId <String> -ClientSecr
 ```powershell
 Connect-NinjaOne [-UseWebAuth] [-UseTokenAuth] [-UseClientAuth] -Instance <String> -ClientId <String>
  -ClientSecret <String> [-Scopes <String[]>] [-RedirectURL <Uri>] [-Port <Int32>] [-RefreshToken <String>]
- [-UseSecretManagement] -VaultName <String> [-WriteToSecretVault] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+ [-UseSecretManagement] -VaultName <String> [-WriteToSecretVault] [-SecretPrefix <String>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Token Authentication
@@ -53,7 +53,7 @@ Connect-NinjaOne [-UseClientAuth] -Instance <String> -ClientId <String> -ClientS
 
 ```powershell
 Connect-NinjaOne [-UseSecretManagement] -VaultName <String> [-WriteToSecretVault] [-ReadFromSecretVault]
- [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [-SecretPrefix <String>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -421,6 +421,22 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SecretPrefix
+
+The prefix to add to the name of the secrets stored in the secret vault.
+
+```yaml
+Type: String
+Parameter Sets: Secret Vault Write, Secret Vault Read
+Aliases:
+
+Required: False
+Position: Named
+Default value: NinjaOne
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

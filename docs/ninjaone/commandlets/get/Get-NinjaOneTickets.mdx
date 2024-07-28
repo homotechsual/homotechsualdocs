@@ -27,7 +27,8 @@ Get-NinjaOneTickets [-ticketId] <Int32> [-ProgressAction <ActionPreference>] [<C
 ```powershell
 Get-NinjaOneTickets [-boardId] <String> [[-sort] <NinjaOneTicketBoardSort[]>]
  [[-filters] <NinjaOneTicketBoardFilter[]>] [[-lastCursorId] <String>] [[-pageSize] <Int32>]
- [[-searchCriteria] <String>] [-includeMetadata] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [[-searchCriteria] <String>] [[-includeColumns] <String[]>] [-includeMetadata]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -176,6 +177,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -includeColumns
+
+Inclue the given columns in the response.
+
+```yaml
+Type: String[]
+Parameter Sets: Board
+Aliases:
+
+Required: False
+Position: 7
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -includeMetadata
 
 Include the metadata in the response.
@@ -186,7 +203,7 @@ Parameter Sets: Board
 Aliases:
 
 Required: False
-Position: 7
+Position: 8
 Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False

@@ -1,7 +1,7 @@
 ---
-title: Get Attachment
-id: attachment
-description: "Retrieves a help request form / systray help form attachment from the NinjaOne v2 API."
+title: Get Organisation Users
+id: organisationusers
+description: "Gets users for an organisation using the NinjaOne v2 API."
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -12,42 +12,43 @@ This page has been generated from the NinjaOne PowerShell module source. To make
 
 ## SYNOPSIS
 
-Gets a help request form / systray help form attachment from the NinjaOne API.
+Wrapper command using `Get-NinjaOneUsers` to get users for an organisation.
 
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneAttachment [-attachmentId] <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-NinjaOneOrganisationUsers [-organisationId] <Int32> [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Retrieves a help request form / systray help form attachment from the NinjaOne v2 API.
+Gets users for an organisation using the NinjaOne v2 API.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
 ```powershell
-Get-NinjaOneAttachment -attachmentId 'somethinggoesherebutidontknowwhatandneitherdoninja'
+Get-NinjaOneOrganisationUsers -organisationId 1
 ```
 
-Retrieves the attachment with id 'somethinggoesherebutidontknowwhatandneitherdoninja'.
+Gets users for the organisation with id 1.
 
 ## PARAMETERS
 
-### -attachmentId
+### -organisationId
 
-The attachment id to retrieve.
+Filter by organisation id.
 
 ```yaml
-Type: String
+Type: Int32
 Parameter Sets: (All)
-Aliases: id
+Aliases: id, organizationId
 
 Required: True
 Position: 1
-Default value: None
+Default value: 0
 Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
@@ -67,4 +68,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://docs.homotechsual.dev/modules/ninjaone/commandlets/Get/attachment](https://docs.homotechsual.dev/modules/ninjaone/commandlets/Get/attachment)
+[https://docs.homotechsual.dev/modules/ninjaone/commandlets/Get/organisationusers](https://docs.homotechsual.dev/modules/ninjaone/commandlets/Get/organisationusers)

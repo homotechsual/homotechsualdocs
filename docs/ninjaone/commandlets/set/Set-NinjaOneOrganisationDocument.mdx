@@ -17,7 +17,7 @@ Sets an organisation document.
 ## SYNTAX
 
 ```powershell
-Set-NinjaOneOrganisationDocument [-organisationId] <Int32> [-documentId] <Int32>
+Set-NinjaOneOrganisationDocument [-organisationId] <Int32> [-clientDocumentId] <Int32>
  [-organisationDocument] <Object> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
@@ -46,14 +46,14 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -documentId
+### -clientDocumentId
 
 The organisation document id to update.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases:
+Aliases: documentId
 
 Required: True
 Position: 2
