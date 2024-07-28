@@ -1,7 +1,7 @@
 ---
 title: New Organisation Documents
 id: organisationdocuments
-description: "Create one or more organisation documents using the NinjaOne v2 API."
+description: "Create a single organisation document using the NinjaOne v2 API."
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -12,22 +12,55 @@ This page has been generated from the NinjaOne PowerShell module source. To make
 
 ## SYNOPSIS
 
-Creates new organisation document(s) using the NinjaOne API.
+Creates a new organisation document using the NinjaOne API.
 
 ## SYNTAX
 
 ```powershell
-New-NinjaOneOrganisationDocument [-organisationDocuments] <NinjaOneOrganisationDocument[]> [-show]
- [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-NinjaOneOrganisationDocument [-organisationId] <String> [-documentTemplateId] <String>
+ [-organisationDocuments] <NinjaOneOrganisationDocument[]> [-show] [-ProgressAction <ActionPreference>]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Create one or more organisation documents using the NinjaOne v2 API.
+Create a single organisation document using the NinjaOne v2 API.
 
 ## EXAMPLES
 
 ## PARAMETERS
+
+### -organisationId
+
+The Id of the organisation to create the document for.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: organizationId, id
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
+### -documentTemplateId
+
+The Id of the document template to use.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: templateId
+
+Required: True
+Position: 2
+Default value: None
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
 
 ### -organisationDocuments
 
@@ -39,7 +72,7 @@ Parameter Sets: (All)
 Aliases: organizationDocuments, body
 
 Required: True
-Position: 1
+Position: 3
 Default value: None
 Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
@@ -47,7 +80,7 @@ Accept wildcard characters: False
 
 ### -show
 
-Show the organisation that was created.
+Show the organisation document that was created.
 
 ```yaml
 Type: SwitchParameter

@@ -32,7 +32,8 @@ Get-NinjaOneDevices [-deviceId] <Int32> [-ProgressAction <ActionPreference>] [<C
 ### Organisation
 
 ```powershell
-Get-NinjaOneDevices [-organisationId] <Int32> [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-NinjaOneDevices [[-pageSize] <Int32>] [[-after] <Int32>] [-organisationId] <Int32>
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -129,7 +130,7 @@ Number of results per page.
 
 ```yaml
 Type: Int32
-Parameter Sets: Multi
+Parameter Sets: Multi, Organisation
 Aliases:
 
 Required: False
@@ -145,7 +146,7 @@ Start results from device id.
 
 ```yaml
 Type: Int32
-Parameter Sets: Multi
+Parameter Sets: Multi, Organisation
 Aliases:
 
 Required: False
@@ -181,7 +182,7 @@ Parameter Sets: Organisation
 Aliases: organizationId
 
 Required: True
-Position: 6
+Position: 1
 Default value: 0
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False

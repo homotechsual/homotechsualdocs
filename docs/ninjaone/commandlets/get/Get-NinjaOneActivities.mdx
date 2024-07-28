@@ -21,7 +21,8 @@ Get-NinjaOneActivities [[-deviceId] <Int32>] [[-class] <String>] [[-before] <Dat
  [[-beforeUnixEpoch] <Int32>] [[-after] <DateTime>] [[-afterUnixEpoch] <Int32>] [[-olderThan] <Int32>]
  [[-newerThan] <Int32>] [[-type] <String>] [[-activityType] <String>] [[-status] <String>] [[-user] <String>]
  [[-seriesUid] <String>] [[-deviceFilter] <String>] [[-pageSize] <Int32>] [[-languageTag] <String>]
- [[-timeZone] <String>] [-expandActivities] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [[-timeZone] <String>] [[-sourceConfigUid] <String>] [-expandActivities] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -391,6 +392,22 @@ Aliases: tz
 
 Required: False
 Position: 14
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -sourceConfigUid
+
+return activities for this source configuration.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 15
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

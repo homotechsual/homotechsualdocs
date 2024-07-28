@@ -1,7 +1,7 @@
 ---
-title: Get Attachment
-id: attachment
-description: "Retrieves a help request form / systray help form attachment from the NinjaOne v2 API."
+title: Get-NinjaOneAutomations
+id: get-ninjaoneautomations
+description: "Retrieves automation scripts from the NinjaOne v2 API."
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -12,43 +12,51 @@ This page has been generated from the NinjaOne PowerShell module source. To make
 
 ## SYNOPSIS
 
-Gets a help request form / systray help form attachment from the NinjaOne API.
+Gets automation scripts from the NinjaOne API.
 
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneAttachment [-attachmentId] <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-NinjaOneAutomations [[-languageTag] <String>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Retrieves a help request form / systray help form attachment from the NinjaOne v2 API.
+Retrieves automation scripts from the NinjaOne v2 API.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
 ```powershell
-Get-NinjaOneAttachment -attachmentId 'somethinggoesherebutidontknowwhatandneitherdoninja'
+Get-NinjaOneAutomations
 ```
 
-Retrieves the attachment with id 'somethinggoesherebutidontknowwhatandneitherdoninja'.
+Gets all automation scripts.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneAlerts -lang 'en'
+```
+
+Gets all automation scripts, returning the name of built in automation scripts in English.
 
 ## PARAMETERS
 
-### -attachmentId
+### -languageTag
 
-The attachment id to retrieve.
+Return built in automation script names in the given language.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: id
+Aliases: lang
 
-Required: True
+Required: False
 Position: 1
 Default value: None
-Accept pipeline input: True (ByPropertyName, ByValue)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -67,4 +75,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://docs.homotechsual.dev/modules/ninjaone/commandlets/Get/attachment](https://docs.homotechsual.dev/modules/ninjaone/commandlets/Get/attachment)
+[https://docs.homotechsual.dev/modules/ninjaone/commandlets/Get/automationscripts](https://docs.homotechsual.dev/modules/ninjaone/commandlets/Get/automationscripts)

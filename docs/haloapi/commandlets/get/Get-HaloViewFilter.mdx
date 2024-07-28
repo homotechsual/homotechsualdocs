@@ -1,0 +1,182 @@
+---
+title: Get-HaloViewFilter
+id: get-haloviewfilter
+description: "Retrieves view filter from the Halo API - supports a variety of filtering parameters."
+hide_title: false
+hide_table_of_contents: false
+---
+
+:::powershell[Generated Cmdlet Help]
+This page has been generated from the HaloAPI PowerShell module source. To make changes please edit the appropriate PowerShell source file.
+:::
+
+## SYNOPSIS
+
+Gets view filter profiles from the Halo API.
+
+## SYNTAX
+
+### Multi (Default)
+
+```powershell
+Get-HaloViewFilter [-GlobalOnly] [-ShowAll] [-ShowAllForTeam <Int64>] [-ShowAllForTech <Int64>]
+ [-TicketAreaId <Int64>] [-Type <String>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+```
+
+### Single
+
+```powershell
+Get-HaloViewFilter -ViewFilterId <Int64> [-IncludeDetails] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
+```
+
+## DESCRIPTION
+
+Retrieves view filter from the Halo API - supports a variety of filtering parameters.
+
+## EXAMPLES
+
+## PARAMETERS
+
+### -ViewFilterId
+
+View Filter Id.
+
+```yaml
+Type: Int64
+Parameter Sets: Single
+Aliases:
+
+Required: True
+Position: Named
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -GlobalOnly
+
+Return global view filters only.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Multi
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ShowAll
+
+Show all view filters.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Multi
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ShowAllForTeam
+
+Show all view filters for a specific team.
+
+```yaml
+Type: Int64
+Parameter Sets: Multi
+Aliases:
+
+Required: False
+Position: Named
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ShowAllForTech
+
+Show all view filters for a specific tech.
+
+```yaml
+Type: Int64
+Parameter Sets: Multi
+Aliases:
+
+Required: False
+Position: Named
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TicketAreaId
+
+Show all view filters for a specific ticket area.
+
+```yaml
+Type: Int64
+Parameter Sets: Multi
+Aliases: ticketarea_id
+
+Required: False
+Position: Named
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Type
+
+Filter by the following view filter type.
+
+```yaml
+Type: String
+Parameter Sets: Multi
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -IncludeDetails
+
+Include detailed information about the view filter.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Single
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+
+## OUTPUTS
+
+### A powershell object containing the response.
+
+## NOTES
+
+## RELATED LINKS

@@ -1,14 +1,14 @@
 {
   "className": "category-restore",
   "collapsible": true,
-  "label": "Restore Data",
-  "position": 0.6,
-  "collapsed": true,
   "link": {
     "type": "generated-index",
     "title": "Restore Data"
   },
   "customProps": {
     "description": "This category contains commands for restoring data, objects, settings and more. These commands will primarily be used for restoring data to a previous state."
-  }
+  },
+  "position": 0.6,
+  "collapsed": true,
+  "label": "Restore Data"
 }

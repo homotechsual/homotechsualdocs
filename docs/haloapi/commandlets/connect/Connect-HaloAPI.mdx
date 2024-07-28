@@ -19,8 +19,8 @@ Creates a new connection to a Halo instance.
 ```powershell
 Connect-HaloAPI -URL <Uri> -ClientID <String> -ClientSecret <String> [-Scopes <String[]>] [-Tenant <String>]
  [-AdditionalHeaders <Hashtable>] [-UseKeyVault <Boolean>] [-SecretName <String>] [-VaultName <String>]
- [-SaveToKeyVault <Boolean>] [-Identity <String>] [-MaxRetries <Int32>] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+ [-SaveToKeyVault <Boolean>] [-Identity <String>] [-MaxRetries <Int32>] [-NoConfirm]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -230,6 +230,22 @@ Aliases:
 Required: False
 Position: Named
 Default value: 10
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -NoConfirm
+
+Don't return a boolean to confirm the connection status.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
