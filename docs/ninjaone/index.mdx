@@ -55,6 +55,26 @@ Remove-Module -Name NinjaOne
 Import-Module -Name NinjaOne
 ```
 
+## Output Levels
+
+Some commandlets support the `-InformationAction` parameter which will output information about what the commandlet is doing. If you want to see this output you can use the `-InformationAction` parameter on any commandlet. For example:
+
+```powershell
+Invoke-NinjaOneDeviceScript -InformationAction Continue
+```
+
+All commandlets support the `-Verbose` parameter which will output detailed information about what the commandlet is doing. If you want to see this output you can use the `-Verbose` parameter on any commandlet. For example:
+
+```powershell
+Get-NinjaOneDevices -Verbose
+```
+
+All commandlets support the `-Debug` parameter which will output detailed information about what the commandlet is doing. If you want to see this output you can use the `-Debug` parameter on any commandlet. For example:
+
+```powershell
+Get-NinjaOneDevices -Debug
+```
+
 ## Getting Started
 
 The first and probably most important requirement for this module is getting it connected to NinjaOne.
