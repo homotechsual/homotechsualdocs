@@ -17,7 +17,7 @@ Creates new organisation documents using the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-New-NinjaOneOrganisationDocuments [-organisationDocuments] <NinjaOneOrganisationDocument[]> [-show]
+New-NinjaOneOrganisationDocuments [-organisationDocuments] <Object[]> [-show]
  [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -34,7 +34,7 @@ Create one or more organisation documents using the NinjaOne v2 API.
 An object containing an array of organisation documents to create.
 
 ```yaml
-Type: NinjaOneOrganisationDocument[]
+Type: Object[]
 Parameter Sets: (All)
 Aliases: organizationDocuments, body
 

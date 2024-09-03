@@ -1,6 +1,6 @@
 ---
-title: New Organisation Document
-id: organisationdocument
+title: New Organisation Documents
+id: organisationdocuments
 description: "Create a single organisation document using the NinjaOne v2 API."
 hide_title: false
 hide_table_of_contents: false
@@ -18,8 +18,8 @@ Creates a new organisation document using the NinjaOne API.
 
 ```powershell
 New-NinjaOneOrganisationDocument [-organisationId] <String> [-documentTemplateId] <String>
- [-organisationDocuments] <NinjaOneOrganisationDocument[]> [-show] [-ProgressAction <ActionPreference>]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-organisationDocument] <Object> [-show] [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -62,14 +62,14 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -organisationDocuments
+### -organisationDocument
 
 An object containing an array of organisation documents to create.
 
 ```yaml
-Type: NinjaOneOrganisationDocument[]
+Type: Object
 Parameter Sets: (All)
-Aliases: organizationDocuments, body
+Aliases: organizationDocuments, organisationDocuments, organizationDocument, body
 
 Required: True
 Position: 3
