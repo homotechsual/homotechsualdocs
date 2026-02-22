@@ -1,5 +1,6 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
+// Rebuild trigger: 2026-02-22
 
 import { themes as prismThemes } from 'prism-react-renderer';
 
