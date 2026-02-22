@@ -43,5 +43,9 @@
     "cSpell.checkOnlyEnabledFileTypes": false,
     "cSpell.enableFiletypes": [
         "!json"
-    ]
+    ],
+    "webhint.hints": {
+        "typescript-config/strict": "off"
+    },
+    "webhint.enable": false
 }

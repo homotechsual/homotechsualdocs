@@ -1,5 +1,6 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
+// Rebuild trigger: 2026-02-22
 
 import { themes as prismThemes } from 'prism-react-renderer';
 
@@ -50,7 +51,6 @@ const config = {
   url: 'https://docs.homotechsual.dev',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   i18n: {
     defaultLocale: 'en',
@@ -371,6 +371,9 @@ const config = {
   ],
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
   },
 };
 

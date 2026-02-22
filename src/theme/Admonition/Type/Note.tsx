@@ -4,12 +4,12 @@ import Translate from '@docusaurus/Translate';
 import type {Props} from '@theme/Admonition/Type/Note';
 import AdmonitionLayout from '@theme/Admonition/Layout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faNotes } from '@fortawesome/sharp-solid-svg-icons';
+import { faNoteSticky } from '@fortawesome/free-solid-svg-icons';
 
 const infimaClassName = 'alert alert--secondary';
 
 const defaultProps = {
-  icon: <FontAwesomeIcon icon={faNotes} />,
+  icon: <FontAwesomeIcon icon={faNoteSticky} />,
   title: (
     <Translate
       id="theme.admonition.note"
