@@ -14,40 +14,40 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.5.2",
-    "@docusaurus/plugin-client-redirects": "^3.5.2",
-    "@docusaurus/preset-classic": "^3.5.2",
-    "@docusaurus/theme-mermaid": "^3.5.2",
-    "@easyops-cn/docusaurus-search-local": "^0.44.5",
-    "@fortawesome/fontawesome-svg-core": "^6.6.0",
-    "@fortawesome/free-brands-svg-icons": "^6.6.0",
-    "@fortawesome/free-solid-svg-icons": "^6.6.0",
-    "@fortawesome/pro-duotone-svg-icons": "^6.6.0",
-    "@fortawesome/pro-light-svg-icons": "^6.6.0",
-    "@fortawesome/pro-regular-svg-icons": "^6.6.0",
-    "@fortawesome/pro-solid-svg-icons": "^6.6.0",
-    "@fortawesome/pro-thin-svg-icons": "^6.6.0",
-    "@fortawesome/react-fontawesome": "^0.2.2",
-    "@fortawesome/sharp-solid-svg-icons": "^6.5.2",
-    "@iconify/react": "^5.0.2",
-    "@mdx-js/react": "^3.0.1",
-    "@octokit/core": "^6.1.2",
-    "@types/react": "^18.3.3",
+    "@docusaurus/core": "^3.9.2",
+    "@docusaurus/plugin-client-redirects": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.9.2",
+    "@docusaurus/theme-mermaid": "^3.9.2",
+    "@easyops-cn/docusaurus-search-local": "^0.55.0",
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
+    "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/pro-duotone-svg-icons": "^7.2.0",
+    "@fortawesome/pro-light-svg-icons": "^7.2.0",
+    "@fortawesome/pro-regular-svg-icons": "^7.2.0",
+    "@fortawesome/pro-solid-svg-icons": "^7.2.0",
+    "@fortawesome/pro-thin-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.2.0",
+    "@fortawesome/sharp-solid-svg-icons": "^7.2.0",
+    "@iconify/react": "^6.0.2",
+    "@mdx-js/react": "^3.1.1",
+    "@octokit/core": "^7.0.6",
+    "@types/react": "^19.2.14",
     "clsx": "^2.1.1",
     "docusaurus-plugin-plausible": "^0.0.5",
-    "docusaurus-plugin-sass": "^0.2.5",
-    "prism-react-renderer": "^2.3.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "docusaurus-plugin-sass": "^0.2.6",
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "remark-grid-tables": "^2.2.2",
-    "sass": "^1.77.8"
+    "sass": "^1.97.3"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.5.2",
-    "@docusaurus/tsconfig": "^3.5.2",
-    "eslint": "^9.9.0",
-    "eslint-plugin-mdx": "3.1.5",
-    "eslint-plugin-react": "7.35.0",
+    "@docusaurus/module-type-aliases": "^3.9.2",
+    "@docusaurus/tsconfig": "^3.9.2",
+    "eslint": "^10.0.1",
+    "eslint-plugin-mdx": "3.6.2",
+    "eslint-plugin-react": "7.37.5",
     "remark-code-snippets": "^1.1.0"
   },
   "browserslist": {
@@ -63,7 +63,7 @@
     ]
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
-  "packageManager": "yarn@4.3.1+sha512.af78262d7d125afbfeed740602ace8c5e4405cd7f4735c08feb327286b2fdb2390fbca01589bfd1f50b1240548b74806767f5a063c94b67e431aabd0d86f7774"
+  "packageManager": "yarn@4.12.0+sha512.f45ab632439a67f8bc759bf32ead036a1f413287b9042726b7cc4818b7b49e14e9423ba49b18f9e06ea4941c1ad062385b1d8760a8d5091a1a31e5f6219afca8"
 }
