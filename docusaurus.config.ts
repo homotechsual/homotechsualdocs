@@ -50,7 +50,6 @@ const config = {
   url: 'https://docs.homotechsual.dev',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   i18n: {
     defaultLocale: 'en',
@@ -371,6 +370,9 @@ const config = {
   ],
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
   },
 };
 

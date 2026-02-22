@@ -4,7 +4,7 @@ import Translate from '@docusaurus/Translate';
 import type {Props} from '@theme/Admonition/Type/Danger';
 import AdmonitionLayout from '@theme/Admonition/Layout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSkullCrossbones } from '@fortawesome/sharp-solid-svg-icons';
+import { faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
 
 const infimaClassName = 'alert alert--danger';
 

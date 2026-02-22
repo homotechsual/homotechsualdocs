@@ -22,13 +22,7 @@
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
     "@fortawesome/free-brands-svg-icons": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
-    "@fortawesome/pro-duotone-svg-icons": "^7.2.0",
-    "@fortawesome/pro-light-svg-icons": "^7.2.0",
-    "@fortawesome/pro-regular-svg-icons": "^7.2.0",
-    "@fortawesome/pro-solid-svg-icons": "^7.2.0",
-    "@fortawesome/pro-thin-svg-icons": "^7.2.0",
     "@fortawesome/react-fontawesome": "^3.2.0",
-    "@fortawesome/sharp-solid-svg-icons": "^7.2.0",
     "@iconify/react": "^6.0.2",
     "@mdx-js/react": "^3.1.1",
     "@octokit/core": "^7.0.6",
@@ -49,6 +43,9 @@
     "eslint-plugin-mdx": "3.6.2",
     "eslint-plugin-react": "7.37.5",
     "remark-code-snippets": "^1.1.0"
+  },
+  "resolutions": {
+    "@easyops-cn/docusaurus-search-local/@docusaurus/plugin-content-docs": "3.9.2"
   },
   "browserslist": {
     "production": [

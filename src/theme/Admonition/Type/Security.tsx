@@ -4,12 +4,12 @@ import Translate from '@docusaurus/Translate';
 import type {Props} from '@theme/Admonition';
 import AdmonitionLayout from '@theme/Admonition/Layout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShieldCross } from '@fortawesome/sharp-solid-svg-icons'
+import { faShieldHalved } from '@fortawesome/free-solid-svg-icons'
 
 const infimaClassName = 'alert alert--security';
 
 const defaultProps = {
-  icon: <FontAwesomeIcon icon={faShieldCross} />,
+  icon: <FontAwesomeIcon icon={faShieldHalved} />,
   title: (
     <Translate
       id="theme.admonition.security"

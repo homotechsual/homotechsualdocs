@@ -4,12 +4,12 @@ import Translate from '@docusaurus/Translate';
 import type {Props} from '@theme/Admonition/Type/Tip';
 import AdmonitionLayout from '@theme/Admonition/Layout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulbCflOn } from '@fortawesome/sharp-solid-svg-icons';
+import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
 
 const infimaClassName = 'alert alert--success';
 
 const defaultProps = {
-  icon: <FontAwesomeIcon icon={faLightbulbCflOn} />,
+  icon: <FontAwesomeIcon icon={faLightbulb} />,
   title: (
     <Translate
       id="theme.admonition.tip"

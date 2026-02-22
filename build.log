@@ -1,0 +1,1959 @@
+[INFO] [en] Creating an optimized production build...
+[90m[[90mwebpackbar[90m][39m [36mÔä╣[39m Compiling Client
+[90m[[90mwebpackbar[90m][39m [36mÔä╣[39m Compiling Server
+[90m[[90mwebpackbar[90m][39m [32mÔ£ö[39m Server: Compiled successfully in 8.83s
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving 'url-loader/dist/cjs' in J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib for build dependencies doesn't lead to expected result 'J:\Projects\Homotechsual\homotechsualdocs\node_modules\url-loader\dist\cjs.js', but to 'J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\url-loader\dist\cjs.js' instead. Resolving dependencies are ignored for this path.
+<w>  at unknown 4 url-loader/dist/cjs
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\ProgressPlugin.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\ProgressPlugin.js
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\cache\IdleFileCachePlugin.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\cache\IdleFileCachePlugin.js
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\WebpackOptionsApply.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\WebpackOptionsApply.js
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\webpack.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\webpack.js
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\index.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\index.js
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\lib\currentBundler.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\lib\currentBundler.js
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\lib\loaders\jsLoader.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\lib\loaders\jsLoader.js
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\lib\index.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\lib\index.js
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\webpack\base.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\webpack\base.js
+<w>  at unknown 0 J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\webpack\base.js
+(node:192396) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[90m[[90mwebpackbar[90m][39m [32mÔ£ö[39m Client: Compiled successfully in 26.18s
+[WARNING] {"moduleIdentifier":"J:\\Projects\\Homotechsual\\homotechsualdocs\\node_modules\\@docusaurus\\bundler\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[5].use[0]!J:\\Projects\\Homotechsual\\homotechsualdocs\\node_modules\\@easyops-cn\\docusaurus-search-local\\dist\\client\\client\\theme\\SearchBar\\index.jsx","moduleName":"./node_modules/@easyops-cn/docusaurus-search-local/dist/client/client/theme/SearchBar/index.jsx","loc":"1:300-335","message":"export 'DocsPreferredVersionContextProvider' (imported as 'DocsPreferredVersionContextProvider') was not found in '@docusaurus/plugin-content-docs/client' (possible exports: useActiveDocContext, useActivePlugin, useActivePluginAndVersion, useActiveVersion, useAllDocsData, useDocVersionSuggestions, useDocsData, useLatestVersion, useVersions)","compilerPath":"client"}
+[WARNING] {"moduleIdentifier":"J:\\Projects\\Homotechsual\\homotechsualdocs\\node_modules\\@docusaurus\\bundler\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[5].use[0]!J:\\Projects\\Homotechsual\\homotechsualdocs\\node_modules\\@easyops-cn\\docusaurus-search-local\\dist\\client\\client\\theme\\SearchBar\\index.jsx","moduleName":"./node_modules/@easyops-cn/docusaurus-search-local/dist/client/client/theme/SearchBar/index.jsx","loc":"1:300-335","message":"export 'DocsPreferredVersionContextProvider' (imported as 'DocsPreferredVersionContextProvider') was not found in '@docusaurus/plugin-content-docs/client' (possible exports: useActiveDocContext, useActivePlugin, useActivePluginAndVersion, useActiveVersion, useAllDocsData, useDocVersionSuggestions, useDocsData, useLatestVersion, useVersions)","compilerPath":"server"}
+[WARNING] {"moduleIdentifier":"J:\\Projects\\Homotechsual\\homotechsualdocs\\node_modules\\vscode-languageserver-types\\lib\\umd\\main.js","moduleName":"./node_modules/vscode-languageserver-types/lib/umd/main.js","loc":"3:24-31","message":"Critical dependency: require function is used in a way in which dependencies cannot be statically extracted","compilerPath":"server"}
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving 'url-loader/dist/cjs' in J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib for build dependencies doesn't lead to expected result 'J:\Projects\Homotechsual\homotechsualdocs\node_modules\url-loader\dist\cjs.js', but to 'J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\url-loader\dist\cjs.js' instead. Resolving dependencies are ignored for this path.
+<w>  at unknown 4 url-loader/dist/cjs
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\ProgressPlugin.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\ProgressPlugin.js
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\index.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpack\lib\index.js
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpackbar\dist\index.cjs
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\node_modules\webpackbar\dist\index.cjs
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\lib\currentBundler.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\lib\currentBundler.js
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\lib\loaders\styleLoader.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\lib\loaders\styleLoader.js
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\lib\index.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\bundler\lib\index.js
+<w>  at file dependencies J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\webpack\client.js
+<w>  at file J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\webpack\client.js
+<w>  at unknown 0 J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\webpack\client.js
+
+[ERROR] Error: Unable to build website for locale en.
+    at tryToBuildLocale (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\commands\build\build.js:83:15)
+    at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\commands\build\build.js:35:9
+    ... 4 lines matching cause stack trace ...
+    at async file:///J:/Projects/Homotechsual/homotechsualdocs/node_modules/@docusaurus/core/bin/docusaurus.mjs:44:3 {
+  [cause]: Error: Docusaurus static site generation failed for 377 paths:
+  - "/404.html"
+  - "/search"
+  - "/common/tags"
+  - "/common/tags/about"
+  - "/common/tags/docusaurus"
+  - "/common/"
+  - "/common/admonitions"
+  - "/common/docusaurus/"
+  - "/common/MDXExamples"
+  - "/common/secretmanagement/"
+  - "/examples/"
+  - "/examples/multiple/"
+  - "/examples/multiple/ninjaone-devices-to-halo-assets/"
+  - "/modules/haloapi/"
+  - "/modules/haloapi/category/connect-to-services"
+  - "/modules/haloapi/category/create-data"
+  - "/modules/haloapi/category/invoke-actions"
+  - "/modules/haloapi/category/remove-data"
+  - "/modules/haloapi/category/restore-data"
+  - "/modules/haloapi/category/retrieve-information"
+  - "/modules/haloapi/category/update-data-set"
+  - "/modules/haloapi/commandlets/connect/connect-haloapi"
+  - "/modules/haloapi/commandlets/get/get-haloaction"
+  - "/modules/haloapi/commandlets/get/get-haloagent"
+  - "/modules/haloapi/commandlets/get/get-haloappointment"
+  - "/modules/haloapi/commandlets/get/get-haloasset"
+  - "/modules/haloapi/commandlets/get/get-haloassettype"
+  - "/modules/haloapi/commandlets/get/get-haloattachment"
+  - "/modules/haloapi/commandlets/get/get-haloazureadconnection"
+  - "/modules/haloapi/commandlets/get/get-halobillingtemplate"
+  - "/modules/haloapi/commandlets/get/get-halocategory"
+  - "/modules/haloapi/commandlets/get/get-haloclient"
+  - "/modules/haloapi/commandlets/get/get-halocontract"
+  - "/modules/haloapi/commandlets/get/get-halocrmnote"
+  - "/modules/haloapi/commandlets/get/get-halocustombutton"
+  - "/modules/haloapi/commandlets/get/get-halocustomfield"
+  - "/modules/haloapi/commandlets/get/get-halocustomtable"
+  - "/modules/haloapi/commandlets/get/get-halodashboard"
+  - "/modules/haloapi/commandlets/get/get-halofaqlist"
+  - "/modules/haloapi/commandlets/get/get-halofield"
+  - "/modules/haloapi/commandlets/get/get-haloinvoice"
+  - "/modules/haloapi/commandlets/get/get-haloitem"
+  - "/modules/haloapi/commandlets/get/get-halokbarticle"
+  - "/modules/haloapi/commandlets/get/get-halolookup"
+  - "/modules/haloapi/commandlets/get/get-haloobjecttemplate"
+  - "/modules/haloapi/commandlets/get/get-haloopportunity"
+  - "/modules/haloapi/commandlets/get/get-halooutcome"
+  - "/modules/haloapi/commandlets/get/get-haloproject"
+  - "/modules/haloapi/commandlets/get/get-halopurchaseorder"
+  - "/modules/haloapi/commandlets/get/get-haloquote"
+  - "/modules/haloapi/commandlets/get/get-halorecurringinvoice"
+  - "/modules/haloapi/commandlets/get/get-halorelease"
+  - "/modules/haloapi/commandlets/get/get-haloreport"
+  - "/modules/haloapi/commandlets/get/get-halosalesorder"
+  - "/modules/haloapi/commandlets/get/get-haloservice"
+  - "/modules/haloapi/commandlets/get/get-halosite"
+  - "/modules/haloapi/commandlets/get/get-halosoftwarelicence"
+  - "/modules/haloapi/commandlets/get/get-halostatus"
+  - "/modules/haloapi/commandlets/get/get-halosupplier"
+  - "/modules/haloapi/commandlets/get/get-halosuppliersfromqbo"
+  - "/modules/haloapi/commandlets/get/get-haloteam"
+  - "/modules/haloapi/commandlets/get/get-haloticket"
+  - "/modules/haloapi/commandlets/get/get-haloticketrules"
+  - "/modules/haloapi/commandlets/get/get-halotickettype"
+  - "/modules/haloapi/commandlets/get/get-halotimesheet"
+  - "/modules/haloapi/commandlets/get/get-halouser"
+  - "/modules/haloapi/commandlets/get/get-haloviewcolumn"
+  - "/modules/haloapi/commandlets/get/get-haloviewfilter"
+  - "/modules/haloapi/commandlets/get/get-haloviewlist"
+  - "/modules/haloapi/commandlets/get/get-haloviewlistgroup"
+  - "/modules/haloapi/commandlets/get/get-haloworkday"
+  - "/modules/haloapi/commandlets/get/get-haloworkflow"
+  - "/modules/haloapi/commandlets/invoke/invoke-halorequest"
+  - "/modules/haloapi/commandlets/invoke/invoke-halosql"
+  - "/modules/haloapi/commandlets/new/new-haloaction"
+  - "/modules/haloapi/commandlets/new/new-haloactionbatch"
+  - "/modules/haloapi/commandlets/new/new-haloagent"
+  - "/modules/haloapi/commandlets/new/new-haloagentbatch"
+  - "/modules/haloapi/commandlets/new/new-haloappointment"
+  - "/modules/haloapi/commandlets/new/new-haloappointmentbatch"
+  - "/modules/haloapi/commandlets/new/new-haloasset"
+  - "/modules/haloapi/commandlets/new/new-haloassetbatch"
+  - "/modules/haloapi/commandlets/new/new-haloassettype"
+  - "/modules/haloapi/commandlets/new/new-haloattachment"
+  - "/modules/haloapi/commandlets/new/new-haloattachmentbatch"
+  - "/modules/haloapi/commandlets/new/new-halobillingtemplate"
+  - "/modules/haloapi/commandlets/new/new-halocategory"
+  - "/modules/haloapi/commandlets/new/new-haloclient"
+  - "/modules/haloapi/commandlets/new/new-haloclientbatch"
+  - "/modules/haloapi/commandlets/new/new-halocontract"
+  - "/modules/haloapi/commandlets/new/new-halocontractbatch"
+  - "/modules/haloapi/commandlets/new/new-halocrmnote"
+  - "/modules/haloapi/commandlets/new/new-halocustombutton"
+  - "/modules/haloapi/commandlets/new/new-halocustomfield"
+  - "/modules/haloapi/commandlets/new/new-halocustomfieldbatch"
+  - "/modules/haloapi/commandlets/new/new-halocustomtable"
+  - "/modules/haloapi/commandlets/new/new-halodashboard"
+  - "/modules/haloapi/commandlets/new/new-halofaqlist"
+  - "/modules/haloapi/commandlets/new/new-haloinvoice"
+  - "/modules/haloapi/commandlets/new/new-haloinvoicebatch"
+  - "/modules/haloapi/commandlets/new/new-haloitem"
+  - "/modules/haloapi/commandlets/new/new-haloitembatch"
+  - "/modules/haloapi/commandlets/new/new-halokbarticle"
+  - "/modules/haloapi/commandlets/new/new-halokbarticlebatch"
+  - "/modules/haloapi/commandlets/new/new-haloopportunity"
+  - "/modules/haloapi/commandlets/new/new-haloopportunitybatch"
+  - "/modules/haloapi/commandlets/new/new-halooutcome"
+  - "/modules/haloapi/commandlets/new/new-haloproject"
+  - "/modules/haloapi/commandlets/new/new-haloprojectbatch"
+  - "/modules/haloapi/commandlets/new/new-haloquote"
+  - "/modules/haloapi/commandlets/new/new-haloquotebatch"
+  - "/modules/haloapi/commandlets/new/new-halorecurringinvoice"
+  - "/modules/haloapi/commandlets/new/new-halorecurringinvoicebatch"
+  - "/modules/haloapi/commandlets/new/new-haloreport"
+  - "/modules/haloapi/commandlets/new/new-haloreportbatch"
+  - "/modules/haloapi/commandlets/new/new-haloservice"
+  - "/modules/haloapi/commandlets/new/new-haloservicebatch"
+  - "/modules/haloapi/commandlets/new/new-halosite"
+  - "/modules/haloapi/commandlets/new/new-halositebatch"
+  - "/modules/haloapi/commandlets/new/new-halosoftwarelicence"
+  - "/modules/haloapi/commandlets/new/new-halosoftwarelicensebatch"
+  - "/modules/haloapi/commandlets/new/new-halostatus"
+  - "/modules/haloapi/commandlets/new/new-halosupplier"
+  - "/modules/haloapi/commandlets/new/new-halosupplierbatch"
+  - "/modules/haloapi/commandlets/new/new-halotab"
+  - "/modules/haloapi/commandlets/new/new-haloteam"
+  - "/modules/haloapi/commandlets/new/new-haloteambatch"
+  - "/modules/haloapi/commandlets/new/new-haloticket"
+  - "/modules/haloapi/commandlets/new/new-haloticketbatch"
+  - "/modules/haloapi/commandlets/new/new-halotickettype"
+  - "/modules/haloapi/commandlets/new/new-halotickettypebatch"
+  - "/modules/haloapi/commandlets/new/new-halouser"
+  - "/modules/haloapi/commandlets/new/new-halouserbatch"
+  - "/modules/haloapi/commandlets/new/new-haloviewcolumn"
+  - "/modules/haloapi/commandlets/new/new-haloviewfilter"
+  - "/modules/haloapi/commandlets/new/new-haloviewlist"
+  - "/modules/haloapi/commandlets/new/new-haloviewlistgroup"
+  - "/modules/haloapi/commandlets/new/new-haloworkday"
+  - "/modules/haloapi/commandlets/new/new-haloworkflow"
+  - "/modules/haloapi/commandlets/new/new-haloworkflowbatch"
+  - "/modules/haloapi/commandlets/remove/remove-haloaction"
+  - "/modules/haloapi/commandlets/remove/remove-haloactionbatch"
+  - "/modules/haloapi/commandlets/remove/remove-haloagent"
+  - "/modules/haloapi/commandlets/remove/remove-haloagentbatch"
+  - "/modules/haloapi/commandlets/remove/remove-haloappointment"
+  - "/modules/haloapi/commandlets/remove/remove-haloasset"
+  - "/modules/haloapi/commandlets/remove/remove-haloassettype"
+  - "/modules/haloapi/commandlets/remove/remove-halocategory"
+  - "/modules/haloapi/commandlets/remove/remove-haloclient"
+  - "/modules/haloapi/commandlets/remove/remove-haloclientbatch"
+  - "/modules/haloapi/commandlets/remove/remove-halocontract"
+  - "/modules/haloapi/commandlets/remove/remove-halocrmnote"
+  - "/modules/haloapi/commandlets/remove/remove-halodashboard"
+  - "/modules/haloapi/commandlets/remove/remove-haloinvoice"
+  - "/modules/haloapi/commandlets/remove/remove-haloitem"
+  - "/modules/haloapi/commandlets/remove/remove-halokbarticle"
+  - "/modules/haloapi/commandlets/remove/remove-halooutcome"
+  - "/modules/haloapi/commandlets/remove/remove-haloquote"
+  - "/modules/haloapi/commandlets/remove/remove-haloreport"
+  - "/modules/haloapi/commandlets/remove/remove-halosalesorder"
+  - "/modules/haloapi/commandlets/remove/remove-haloservice"
+  - "/modules/haloapi/commandlets/remove/remove-halosite"
+  - "/modules/haloapi/commandlets/remove/remove-halostatus"
+  - "/modules/haloapi/commandlets/remove/remove-halosupplier"
+  - "/modules/haloapi/commandlets/remove/remove-haloticket"
+  - "/modules/haloapi/commandlets/remove/remove-haloticketbatch"
+  - "/modules/haloapi/commandlets/remove/remove-haloticketrules"
+  - "/modules/haloapi/commandlets/remove/remove-halouser"
+  - "/modules/haloapi/commandlets/remove/remove-haloviewcolumn"
+  - "/modules/haloapi/commandlets/remove/remove-haloviewfilter"
+  - "/modules/haloapi/commandlets/remove/remove-haloviewlist"
+  - "/modules/haloapi/commandlets/remove/remove-haloviewlistgroup"
+  - "/modules/haloapi/commandlets/restore/restore-haloticket"
+  - "/modules/haloapi/commandlets/set/set-haloaction"
+  - "/modules/haloapi/commandlets/set/set-haloactionbatch"
+  - "/modules/haloapi/commandlets/set/set-haloagent"
+  - "/modules/haloapi/commandlets/set/set-haloappointment"
+  - "/modules/haloapi/commandlets/set/set-haloasset"
+  - "/modules/haloapi/commandlets/set/set-haloassettype"
+  - "/modules/haloapi/commandlets/set/set-haloattachment"
+  - "/modules/haloapi/commandlets/set/set-halobillingtemplate"
+  - "/modules/haloapi/commandlets/set/set-halocategory"
+  - "/modules/haloapi/commandlets/set/set-haloclient"
+  - "/modules/haloapi/commandlets/set/set-halocontract"
+  - "/modules/haloapi/commandlets/set/set-halocrmnote"
+  - "/modules/haloapi/commandlets/set/set-halocustombutton"
+  - "/modules/haloapi/commandlets/set/set-halodashboard"
+  - "/modules/haloapi/commandlets/set/set-halofaqlist"
+  - "/modules/haloapi/commandlets/set/set-haloinvoice"
+  - "/modules/haloapi/commandlets/set/set-haloitem"
+  - "/modules/haloapi/commandlets/set/set-halokbarticle"
+  - "/modules/haloapi/commandlets/set/set-haloopportunity"
+  - "/modules/haloapi/commandlets/set/set-haloproject"
+  - "/modules/haloapi/commandlets/set/set-haloquote"
+  - "/modules/haloapi/commandlets/set/set-halorecurringinvoice"
+  - "/modules/haloapi/commandlets/set/set-halorecurringtemplate"
+  - "/modules/haloapi/commandlets/set/set-haloreport"
+  - "/modules/haloapi/commandlets/set/set-halosalesorder"
+  - "/modules/haloapi/commandlets/set/set-halosite"
+  - "/modules/haloapi/commandlets/set/set-halosoftwarelicence"
+  - "/modules/haloapi/commandlets/set/set-halostatus"
+  - "/modules/haloapi/commandlets/set/set-halosupplier"
+  - "/modules/haloapi/commandlets/set/set-haloteam"
+  - "/modules/haloapi/commandlets/set/set-haloticket"
+  - "/modules/haloapi/commandlets/set/set-haloticketbatch"
+  - "/modules/haloapi/commandlets/set/set-haloticketrules"
+  - "/modules/haloapi/commandlets/set/set-halotickettype"
+  - "/modules/haloapi/commandlets/set/set-halouser"
+  - "/modules/haloapi/commandlets/set/set-haloviewcolumn"
+  - "/modules/haloapi/commandlets/set/set-haloviewfilter"
+  - "/modules/haloapi/commandlets/set/set-haloviewlist"
+  - "/modules/haloapi/commandlets/set/set-haloviewlistgroup"
+  - "/modules/haloapi/commandlets/set/set-haloworkday"
+  - "/modules/msgraphmail/"
+  - "/modules/msgraphmail/category/commandlets"
+  - "/modules/msgraphmail/category/connect-to-services"
+  - "/modules/msgraphmail/category/create-data"
+  - "/modules/msgraphmail/category/examples"
+  - "/modules/msgraphmail/category/remove-data"
+  - "/modules/msgraphmail/category/remove-data-1"
+  - "/modules/msgraphmail/category/retrieve-information"
+  - "/modules/msgraphmail/category/retrieve-information-1"
+  - "/modules/msgraphmail/commandlets/connect/Connect-MSGraphMail"
+  - "/modules/msgraphmail/commandlets/get/Get-MSGraphMail"
+  - "/modules/msgraphmail/commandlets/move/Move-MSGraphMail"
+  - "/modules/msgraphmail/commandlets/new/New-MSGraphMail"
+  - "/modules/msgraphmail/commandlets/remove/Remove-MSGraphMail"
+  - "/modules/msgraphmail/commandlets/send/Send-MSGraphMail"
+  - "/modules/msgraphmail/examples/Creating-Mails"
+  - "/modules/msgraphmail/examples/Using-Pipelines"
+  - "/modules/ninjaone/"
+  - "/modules/ninjaone/category/connect-to-services"
+  - "/modules/ninjaone/category/create-data"
+  - "/modules/ninjaone/category/find-information"
+  - "/modules/ninjaone/category/invoke-actions"
+  - "/modules/ninjaone/category/remove-data"
+  - "/modules/ninjaone/category/reset-state"
+  - "/modules/ninjaone/category/restart-services"
+  - "/modules/ninjaone/category/retrieve-information"
+  - "/modules/ninjaone/category/update-data-set"
+  - "/modules/ninjaone/category/update-data-update"
+  - "/modules/ninjaone/commandlets/connect/ninjaone"
+  - "/modules/ninjaone/commandlets/find/devices"
+  - "/modules/ninjaone/commandlets/get/activities"
+  - "/modules/ninjaone/commandlets/get/alerts"
+  - "/modules/ninjaone/commandlets/get/antivirusstatusquery"
+  - "/modules/ninjaone/commandlets/get/antivirusthreatsquery"
+  - "/modules/ninjaone/commandlets/get/automationscripts"
+  - "/modules/ninjaone/commandlets/get/backupjobs"
+  - "/modules/ninjaone/commandlets/get/backupusagequery"
+  - "/modules/ninjaone/commandlets/get/computersystemsquery"
+  - "/modules/ninjaone/commandlets/get/contacts"
+  - "/modules/ninjaone/commandlets/get/customfieldpolicycondition"
+  - "/modules/ninjaone/commandlets/get/customfieldpolicyconditions"
+  - "/modules/ninjaone/commandlets/get/customfieldsignedurls"
+  - "/modules/ninjaone/commandlets/get/customfieldsquery"
+  - "/modules/ninjaone/commandlets/get/deviceactivities"
+  - "/modules/ninjaone/commandlets/get/devicealerts"
+  - "/modules/ninjaone/commandlets/get/devicecustomfields"
+  - "/modules/ninjaone/commandlets/get/devicedashboardurl"
+  - "/modules/ninjaone/commandlets/get/devicediskdrives"
+  - "/modules/ninjaone/commandlets/get/devicehealthquery"
+  - "/modules/ninjaone/commandlets/get/devicejobs"
+  - "/modules/ninjaone/commandlets/get/devicelastloggedonuser"
+  - "/modules/ninjaone/commandlets/get/devicenetworkinterfaces"
+  - "/modules/ninjaone/commandlets/get/deviceospatches"
+  - "/modules/ninjaone/commandlets/get/deviceospatchinstalls"
+  - "/modules/ninjaone/commandlets/get/devicepolicyoverrides"
+  - "/modules/ninjaone/commandlets/get/deviceprocessors"
+  - "/modules/ninjaone/commandlets/get/deviceroles"
+  - "/modules/ninjaone/commandlets/get/devices"
+  - "/modules/ninjaone/commandlets/get/devicescriptingoptions"
+  - "/modules/ninjaone/commandlets/get/devicesoftwareinventory"
+  - "/modules/ninjaone/commandlets/get/devicesoftwarepatches"
+  - "/modules/ninjaone/commandlets/get/devicesoftwarepatchinstalls"
+  - "/modules/ninjaone/commandlets/get/devicevolumes"
+  - "/modules/ninjaone/commandlets/get/devicewindowsservices"
+  - "/modules/ninjaone/commandlets/get/disksquery"
+  - "/modules/ninjaone/commandlets/get/documenttemplate"
+  - "/modules/ninjaone/commandlets/get/groupmembers"
+  - "/modules/ninjaone/commandlets/get/groups"
+  - "/modules/ninjaone/commandlets/get/installer"
+  - "/modules/ninjaone/commandlets/get/integritycheckjobs"
+  - "/modules/ninjaone/commandlets/get/jobs"
+  - "/modules/ninjaone/commandlets/get/knowledgebasearticle"
+  - "/modules/ninjaone/commandlets/get/knowledgebasefolders"
+  - "/modules/ninjaone/commandlets/get/locationbackupusage"
+  - "/modules/ninjaone/commandlets/get/locationcustomfields"
+  - "/modules/ninjaone/commandlets/get/locations"
+  - "/modules/ninjaone/commandlets/get/loggedonusersquery"
+  - "/modules/ninjaone/commandlets/get/networkinterfacesquery"
+  - "/modules/ninjaone/commandlets/get/notificationchannels"
+  - "/modules/ninjaone/commandlets/get/operatingsystemsquery"
+  - "/modules/ninjaone/commandlets/get/organisationcustomfields"
+  - "/modules/ninjaone/commandlets/get/organisationdocuments"
+  - "/modules/ninjaone/commandlets/get/organisationdocumentsignedurls"
+  - "/modules/ninjaone/commandlets/get/organisationinformation"
+  - "/modules/ninjaone/commandlets/get/organisationknowledgebasearticles"
+  - "/modules/ninjaone/commandlets/get/organisationlocations"
+  - "/modules/ninjaone/commandlets/get/organisationlocationsbackupusage"
+  - "/modules/ninjaone/commandlets/get/organisations"
+  - "/modules/ninjaone/commandlets/get/organisationusers"
+  - "/modules/ninjaone/commandlets/get/ospatchesquery"
+  - "/modules/ninjaone/commandlets/get/ospatchinstallsquery"
+  - "/modules/ninjaone/commandlets/get/policies"
+  - "/modules/ninjaone/commandlets/get/policyoverridesquery"
+  - "/modules/ninjaone/commandlets/get/processorsquery"
+  - "/modules/ninjaone/commandlets/get/raidcontrollersquery"
+  - "/modules/ninjaone/commandlets/get/raiddrivesquery"
+  - "/modules/ninjaone/commandlets/get/relateditemattachment"
+  - "/modules/ninjaone/commandlets/get/relateditemattachmentsignedurls"
+  - "/modules/ninjaone/commandlets/get/relateditems"
+  - "/modules/ninjaone/commandlets/get/scheduledtasks"
+  - "/modules/ninjaone/commandlets/get/softwareinventoryquery"
+  - "/modules/ninjaone/commandlets/get/softwarepatchesquery"
+  - "/modules/ninjaone/commandlets/get/softwarepatchinstallsquery"
+  - "/modules/ninjaone/commandlets/get/softwareproducts"
+  - "/modules/ninjaone/commandlets/get/ticketattributes"
+  - "/modules/ninjaone/commandlets/get/ticketboards"
+  - "/modules/ninjaone/commandlets/get/ticketforms"
+  - "/modules/ninjaone/commandlets/get/ticketingusers"
+  - "/modules/ninjaone/commandlets/get/ticketlogentries"
+  - "/modules/ninjaone/commandlets/get/tickets"
+  - "/modules/ninjaone/commandlets/get/ticketstatuses"
+  - "/modules/ninjaone/commandlets/get/users"
+  - "/modules/ninjaone/commandlets/get/volumesquery"
+  - "/modules/ninjaone/commandlets/get/windowseventpolicycondition"
+  - "/modules/ninjaone/commandlets/get/windowsservicesquery"
+  - "/modules/ninjaone/commandlets/invoke/apirequest"
+  - "/modules/ninjaone/commandlets/invoke/scriptoraction"
+  - "/modules/ninjaone/commandlets/invoke/windowsserviceaction"
+  - "/modules/ninjaone/commandlets/new/attachmentrelation"
+  - "/modules/ninjaone/commandlets/new/customfieldspolicycondition"
+  - "/modules/ninjaone/commandlets/new/documenttemplate"
+  - "/modules/ninjaone/commandlets/new/entityrelation"
+  - "/modules/ninjaone/commandlets/new/entityrelations"
+  - "/modules/ninjaone/commandlets/new/installer"
+  - "/modules/ninjaone/commandlets/new/integritycheckjob"
+  - "/modules/ninjaone/commandlets/new/location"
+  - "/modules/ninjaone/commandlets/new/organisation"
+  - "/modules/ninjaone/commandlets/new/organisationdocument"
+  - "/modules/ninjaone/commandlets/new/organisationdocuments"
+  - "/modules/ninjaone/commandlets/new/policy"
+  - "/modules/ninjaone/commandlets/new/securevaluerelation"
+  - "/modules/ninjaone/commandlets/new/ticket"
+  - "/modules/ninjaone/commandlets/new/ticketcomment"
+  - "/modules/ninjaone/commandlets/new/windowseventpolicycondition"
+  - "/modules/ninjaone/commandlets/remove/documenttemplate"
+  - "/modules/ninjaone/commandlets/remove/maintenance"
+  - "/modules/ninjaone/commandlets/remove/organisationdocument"
+  - "/modules/ninjaone/commandlets/remove/policycondition"
+  - "/modules/ninjaone/commandlets/remove/relateditem"
+  - "/modules/ninjaone/commandlets/remove/relateditems"
+  - "/modules/ninjaone/commandlets/remove/webhook"
+  - "/modules/ninjaone/commandlets/reset/alert"
+  - "/modules/ninjaone/commandlets/reset/devicepolicyoverrides"
+  - "/modules/ninjaone/commandlets/restart/device"
+  - "/modules/ninjaone/commandlets/set/device"
+  - "/modules/ninjaone/commandlets/set/deviceapproval"
+  - "/modules/ninjaone/commandlets/set/devicecustomfields"
+  - "/modules/ninjaone/commandlets/set/devicemaintenance"
+  - "/modules/ninjaone/commandlets/set/documenttemplate"
+  - "/modules/ninjaone/commandlets/set/location"
+  - "/modules/ninjaone/commandlets/set/locationcustomfields"
+  - "/modules/ninjaone/commandlets/set/organisation"
+  - "/modules/ninjaone/commandlets/set/organisationcustomfields"
+  - "/modules/ninjaone/commandlets/set/organisationdocument"
+  - "/modules/ninjaone/commandlets/set/organisationdocuments"
+  - "/modules/ninjaone/commandlets/set/organisationpolicies"
+  - "/modules/ninjaone/commandlets/set/ticket"
+  - "/modules/ninjaone/commandlets/set/windowsserviceconfiguration"
+  - "/modules/ninjaone/commandlets/update/webhook"
+  - "/modules/ninjaone/development/"
+  - "/modules/ninjaone/filters/ptf"
+  - "/modules/ninjaone/filters/sf"
+  - "/modules/ninjaone/filters/stf"
+  - "/"
+      at throwSSGError (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgGlobalResult.js:56:11)
+      at createGlobalSSGResult (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgGlobalResult.js:66:9)
+      ... 11 lines matching cause stack trace ...
+      at async file:///J:/Projects/Homotechsual/homotechsualdocs/node_modules/@docusaurus/core/bin/docusaurus.mjs:44:3 {
+    [cause]: AggregateError
+        at throwSSGError (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgGlobalResult.js:57:16)
+        at createGlobalSSGResult (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgGlobalResult.js:66:9)
+        at J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgExecutor.js:30:68
+        at async executeSSG (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgExecutor.js:144:20)
+        at async buildLocale (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\commands\build\buildLocale.js:84:31)
+        at async runBuildLocaleTask (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\commands\build\build.js:98:5)
+        at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\commands\build\build.js:79:13
+        at async tryToBuildLocale (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\commands\build\build.js:75:9)
+        at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\commands\build\build.js:35:9
+        at async mapAsyncSequential (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\utils\lib\jsUtils.js:21:24)
+        at async Command.build (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\commands\build\build.js:34:5)
+        at async Promise.all (index 0)
+        at async runCLI (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\commands\cli.js:56:5)
+        at async file:///J:/Projects/Homotechsual/homotechsualdocs/node_modules/@docusaurus/core/bin/docusaurus.mjs:44:3 {
+      [errors]: [
+        Error: Can't render static file for pathname "/404.html"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/search"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/common/tags"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/common/tags/about"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/common/tags/docusaurus"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/common/"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/common/admonitions"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/common/docusaurus/"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/common/MDXExamples"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/common/secretmanagement/"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/examples/"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/examples/multiple/"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/examples/multiple/ninjaone-devices-to-halo-assets/"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/category/connect-to-services"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/category/create-data"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/category/invoke-actions"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/category/remove-data"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/category/restore-data"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/category/retrieve-information"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/category/update-data-set"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/connect/connect-haloapi"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloaction"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloagent"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloappointment"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloasset"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloassettype"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloattachment"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloazureadconnection"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halobillingtemplate"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halocategory"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloclient"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halocontract"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halocrmnote"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halocustombutton"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halocustomfield"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halocustomtable"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halodashboard"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halofaqlist"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halofield"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloinvoice"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloitem"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halokbarticle"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halolookup"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloobjecttemplate"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloopportunity"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halooutcome"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloproject"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halopurchaseorder"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloquote"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halorecurringinvoice"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halorelease"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloreport"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halosalesorder"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloservice"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halosite"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halosoftwarelicence"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halostatus"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halosupplier"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halosuppliersfromqbo"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloteam"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloticket"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloticketrules"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halotickettype"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halotimesheet"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-halouser"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloviewcolumn"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloviewfilter"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloviewlist"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloviewlistgroup"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloworkday"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/get/get-haloworkflow"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/invoke/invoke-halorequest"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/invoke/invoke-halosql"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloaction"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloactionbatch"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloagent"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloagentbatch"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloappointment"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloappointmentbatch"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloasset"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloassetbatch"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloassettype"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloattachment"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloattachmentbatch"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-halobillingtemplate"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-halocategory"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloclient"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloclientbatch"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-halocontract"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-halocontractbatch"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-halocrmnote"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-halocustombutton"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-halocustomfield"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-halocustomfieldbatch"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-halocustomtable"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-halodashboard"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-halofaqlist"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloinvoice"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        Error: Can't render static file for pathname "/modules/haloapi/commandlets/new/new-haloinvoicebatch"
+            at generateStaticFile (J:\Projects\Homotechsual\homotechsualdocs\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at async J:\Projects\Homotechsual\homotechsualdocs\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+              at renderElement (server.bundle.js:120409:11)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at finishFunctionComponent (server.bundle.js:119841:9)
+              at renderElement (server.bundle.js:119940:7)
+              at retryNode (server.bundle.js:120656:16)
+              at renderNodeDestructive (server.bundle.js:120450:7)
+              at renderNode (server.bundle.js:121017:14)
+              at renderElement (server.bundle.js:120002:14)
+              at retryNode (server.bundle.js:120656:16)
+        },
+        ... 277 more items
+      ]
+    }
+  }
+}
+[INFO] Docusaurus version: 3.9.2
+Node version: v25.6.0

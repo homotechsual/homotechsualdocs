@@ -11,7 +11,7 @@ import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 // START: CUSTOM-CHANGE: import fontawesome icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileAlt, faCabinetFiling, faPaperclip } from '@fortawesome/sharp-solid-svg-icons';
+import { faFileLines, faFolder, faPaperclip } from '@fortawesome/free-solid-svg-icons';
 // END: CUSTOM-CHANGE
 function CardContainer({href, children}) {
   return (
@@ -44,7 +44,7 @@ function CardLayout({href, icon, title, description}) {
 function CardCategory({item}) {
   const href = findFirstSidebarItemLink(item);
   // START: CUSTOM-CHANGE: use fontawesome icon
-  const icon = <FontAwesomeIcon icon={faCabinetFiling} />
+  const icon = <FontAwesomeIcon icon={faFolder} />
   // END: CUSTOM-CHANGE
   // Unexpected: categories that don't have a link have been filtered upfront
   if (!href) {
@@ -72,7 +72,7 @@ function CardCategory({item}) {
 }
 function CardLink({item}) {
   // START: CUSTOM-CHANGE: use fontawesome icon
-  const icon = isInternalUrl(item.href) ? <FontAwesomeIcon icon={faFileAlt} /> : <FontAwesomeIcon icon={faPaperclip} />;
+  const icon = isInternalUrl(item.href) ? <FontAwesomeIcon icon={faFileLines} /> : <FontAwesomeIcon icon={faPaperclip} />;
   // END: CUSTOM-CHANGE
   const doc = useDocById(item.docId ?? undefined);
   return (

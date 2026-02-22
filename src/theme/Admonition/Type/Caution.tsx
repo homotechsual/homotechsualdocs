@@ -4,12 +4,12 @@ import Translate from '@docusaurus/Translate';
 import type {Props} from '@theme/Admonition/Type/Caution';
 import AdmonitionLayout from '@theme/Admonition/Layout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamationTriangle } from '@fortawesome/sharp-solid-svg-icons';
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 const infimaClassName = 'alert alert--warning';
 
 const defaultProps = {
-  icon: <FontAwesomeIcon icon={faExclamationTriangle} />,
+  icon: <FontAwesomeIcon icon={faTriangleExclamation} />,
   title: (
     <Translate
       id="theme.admonition.caution"
