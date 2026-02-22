@@ -1,0 +1,129 @@
+---
+title: Development
+---
+
+This page documents the local development workflow for the NinjaOne PowerShell module.
+
+## Quick start
+
+```powershell
+pwsh -File .\DevOps\Build\bootstrap.ps1
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames build
+pwsh -File .\DevOps\Quality\test.ps1
+```
+
+## Repo layout
+
+- `DevOps/Build` - build orchestration scripts and build config.
+- `DevOps/Quality` - test and static analysis scripts.
+- `DevOps/Help` - comment-based help generation and orchestration.
+- `Source` - module source.
+- `Tests` - Pester tests.
+- `docs/NinjaOne` - generated commandlet docs output.
+
+## Bootstrap environment
+
+Bootstrap installs required modules, prioritizes bundled modules, and configures git hooks.
+
+```powershell
+pwsh -File .\DevOps\Build\bootstrap.ps1
+```
+
+If you need to force reinstalling dependencies:
+
+```powershell
+pwsh -File .\DevOps\Build\bootstrap.ps1 -Force
+```
+
+## Build
+
+The build script supports multiple tasks:
+
+- `clean`
+- `build`
+- `updateManifest`
+- `publish`
+- `publishDocs`
+- `updateHelp`
+- `generateShortNamesMapping`
+- `push`
+
+Build only:
+
+```powershell
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames build
+```
+
+Default full build (clean, build, update manifest, publish help/docs, push):
+
+```powershell
+pwsh -File .\DevOps\Build\build.ps1
+```
+
+## Tests
+
+Tests run with Pester 5.x. By default, the test script also runs ScriptAnalyzer.
+
+```powershell
+pwsh -File .\DevOps\Quality\test.ps1
+```
+
+Skip ScriptAnalyzer during tests:
+
+```powershell
+pwsh -File .\DevOps\Quality\test.ps1 -SkipScriptAnalyzer
+```
+
+## PSScriptAnalyzer
+
+Run the standalone analyzer pass (uses PSScriptAnalyzerSettings.psd1):
+
+```powershell
+pwsh -File .\DevOps\Quality\run-pssa.ps1
+```
+
+The analyzer excludes `CustomRules`, `output`, `Modules`, and `test-rules.ps1`.
+
+## Help generation
+
+The help orchestration script runs in phases:
+
+- `Generate`
+- `ApplyPublic`
+- `Verify`
+- `ApplyPrivate`
+- `All`
+
+Run all phases:
+
+```powershell
+pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase All
+```
+
+## Docs generation
+
+Regenerate the short name map and update docs output:
+
+```powershell
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames generateShortNamesMapping,updateHelp,publishDocs
+```
+
+## Release and versioning
+
+- The build script accepts `-SemVer` to set a specific version during build.
+- Publishing and release packaging are handled via CI and build tasks.
+
+## PR checklist
+
+- Run `bootstrap.ps1` after pulling new dependencies.
+- Run `build.ps1 -TaskNames build` before opening a PR.
+- Run `test.ps1` (or `test.ps1 -SkipScriptAnalyzer` if PSSA is already run).
+- Run `run-pssa.ps1` to validate style and quality rules.
+- Update comment-based help and docs if you touched public functions.
+- Confirm `CHANGELOG.md` is updated when appropriate.
+
+## Troubleshooting
+
+- If tests cannot find a module output folder, run `build.ps1 -TaskNames build` first.
+- If ScriptAnalyzer fails on new rules, confirm `PSScriptAnalyzerSettings.psd1` is up to date.
+- If help generation fails, ensure required modules from `RequiredModules.psd1` are installed.
