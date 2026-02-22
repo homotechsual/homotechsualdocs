@@ -103,5 +103,6 @@
 			"*.md": "markdown",
 			"*.mdx": "mdx"
 		},
+		"codeQL.githubDatabase.download": "never",
 	}
 }
