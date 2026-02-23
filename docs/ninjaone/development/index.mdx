@@ -2,9 +2,9 @@
 title: Development
 ---
 
-This page documents the local development workflow for the NinjaOne PowerShell module.
+This page documents development workflows for the NinjaOne PowerShell module.
 
-## Quick start
+## Quick Start
 
 ```powershell
 pwsh -File .\DevOps\Build\bootstrap.ps1
@@ -12,7 +12,22 @@ pwsh -File .\DevOps\Build\build.ps1 -TaskNames build
 pwsh -File .\DevOps\Quality\test.ps1
 ```
 
-## Repo layout
+## Contributing
+
+There are many ways to contribute to the project, including:
+- Submitting bug reports and feature requests.
+- Opening pull requests with bug fixes and new features.
+- Improving documentation and examples (note that most docs are generated from comment-based help, so doc improvements often come with code changes).
+- Reviewing and providing feedback on open pull requests.
+- Sponsoring development on [GitHub Sponsors](https://github.com/sponsors/homotechsual).
+
+## Development Process
+
+Improvements should be submitted via pull requests *against the `develop` branch*. This allows for review and testing before merging into `main` for release. The project uses a CI workflow to run tests and build on pull requests, and a separate workflow to handle releases when changes are merged into `main` and tagged.
+
+PRs against main which are not from our `develop` branch will be closed without review, so please ensure you are targeting the correct branch. If you are unsure about the process or have questions, feel free to ask in the [Homotechsual Discord](https://discord.gg/NrCjh5ht7K) or the [NinjaOne Discord](https://discord.gg/NinjaOne).
+
+## Repo Layout
 
 - `DevOps/Build` - build orchestration scripts and build config.
 - `DevOps/Quality` - test and static analysis scripts.
@@ -21,7 +36,7 @@ pwsh -File .\DevOps\Quality\test.ps1
 - `Tests` - Pester tests.
 - `docs/NinjaOne` - generated commandlet docs output.
 
-## Bootstrap environment
+## Bootstrap Environment
 
 Bootstrap installs required modules, prioritizes bundled modules, and configures git hooks.
 
@@ -84,7 +99,7 @@ pwsh -File .\DevOps\Quality\run-pssa.ps1
 
 The analyzer excludes `CustomRules`, `output`, `Modules`, and `test-rules.ps1`.
 
-## Help generation
+## Help Generation
 
 The help orchestration script runs in phases:
 
@@ -100,7 +115,7 @@ Run all phases:
 pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase All
 ```
 
-## Docs generation
+## Docs Generation
 
 Regenerate the short name map and update docs output:
 
@@ -108,12 +123,12 @@ Regenerate the short name map and update docs output:
 pwsh -File .\DevOps\Build\build.ps1 -TaskNames generateShortNamesMapping,updateHelp,publishDocs
 ```
 
-## Release and versioning
+## Release and Versioning
 
 - The build script accepts `-SemVer` to set a specific version during build.
 - Publishing and release packaging are handled via CI and build tasks.
 
-## PR checklist
+## PR Checklist
 
 - Run `bootstrap.ps1` after pulling new dependencies.
 - Run `build.ps1 -TaskNames build` before opening a PR.
