@@ -1,8 +1,6 @@
 {
-  "collapsible": true,
-  "position": 0.5,
   "className": "category-start",
-  "label": "Start Services",
+  "position": 0.5,
   "customProps": {
     "description": "This category contains commands for starting services, processes and more."
   },
@@ -10,5 +8,7 @@
   "link": {
     "type": "generated-index",
     "title": "Start Services"
-  }
+  },
+  "collapsible": true,
+  "label": "Start Services"
 }
