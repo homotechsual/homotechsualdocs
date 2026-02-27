@@ -1,12 +1,12 @@
 {
-  "collapsible": true,
-  "position": 0.6,
-  "className": "category-reset",
-  "label": "Reset State",
+  "collapsed": true,
   "customProps": {
     "description": "This category contains commands for resetting state, this may include resetting settings, connections and more."
   },
-  "collapsed": true,
+  "collapsible": true,
+  "position": 0.6,
+  "label": "Reset State",
+  "className": "category-reset",
   "link": {
     "type": "generated-index",
     "title": "Reset State"

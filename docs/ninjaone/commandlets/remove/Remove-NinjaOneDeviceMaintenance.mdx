@@ -1,5 +1,5 @@
 ---
-id: Remove-NinjaOneDeviceMaintenance
+id: maintenance
 title: Maintenance
 hide_title: false
 hide_table_of_contents: false
@@ -29,10 +29,10 @@ Cancels scheduled maintenance for the given device using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Remove-NinjaOneDeviceMaintenance -Identity 123
+Remove-NinjaOneDeviceMaintenance -deviceId 1
 ```
 
-Removes the specified resource.
+Cancels scheduled maintenance for device 1.
 
 ## PARAMETERS
 
