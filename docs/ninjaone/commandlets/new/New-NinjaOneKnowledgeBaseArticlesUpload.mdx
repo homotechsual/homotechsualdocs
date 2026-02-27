@@ -1,6 +1,6 @@
 ---
-id: knowledge-base-article
-title: Knowledge Base Article
+id: knowledge-base-articles-upload
+title: Knowledge Base Articles Upload
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -38,9 +38,7 @@ Uploads knowledge base articles from a file to the specified organization.
 ### EXAMPLE 2
 
 ```powershell
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
-PS> $multipart = [System.Net.Http.MultipartFormDataContent]::new()
-PS> $organizationId = 0
+$organizationId = 0
 PS> $json = $organizationId | ConvertTo-Json -Depth 10
 PS> $stringContent = [System.Net.Http.StringContent]::new($json, [System.Text.Encoding]::UTF8, "application/json")
 PS> $multipart.Add($stringContent, "organizationId")

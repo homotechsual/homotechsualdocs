@@ -1,14 +1,14 @@
 {
+  "className": "category-move",
+  "position": 0.6,
   "customProps": {
     "description": "This category contains commands for moving data, objects, settings and more."
   },
-  "label": "Move Data",
+  "collapsed": true,
   "link": {
-    "title": "Move Data",
-    "type": "generated-index"
+    "type": "generated-index",
+    "title": "Move Data"
   },
-  "position": 0.6,
-  "className": "category-move",
   "collapsible": true,
-  "collapsed": true
+  "label": "Move Data"
 }
