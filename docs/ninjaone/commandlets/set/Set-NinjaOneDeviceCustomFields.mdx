@@ -1,7 +1,6 @@
 ---
-title: Set Device Custom Fields
-id: devicecustomfields
-description: "Sets the value of the specified device custom fields using the NinjaOne v2 API."
+id: Set-NinjaOneDeviceCustomFields
+title: Device Custom Fields
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -28,6 +27,20 @@ Sets the value of the specified device custom fields using the NinjaOne v2 API.
 ## EXAMPLES
 
 ### EXAMPLE 1
+
+```powershell
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+ PS> $body = @{
+	additionalProp1 = @{
+	}
+}
+PS> Set-NinjaOneDeviceCustomFields -deviceId 1 -deviceCustomFields $body
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+Full request example (auto-generated).
+
+### EXAMPLE 2
 
 ```powershell
 Set-NinjaOneDeviceCustomFields -deviceId 1 -customFields @{ CustomField1 = 'Value1'; CustomField2 = 'Value2' }
@@ -107,7 +120,6 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 

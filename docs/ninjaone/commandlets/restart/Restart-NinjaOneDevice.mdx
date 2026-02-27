@@ -1,7 +1,6 @@
 ---
-title: Restart Device
-id: device
-description: "Triggers a device reboot using the NinjaOne v2 API."
+id: Restart-NinjaOneDevice
+title: Device
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -26,6 +25,27 @@ Restart-NinjaOneDevice [-deviceId] <Int32> [-mode] <String> [[-reason] <String>]
 Triggers a device reboot using the NinjaOne v2 API.
 
 ## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+ PS> $body = @{
+	reason = "string"
+}
+PS> Restart-NinjaOneDevice -deviceId 1 -mode NORMAL -deviceId $body
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+Full request example (auto-generated).
+
+### EXAMPLE 2
+
+```powershell
+Restart-NinjaOneDevice -Identity 123
+```
+
+Restarts the specified resource.
 
 ## PARAMETERS
 
@@ -115,7 +135,6 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 

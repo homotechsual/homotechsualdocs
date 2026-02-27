@@ -1,7 +1,6 @@
 ---
-title: Set Document Template
-id: documenttemplate
-description: "Updates a document template using the NinjaOne v2 API."
+id: Set-NinjaOneDocumentTemplate
+title: Document Template
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -28,6 +27,108 @@ Set-NinjaOneDocumentTemplate [-documentTemplateId] <Int32> [[-name] <String>] [[
 Updates a document template using the NinjaOne v2 API.
 
 ## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+ PS> $body = @{
+	name = "string"
+	description = "string"
+	mandatory = $false
+	fields = @(
+		@{
+			fieldId = 0
+			fieldLabel = "string"
+			fieldName = "string"
+			fieldDescription = "string"
+			fieldType = "DROPDOWN"
+			fieldTechnicianPermission = "NONE"
+			fieldScriptPermission = "NONE"
+			fieldApiPermission = "NONE"
+			fieldDefaultValue = "string"
+			fieldContent = @{
+				values = @(
+					@{
+						id = "00000000-0000-0000-0000-000000000000"
+						name = "string"
+						active = $false
+					}
+				)
+				required = $false
+				footerText = "string"
+				tooltipText = "string"
+				advancedSettings = @{
+					fileMaxSize = 0
+					fileExtensions = @(
+						"string"
+					)
+					dateFilters = @{
+						type = "NONE"
+						selected = @(
+							"string"
+						)
+					}
+					maxCharacters = 0
+					complexityRules = @{
+						mustContainOneInteger = $false
+						mustContainOneLowercaseLetter = $false
+						mustContainOneUppercaseLetter = $false
+						greaterOrEqualThanSixCharacters = $false
+					}
+					numericRange = @{
+						min = 0
+						max = 0
+					}
+					org = @(
+						0
+					)
+					nodeClass = @(
+						"WINDOWS_SERVER"
+					)
+					ipAddressType = "ALL"
+					expandLargeValueOnRender = $false
+					identifier = @{
+						automaticGenerationEnabled = $false
+						scope = "NONE"
+						assignTo = "NEW_ASSETS_ONLY"
+						type = "CUSTOM"
+						nextSequenceNumber = 0
+						prefix = "string"
+						suffix = "string"
+					}
+					monetary = @{
+						currency = "USD"
+					}
+					templates = @(
+						0
+					)
+				}
+			}
+			uiElementUid = "00000000-0000-0000-0000-000000000000"
+			uiElementName = "string"
+			uiElementType = "TITLE"
+			uiElementValue = "string"
+		}
+	)
+	availableToAllTechnicians = $false
+	allowedTechnicianRoles = @(
+		0
+	)
+}
+PS> Set-NinjaOneDocumentTemplate -documentTemplateId 1 -documentTemplateId $body
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+Full request example (auto-generated).
+
+### EXAMPLE 2
+
+```powershell
+Set-NinjaOneDocumentTemplate -Identity 123 -Property 'Value'
+```
+
+Updates the specified resource.
 
 ## PARAMETERS
 
@@ -213,7 +314,6 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 

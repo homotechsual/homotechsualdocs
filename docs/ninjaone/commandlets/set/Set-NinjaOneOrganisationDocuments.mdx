@@ -1,7 +1,6 @@
 ---
-title: Set Organisation Documents
-id: organisationdocuments
-description: "Sets one or more organisation documents using the NinjaOne v2 API."
+id: Set-NinjaOneOrganisationDocuments
+title: Organisation Documents
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -26,6 +25,35 @@ Set-NinjaOneOrganisationDocuments [-organisationDocuments] <NinjaOneOrganisation
 Sets one or more organisation documents using the NinjaOne v2 API.
 
 ## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+PS> $body = @(
+	@{
+		documentId = 0
+		documentName = "string"
+		documentDescription = "string"
+		fields = @{
+			additionalProp1 = @{
+			}
+		}
+	}
+)
+PS> Set-NinjaOneOrganisationDocuments -organisationDocuments $body
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+Full request example (auto-generated).
+
+### EXAMPLE 2
+
+```powershell
+Set-NinjaOneOrganisationDocuments -Identity 123 -Property 'Value'
+```
+
+Updates the specified resource.
 
 ## PARAMETERS
 
@@ -83,7 +111,6 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 

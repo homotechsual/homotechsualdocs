@@ -1,7 +1,6 @@
 ---
-title: New Organisation
-id: organisation
-description: "Create an organisation using the NinjaOne v2 API."
+id: New-NinjaOneOrganisation
+title: Organisation
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -26,6 +25,40 @@ New-NinjaOneOrganisation [[-templateOrganisationId] <String>] [-organisation] <O
 Create an organisation using the NinjaOne v2 API.
 
 ## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+ PS> $body = @{
+	name = "string"
+	description = "string"
+	userData = @{
+		additionalProp1 = "value"
+	}
+	nodeApprovalMode = "AUTOMATIC"
+	locations = @(
+		@{
+			name = "string"
+			address = "string"
+			description = "string"
+			userData = @{
+				additionalProp1 = "value"
+			}
+		}
+	)
+	policies = @(
+		@{
+			nodeRoleId = 0
+			policyId = 0
+		}
+	)
+}
+PS> New-NinjaOneOrganisation -organisation $body
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+Full request example (auto-generated).
 
 ## PARAMETERS
 
@@ -116,7 +149,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-
 ## OUTPUTS
 
 ### A powershell object containing the response.
@@ -125,4 +157,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://docs.homotechsual.dev/modules/ninjaone/commandlets/New/organisation](https://docs.homotechsual.dev/modules/ninjaone/commandlets/New/organisation)
+[https://docs.homotechsual.dev/modules/ninjaone/commandlets/New/organisation`n`t](https://docs.homotechsual.dev/modules/ninjaone/commandlets/New/organisation`n`t)
+
+[https://docs.homotechsual.dev/modules/ninjaone/commandlets/New/organisation`n`t]()

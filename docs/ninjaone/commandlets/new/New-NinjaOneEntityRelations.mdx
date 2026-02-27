@@ -1,7 +1,6 @@
 ---
-title: New Entity Relations
-id: entityrelations
-description: "Create multiple new entity relations using the NinjaOne v2 API."
+id: New-NinjaOneEntityRelations
+title: Entity Relations
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -26,6 +25,22 @@ New-NinjaOneEntityRelations [-entityType] <String> [-entityId] <Int32> [-entityR
 Create multiple new entity relations using the NinjaOne v2 API.
 
 ## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+PS> $body = @(
+	@{
+		relEntityType = "ORGANIZATION"
+		relEntityId = 0
+	}
+)
+PS> New-NinjaOneEntityRelations -entityType ORGANIZATION -entityId 1 -entityType $body
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+Full request example (auto-generated).
 
 ## PARAMETERS
 
@@ -132,7 +147,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-
 ## OUTPUTS
 
 ### A powershell object containing the response.
@@ -141,4 +155,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://docs.homotechsual.dev/modules/ninjaone/commandlets/New/entityrelations](https://docs.homotechsual.dev/modules/ninjaone/commandlets/New/entityrelations)
+[https://docs.homotechsual.dev/modules/ninjaone/commandlets/New/entityrelations`n`t](https://docs.homotechsual.dev/modules/ninjaone/commandlets/New/entityrelations`n`t)
+
+[https://docs.homotechsual.dev/modules/ninjaone/commandlets/New/entityrelations`n`t]()

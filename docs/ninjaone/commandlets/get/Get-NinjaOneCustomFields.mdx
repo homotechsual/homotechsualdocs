@@ -1,7 +1,6 @@
 ---
-title: Get Custom Fields Query
-id: customfieldsquery
-description: "Retrieves the custom fields from the NinjaOne v2 API."
+id: Get-NinjaOneCustomFields
+title: Custom Fields Query
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -20,7 +19,7 @@ Gets the custom fields from the NinjaOne API.
 
 ```powershell
 Get-NinjaOneCustomFields [[-deviceFilter] <String>] [[-cursor] <String>] [[-pageSize] <Int32>]
- [[-updatedAfter] <DateTime>] [[-updatedAfterUnixEpoch] <Int32>] [[-fields] <String[]>] [-detailed]
+ [[-updatedAfter] <DateTime>] [[-updatedAfterUnixEpoch] <Int64>] [[-fields] <String[]>] [-detailed]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
@@ -28,7 +27,7 @@ Get-NinjaOneCustomFields [[-deviceFilter] <String>] [[-cursor] <String>] [[-page
 
 ```powershell
 Get-NinjaOneCustomFields [[-cursor] <String>] [[-pageSize] <Int32>] [[-scopes] <String[]>]
- [[-updatedAfter] <DateTime>] [[-updatedAfterUnixEpoch] <Int32>] [[-fields] <String[]>] [-detailed]
+ [[-updatedAfter] <DateTime>] [[-updatedAfterUnixEpoch] <Int64>] [[-fields] <String[]>] [-detailed]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
@@ -65,10 +64,10 @@ Gets all custom field values for all devices updated in the last 24 hours.
 ### EXAMPLE 4
 
 ```powershell
-Get-NinjaOneCustomFields -updatedAfterUnixEpoch 1619712000
+Get-NinjaOneCustomFields -updatedAfterUnixEpoch 1619712000000
 ```
 
-Gets all custom field values for all devices updated at or after 1619712000.
+Gets all custom field values for all devices updated at or after Thu Apr 29 2021 16:00.
 
 ### EXAMPLE 5
 
@@ -172,10 +171,10 @@ Accept wildcard characters: False
 ### -updatedAfterUnixEpoch
 
 Custom fields updated after the specified date.
-Unix Epoch time.
+Unix Epoch time (milliseconds).
 
 ```yaml
-Type: Int32
+Type: Int64
 Parameter Sets: (All)
 Aliases:
 
@@ -223,7 +222,6 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 
