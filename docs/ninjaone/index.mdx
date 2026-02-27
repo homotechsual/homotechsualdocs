@@ -147,10 +147,4 @@ This will return a list of all devices in NinjaOne. For more detailed examples o
 
 ## Known Issues
 
-Many NinjaOne API endpoints require the use of a user's context. If you attempt to use these endpoints without interactive authentication you will receive an error similar to the following:
-
-> Line |
->   28 |          throw ('This function is not available when using client_cred …
->      |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->      | This function is not available when using client_credentials authentication. If this is unexpected
->      | please report this to api@ninjarmm.com.
+As of 2.3.0 the NinjaOne FedRamp instance is supported however this runs on an older version of NinjaOne and therefore some endpoints may not work as expected. NinjaOne do not version their API or API spec making it difficult to track which endpoints are supported in which instances.
