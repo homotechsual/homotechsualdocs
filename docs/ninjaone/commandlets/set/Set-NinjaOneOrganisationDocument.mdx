@@ -31,25 +31,25 @@ Sets organisation documents using the NinjaOne v2 API.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	documentName = "string"
-	documentDescription = "string"
-	fields = @{
-		additionalProp1 = @{
-		}
-	}
+PS> $body = @{
+    documentName = "string"
+documentDescription = "string"
+fields = @{
+    additionalProp1 = @{
+}
+}
 }
 PS> Set-NinjaOneOrganisationDocument -clientDocumentId 1 -organisationDocument $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 
 ### EXAMPLE 2
 
 ```powershell
-Set-NinjaOneOrganisationDocument -Identity 123 -Property 'Value'
-```
+Set-NinjaOneOrganisationDocument -Identity 123 -Property 'Value'```
+
 
 Updates the specified resource.
 

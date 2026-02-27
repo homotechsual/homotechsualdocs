@@ -29,8 +29,8 @@ Promotes organisation checklists assigning a new name via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneOrganisationChecklistsPromoteWithName -request @{ checklistIds=@(1); name='New Name' }
-```
+Invoke-NinjaOneOrganisationChecklistsPromoteWithName -request @\{ checklistIds=@(1); name='New Name' \}```
+
 
 Promotes checklists with a new name.
 
@@ -39,14 +39,14 @@ Promotes checklists with a new name.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-	@{
-		id = 0
-		name = "string"
-	}
+@{
+    id = 0
+name = "string"
+}
 )
 PS> Invoke-NinjaOneOrganisationChecklistsPromoteWithName -request $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

@@ -29,8 +29,8 @@ Updates checklist templates via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneChecklistTemplates -templates @{ templates = @(@{ id=1; name='New' }) }
-```
+Set-NinjaOneChecklistTemplates -templates @\{ templates = @(@\{ id=1; name='New' \}) \}```
+
 
 Updates the specified templates.
 
@@ -39,27 +39,27 @@ Updates the specified templates.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-	@{
-		id = 0
-		name = "string"
-		description = @{
-			text = "string"
-			html = "string"
-		}
-		tasks = @(
-			@{
-				position = 0
-				name = "string"
-				description = @{
-				}
-			}
-		)
-		required = $false
-	}
+@{
+    id = 0
+name = "string"
+description = @{
+    text = "string"
+html = "string"
+}
+tasks = @(
+@{
+    position = 0
+name = "string"
+description = @{
+}
+}
+)
+required = $false
+}
 )
 PS> Set-NinjaOneChecklistTemplates -templates $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

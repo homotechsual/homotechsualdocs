@@ -29,8 +29,8 @@ Updates an existing software license via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneSoftwareLicense -LicenseId 1 -License @{ name = 'Microsoft Office 365' }
-```
+Set-NinjaOneSoftwareLicense -LicenseId 1 -License @\{ name = 'Microsoft Office 365' \}```
+
 
 Updates the software license with ID 1.
 
@@ -38,54 +38,54 @@ Updates the software license with ID 1.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	name = "string"
-	description = "string"
-	type = "PER_DEVICE"
-	purchaseDate = 0
-	publisherId = 0
-	vendorId = 0
-	scope = @{
-		global = $false
-		organizationIds = @(
-			0
-		)
-		locationIds = @(
-			0
-		)
-	}
-	quantity = 0
-	currentUsage = 0
-	term = @{
-		renewalUnit = "MONTH"
-		value = 0
-		expirationDate = 0
-		autoRenewal = $false
-		generateActivityAlert = $false
-		daysBeforeExpiration = 0
-		hasNotifiedExpirationDate = $false
-		hasNotifiedUpToRenewal = $false
-	}
-	notificationChannelInfo = @{
-		email = "string"
-		sms = "string"
-		pushNotification = "string"
-	}
-	assigmentAutomationSettings = @{
-		assignmentType = "NORMALIZED_SOFTWARE"
-		type = "string"
-	}
-	assignedLicenses = @(
-		0
-	)
-	unassignedLicenses = @(
-		0
-	)
-	note = "string"
+PS> $body = @{
+    name = "string"
+description = "string"
+type = "PER_DEVICE"
+purchaseDate = 0
+publisherId = 0
+vendorId = 0
+scope = @{
+    global = $false
+organizationIds = @(
+0
+)
+locationIds = @(
+0
+)
+}
+quantity = 0
+currentUsage = 0
+term = @{
+    renewalUnit = "MONTH"
+value = 0
+expirationDate = 0
+autoRenewal = $false
+generateActivityAlert = $false
+daysBeforeExpiration = 0
+hasNotifiedExpirationDate = $false
+hasNotifiedUpToRenewal = $false
+}
+notificationChannelInfo = @{
+    email = "string"
+sms = "string"
+pushNotification = "string"
+}
+assigmentAutomationSettings = @{
+    assignmentType = "NORMALIZED_SOFTWARE"
+type = "string"
+}
+assignedLicenses = @(
+0
+)
+unassignedLicenses = @(
+0
+)
+note = "string"
 }
 PS> Set-NinjaOneSoftwareLicense -LicenseId 1 -License $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

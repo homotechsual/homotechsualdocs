@@ -30,21 +30,21 @@ Sets the value of the specified device custom fields using the NinjaOne v2 API.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	additionalProp1 = @{
-	}
+PS> $body = @{
+    additionalProp1 = @{
+}
 }
 PS> Set-NinjaOneDeviceCustomFields -deviceId 1 -deviceCustomFields $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 
 ### EXAMPLE 2
 
 ```powershell
-Set-NinjaOneDeviceCustomFields -deviceId 1 -customFields @{ CustomField1 = 'Value1'; CustomField2 = 'Value2' }
-```
+Set-NinjaOneDeviceCustomFields -deviceId 1 -customFields @\{ CustomField1 = 'Value1'; CustomField2 = 'Value2' \}```
+
 
 Set `CustomField1` to `Value1` and `CustomField2` to `Value2` respectively for the device with id 1.
 

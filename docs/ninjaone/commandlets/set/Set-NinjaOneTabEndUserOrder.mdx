@@ -31,10 +31,10 @@ NOTE: All tabs defined for end-users must be specified in the payload.
 
 ```powershell
 Set-NinjaOneTabEndUserOrder -order @(
-	@{ tabId = 1; order = 1 },
-	@{ tabId = 2; order = 2 }
-)
-```
+@{ tabId = 1; order = 1 },
+@{ tabId = 2; order = 2 }
+)```
+
 
 Sets the order of the end-user tabs.
 
@@ -43,14 +43,14 @@ Sets the order of the end-user tabs.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-	@{
-		tabId = 0
-		position = 0
-	}
+@{
+    tabId = 0
+position = 0
+}
 )
 PS> Set-NinjaOneTabEndUserOrder -order $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

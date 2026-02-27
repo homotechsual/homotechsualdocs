@@ -29,16 +29,16 @@ Retrieves location custom fields from the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Get-NinjaOneLocationCustomFields organisationId 1 -locationId 2
-```
+Get-NinjaOneLocationCustomFields organisationId 1 -locationId 2```
+
 
 Gets custom field details for the location with id 2 belonging to the organisation with id 1.
 
 ### EXAMPLE 2
 
 ```powershell
-Get-NinjaOneLocationCustomFields organisationId 1 -locationId 2 -withInheritance
-```
+Get-NinjaOneLocationCustomFields organisationId 1 -locationId 2 -withInheritance```
+
 
 Gets custom field details for the location with id 2 belonging to the organisation with id 1 and inherits values from parent organisation, if no value is set for the location you will get the value from the parent organisation.
 

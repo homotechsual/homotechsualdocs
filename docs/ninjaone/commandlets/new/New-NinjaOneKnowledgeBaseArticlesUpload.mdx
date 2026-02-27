@@ -30,8 +30,8 @@ Uploads one or more knowledge base articles via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneKnowledgeBaseArticlesUpload -OrganizationId 1 -FilePath 'C:\articles.zip'
-```
+New-NinjaOneKnowledgeBaseArticlesUpload -OrganizationId 1 -FilePath 'C:\articles.zip'```
+
 
 Uploads knowledge base articles from a file to the specified organization.
 
@@ -57,8 +57,8 @@ PS> $fileContent.Headers.ContentType = [System.Net.Http.Headers.MediaTypeHeaderV
 PS> $multipart.Add($fileContent, "files", [System.IO.Path]::GetFileName($filePath))
 PS> $body = $multipart
 PS> New-NinjaOneKnowledgeBaseArticlesUpload -OrganizationId $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

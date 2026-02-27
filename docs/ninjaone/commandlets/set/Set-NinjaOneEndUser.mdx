@@ -29,8 +29,8 @@ Updates an end user via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneEndUser -Id 101 -endUser @{ phone = '+3100000000' }
-```
+Set-NinjaOneEndUser -Id 101 -endUser @\{ phone = '+3100000000' \}```
+
 
 Updates the end user 101.
 
@@ -38,15 +38,15 @@ Updates the end user 101.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	firstName = "string"
-	lastName = "string"
-	organizationId = 0
-	fullPortalAccess = $false
+PS> $body = @{
+    firstName = "string"
+lastName = "string"
+organizationId = 0
+fullPortalAccess = $false
 }
 PS> Set-NinjaOneEndUser -id 1 -endUser $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

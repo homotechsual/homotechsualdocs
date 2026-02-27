@@ -32,10 +32,10 @@ All tabs on the role must be specified.
 
 ```powershell
 Set-NinjaOneTabRoleOrder -roleId 10 -order @(
-	@{ tabId = 1; order = 1 },
-	@{ tabId = 2; order = 2 }
-)
-```
+@{ tabId = 1; order = 1 },
+@{ tabId = 2; order = 2 }
+)```
+
 
 Sets the role tabs order for role 10.
 
@@ -44,14 +44,14 @@ Sets the role tabs order for role 10.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-	@{
-		tabId = 0
-		position = 0
-	}
+@{
+    tabId = 0
+position = 0
+}
 )
 PS> Set-NinjaOneTabRoleOrder -roleId 1 -order $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

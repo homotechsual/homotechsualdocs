@@ -29,8 +29,8 @@ Decommissions multiple unmanaged devices via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneUnmanagedDeviceDecommissionList -DecommissionRequest @{ nodeIds = @(1, 2, 3) }
-```
+Invoke-NinjaOneUnmanagedDeviceDecommissionList -DecommissionRequest @\{ nodeIds = @(1, 2, 3) \}```
+
 
 Decommissions multiple unmanaged devices in a single request.
 
@@ -38,14 +38,14 @@ Decommissions multiple unmanaged devices in a single request.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	nodeIds = @(
-		0
-	)
+PS> $body = @{
+    nodeIds = @(
+0
+)
 }
 PS> Invoke-NinjaOneUnmanagedDeviceDecommissionList -DecommissionRequest $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

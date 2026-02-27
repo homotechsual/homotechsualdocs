@@ -29,8 +29,8 @@ Creates an unmanaged device via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneUnmanagedDevice -unmanagedDevice @{ hostname='asset-5001' }
-```
+New-NinjaOneUnmanagedDevice -unmanagedDevice @\{ hostname='asset-5001' \}```
+
 
 Creates an unmanaged device.
 
@@ -38,26 +38,26 @@ Creates an unmanaged device.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	name = "string"
-	orgId = 0
-	locationId = 0
-	roleId = 0
-	assignedUserUid = "00000000-0000-0000-0000-000000000000"
-	warrantyStartDate = 0
-	warrantyEndDate = 0
-	assetFields = @{
-		serialNumber = "string"
-		assetId = "string"
-		assetStatus = "string"
-		assetPurchaseDate = 0
-		assetPurchaseAmount = 0
-		assetExpectedLifetime = "string"
-	}
+PS> $body = @{
+    name = "string"
+orgId = 0
+locationId = 0
+roleId = 0
+assignedUserUid = "00000000-0000-0000-0000-000000000000"
+warrantyStartDate = 0
+warrantyEndDate = 0
+assetFields = @{
+    serialNumber = "string"
+assetId = "string"
+assetStatus = "string"
+assetPurchaseDate = 0
+assetPurchaseAmount = 0
+assetExpectedLifetime = "string"
+}
 }
 PS> New-NinjaOneUnmanagedDevice -unmanagedDevice $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

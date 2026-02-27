@@ -30,13 +30,13 @@ Tags will be added and removed as specified for the supplied asset IDs.
 ### EXAMPLE 1
 
 ```powershell
- $tagPayload = @{
-	assetIds = @(123, 456)
-	tagIdsToAdd = @(1, 2)
-	tagIdsToRemove = @(3, 4)
+$tagPayload = @{
+    assetIds = @(123, 456)
+tagIdsToAdd = @(1, 2)
+tagIdsToRemove = @(3, 4)
 }
-PS> Set-NinjaOneTagBatch -assetType 'device' -tagUpdate $tagPayload
-```
+PS> Set-NinjaOneTagBatch -assetType 'device' -tagUpdate $tagPayload```
+
 
 Adds tags 1 and 2 to devices 123 and 456, and removes tags 3 and 4 from them.
 
@@ -44,20 +44,20 @@ Adds tags 1 and 2 to devices 123 and 456, and removes tags 3 and 4 from them.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	assetIds = @(
-		0
-	)
-	tagIdsToAdd = @(
-		0
-	)
-	tagIdsToRemove = @(
-		0
-	)
+PS> $body = @{
+    assetIds = @(
+0
+)
+tagIdsToAdd = @(
+0
+)
+tagIdsToRemove = @(
+0
+)
 }
 PS> Set-NinjaOneTagBatch -assetType string -tagUpdate $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

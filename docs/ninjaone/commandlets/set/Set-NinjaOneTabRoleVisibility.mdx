@@ -30,10 +30,10 @@ Configures tab visibility for a specific role via the NinjaOne v2 API.
 
 ```powershell
 Set-NinjaOneTabRoleVisibility -roleId 10 -visibility @(
-	@{ tabId = 1; visible = $true },
-	@{ tabId = 2; visible = $false }
-)
-```
+@{ tabId = 1; visible = $true },
+@{ tabId = 2; visible = $false }
+)```
+
 
 Sets visibility for tabs on role 10.
 
@@ -42,14 +42,14 @@ Sets visibility for tabs on role 10.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-	@{
-		tabId = 0
-		hidden = $false
-	}
+@{
+    tabId = 0
+hidden = $false
+}
 )
 PS> Set-NinjaOneTabRoleVisibility -roleId 1 -visibility $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

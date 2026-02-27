@@ -30,25 +30,25 @@ Creates a new system contact via the NinjaOne v2 API.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	organizationId = 0
-	firstName = "string"
-	lastName = "string"
-	email = "string"
-	phone = "string"
-	jobTitle = "string"
+PS> $body = @{
+    organizationId = 0
+firstName = "string"
+lastName = "string"
+email = "string"
+phone = "string"
+jobTitle = "string"
 }
 PS> New-NinjaOneContact -contact $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 
 ### EXAMPLE 2
 
 ```powershell
-New-NinjaOneContact -contact @{ firstName = 'Jane'; lastName = 'Doe'; email = 'jane@example.com' }
-```
+New-NinjaOneContact -contact @\{ firstName = 'Jane'; lastName = 'Doe'; email = 'jane@example.com' \}```
+
 
 Creates a new system contact.
 

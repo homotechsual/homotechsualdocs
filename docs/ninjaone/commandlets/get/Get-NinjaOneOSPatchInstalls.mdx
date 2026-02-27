@@ -31,64 +31,64 @@ Retrieves the OS patch installs from the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Get-NinjaOneOSPatchInstalls
-```
+Get-NinjaOneOSPatchInstalls```
+
 
 Gets all OS patch installs.
 
 ### EXAMPLE 2
 
 ```powershell
-Get-NinjaOneOSPatchInstalls -deviceFilter 'org = 1'
-```
+Get-NinjaOneOSPatchInstalls -deviceFilter 'org = 1'```
+
 
 Gets the OS patch installs for the organisation with id 1.
 
 ### EXAMPLE 3
 
 ```powershell
-Get-NinjaOneOSPatchInstalls -timeStamp 1619712000
-```
+Get-NinjaOneOSPatchInstalls -timeStamp 1619712000```
+
 
 Gets the OS patch installs with a monitoring timestamp at or after 1619712000.
 
 ### EXAMPLE 4
 
 ```powershell
-Get-NinjaOneOSPatchInstalls -status 'FAILED'
-```
+Get-NinjaOneOSPatchInstalls -status 'FAILED'```
+
 
 Gets the OS patch installs with a status of 'FAILED'.
 
 ### EXAMPLE 5
 
 ```powershell
-Get-NinjaOneOSPatchInstalls -installedBefore (Get-Date)
-```
+Get-NinjaOneOSPatchInstalls -installedBefore (Get-Date)```
+
 
 Gets the OS patch installs installed before the current date.
 
 ### EXAMPLE 6
 
 ```powershell
-Get-NinjaOneOSPatchInstalls -installedBeforeUnixEpoch 1619712000
-```
+Get-NinjaOneOSPatchInstalls -installedBeforeUnixEpoch 1619712000```
+
 
 Gets the OS patch installs installed before 1619712000.
 
 ### EXAMPLE 7
 
 ```powershell
-Get-NinjaOneOSPatchInstalls -installedAfter (Get-Date).AddDays(-1)
-```
+Get-NinjaOneOSPatchInstalls -installedAfter (Get-Date).AddDays(-1)```
+
 
 Gets the OS patch installs installed after the previous day.
 
 ### EXAMPLE 8
 
 ```powershell
-Get-NinjaOneOSPatchInstalls -installedAfterUnixEpoch 1619712000
-```
+Get-NinjaOneOSPatchInstalls -installedAfterUnixEpoch 1619712000```
+
 
 Gets the OS patch installs installed after 1619712000.
 

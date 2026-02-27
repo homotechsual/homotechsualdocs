@@ -29,8 +29,8 @@ Creates one or more knowledge base articles via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneKnowledgeBaseArticles -articles @{ organizationId = 1; folderId = 10; articles = @(@{ name='A'; content='...'} ) }
-```
+New-NinjaOneKnowledgeBaseArticles -articles @\{ organizationId = 1; folderId = 10; articles = @(@\{ name='A'; content='...'\} ) \}```
+
 
 Creates knowledge base articles in the specified folder.
 
@@ -39,20 +39,20 @@ Creates knowledge base articles in the specified folder.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-	@{
-		name = "string"
-		organizationId = 0
-		destinationFolderId = 0
-		destinationFolderPath = "string"
-		content = @{
-			html = "string"
-			text = "string"
-		}
-	}
+@{
+    name = "string"
+organizationId = 0
+destinationFolderId = 0
+destinationFolderPath = "string"
+content = @{
+    html = "string"
+text = "string"
+}
+}
 )
 PS> New-NinjaOneKnowledgeBaseArticles -articles $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

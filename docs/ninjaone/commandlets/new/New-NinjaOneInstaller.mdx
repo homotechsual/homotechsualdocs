@@ -39,18 +39,18 @@ Create a new installer download link using the NinjaOne v2 API.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	organizationId = 0
-	locationId = 0
-	installerType = "WINDOWS_MSI"
-	usageLimit = 0
-	content = @{
-		nodeRoleId = "string"
-	}
+PS> $body = @{
+    organizationId = 0
+locationId = 0
+installerType = "WINDOWS_MSI"
+usageLimit = 0
+content = @{
+    nodeRoleId = "string"
+}
 }
 PS> New-NinjaOneInstaller -installer $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

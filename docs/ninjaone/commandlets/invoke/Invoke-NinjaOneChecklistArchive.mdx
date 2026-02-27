@@ -29,8 +29,8 @@ Archives one or more checklists via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneChecklistArchive -checklistsToArchive @{ checklistTemplateIds = @(1,2) }
-```
+Invoke-NinjaOneChecklistArchive -checklistsToArchive @\{ checklistTemplateIds = @(1,2) \}```
+
 
 Archives the specified checklists.
 
@@ -38,14 +38,14 @@ Archives the specified checklists.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	checklistTemplateIds = @(
-		0
-	)
+PS> $body = @{
+    checklistTemplateIds = @(
+0
+)
 }
 PS> Invoke-NinjaOneChecklistArchive -checklistsToArchive $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

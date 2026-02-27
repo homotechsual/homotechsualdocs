@@ -30,37 +30,37 @@ Updates webhook configuration for the current application/API client using the N
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	url = "string"
-	activities = @{
-		additionalProp1 = @(
-			"string"
-		)
-	}
-	expand = @(
-		"string"
-	)
-	headers = @(
-		@{
-			name = "string"
-			value = "string"
-		}
-	)
-	organizationIds = @(
-		0
-	)
+PS> $body = @{
+    url = "string"
+activities = @{
+    additionalProp1 = @(
+"string"
+)
+}
+expand = @(
+"string"
+)
+headers = @(
+@{
+    name = "string"
+value = "string"
+}
+)
+organizationIds = @(
+0
+)
 }
 PS> Update-NinjaOneWebhook -webhookConfiguration $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 
 ### EXAMPLE 2
 
 ```powershell
-Update-NinjaOneWebhook
-```
+Update-NinjaOneWebhook```
+
 
 Updates the resource.
 

@@ -29,8 +29,8 @@ Updates a technician via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneTechnician -Id 77 -technician @{ phone = '+3100000000' }
-```
+Set-NinjaOneTechnician -Id 77 -technician @\{ phone = '+3100000000' \}```
+
 
 Updates the technician 77.
 
@@ -38,13 +38,13 @@ Updates the technician 77.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	firstName = "string"
-	lastName = "string"
+PS> $body = @{
+    firstName = "string"
+lastName = "string"
 }
 PS> Set-NinjaOneTechnician -id 1 -technician $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

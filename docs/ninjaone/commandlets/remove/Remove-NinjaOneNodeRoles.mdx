@@ -29,8 +29,8 @@ Deletes node roles using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Remove-NinjaOneNodeRoles -nodeRoles @(@{ id = 1 })
-```
+Remove-NinjaOneNodeRoles -nodeRoles @(@\{ id = 1 \})```
+
 
 Deletes node roles from the provided payload.
 
@@ -38,14 +38,14 @@ Deletes node roles from the provided payload.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	ids = @(
-		0
-	)
+PS> $body = @{
+    ids = @(
+0
+)
 }
 PS> Remove-NinjaOneNodeRoles -nodeRoles $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 

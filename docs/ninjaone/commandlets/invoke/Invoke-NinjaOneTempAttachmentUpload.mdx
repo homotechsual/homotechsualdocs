@@ -29,8 +29,8 @@ Uploads temporary attachments using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneTempAttachmentUpload -entityType TICKET -upload @{ files = @() }
-```
+Invoke-NinjaOneTempAttachmentUpload -entityType TICKET -upload @\{ files = @() \}```
+
 
 Uploads temporary attachments for the given entity type.
 
@@ -46,8 +46,8 @@ PS> $fileContent.Headers.ContentType = [System.Net.Http.Headers.MediaTypeHeaderV
 PS> $multipart.Add($fileContent, "files", [System.IO.Path]::GetFileName($filePath))
 PS> $body = $multipart
 PS> Invoke-NinjaOneTempAttachmentUpload -upload $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+
 
 Full request example (auto-generated).
 
