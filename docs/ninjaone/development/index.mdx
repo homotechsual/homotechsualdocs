@@ -115,6 +115,54 @@ Run all phases:
 pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase All
 ```
 
+## Full Request Example Generation
+
+The full request example generator injects a dedicated help example for POST/PUT/PATCH cmdlets that accept request bodies. It reads the OpenAPI YAML (downloaded by default) and inserts a help block between the explicit markers shown below. Existing examples remain untouched.
+
+It requires a `ConvertFrom-Yaml` implementation (install either `powershell-yaml` or `Yayaml`).
+
+```text
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+Default run (downloads the OpenAPI YAML from the EU tenant):
+
+```powershell
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1
+```
+
+Point at a local OpenAPI YAML file:
+
+```powershell
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1 -YamlPath C:\path\to\NinjaRMM-API-v2.yaml
+```
+
+Target a single endpoint path:
+
+```powershell
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1 -EndpointPath /v2/user/end-users
+```
+
+Target a specific cmdlet:
+
+```powershell
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1 -CommandName New-NinjaOneEndUser
+```
+
+What it does:
+
+- Downloads or loads the OpenAPI YAML and parses request body schemas.
+- Builds a minimal example object from the schema (first option for oneOf/anyOf/allOf).
+- Updates only the marked example block in comment-based help.
+- Inserts the example before the .OUTPUTS section if no block exists.
+
+Common parameters:
+
+- `-BaseUrl` defaults to `https://eu.ninjarmm.com`.
+- `-SourcePath` defaults to `Source\Public`.
+- `-EndpointPath` and `-CommandName` filter the scope.
+
 ## Docs Generation
 
 Regenerate the short name map and update docs output:
