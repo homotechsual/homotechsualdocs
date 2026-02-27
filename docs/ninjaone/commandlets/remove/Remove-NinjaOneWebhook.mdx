@@ -1,7 +1,6 @@
 ---
-title: Remove Webhook
-id: webhook
-description: "Removes webhook configuration for the current application/API client using the NinjaOne v2 API."
+id: Remove-NinjaOneWebhook
+title: Webhook
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -25,6 +24,14 @@ Remove-NinjaOneWebhook [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
 Removes webhook configuration for the current application/API client using the NinjaOne v2 API.
 
 ## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+Remove-NinjaOneWebhook -Identity 123
+```
+
+Removes the specified resource.
 
 ## PARAMETERS
 
@@ -66,7 +73,6 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 

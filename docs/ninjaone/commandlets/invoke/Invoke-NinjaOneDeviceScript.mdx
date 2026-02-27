@@ -1,7 +1,6 @@
 ---
-title: Invoke Script or Action
-id: scriptoraction
-description: "Runs a script or built-in action against a single device using the NinjaOne v2 API."
+id: Invoke-NinjaOneDeviceScript
+title: Script or Action
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -39,12 +38,29 @@ Runs a script or built-in action against a single device using the NinjaOne v2 A
 ### EXAMPLE 1
 
 ```powershell
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+ PS> $body = @{
+	type = "ACTION"
+	id = 0
+	uid = "00000000-0000-0000-0000-000000000000"
+	parameters = "string"
+	runAs = "string"
+}
+PS> Invoke-NinjaOneDeviceScript -deviceId 1 -deviceId $body
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+Full request example (auto-generated).
+
+### EXAMPLE 2
+
+```powershell
 Invoke-NinjaOneDeviceScript -deviceId 1 -type 'SCRIPT' -scriptId 1
 ```
 
 Runs the script with id 1 against the device with id 1.
 
-### EXAMPLE 2
+### EXAMPLE 3
 
 ```powershell
 Invoke-NinjaOneDeviceScript -deviceId 1 -type 'ACTION' -actionUId '00000000-0000-0000-0000-000000000000'
@@ -52,7 +68,7 @@ Invoke-NinjaOneDeviceScript -deviceId 1 -type 'ACTION' -actionUId '00000000-0000
 
 Runs the built-in action with uid 00000000-0000-0000-0000-000000000000 against the device with id 1.
 
-### EXAMPLE 3
+### EXAMPLE 4
 
 ```powershell
 
@@ -163,7 +179,6 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 

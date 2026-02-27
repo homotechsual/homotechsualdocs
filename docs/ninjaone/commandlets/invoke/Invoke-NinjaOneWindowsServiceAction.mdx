@@ -1,7 +1,6 @@
 ---
-title: Invoke Windows Service Action
-id: windowsserviceaction
-description: "Runs an action against a windows service on a single device using the NinjaOne v2 API."
+id: Invoke-NinjaOneWindowsServiceAction
+title: Windows Service Action
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -28,6 +27,19 @@ Runs an action against a windows service on a single device using the NinjaOne v
 ## EXAMPLES
 
 ### EXAMPLE 1
+
+```powershell
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+ PS> $body = @{
+	action = "START"
+}
+PS> Invoke-NinjaOneWindowsServiceAction -deviceId 1 -serviceId 1 -deviceId $body
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+Full request example (auto-generated).
+
+### EXAMPLE 2
 
 ```powershell
 
@@ -122,13 +134,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-
 ## OUTPUTS
 
 ### System.Void
 
-This commandlet returns no output. A success message will be written to the information stream if the API returns a 204 success code. Use `-InformationAction Continue` to see this message.
-
+### This commandlet returns no output. A success message will be written to the information stream if the API returns a 204 success code. Use `-InformationAction continue` to see this message.
 ## NOTES
 
 ## RELATED LINKS

@@ -1,7 +1,6 @@
 ---
-title: Reset Device Policy Overrides
-id: devicepolicyoverrides
-description: "Resets (removes) all configured device policy overrides using the NinjaOne v2 API."
+id: Reset-NinjaOneDevicePolicyOverrides
+title: Device Policy Overrides
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -26,6 +25,14 @@ Reset-NinjaOneDevicePolicyOverrides [-deviceId] <Int32> [-ProgressAction <Action
 Resets (removes) all configured device policy overrides using the NinjaOne v2 API.
 
 ## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+Reset-NinjaOneDevicePolicyOverrides -Identity 123
+```
+
+Resets the specified resource to default state.
 
 ## PARAMETERS
 
@@ -83,7 +90,6 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 

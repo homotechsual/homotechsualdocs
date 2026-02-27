@@ -1,0 +1,14 @@
+{
+  "position": 1,
+  "collapsible": true,
+  "className": "",
+  "customProps": {
+    "description": ""
+  },
+  "label": "",
+  "link": {
+    "title": "",
+    "type": "generated-index"
+  },
+  "collapsed": true
+}

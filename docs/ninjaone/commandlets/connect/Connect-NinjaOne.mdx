@@ -1,7 +1,6 @@
 ---
-title: Connect NinjaOne
-id: ninjaone
-description: "Creates a new connection to a NinjaOne instance and stores this in a PowerShell Session."
+id: Connect-NinjaOne
+title: NinjaOne
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -21,7 +20,8 @@ Creates a new connection to a NinjaOne instance.
 ```powershell
 Connect-NinjaOne [-UseWebAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
  [-Scopes <String[]>] [-RedirectURL <Uri>] [-Port <Int32>] [-ShowTokens] [-UseSecretManagement]
- [-VaultName <String>] [-WriteToSecretVault] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [-VaultName <String>] [-WriteToSecretVault] [-ParseDateTimes] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### Secret Vault Write
@@ -29,7 +29,7 @@ Connect-NinjaOne [-UseWebAuth] -Instance <String> -ClientId <String> -ClientSecr
 ```powershell
 Connect-NinjaOne [-UseWebAuth] [-UseTokenAuth] [-UseClientAuth] -Instance <String> -ClientId <String>
  -ClientSecret <String> [-Scopes <String[]>] [-RedirectURL <Uri>] [-Port <Int32>] [-RefreshToken <String>]
- [-UseSecretManagement] -VaultName <String> [-WriteToSecretVault] [-SecretPrefix <String>]
+ [-UseSecretManagement] -VaultName <String> [-WriteToSecretVault] [-SecretPrefix <String>] [-ParseDateTimes]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
@@ -38,7 +38,7 @@ Connect-NinjaOne [-UseWebAuth] [-UseTokenAuth] [-UseClientAuth] -Instance <Strin
 ```powershell
 Connect-NinjaOne [-UseTokenAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
  [-Scopes <String[]>] [-RefreshToken <String>] [-ShowTokens] [-UseSecretManagement] [-VaultName <String>]
- [-WriteToSecretVault] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [-WriteToSecretVault] [-ParseDateTimes] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Client Credentials
@@ -46,14 +46,14 @@ Connect-NinjaOne [-UseTokenAuth] -Instance <String> -ClientId <String> -ClientSe
 ```powershell
 Connect-NinjaOne [-UseClientAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
  [-Scopes <String[]>] [-ShowTokens] [-UseSecretManagement] [-VaultName <String>] [-WriteToSecretVault]
- [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [-ParseDateTimes] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Secret Vault Read
 
 ```powershell
 Connect-NinjaOne [-UseSecretManagement] -VaultName <String> [-WriteToSecretVault] [-ReadFromSecretVault]
- [-SecretPrefix <String>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [-SecretPrefix <String>] [-ParseDateTimes] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -441,12 +441,27 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ParseDateTimes
+
+Automatically parse date/time values in API responses.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 

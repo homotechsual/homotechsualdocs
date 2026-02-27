@@ -1,7 +1,6 @@
 ---
-title: Set Device
-id: device
-description: "Sets device information using the NinjaOne v2 API."
+id: Set-NinjaOneDevice
+title: Device
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -26,6 +25,39 @@ Set-NinjaOneDevice [-deviceId] <Int32> [-deviceInformation] <Object> [-ProgressA
 Sets device information using the NinjaOne v2 API.
 
 ## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+ PS> $body = @{
+	displayName = "string"
+	userData = @{
+		additionalProp1 = "value"
+	}
+	nodeRoleId = 0
+	policyId = 0
+	organizationId = 0
+	locationId = 0
+	warranty = @{
+		startDate = 0
+		endDate = 0
+		manufacturerFulfillmentDate = 0
+	}
+}
+PS> Set-NinjaOneDevice -deviceId 1 -deviceInformation $body
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+Full request example (auto-generated).
+
+### EXAMPLE 2
+
+```powershell
+Set-NinjaOneDevice -Identity 123 -Property 'Value'
+```
+
+Updates the specified resource.
 
 ## PARAMETERS
 
@@ -99,7 +131,6 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 

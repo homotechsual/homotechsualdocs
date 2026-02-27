@@ -1,7 +1,6 @@
 ---
-title: Remove Related Items
-id: relateditems
-description: "Removes the item relationships for the given entity type and entity id using the NinjaOne v2 API."
+id: Remove-NinjaOneRelatedItems
+title: Related Items
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -26,6 +25,14 @@ Remove-NinjaOneRelatedItems [-entityType] <String> [-entityId] <Int32> [-Progres
 Removes the item relationships for the given entity type and entity id using the NinjaOne v2 API.
 
 ## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+Remove-NinjaOneRelatedItems -Identity 123
+```
+
+Removes the specified resource.
 
 ## PARAMETERS
 
@@ -99,7 +106,6 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 

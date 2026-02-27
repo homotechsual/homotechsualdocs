@@ -1,7 +1,6 @@
 ---
-title: Set Windows Service Configuration
-id: windowsserviceconfiguration
-description: "Sets the configuration of the Windows Service for a single device using the NinjaOne v2 API."
+id: Set-NinjaOneWindowsServiceConfiguration
+title: Windows Service Configuration
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -28,6 +27,20 @@ Sets the configuration of the Windows Service for a single device using the Ninj
 ## EXAMPLES
 
 ### EXAMPLE 1
+
+```powershell
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+ PS> $body = @{
+	startType = "AUTO_START"
+	userName = "string"
+}
+PS> Set-NinjaOneWindowsServiceConfiguration -deviceId 1 -serviceId 1 -configuration $body
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+Full request example (auto-generated).
+
+### EXAMPLE 2
 
 ```powershell
 Set-NinjaOneWindowsServiceConfiguration -deviceId "12345" -serviceId "NinjaRMMAgent" -Configuration @{ startType = "AUTO_START"; userName = "LocalSystem" }
@@ -121,7 +134,6 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 

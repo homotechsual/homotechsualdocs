@@ -1,7 +1,6 @@
 ---
-title: Set Ticket
-id: ticket
-description: "Sets a ticket using the NinjaOne v2 API."
+id: Set-NinjaOneTicket
+title: Ticket
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -17,8 +16,8 @@ Sets a ticket.
 ## SYNTAX
 
 ```powershell
-Set-NinjaOneTicket [-ticketId] <Int32> [-ticket] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+Set-NinjaOneTicket [-ticketId] <Int32> [-ticket] <Object> [-ParseDateTime] [-ProgressAction <ActionPreference>]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -26,6 +25,61 @@ Set-NinjaOneTicket [-ticketId] <Int32> [-ticket] <Object> [-ProgressAction <Acti
 Sets a ticket using the NinjaOne v2 API.
 
 ## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+ PS> $body = @{
+	version = 0
+	clientId = 0
+	ticketFormId = 0
+	locationId = 0
+	nodeId = 0
+	subject = "string"
+	status = "string"
+	type = "PROBLEM"
+	cc = @{
+		uids = @(
+			"00000000-0000-0000-0000-000000000000"
+		)
+		emails = @(
+			"string"
+		)
+	}
+	assignedAppUserId = 0
+	requesterUid = "00000000-0000-0000-0000-000000000000"
+	severity = "NONE"
+	priority = "NONE"
+	parentTicketId = 0
+	tags = @(
+		"string"
+	)
+	attributes = @(
+		@{
+			id = 0
+			attributeId = 0
+			value = "string"
+		}
+	)
+	additionalAssignedTechnicianIds = @(
+		0
+	)
+	followupTime = 0
+}
+PS> Set-NinjaOneTicket -ticketId 1 -ticket $body
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+Full request example (auto-generated).
+
+### EXAMPLE 2
+
+```powershell
+Set-NinjaOneTicket -Identity 123 -Property 'Value'
+```
+
+Updates the specified resource.
 
 ## PARAMETERS
 
@@ -52,12 +106,28 @@ The ticket object.
 ```yaml
 Type: Object
 Parameter Sets: (All)
-Aliases:
+Aliases: body
 
 Required: True
 Position: 2
 Default value: None
 Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -ParseDateTime
+
+Parse date/time values in the response.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -99,7 +169,6 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 

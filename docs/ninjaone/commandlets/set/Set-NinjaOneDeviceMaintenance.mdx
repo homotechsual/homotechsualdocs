@@ -1,7 +1,6 @@
 ---
-title: Set Device Maintenance
-id: devicemaintenance
-description: "Schedule a new maintenance window for the given device(s) using the NinjaOne v2 API."
+id: Set-NinjaOneDeviceMaintenance
+title: Device Maintenance
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -27,6 +26,32 @@ Set-NinjaOneDeviceMaintenance [-deviceId] <Int32> [-disabledFeatures] <String[]>
 Schedule a new maintenance window for the given device(s) using the NinjaOne v2 API.
 
 ## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+ PS> $body = @{
+	disabledFeatures = @(
+		"ALERTS"
+	)
+	start = 0
+	end = 0
+	reasonMessage = "string"
+}
+PS> Set-NinjaOneDeviceMaintenance -deviceId 1 -deviceId $body
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+Full request example (auto-generated).
+
+### EXAMPLE 2
+
+```powershell
+Set-NinjaOneDeviceMaintenance -Identity 123 -Property 'Value'
+```
+
+Updates the specified resource.
 
 ## PARAMETERS
 
@@ -164,7 +189,6 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 

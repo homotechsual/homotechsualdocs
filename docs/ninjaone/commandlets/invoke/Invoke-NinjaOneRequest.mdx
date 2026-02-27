@@ -1,7 +1,6 @@
 ---
-title: Invoke API Request
-id: apirequest
-description: "Wrapper function to send web requests to the NinjaOne API."
+id: Invoke-NinjaOneRequest
+title: API Request
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -17,7 +16,7 @@ Sends a request to the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneRequest [-Method] <String> [-Uri] <String> [[-Body] <String>] [-Raw]
+Invoke-NinjaOneRequest [-Method] <String> [-Uri] <String> [[-Body] <String>] [-Raw] [-ParseDateTime]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
@@ -34,6 +33,22 @@ Invoke-NinjaOneRequest -Method 'GET' -Uri 'https://eu.ninjarmm.com/v2/activities
 ```
 
 Make a GET request to the activities resource.
+
+### EXAMPLE 2
+
+```powershell
+Invoke-NinjaOneRequest -Method 'GET' -Uri 'https://eu.ninjarmm.com/v2/activities' -ParseDateTime
+```
+
+Parse ISO 8601 and Unix epoch values in the response to [DateTime].
+
+### EXAMPLE 3
+
+```powershell
+Invoke-NinjaOneRequest -Method 'GET' -Uri 'https://eu.ninjarmm.com/v2/activities' -ParseDateTime
+```
+
+Make a GET request and convert ISO 8601 or Unix epoch values to [DateTime].
 
 ## PARAMETERS
 
@@ -101,12 +116,27 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ParseDateTime
+
+Convert ISO 8601 or Unix epoch values in JSON responses to [DateTime].
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
 
 ## OUTPUTS
 
