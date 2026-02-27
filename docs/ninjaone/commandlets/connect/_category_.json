@@ -1,14 +1,14 @@
 {
-  "position": 0.1,
   "collapsible": true,
+  "position": 0.1,
   "className": "category-connect",
+  "label": "Connect to Services",
   "customProps": {
     "description": "This category contains commands for connecting to services, retrieving and storing credentials and managing connections."
   },
-  "label": "Connect to Services",
+  "collapsed": false,
   "link": {
-    "title": "Connect to Services",
-    "type": "generated-index"
-  },
-  "collapsed": false
+    "type": "generated-index",
+    "title": "Connect to Services"
+  }
 }

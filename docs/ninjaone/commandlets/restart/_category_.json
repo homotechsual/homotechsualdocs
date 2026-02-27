@@ -1,14 +1,14 @@
 {
-  "position": 0.6,
   "collapsible": true,
+  "position": 0.6,
   "className": "category-restart",
+  "label": "Restart Services",
   "customProps": {
     "description": "This category contains commands for restarting services, this may include restarting services, processes and more."
   },
-  "label": "Restart Services",
+  "collapsed": true,
   "link": {
-    "title": "Restart Services",
-    "type": "generated-index"
-  },
-  "collapsed": true
+    "type": "generated-index",
+    "title": "Restart Services"
+  }
 }
