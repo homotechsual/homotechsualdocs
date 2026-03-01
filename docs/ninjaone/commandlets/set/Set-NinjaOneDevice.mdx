@@ -29,7 +29,8 @@ Sets device information using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneDevice -deviceId 123 -deviceInformation @\{ displayName = 'NewName' \}```
+Set-NinjaOneDevice -deviceId 123 -deviceInformation @{ displayName = 'NewName' }
+```
 
 
 Updates the friendly name for device 123.
@@ -54,7 +55,8 @@ manufacturerFulfillmentDate = 0
 }
 }
 PS> Set-NinjaOneDevice -deviceId 1 -deviceInformation $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
 
 
 Full request example (auto-generated).

@@ -29,7 +29,8 @@ Sets the bandwidth throttle for a device via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneBackupBandwidthThrottle -ThrottleSetting @\{ deviceId = 1; bandwidthLimit = 5242880 \}```
+Set-NinjaOneBackupBandwidthThrottle -ThrottleSetting @{ deviceId = 1; bandwidthLimit = 5242880 }
+```
 
 
 Sets the bandwidth throttle for a device.
@@ -58,7 +59,8 @@ weekDays = @(
 }
 }
 PS> Set-NinjaOneBackupBandwidthThrottle -ThrottleSetting $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
 
 
 Full request example (auto-generated).

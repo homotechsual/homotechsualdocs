@@ -29,7 +29,8 @@ Updates tags for a specific asset type and asset Id via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneAssetTag -assetType 'NODE' -assetId 123 -tagAssignment @\{ tagIds = @(1, 2, 3) \}```
+Set-NinjaOneAssetTag -assetType 'NODE' -assetId 123 -tagAssignment @{ tagIds = @(1, 2, 3) }
+```
 
 
 Updates tag assignments for node 123 with tags 1, 2, and 3.
@@ -44,7 +45,8 @@ PS> $body = @{
 )
 }
 PS> Set-NinjaOneAssetTag -assetType string -assetId 1 -tagAssignment $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
 
 
 Full request example (auto-generated).

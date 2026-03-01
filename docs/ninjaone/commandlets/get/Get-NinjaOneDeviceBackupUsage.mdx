@@ -29,7 +29,8 @@ Retrieves the backup usage by device from the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Get-NinjaOneBackupUsage```
+Get-NinjaOneBackupUsage
+```
 
 
 Gets the backup usage by device.
@@ -37,7 +38,8 @@ Gets the backup usage by device.
 ### EXAMPLE 2
 
 ```powershell
-Get-NinjaOneBackupUsage -includeDeleted```
+Get-NinjaOneBackupUsage -includeDeleted
+```
 
 
 Gets the backup usage by device including deleted devices.
@@ -45,7 +47,8 @@ Gets the backup usage by device including deleted devices.
 ### EXAMPLE 3
 
 ```powershell
-Get-NinjaOneBackupUsage | Where-Object \{ ($_.references.backupUsage.cloudTotalSize -ne 0) -or ($_.references.backupUsage.localTotalSize -ne 0) \}```
+Get-NinjaOneBackupUsage | Where-Object { ($_.references.backupUsage.cloudTotalSize -ne 0) -or ($_.references.backupUsage.localTotalSize -ne 0) }
+```
 
 
 Gets the backup usage by device where the cloud or local total size is not 0.
@@ -53,7 +56,8 @@ Gets the backup usage by device where the cloud or local total size is not 0.
 ### EXAMPLE 4
 
 ```powershell
-Get-NinjaOneBackupUsage -includeDeleted | Where-Object \{ ($_.references.backupUsage.cloudTotalSize -ne 0) -and ($_.references.backupUsage.localTotalSize -ne 0) -and ($_.references.backupUsage.revisionsTotalSize -ne 0) \}```
+Get-NinjaOneBackupUsage -includeDeleted | Where-Object { ($_.references.backupUsage.cloudTotalSize -ne 0) -and ($_.references.backupUsage.localTotalSize -ne 0) -and ($_.references.backupUsage.revisionsTotalSize -ne 0) }
+```
 
 
 Gets the backup usage where the cloud, local and revisions total size is not 0 including deleted devices.

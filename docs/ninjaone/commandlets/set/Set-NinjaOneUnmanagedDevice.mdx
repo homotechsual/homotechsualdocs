@@ -29,7 +29,8 @@ Updates an unmanaged device via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneUnmanagedDevice -nodeId 5001 -unmanagedDevice @\{ hostname = 'asset-5001' \}```
+Set-NinjaOneUnmanagedDevice -nodeId 5001 -unmanagedDevice @{ hostname = 'asset-5001' }
+```
 
 
 Updates unmanaged device 5001.
@@ -55,7 +56,8 @@ assetExpectedLifetime = "string"
 }
 }
 PS> Set-NinjaOneUnmanagedDevice -nodeId 1 -unmanagedDevice $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
 
 
 Full request example (auto-generated).

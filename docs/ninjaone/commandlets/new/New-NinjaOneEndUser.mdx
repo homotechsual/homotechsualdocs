@@ -29,7 +29,8 @@ Creates a new end user via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneEndUser -endUser @\{ firstName = 'Jane'; lastName = 'Doe'; email = 'jane@example.com' \}```
+New-NinjaOneEndUser -endUser @{ firstName = 'Jane'; lastName = 'Doe'; email = 'jane@example.com' }
+```
 
 
 Creates a new end user.
@@ -47,7 +48,8 @@ organizationId = 0
 fullPortalAccess = $false
 }
 PS> New-NinjaOneEndUser -endUser $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
 
 
 Full request example (auto-generated).

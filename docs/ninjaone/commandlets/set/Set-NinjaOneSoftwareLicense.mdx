@@ -29,7 +29,8 @@ Updates an existing software license via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneSoftwareLicense -LicenseId 1 -License @\{ name = 'Microsoft Office 365' \}```
+Set-NinjaOneSoftwareLicense -LicenseId 1 -License @{ name = 'Microsoft Office 365' }
+```
 
 
 Updates the software license with ID 1.
@@ -84,7 +85,8 @@ unassignedLicenses = @(
 note = "string"
 }
 PS> Set-NinjaOneSoftwareLicense -LicenseId 1 -License $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
 
 
 Full request example (auto-generated).

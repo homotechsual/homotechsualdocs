@@ -29,7 +29,8 @@ Creates a new checklist template via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneChecklistTemplate -template @\{ name='Onboarding'; tasks=@( @\{ name = 'Step1' \} ) \}```
+New-NinjaOneChecklistTemplate -template @{ name='Onboarding'; tasks=@( @{ name = 'Step1' } ) }
+```
 
 
 Creates a checklist template.
@@ -57,7 +58,8 @@ required = $false
 }
 )
 PS> New-NinjaOneChecklistTemplate -template $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
 
 
 Full request example (auto-generated).

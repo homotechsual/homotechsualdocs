@@ -32,7 +32,8 @@ Retrieves backup integrity check jobs from the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs```
+Get-NinjaOneIntegrityCheckJobs
+```
 
 
 Gets all backup integrity check jobs.
@@ -40,7 +41,8 @@ Gets all backup integrity check jobs.
 ### EXAMPLE 2
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs -status 'RUNNING'```
+Get-NinjaOneIntegrityCheckJobs -status 'RUNNING'
+```
 
 
 Gets all backup integrity check jobs with a status of 'RUNNING'.
@@ -48,7 +50,8 @@ Gets all backup integrity check jobs with a status of 'RUNNING'.
 ### EXAMPLE 3
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs -status 'RUNNING', 'COMPLETED'```
+Get-NinjaOneIntegrityCheckJobs -status 'RUNNING', 'COMPLETED'
+```
 
 
 Gets all backup integrity check jobs with a status of 'RUNNING' or 'COMPLETED'.
@@ -56,7 +59,8 @@ Gets all backup integrity check jobs with a status of 'RUNNING' or 'COMPLETED'.
 ### EXAMPLE 4
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs -statusFilter 'status = RUNNING'```
+Get-NinjaOneIntegrityCheckJobs -statusFilter 'status = RUNNING'
+```
 
 
 Gets all backup integrity check jobs with a status of 'RUNNING'.
@@ -64,7 +68,8 @@ Gets all backup integrity check jobs with a status of 'RUNNING'.
 ### EXAMPLE 5
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs -statusFilter 'status in (RUNNING, COMPLETED)'```
+Get-NinjaOneIntegrityCheckJobs -statusFilter 'status in (RUNNING, COMPLETED)'
+```
 
 
 Gets all backup integrity check jobs with a status of 'RUNNING' or 'COMPLETED'.
@@ -72,7 +77,8 @@ Gets all backup integrity check jobs with a status of 'RUNNING' or 'COMPLETED'.
 ### EXAMPLE 6
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs -planType 'IMAGE'```
+Get-NinjaOneIntegrityCheckJobs -planType 'IMAGE'
+```
 
 
 Gets all backup integrity check jobs with a plan type of 'IMAGE'.
@@ -80,7 +86,8 @@ Gets all backup integrity check jobs with a plan type of 'IMAGE'.
 ### EXAMPLE 7
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs -planType 'IMAGE', 'FILE_FOLDER'```
+Get-NinjaOneIntegrityCheckJobs -planType 'IMAGE', 'FILE_FOLDER'
+```
 
 
 Gets all backup integrity check jobs with a plan type of 'IMAGE' or 'FILE_FOLDER'.
@@ -88,7 +95,8 @@ Gets all backup integrity check jobs with a plan type of 'IMAGE' or 'FILE_FOLDER
 ### EXAMPLE 8
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs -planTypeFilter 'planType = IMAGE'```
+Get-NinjaOneIntegrityCheckJobs -planTypeFilter 'planType = IMAGE'
+```
 
 
 Gets all backup integrity check jobs with a plan type of 'IMAGE'.
@@ -96,7 +104,8 @@ Gets all backup integrity check jobs with a plan type of 'IMAGE'.
 ### EXAMPLE 9
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs -planTypeFilter 'planType in (IMAGE, FILE_FOLDER)'```
+Get-NinjaOneIntegrityCheckJobs -planTypeFilter 'planType in (IMAGE, FILE_FOLDER)'
+```
 
 
 Gets all backup integrity check jobs with a plan type of 'IMAGE' or 'FILE_FOLDER'.
@@ -104,7 +113,8 @@ Gets all backup integrity check jobs with a plan type of 'IMAGE' or 'FILE_FOLDER
 ### EXAMPLE 10
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs -startTimeBetween (Get-Date).AddDays(-1), (Get-Date)```
+Get-NinjaOneIntegrityCheckJobs -startTimeBetween (Get-Date).AddDays(-1), (Get-Date)
+```
 
 
 Gets all backup integrity check jobs with a start time between 24 hours ago and now.
@@ -112,7 +122,8 @@ Gets all backup integrity check jobs with a start time between 24 hours ago and 
 ### EXAMPLE 11
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs -startTimeAfter (Get-Date).AddDays(-1)```
+Get-NinjaOneIntegrityCheckJobs -startTimeAfter (Get-Date).AddDays(-1)
+```
 
 
 Gets all backup integrity check jobs with a start time after 24 hours ago.
@@ -120,7 +131,8 @@ Gets all backup integrity check jobs with a start time after 24 hours ago.
 ### EXAMPLE 12
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs -startTimeFilter 'startTime between(2024-01-01T00:00:00.000Z,2024-01-02T00:00:00.000Z)'```
+Get-NinjaOneIntegrityCheckJobs -startTimeFilter 'startTime between(2024-01-01T00:00:00.000Z,2024-01-02T00:00:00.000Z)'
+```
 
 
 Gets all backup integrity check jobs with a start time between 2024-01-01T00:00:00.000Z and 2024-01-02T00:00:00.000Z.
@@ -128,7 +140,8 @@ Gets all backup integrity check jobs with a start time between 2024-01-01T00:00:
 ### EXAMPLE 13
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs -startTimeFilter 'startTime after 2024-01-01T00:00:00.000Z'```
+Get-NinjaOneIntegrityCheckJobs -startTimeFilter 'startTime after 2024-01-01T00:00:00.000Z'
+```
 
 
 Gets all backup integrity check jobs with a start time after 2024-01-01T00:00:00.000Z.
@@ -136,7 +149,8 @@ Gets all backup integrity check jobs with a start time after 2024-01-01T00:00:00
 ### EXAMPLE 14
 
 ```powershell
-Get-NinjaOneIntegrityCheckJobs -deviceFilter all```
+Get-NinjaOneIntegrityCheckJobs -deviceFilter all
+```
 
 
 Gets all backup integrity check jobs for the all devices.

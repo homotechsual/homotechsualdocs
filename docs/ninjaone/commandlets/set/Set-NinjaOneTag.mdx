@@ -29,7 +29,8 @@ Updates an existing tag via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneTag -tagId 12 -tag @\{ name = 'Priority-1' \}```
+Set-NinjaOneTag -tagId 12 -tag @{ name = 'Priority-1' }
+```
 
 
 Updates the tag with Id 12.
@@ -43,7 +44,8 @@ PS> $body = @{
 description = "string"
 }
 PS> Set-NinjaOneTag -tagId 1 -tag $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
 
 
 Full request example (auto-generated).

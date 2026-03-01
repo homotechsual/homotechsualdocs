@@ -29,7 +29,8 @@ Creates a new custom field (node attribute) via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneCustomField -CustomField @\{ name = 'Department'; type = 'TEXT' \}```
+New-NinjaOneCustomField -CustomField @{ name = 'Department'; type = 'TEXT' }
+```
 
 
 Creates a new custom field named 'Department' with type 'TEXT'.
@@ -111,7 +112,8 @@ groupId = 0
 addToDefaultTab = $false
 }
 PS> New-NinjaOneCustomField -CustomField $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
 
 
 Full request example (auto-generated).

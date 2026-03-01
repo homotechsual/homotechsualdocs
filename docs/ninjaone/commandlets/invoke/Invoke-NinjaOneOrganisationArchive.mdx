@@ -29,7 +29,8 @@ Archives one or more organisations via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneOrganisationArchive -archiveRequest @\{ organizationIds = @(1,2,3) \}```
+Invoke-NinjaOneOrganisationArchive -archiveRequest @{ organizationIds = @(1,2,3) }
+```
 
 
 Archives organisations 1, 2 and 3.
@@ -44,7 +45,8 @@ PS> $body = @{
 )
 }
 PS> Invoke-NinjaOneOrganisationArchive -archiveRequest $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
 
 
 Full request example (auto-generated).

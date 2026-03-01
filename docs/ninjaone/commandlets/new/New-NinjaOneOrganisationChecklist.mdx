@@ -29,7 +29,8 @@ Creates a new organisation checklist via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneOrganisationChecklist -checklist @\{ name = 'Onboarding'; items = @('Step1','Step2') \}```
+New-NinjaOneOrganisationChecklist -checklist @{ name = 'Onboarding'; items = @('Step1','Step2') }
+```
 
 
 Creates an organisation checklist.
@@ -65,7 +66,8 @@ completed = $false
 }
 )
 PS> New-NinjaOneOrganisationChecklist -checklist $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
 
 
 Full request example (auto-generated).

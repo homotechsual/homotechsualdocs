@@ -29,7 +29,8 @@ Updates an existing custom field identified by its unique field name via the Nin
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneCustomField -FieldName 'department' -CustomField @\{ description = 'Department of the user' \}```
+Set-NinjaOneCustomField -FieldName 'department' -CustomField @{ description = 'Department of the user' }
+```
 
 
 Updates the custom field named 'department' with new description.
@@ -114,7 +115,8 @@ definitionScope = @(
 groupId = 0
 }
 PS> Set-NinjaOneCustomField -FieldName string -CustomField $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
 
 
 Full request example (auto-generated).

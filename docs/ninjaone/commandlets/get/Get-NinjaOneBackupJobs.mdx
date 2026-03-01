@@ -32,7 +32,8 @@ Retrieves backup jobs from the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Get-NinjaOneBackupJobs```
+Get-NinjaOneBackupJobs
+```
 
 
 Gets all backup jobs.
@@ -40,7 +41,8 @@ Gets all backup jobs.
 ### EXAMPLE 2
 
 ```powershell
-Get-NinjaOneBackupJobs -status 'RUNNING'```
+Get-NinjaOneBackupJobs -status 'RUNNING'
+```
 
 
 Gets all backup jobs with a status of 'RUNNING'.
@@ -48,7 +50,8 @@ Gets all backup jobs with a status of 'RUNNING'.
 ### EXAMPLE 3
 
 ```powershell
-Get-NinjaOneBackupJobs -status 'RUNNING', 'COMPLETED'```
+Get-NinjaOneBackupJobs -status 'RUNNING', 'COMPLETED'
+```
 
 
 Gets all backup jobs with a status of 'RUNNING' or 'COMPLETED'.
@@ -56,7 +59,8 @@ Gets all backup jobs with a status of 'RUNNING' or 'COMPLETED'.
 ### EXAMPLE 4
 
 ```powershell
-Get-NinjaOneBackupJobs -statusFilter 'status = RUNNING'```
+Get-NinjaOneBackupJobs -statusFilter 'status = RUNNING'
+```
 
 
 Gets all backup jobs with a status of 'RUNNING'.
@@ -64,7 +68,8 @@ Gets all backup jobs with a status of 'RUNNING'.
 ### EXAMPLE 5
 
 ```powershell
-Get-NinjaOneBackupJobs -statusFilter 'status in (RUNNING, COMPLETED)'```
+Get-NinjaOneBackupJobs -statusFilter 'status in (RUNNING, COMPLETED)'
+```
 
 
 Gets all backup jobs with a status of 'RUNNING' or 'COMPLETED'.
@@ -72,7 +77,8 @@ Gets all backup jobs with a status of 'RUNNING' or 'COMPLETED'.
 ### EXAMPLE 6
 
 ```powershell
-Get-NinjaOneBackupJobs -planType 'IMAGE'```
+Get-NinjaOneBackupJobs -planType 'IMAGE'
+```
 
 
 Gets all backup jobs with a plan type of 'IMAGE'.
@@ -80,7 +86,8 @@ Gets all backup jobs with a plan type of 'IMAGE'.
 ### EXAMPLE 7
 
 ```powershell
-Get-NinjaOneBackupJobs -planType 'IMAGE', 'FILE_FOLDER'```
+Get-NinjaOneBackupJobs -planType 'IMAGE', 'FILE_FOLDER'
+```
 
 
 Gets all backup jobs with a plan type of 'IMAGE' or 'FILE_FOLDER'.
@@ -88,7 +95,8 @@ Gets all backup jobs with a plan type of 'IMAGE' or 'FILE_FOLDER'.
 ### EXAMPLE 8
 
 ```powershell
-Get-NinjaOneBackupJobs -planTypeFilter 'planType = IMAGE'```
+Get-NinjaOneBackupJobs -planTypeFilter 'planType = IMAGE'
+```
 
 
 Gets all backup jobs with a plan type of 'IMAGE'.
@@ -96,7 +104,8 @@ Gets all backup jobs with a plan type of 'IMAGE'.
 ### EXAMPLE 9
 
 ```powershell
-Get-NinjaOneBackupJobs -planTypeFilter 'planType in (IMAGE, FILE_FOLDER)'```
+Get-NinjaOneBackupJobs -planTypeFilter 'planType in (IMAGE, FILE_FOLDER)'
+```
 
 
 Gets all backup jobs with a plan type of 'IMAGE' or 'FILE_FOLDER'.
@@ -104,7 +113,8 @@ Gets all backup jobs with a plan type of 'IMAGE' or 'FILE_FOLDER'.
 ### EXAMPLE 10
 
 ```powershell
-Get-NinjaOneBackupJobs -startTimeBetween (Get-Date).AddDays(-1), (Get-Date)```
+Get-NinjaOneBackupJobs -startTimeBetween (Get-Date).AddDays(-1), (Get-Date)
+```
 
 
 Gets all backup jobs with a start time between 24 hours ago and now.
@@ -112,7 +122,8 @@ Gets all backup jobs with a start time between 24 hours ago and now.
 ### EXAMPLE 11
 
 ```powershell
-Get-NinjaOneBackupJobs -startTimeAfter (Get-Date).AddDays(-1)```
+Get-NinjaOneBackupJobs -startTimeAfter (Get-Date).AddDays(-1)
+```
 
 
 Gets all backup jobs with a start time after 24 hours ago.
@@ -120,7 +131,8 @@ Gets all backup jobs with a start time after 24 hours ago.
 ### EXAMPLE 12
 
 ```powershell
-Get-NinjaOneBackupJobs -startTimeFilter 'startTime between(2024-01-01T00:00:00.000Z,2024-01-02T00:00:00.000Z)'```
+Get-NinjaOneBackupJobs -startTimeFilter 'startTime between(2024-01-01T00:00:00.000Z,2024-01-02T00:00:00.000Z)'
+```
 
 
 Gets all backup jobs with a start time between 2024-01-01T00:00:00.000Z and 2024-01-02T00:00:00.000Z.
@@ -128,7 +140,8 @@ Gets all backup jobs with a start time between 2024-01-01T00:00:00.000Z and 2024
 ### EXAMPLE 13
 
 ```powershell
-Get-NinjaOneBackupJobs -startTimeFilter 'startTime after 2024-01-01T00:00:00.000Z'```
+Get-NinjaOneBackupJobs -startTimeFilter 'startTime after 2024-01-01T00:00:00.000Z'
+```
 
 
 Gets all backup jobs with a start time after 2024-01-01T00:00:00.000Z.
@@ -136,7 +149,8 @@ Gets all backup jobs with a start time after 2024-01-01T00:00:00.000Z.
 ### EXAMPLE 14
 
 ```powershell
-Get-NinjaOneBackupJobs -deviceFilter all```
+Get-NinjaOneBackupJobs -deviceFilter all
+```
 
 
 Gets all backup jobs for the all devices.

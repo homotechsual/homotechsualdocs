@@ -30,7 +30,8 @@ Retrieves the OS patches from the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Get-NinjaOneOSPatches```
+Get-NinjaOneOSPatches
+```
 
 
 Gets all OS patches.
@@ -38,7 +39,8 @@ Gets all OS patches.
 ### EXAMPLE 2
 
 ```powershell
-Get-NinjaOneOSPatches -deviceFilter 'org = 1'```
+Get-NinjaOneOSPatches -deviceFilter 'org = 1'
+```
 
 
 Gets the OS patches for the organisation with id 1.
@@ -46,7 +48,8 @@ Gets the OS patches for the organisation with id 1.
 ### EXAMPLE 3
 
 ```powershell
-Get-NinjaOneOSPatches -timeStamp 1619712000```
+Get-NinjaOneOSPatches -timeStamp 1619712000
+```
 
 
 Gets the OS patches with a monitoring timestamp at or after 1619712000.
@@ -54,7 +57,8 @@ Gets the OS patches with a monitoring timestamp at or after 1619712000.
 ### EXAMPLE 4
 
 ```powershell
-Get-NinjaOneOSPatches -status 'APPROVED'```
+Get-NinjaOneOSPatches -status 'APPROVED'
+```
 
 
 Gets the OS patches with a status of APPROVED.
@@ -62,7 +66,8 @@ Gets the OS patches with a status of APPROVED.
 ### EXAMPLE 5
 
 ```powershell
-Get-NinjaOneOSPatches -type 'SECURITY_UPDATES'```
+Get-NinjaOneOSPatches -type 'SECURITY_UPDATES'
+```
 
 
 Gets the OS patches with a type of SECURITY_UPDATES.
@@ -70,7 +75,8 @@ Gets the OS patches with a type of SECURITY_UPDATES.
 ### EXAMPLE 6
 
 ```powershell
-Get-NinjaOneOSPatches -severity 'CRITICAL'```
+Get-NinjaOneOSPatches -severity 'CRITICAL'
+```
 
 
 Gets the OS patches with a severity of CRITICAL.

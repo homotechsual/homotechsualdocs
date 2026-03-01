@@ -29,7 +29,8 @@ Updates end user custom fields via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneEndUserCustomFields -Id 101 -customFields @\{ field1='value' \}```
+Set-NinjaOneEndUserCustomFields -Id 101 -customFields @{ field1='value' }
+```
 
 
 Updates custom fields for end user 101.
@@ -43,7 +44,8 @@ PS> $body = @{
 }
 }
 PS> Set-NinjaOneEndUserCustomFields -id 1 -customFields $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END```
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
 
 
 Full request example (auto-generated).
