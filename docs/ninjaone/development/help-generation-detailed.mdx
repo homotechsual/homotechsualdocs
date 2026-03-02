@@ -1,0 +1,450 @@
+---
+title: Help Generation Deep Dive
+---
+
+This page documents the comment-based help generation pipeline, which transforms inline help in PowerShell functions into comprehensive `.mdx` documentation files and module help.
+
+## Overview
+
+Help generation is a multi-phase process that:
+1. Generates structured help from comment blocks
+2. Applies generated help to public functions
+3. Verifies documentation completeness
+4. Applies private function help for internal reference
+5. Publishes final `.mdx` files
+
+The pipeline is coordinated by `Orchestrate-HelpGeneration.ps1`.
+
+## Phases
+
+### Phase: Generate
+
+**File**: `Generate-CommentBasedHelp.ps1`
+
+Reads comment-based help from function declarations and generates structured help objects.
+
+**What it does**:
+- Parses PowerShell comment blocks (`<#...#>`)
+- Extracts `.SYNOPSIS`, `.DESCRIPTION`, `.PARAMETER`, `.EXAMPLE`, `.OUTPUTS`, `.NOTES`
+- Validates required sections are present
+- Outputs structured help JSON
+
+**Example comment block**:
+
+```powershell
+<#
+.SYNOPSIS
+    Retrieves a NinjaOne device by ID.
+
+.DESCRIPTION
+    Gets the device details for a specified device ID from the NinjaOne API.
+    Returns comprehensive device information including status, location, and last contact.
+
+.PARAMETER deviceId
+    The device ID to retrieve
+
+.PARAMETER filter
+    Optional filter expression to apply
+
+.EXAMPLE
+    PS> Get-NinjaOneDevice -deviceId 123
+
+    Retrieves device with ID 123.
+
+.EXAMPLE
+    PS> Get-NinjaOneDevice -deviceId 456 -filter "status:active"
+
+    Retrieves device 456 with status filter applied.
+
+.OUTPUTS
+    [PSCustomObject]
+    Device details object with properties: id, name, status, location, lastContact
+
+.NOTES
+    Requires authentication via Set-NinjaOneSecrets
+#>
+function Get-NinjaOneDevice {
+    # ...
+}
+```
+
+**Run individually**:
+
+```powershell
+pwsh -File .\DevOps\Help\Generate-CommentBasedHelp.ps1
+```
+
+### Phase: ApplyPublic
+
+**File**: `Apply-GeneratedHelpToFunctions.ps1`
+
+Applies the generated help to public functions by injecting it into the module manifest.
+
+**What it does**:
+- Takes output from Generate phase
+- Updates `NinjaOne.psd1` manifest with help content
+- Ensures `.Get-Help` returns structured data
+- Validates module will load with new help
+
+**Run individually**:
+
+```powershell
+pwsh -File .\DevOps\Help\Apply-GeneratedHelpToFunctions.ps1
+```
+
+### Phase: Verify
+
+**File**: (part of orchestration)
+
+Validates that all public functions have complete help documentation.
+
+**Checks**:
+- All public functions have SYNOPSIS
+- All functions have DESCRIPTION
+- All parameters documented with `.PARAMETER`
+- At least one `.EXAMPLE` present
+- `.OUTPUTS` section present
+
+**What passes verification**:
+
+```powershell
+<#
+.SYNOPSIS
+    Retrieves device information.
+.DESCRIPTION
+    Gets detailed information about a NinjaOne device.
+.PARAMETER deviceId
+    The device ID
+.EXAMPLE
+    Get-NinjaOneDevice -deviceId 123
+.OUTPUTS
+    [PSCustomObject] Device information
+#>
+```
+
+**What fails verification**:
+
+```powershell
+<#
+.SYNOPSIS
+    Gets a device.
+    # Missing DESCRIPTION, PARAMETER, EXAMPLE, OUTPUTS
+#>
+```
+
+### Phase: ApplyPrivate
+
+**File**: `Apply-PrivateFunctionHelp.ps1`
+
+Generates and applies help for private functions (used internally, not exported).
+
+**Purpose**: 
+- Allows module developers to understand internal functions
+- Generates help visible via `Get-Help` during module development
+- Not included in public-facing documentation
+
+**Run individually**:
+
+```powershell
+pwsh -File .\DevOps\Help\Apply-PrivateFunctionHelp.ps1
+```
+
+## Full Request Example Generation
+
+**File**: `Generate-FullRequestExamples.ps1`
+
+For POST/PUT/PATCH cmdlets that accept request bodies, this generates realistic example requests from the OpenAPI schema and injects them into help.
+
+**Why it exists**:
+- API request bodies can be complex with many nested objects
+- Examples should show real request structure
+- Manual examples get outdated when API schema changes
+
+**How it works**:
+
+1. Downloads or loads OpenAPI YAML specification
+2. Parses request body schema for each endpoint
+3. Builds minimal example object from schema
+4. Inserts example into help between markers:
+
+```powershell
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
+$RequestBody = @{
+    firstName = "John"
+    lastName = "Doe"
+    email = "john.doe@example.com"
+}
+# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
+```
+
+**Run with defaults** (downloads from EU tenant):
+
+```powershell
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1
+```
+
+**Target a local OpenAPI file**:
+
+```powershell
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1 -YamlPath C:\NinjaRMM-API-v2.yaml
+```
+
+**Target specific endpoint**:
+
+```powershell
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1 -EndpointPath /v2/user/end-users
+```
+
+**Target specific cmdlet**:
+
+```powershell
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1 -CommandName New-NinjaOneEndUser
+```
+
+**Options**:
+
+| Parameter | Default | Purpose |
+|-----------|---------|---------|
+| `-YamlPath` | Downloads from API | Path to local OpenAPI YAML or URL |
+| `-BaseUrl` | `https://eu.ninjarmm.com` | NinjaOne tenant to download schema from |
+| `-SourcePath` | `Source\Public` | Functions to process |
+| `-EndpointPath` | (all) | Filter to specific API endpoint |
+| `-CommandName` | (all) | Filter to specific cmdlet |
+
+## Running the Pipeline
+
+### Full Pipeline
+
+Run all phases in sequence:
+
+```powershell
+pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase All
+```
+
+### Individual Phases
+
+```powershell
+# Generate structured help
+pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase Generate
+
+# Apply to public functions
+pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase ApplyPublic
+
+# Verify completeness
+pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase Verify
+
+# Apply to private functions
+pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase ApplyPrivate
+```
+
+### After Help Updates
+
+```powershell
+# 1. Generate new help content
+pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase All
+
+# 2. Generate request examples from latest schema
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1
+
+# 3. Update documentation and manifest
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames updateHelp
+
+# 4. Publish markdown docs
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames publishDocs
+```
+
+## .mdx Documentation Generation
+
+After help content is finalized, it's converted to Markdown:
+
+```powershell
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames publishDocs
+```
+
+**Output location**: `.build/docs/docs/ninjaone/commandlets/`
+
+Each public function generates one `.mdx` file with:
+- Function signature
+- Synopsis and description
+- Parameter documentation
+- Usage examples
+- Output object structure
+- Links to related functions
+
+**Generated file example**: `Get-NinjaOneDevice.mdx`
+
+## Troubleshooting Help Generation
+
+### "Help generation failed on [phase]"
+
+Check the phase immediately before:
+
+```powershell
+# If ApplyPublic fails:
+pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase Generate
+
+# If Verify fails:
+pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase ApplyPublic
+```
+
+These phases are sequential and each depends on outputs from the previous phase.
+
+### "Verify phase reports missing documentation"
+
+Run verification with verbose output:
+
+```powershell
+pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase Verify -Verbose
+```
+
+Add missing sections to function comment blocks:
+- `.SYNOPSIS` - One-line summary
+- `.DESCRIPTION` - Detailed explanation
+- `.EXAMPLE` - At least one usage example
+- `.OUTPUTS` - Output type and description
+
+Note that we do not use `.PARAMETER` sections instead parameters are documented "inline" with comments.
+
+### "Generated examples are wrong for my endpoint"
+
+Inspect the OpenAPI schema being used:
+
+```powershell
+# Point at the YAML file:
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1 -YamlPath C:\my-api.yaml -CommandName MyNewFunction -Verbose
+
+# Run just that function:
+Get-Content C:\my-api.yaml | Select-String "/v2/path/to/endpoint" -Context 10
+```
+
+If the schema is incorrect, update the OpenAPI YAML or run with `-YamlPath` pointing to a corrected version.
+
+### "Build says UpdateHelp failed but script succeeded"
+
+The build script runs three tasks: `generateShortNamesMapping`, `updateHelp`, `publishDocs`
+
+```powershell
+# Run individually to identify which failed:
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames generateShortNamesMapping
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames updateHelp
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames publishDocs
+```
+
+### "Fill parameter Description appears in generated docs"
+
+This indicates the `.PARAMETER` section is incomplete in the comment block. Generated help may contain placeholder text like `Fill deviceId Description` when parameter descriptions are missing.
+
+**Bad**:
+```powershell
+.PARAMETER deviceId
+    {{Fill deviceId Description}}
+```
+
+**Good**:
+```powershell
+.PARAMETER deviceId
+    The device ID to retrieve
+```
+
+Regenerate docs after fixing:
+
+```powershell
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames publishDocs
+```
+
+### "Get-Help returns incomplete information"
+
+Ensure the help was applied to the module:
+
+```powershell
+# Reload the module
+Remove-Module NinjaOne -Force -ErrorAction SilentlyContinue
+Import-Module .\Output\NinjaOne\2.x.x\NinjaOne.psd1 -Force
+
+# Check help
+Get-Help Get-NinjaOneDevice -Full
+```
+
+If still incomplete, regenerate and reapply:
+
+```powershell
+pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase All
+pwsh -File .\DevOps\Help\Apply-GeneratedHelpToFunctions.ps1
+```
+
+## Comment Block Best Practices
+
+### Structure
+
+```powershell
+<#
+.SYNOPSIS
+    One-line description.
+
+.DESCRIPTION
+    Detailed explanation. Can span multiple lines.
+    Explain the purpose, behavior, and any important details.
+
+.PARAMETER paramName
+    Description of this parameter.
+
+.PARAMETER anotherParam
+    Description of another parameter.
+
+.EXAMPLE
+    PS> Command-Name -param1 value -param2 value
+
+    Explanation of what this example does.
+
+.EXAMPLE
+    PS> Command-Name -param1 value
+
+    Another example showing different usage.
+
+.OUTPUTS
+    [OutputType]
+    Description of return value.
+
+.NOTES
+    Any additional information like authentication requirements.
+
+.LINK
+    Related function name
+#>
+```
+
+### SYNOPSIS Style
+
+- One line only, no periods at end
+- Verb-noun format preferred
+- Be specific: "Retrieves" not "Gets things about"
+
+### DESCRIPTION Style
+
+- 2-4 sentences typical
+- Explain what it does and why
+- Not a tutorial, but clear to first-time users
+
+### PARAMETER Style  
+
+- Brief description (one sentence if possible)
+- Explain valid values for enums
+- Document defaults if non-obvious
+
+### EXAMPLE Style
+
+- Show realistic usage scenarios
+- Include parameters that matter
+- Add explanatory comment after
+
+### OUTPUTS Style
+
+- Specify type in `[brackets]`
+- List important properties
+- Note if output can be $null
+
+## See Also
+
+- [Quality Gates & Code Standards](quality-gates.mdx)
+- [Development Workflow](index.mdx)
+- [PowerShell Comment-Based Help](https://learn.microsoft.com/PowerShell/module/microsoft.powershell.core/about/about_comment_based_help)
