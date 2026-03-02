@@ -41,28 +41,28 @@ Creates an organisation checklist.
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
 @{
-    name = "string"
+    checklistTemplateId = 0
+required = $false
+tasks = @(
+@{
+    completed = $false
+assignedToUserId = 0
+position = 0
 description = @{
     text = "string"
 html = "string"
 }
-required = $false
-dueDate = 0
-assignedToUserId = 0
-organizationId = 0
-checklistTemplateId = 0
-tasks = @(
-@{
-    id = 0
-position = 0
+id = 0
 name = "string"
-description = @{
-}
-assignedToUserId = 0
 dueDate = 0
-completed = $false
 }
 )
+assignedToUserId = 0
+organizationId = 0
+description = @{
+}
+name = "string"
+dueDate = 0
 }
 )
 PS> New-NinjaOneOrganisationChecklist -checklist $body

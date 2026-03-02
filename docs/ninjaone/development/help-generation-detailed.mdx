@@ -15,6 +15,8 @@ Help generation is a multi-phase process that:
 
 The pipeline is coordinated by `Orchestrate-HelpGeneration.ps1`.
 
+For local development, documentation generation ends at `updateHelp`. The `publishDocs` step is a CI/export step that copies already-generated docs into `.build\docs` for downstream publishing automation.
+
 ## Phases
 
 ### Phase: Generate
@@ -239,6 +241,8 @@ pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase ApplyPrivate
 
 ### After Help Updates
 
+Local workflow (`publishDocs` not required):
+
 ```powershell
 # 1. Generate new help content
 pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase All
@@ -249,9 +253,11 @@ pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1
 # 3. Update documentation and manifest
 pwsh -File .\DevOps\Build\build.ps1 -TaskNames updateHelp
 
-# 4. Publish markdown docs
+# Optional (CI/export only): copy generated docs to .build\docs for publishing workflows
 pwsh -File .\DevOps\Build\build.ps1 -TaskNames publishDocs
 ```
+
+`updateHelp` writes the generated `.mdx` files to `docs\NinjaOne\commandlets`, which is the canonical local output to review and commit.
 
 ## .mdx Documentation Generation
 

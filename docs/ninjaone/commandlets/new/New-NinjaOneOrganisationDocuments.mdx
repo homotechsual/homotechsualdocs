@@ -33,13 +33,13 @@ Create one or more organisation documents using the NinjaOne v2 API.
 PS> $body = @(
 @{
     documentName = "string"
-documentDescription = "string"
+documentTemplateId = 0
 fields = @{
     additionalProp1 = @{
 }
 }
-documentTemplateId = 0
 organizationId = 0
+documentDescription = "string"
 }
 )
 PS> New-NinjaOneOrganisationDocuments -organisationDocuments $body

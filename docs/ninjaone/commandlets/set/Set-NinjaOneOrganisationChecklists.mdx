@@ -41,27 +41,27 @@ Updates organisation checklists.
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
 @{
-    checklistId = 0
-name = "string"
+    required = $false
+tasks = @(
+@{
+    completed = $false
+assignedToUserId = 0
+position = 0
 description = @{
     text = "string"
 html = "string"
 }
-required = $false
-dueDate = 0
-assignedToUserId = 0
-tasks = @(
-@{
-    id = 0
-position = 0
+id = 0
 name = "string"
-description = @{
-}
-assignedToUserId = 0
 dueDate = 0
-completed = $false
 }
 )
+description = @{
+}
+checklistId = 0
+assignedToUserId = 0
+name = "string"
+dueDate = 0
 }
 )
 PS> Set-NinjaOneOrganisationChecklists -checklists $body
@@ -75,7 +75,7 @@ Full request example (auto-generated).
 
 ### -checklists
 
-\{\{ Fill checklists Description \}\}
+The checklists object containing updates.
 
 ```yaml
 Type: Object

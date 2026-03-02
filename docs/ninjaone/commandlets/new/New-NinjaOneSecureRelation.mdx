@@ -33,12 +33,12 @@ Create a new secure value relation using the NinjaOne v2 API.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @{
-    name = "string"
+    totpSecret = "string"
+password = "string"
 url = "string"
 notes = "string"
 username = "string"
-password = "string"
-totpSecret = "string"
+name = "string"
 }
 PS> New-NinjaOneSecureRelation -entityType ORGANIZATION -entityId 1 -entityType $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

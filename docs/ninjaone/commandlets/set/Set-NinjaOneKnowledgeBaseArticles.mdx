@@ -42,11 +42,11 @@ Updates the specified KB articles.
 PS> $body = @(
 @{
     id = 0
-name = "string"
 content = @{
-    html = "string"
-text = "string"
+    text = "string"
+html = "string"
 }
+name = "string"
 }
 )
 PS> Set-NinjaOneKnowledgeBaseArticles -articles $body
@@ -60,7 +60,7 @@ Full request example (auto-generated).
 
 ### -articles
 
-\{\{ Fill articles Description \}\}
+The knowledge base articles object containing updates.
 
 ```yaml
 Type: Object

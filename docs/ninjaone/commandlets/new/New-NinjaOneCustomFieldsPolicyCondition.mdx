@@ -31,17 +31,31 @@ Create a new custom fields policy condition using the NinjaOne v2 API.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @{
-    enabled = $false
-displayName = "string"
+    priority = "NONE"
+notificationAction = "NONE"
+notifyOnReset = $false
+resetThreshold = 0
+matchAny = @(
+@{
+    operator = "EQUALS"
+value = "string"
+fieldName = "string"
+}
+)
+matchAll = @(
+@{
+}
+)
 severity = "NONE"
-priority = "NONE"
+displayName = "string"
+enabled = $false
 channels = @(
 0
 )
 scripts = @(
 @{
-    scriptId = 0
-runAs = "SYSTEM"
+    runAs = "SYSTEM"
+scriptId = 0
 scriptParam = "string"
 scriptVariables = @(
 @{
@@ -49,20 +63,6 @@ scriptVariables = @(
 value = "string"
 }
 )
-}
-)
-notificationAction = "NONE"
-notifyOnReset = $false
-resetThreshold = 0
-matchAll = @(
-@{
-    fieldName = "string"
-operator = "EQUALS"
-value = "string"
-}
-)
-matchAny = @(
-@{
 }
 )
 }

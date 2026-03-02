@@ -31,23 +31,23 @@ Updates webhook configuration for the current application/API client using the N
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @{
-    url = "string"
-activities = @{
-    additionalProp1 = @(
+    activities = @{
+additionalProp1 = @(
 "string"
 )
 }
-expand = @(
-"string"
-)
+url = "string"
 headers = @(
 @{
-    name = "string"
-value = "string"
+    value = "string"
+name = "string"
 }
 )
 organizationIds = @(
 0
+)
+expand = @(
+"string"
 )
 }
 PS> Update-NinjaOneWebhook -webhookConfiguration $body

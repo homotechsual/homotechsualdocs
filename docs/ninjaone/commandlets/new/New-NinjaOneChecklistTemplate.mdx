@@ -16,7 +16,7 @@ Creates a checklist template.
 ## SYNTAX
 
 ```powershell
-New-NinjaOneChecklistTemplate [-template] <Object> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+New-NinjaOneChecklistTemplate [[-template] <Object>] [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -41,20 +41,20 @@ Creates a checklist template.
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
 @{
-    name = "string"
-description = @{
-    text = "string"
+    description = @{
+text = "string"
 html = "string"
 }
+required = $false
 tasks = @(
 @{
     position = 0
-name = "string"
 description = @{
 }
+name = "string"
 }
 )
-required = $false
+name = "string"
 }
 )
 PS> New-NinjaOneChecklistTemplate -template $body
@@ -68,17 +68,17 @@ Full request example (auto-generated).
 
 ### -template
 
-\{\{ Fill template Description \}\}
+The checklist template object to create.		[Parameter(Mandatory, Position=0, ValueFromPipelineByPropertyName)]
 
 ```yaml
 Type: Object
 Parameter Sets: (All)
 Aliases: body
 
-Required: True
+Required: False
 Position: 1
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 

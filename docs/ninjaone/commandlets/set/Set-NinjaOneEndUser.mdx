@@ -40,10 +40,10 @@ Updates the end user 101.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @{
-    firstName = "string"
-lastName = "string"
-organizationId = 0
+    lastName = "string"
 fullPortalAccess = $false
+organizationId = 0
+firstName = "string"
 }
 PS> Set-NinjaOneEndUser -id 1 -endUser $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
@@ -56,7 +56,7 @@ Full request example (auto-generated).
 
 ### -id
 
-\{\{ Fill id Description \}\}
+The end user Id to update.
 
 ```yaml
 Type: Int32
@@ -72,7 +72,7 @@ Accept wildcard characters: False
 
 ### -endUser
 
-\{\{ Fill endUser Description \}\}
+The end user update object.
 
 ```yaml
 Type: Object

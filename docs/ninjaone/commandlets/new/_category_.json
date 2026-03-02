@@ -1,14 +1,14 @@
 {
-  "position": 0.5,
-  "className": "category-new",
   "link": {
     "title": "Create Data",
     "type": "generated-index"
   },
-  "label": "Create Data",
+  "position": 0.5,
   "collapsed": true,
   "collapsible": true,
+  "className": "category-new",
   "customProps": {
     "description": "This category contains commands for creating data, objects, settings and more."
-  }
+  },
+  "label": "Create Data"
 }
