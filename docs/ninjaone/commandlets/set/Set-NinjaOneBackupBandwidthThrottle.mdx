@@ -41,22 +41,22 @@ Sets the bandwidth throttle for a device.
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @{
     bandwidthThrottle = @{
-workHoursKbps = 0
-workHoursUserUnit = "string"
-nonWorkHoursKbps = 0
-nonWorkHoursUserUnit = "string"
-workSchedule = @{
-    endHour = 0
-weekDays = @(
-"string"
-)
-endMinute = 0
-startHour = 0
-startMinute = 0
-}
-enabled = $false
-}
-deviceId = 0
+        workHoursKbps = 0
+        workHoursUserUnit = "string"
+        nonWorkHoursKbps = 0
+        nonWorkHoursUserUnit = "string"
+        workSchedule = @{
+            endHour = 0
+            weekDays = @(
+                "string"
+            )
+            endMinute = 0
+            startHour = 0
+            startMinute = 0
+        }
+        enabled = $false
+    }
+    deviceId = 0
 }
 PS> Set-NinjaOneBackupBandwidthThrottle -ThrottleSetting $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

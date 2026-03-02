@@ -41,18 +41,18 @@ Updates the friendly name for device 123.
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @{
     locationId = 0
-organizationId = 0
-policyId = 0
-nodeRoleId = 0
-userData = @{
-    additionalProp1 = "value"
-}
-warranty = @{
-    endDate = 0
-manufacturerFulfillmentDate = 0
-startDate = 0
-}
-displayName = "string"
+    organizationId = 0
+    policyId = 0
+    nodeRoleId = 0
+    userData = @{
+        additionalProp1 = "value"
+    }
+    warranty = @{
+        endDate = 0
+        manufacturerFulfillmentDate = 0
+        startDate = 0
+    }
+    displayName = "string"
 }
 PS> Set-NinjaOneDevice -deviceId 1 -deviceInformation $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

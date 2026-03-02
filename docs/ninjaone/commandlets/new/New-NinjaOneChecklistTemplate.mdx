@@ -40,22 +40,22 @@ Creates a checklist template.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-@{
-    description = @{
-text = "string"
-html = "string"
-}
-required = $false
-tasks = @(
-@{
-    position = 0
-description = @{
-}
-name = "string"
-}
-)
-name = "string"
-}
+    @{
+        description = @{
+            text = "string"
+            html = "string"
+        }
+        required = $false
+        tasks = @(
+            @{
+                position = 0
+                description = @{
+                }
+                name = "string"
+            }
+        )
+        name = "string"
+    }
 )
 PS> New-NinjaOneChecklistTemplate -template $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

@@ -33,11 +33,11 @@ Schedule a new maintenance window for the given device(s) using the NinjaOne v2 
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @{
     disabledFeatures = @(
-"ALERTS"
-)
-reasonMessage = "string"
-end = 0
-start = 0
+        "ALERTS"
+    )
+    reasonMessage = "string"
+    end = 0
+    start = 0
 }
 PS> Set-NinjaOneDeviceMaintenance -deviceId 1 -deviceId $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

@@ -40,29 +40,29 @@ Updates organisation checklists.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-@{
-    required = $false
-tasks = @(
-@{
-    completed = $false
-assignedToUserId = 0
-position = 0
-description = @{
-    text = "string"
-html = "string"
-}
-id = 0
-name = "string"
-dueDate = 0
-}
-)
-description = @{
-}
-checklistId = 0
-assignedToUserId = 0
-name = "string"
-dueDate = 0
-}
+    @{
+        required = $false
+        tasks = @(
+            @{
+                completed = $false
+                assignedToUserId = 0
+                position = 0
+                description = @{
+                    text = "string"
+                    html = "string"
+                }
+                id = 0
+                name = "string"
+                dueDate = 0
+            }
+        )
+        description = @{
+        }
+        checklistId = 0
+        assignedToUserId = 0
+        name = "string"
+        dueDate = 0
+    }
 )
 PS> Set-NinjaOneOrganisationChecklists -checklists $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

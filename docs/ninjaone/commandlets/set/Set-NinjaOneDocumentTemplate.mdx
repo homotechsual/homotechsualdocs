@@ -34,87 +34,87 @@ Updates a document template using the NinjaOne v2 API.
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @{
     fields = @(
-@{
-    fieldDescription = "string"
-uiElementType = "TITLE"
-fieldName = "string"
-fieldApiPermission = "NONE"
-fieldScriptPermission = "NONE"
-fieldType = "DROPDOWN"
-fieldLabel = "string"
-fieldDefaultValue = "string"
-fieldContent = @{
-    values = @(
-@{
-    id = "00000000-0000-0000-0000-000000000000"
-active = $false
-name = "string"
-}
-)
-footerText = "string"
-required = $false
-tooltipText = "string"
-advancedSettings = @{
-    complexityRules = @{
-greaterOrEqualThanSixCharacters = $false
-mustContainOneUppercaseLetter = $false
-mustContainOneInteger = $false
-mustContainOneLowercaseLetter = $false
-}
-monetary = @{
-    currency = "USD"
-}
-ipAddressType = "ALL"
-fileMaxSize = 0
-fileExtensions = @(
-"string"
-)
-templates = @(
-0
-)
-org = @(
-0
-)
-dateFilters = @{
-    selected = @(
-"string"
-)
-type = "NONE"
-}
-identifier = @{
-    nextSequenceNumber = 0
-automaticGenerationEnabled = $false
-prefix = "string"
-suffix = "string"
-scope = "NONE"
-type = "CUSTOM"
-assignTo = "NEW_ASSETS_ONLY"
-}
-numericRange = @{
-    min = 0
-max = 0
-}
-maxCharacters = 0
-nodeClass = @(
-"WINDOWS_SERVER"
-)
-expandLargeValueOnRender = $false
-}
-}
-fieldId = 0
-uiElementValue = "string"
-uiElementUid = "00000000-0000-0000-0000-000000000000"
-fieldTechnicianPermission = "NONE"
-uiElementName = "string"
-}
-)
-description = "string"
-mandatory = $false
-allowedTechnicianRoles = @(
-0
-)
-availableToAllTechnicians = $false
-name = "string"
+        @{
+            fieldDescription = "string"
+            uiElementType = "TITLE"
+            fieldName = "string"
+            fieldApiPermission = "NONE"
+            fieldScriptPermission = "NONE"
+            fieldType = "DROPDOWN"
+            fieldLabel = "string"
+            fieldDefaultValue = "string"
+            fieldContent = @{
+                values = @(
+                    @{
+                        id = "00000000-0000-0000-0000-000000000000"
+                        active = $false
+                        name = "string"
+                    }
+                )
+                footerText = "string"
+                required = $false
+                tooltipText = "string"
+                advancedSettings = @{
+                    complexityRules = @{
+                        greaterOrEqualThanSixCharacters = $false
+                        mustContainOneUppercaseLetter = $false
+                        mustContainOneInteger = $false
+                        mustContainOneLowercaseLetter = $false
+                    }
+                    monetary = @{
+                        currency = "USD"
+                    }
+                    ipAddressType = "ALL"
+                    fileMaxSize = 0
+                    fileExtensions = @(
+                        "string"
+                    )
+                    templates = @(
+                        0
+                    )
+                    org = @(
+                        0
+                    )
+                    dateFilters = @{
+                        selected = @(
+                            "string"
+                        )
+                        type = "NONE"
+                    }
+                    identifier = @{
+                        nextSequenceNumber = 0
+                        automaticGenerationEnabled = $false
+                        prefix = "string"
+                        suffix = "string"
+                        scope = "NONE"
+                        type = "CUSTOM"
+                        assignTo = "NEW_ASSETS_ONLY"
+                    }
+                    numericRange = @{
+                        min = 0
+                        max = 0
+                    }
+                    maxCharacters = 0
+                    nodeClass = @(
+                        "WINDOWS_SERVER"
+                    )
+                    expandLargeValueOnRender = $false
+                }
+            }
+            fieldId = 0
+            uiElementValue = "string"
+            uiElementUid = "00000000-0000-0000-0000-000000000000"
+            fieldTechnicianPermission = "NONE"
+            uiElementName = "string"
+        }
+    )
+    description = "string"
+    mandatory = $false
+    allowedTechnicianRoles = @(
+        0
+    )
+    availableToAllTechnicians = $false
+    name = "string"
 }
 PS> Set-NinjaOneDocumentTemplate -documentTemplateId 1 -documentTemplateId $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

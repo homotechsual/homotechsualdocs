@@ -32,7 +32,7 @@ Sets location custom field values using the NinjaOne v2 API.
 ```powershell
 $LocationCustomFields = @{
     field1 = 'value1'
-field2 = 'value2'
+    field2 = 'value2'
 }
 PS> Update-NinjaOneLocationCustomFields -organisationId 1 -locationId 2 -locationCustomFields $LocationCustomFields
 ```
@@ -46,7 +46,7 @@ Updates the custom fields for the location with id 2 belonging to the organisati
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @{
     additionalProp1 = @{
-}
+    }
 }
 PS> Set-NinjaOneLocationCustomFields -organisationId 1 -locationId 1 -locationCustomFields $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

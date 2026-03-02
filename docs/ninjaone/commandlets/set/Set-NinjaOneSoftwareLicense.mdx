@@ -41,48 +41,48 @@ Updates the software license with ID 1.
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @{
     unassignedLicenses = @(
-0
-)
-note = "string"
-purchaseDate = 0
-assignedLicenses = @(
-0
-)
-notificationChannelInfo = @{
-    pushNotification = "string"
-sms = "string"
-email = "string"
-}
-publisherId = 0
-type = "PER_DEVICE"
-assigmentAutomationSettings = @{
-    type = "string"
-assignmentType = "NORMALIZED_SOFTWARE"
-}
-quantity = 0
-description = "string"
-scope = @{
-    locationIds = @(
-0
-)
-global = $false
-organizationIds = @(
-0
-)
-}
-vendorId = 0
-currentUsage = 0
-term = @{
-    expirationDate = 0
-value = 0
-generateActivityAlert = $false
-hasNotifiedExpirationDate = $false
-renewalUnit = "MONTH"
-hasNotifiedUpToRenewal = $false
-daysBeforeExpiration = 0
-autoRenewal = $false
-}
-name = "string"
+        0
+    )
+    note = "string"
+    purchaseDate = 0
+    assignedLicenses = @(
+        0
+    )
+    notificationChannelInfo = @{
+        pushNotification = "string"
+        sms = "string"
+        email = "string"
+    }
+    publisherId = 0
+    type = "PER_DEVICE"
+    assigmentAutomationSettings = @{
+        type = "string"
+        assignmentType = "NORMALIZED_SOFTWARE"
+    }
+    quantity = 0
+    description = "string"
+    scope = @{
+        locationIds = @(
+            0
+        )
+        global = $false
+        organizationIds = @(
+            0
+        )
+    }
+    vendorId = 0
+    currentUsage = 0
+    term = @{
+        expirationDate = 0
+        value = 0
+        generateActivityAlert = $false
+        hasNotifiedExpirationDate = $false
+        renewalUnit = "MONTH"
+        hasNotifiedUpToRenewal = $false
+        daysBeforeExpiration = 0
+        autoRenewal = $false
+    }
+    name = "string"
 }
 PS> Set-NinjaOneSoftwareLicense -LicenseId 1 -License $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

@@ -41,78 +41,78 @@ Updates the custom field named 'department' with new description.
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @{
     active = $false
-scriptPermission = "NONE"
-type = "DROPDOWN"
-defaultValue = "string"
-content = @{
-    values = @(
-@{
-    id = "00000000-0000-0000-0000-000000000000"
-system = $false
-active = $false
-name = "string"
-}
-)
-footerText = "string"
-required = $false
-tooltipText = "string"
-advancedSettings = @{
-    complexityRules = @{
-greaterOrEqualThanSixCharacters = $false
-mustContainOneUppercaseLetter = $false
-mustContainOneInteger = $false
-mustContainOneLowercaseLetter = $false
-}
-monetary = @{
-    currency = "USD"
-}
-ipAddressType = "ALL"
-fileMaxSize = 0
-fileExtensions = @(
-"string"
-)
-templates = @(
-0
-)
-org = @(
-0
-)
-dateFilters = @{
-    selected = @(
-"string"
-)
-type = "NONE"
-}
-identifier = @{
-    nextSequenceNumber = 0
-automaticGenerationEnabled = $false
-prefix = "string"
-suffix = "string"
-scope = "NONE"
-type = "CUSTOM"
-assignTo = "NEW_ASSETS_ONLY"
-}
-numericRange = @{
-    min = 0
-max = 0
-}
-maxCharacters = 0
-nodeClass = @(
-"WINDOWS_SERVER"
-)
-expandLargeValueOnRender = $false
-}
-}
-groupId = 0
-description = "string"
-scope = "NODE_GLOBAL"
-definitionScope = @(
-"NODE"
-)
-technicianPermission = "NONE"
-fieldName = "string"
-apiPermission = "NONE"
-label = "string"
+    scriptPermission = "NONE"
+    type = "DROPDOWN"
+    defaultValue = "string"
+    content = @{
+        values = @(
+            @{
+                id = "00000000-0000-0000-0000-000000000000"
+                system = $false
+                active = $false
+                name = "string"
+            }
+        )
+        footerText = "string"
+        required = $false
+        tooltipText = "string"
+        advancedSettings = @{
+            complexityRules = @{
+                greaterOrEqualThanSixCharacters = $false
+                mustContainOneUppercaseLetter = $false
+                mustContainOneInteger = $false
+                mustContainOneLowercaseLetter = $false
+            }
+            monetary = @{
+                currency = "USD"
+            }
+            ipAddressType = "ALL"
+            fileMaxSize = 0
+            fileExtensions = @(
+                "string"
+            )
+            templates = @(
+                0
+            )
+            org = @(
+                0
+            )
+            dateFilters = @{
+                selected = @(
+                    "string"
+                )
+                type = "NONE"
+            }
+            identifier = @{
+                nextSequenceNumber = 0
+                automaticGenerationEnabled = $false
+                prefix = "string"
+                suffix = "string"
+                scope = "NONE"
+                type = "CUSTOM"
+                assignTo = "NEW_ASSETS_ONLY"
+            }
+            numericRange = @{
+                min = 0
+                max = 0
+            }
+            maxCharacters = 0
+            nodeClass = @(
+                "WINDOWS_SERVER"
+            )
+            expandLargeValueOnRender = $false
+        }
+    }
+    groupId = 0
+    description = "string"
+    scope = "NODE_GLOBAL"
+    definitionScope = @(
+        "NODE"
+    )
+    technicianPermission = "NONE"
+    fieldName = "string"
+    apiPermission = "NONE"
+    label = "string"
 }
 PS> Set-NinjaOneCustomField -FieldName string -CustomField $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

@@ -40,23 +40,23 @@ Updates the specified templates.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-@{
-    required = $false
-id = 0
-description = @{
-    text = "string"
-html = "string"
-}
-tasks = @(
-@{
-    position = 0
-description = @{
-}
-name = "string"
-}
-)
-name = "string"
-}
+    @{
+        required = $false
+        id = 0
+        description = @{
+            text = "string"
+            html = "string"
+        }
+        tasks = @(
+            @{
+                position = 0
+                description = @{
+                }
+                name = "string"
+            }
+        )
+        name = "string"
+    }
 )
 PS> Set-NinjaOneChecklistTemplates -templates $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

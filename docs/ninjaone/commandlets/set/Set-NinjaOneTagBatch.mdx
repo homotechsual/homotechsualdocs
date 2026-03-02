@@ -32,8 +32,8 @@ Tags will be added and removed as specified for the supplied asset IDs.
 ```powershell
 $tagPayload = @{
     assetIds = @(123, 456)
-tagIdsToAdd = @(1, 2)
-tagIdsToRemove = @(3, 4)
+    tagIdsToAdd = @(1, 2)
+    tagIdsToRemove = @(3, 4)
 }
 PS> Set-NinjaOneTagBatch -assetType 'device' -tagUpdate $tagPayload
 ```
@@ -47,14 +47,14 @@ Adds tags 1 and 2 to devices 123 and 456, and removes tags 3 and 4 from them.
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @{
     tagIdsToAdd = @(
-0
-)
-tagIdsToRemove = @(
-0
-)
-assetIds = @(
-0
-)
+        0
+    )
+    tagIdsToRemove = @(
+        0
+    )
+    assetIds = @(
+        0
+    )
 }
 PS> Set-NinjaOneTagBatch -assetType string -tagUpdate $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

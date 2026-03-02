@@ -32,39 +32,39 @@ Create a new custom fields policy condition using the NinjaOne v2 API.
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @{
     priority = "NONE"
-notificationAction = "NONE"
-notifyOnReset = $false
-resetThreshold = 0
-matchAny = @(
-@{
-    operator = "EQUALS"
-value = "string"
-fieldName = "string"
-}
-)
-matchAll = @(
-@{
-}
-)
-severity = "NONE"
-displayName = "string"
-enabled = $false
-channels = @(
-0
-)
-scripts = @(
-@{
-    runAs = "SYSTEM"
-scriptId = 0
-scriptParam = "string"
-scriptVariables = @(
-@{
-    id = "string"
-value = "string"
-}
-)
-}
-)
+    notificationAction = "NONE"
+    notifyOnReset = $false
+    resetThreshold = 0
+    matchAny = @(
+        @{
+            operator = "EQUALS"
+            value = "string"
+            fieldName = "string"
+        }
+    )
+    matchAll = @(
+        @{
+        }
+    )
+    severity = "NONE"
+    displayName = "string"
+    enabled = $false
+    channels = @(
+        0
+    )
+    scripts = @(
+        @{
+            runAs = "SYSTEM"
+            scriptId = 0
+            scriptParam = "string"
+            scriptVariables = @(
+                @{
+                    id = "string"
+                    value = "string"
+                }
+            )
+        }
+    )
 }
 PS> New-NinjaOneCustomFieldsPolicyCondition -customFieldsPolicyCondition $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

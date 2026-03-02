@@ -40,16 +40,16 @@ Creates knowledge base articles in the specified folder.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-@{
-    content = @{
-text = "string"
-html = "string"
-}
-destinationFolderId = 0
-destinationFolderPath = "string"
-organizationId = 0
-name = "string"
-}
+    @{
+        content = @{
+            text = "string"
+            html = "string"
+        }
+        destinationFolderId = 0
+        destinationFolderPath = "string"
+        organizationId = 0
+        name = "string"
+    }
 )
 PS> New-NinjaOneKnowledgeBaseArticles -articles $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

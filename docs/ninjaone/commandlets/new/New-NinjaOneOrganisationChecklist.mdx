@@ -40,30 +40,30 @@ Creates an organisation checklist.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-@{
-    checklistTemplateId = 0
-required = $false
-tasks = @(
-@{
-    completed = $false
-assignedToUserId = 0
-position = 0
-description = @{
-    text = "string"
-html = "string"
-}
-id = 0
-name = "string"
-dueDate = 0
-}
-)
-assignedToUserId = 0
-organizationId = 0
-description = @{
-}
-name = "string"
-dueDate = 0
-}
+    @{
+        checklistTemplateId = 0
+        required = $false
+        tasks = @(
+            @{
+                completed = $false
+                assignedToUserId = 0
+                position = 0
+                description = @{
+                    text = "string"
+                    html = "string"
+                }
+                id = 0
+                name = "string"
+                dueDate = 0
+            }
+        )
+        assignedToUserId = 0
+        organizationId = 0
+        description = @{
+        }
+        name = "string"
+        dueDate = 0
+    }
 )
 PS> New-NinjaOneOrganisationChecklist -checklist $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END

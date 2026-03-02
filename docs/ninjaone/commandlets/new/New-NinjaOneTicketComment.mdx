@@ -42,10 +42,10 @@ Creates a ticket comment on the specified ticket.
 PS> $multipart = [System.Net.Http.MultipartFormDataContent]::new()
 PS> $comment = @{
     body = "string"
-public = $false
-timeTracked = 0
-htmlBody = "string"
-duplicateInIncidents = $false
+    public = $false
+    timeTracked = 0
+    htmlBody = "string"
+    duplicateInIncidents = $false
 }
 PS> $json = $comment | ConvertTo-Json -Depth 10
 PS> $stringContent = [System.Net.Http.StringContent]::new($json, [System.Text.Encoding]::UTF8, "application/json")

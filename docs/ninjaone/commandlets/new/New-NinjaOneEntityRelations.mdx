@@ -31,10 +31,10 @@ Create multiple new entity relations using the NinjaOne v2 API.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-@{
-    relEntityId = 0
-relEntityType = "ORGANIZATION"
-}
+    @{
+        relEntityId = 0
+        relEntityType = "ORGANIZATION"
+    }
 )
 PS> New-NinjaOneEntityRelations -entityType ORGANIZATION -entityId 1 -entityType $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
