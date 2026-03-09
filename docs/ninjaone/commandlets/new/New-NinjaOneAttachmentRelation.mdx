@@ -29,6 +29,15 @@ Create a new attachment relation using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
+New-NinjaOneAttachmentRelation -entityType ORGANIZATION -entityId 1 -attachmentRelation $body
+```
+
+
+Creates an attachment relation for the specified entity.
+
+### EXAMPLE 2
+
+```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $multipart = [System.Net.Http.MultipartFormDataContent]::new()
 PS> $filePath = "C:\Temp\example.txt"
