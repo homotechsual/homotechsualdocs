@@ -34,6 +34,7 @@ If you want patch install status for multiple devices please check out the relat
 Get-NinjaOneDeviceOSPatchInstalls -deviceId 1
 ```
 
+
 Gets OS patch installs for the device with id 1.
 
 ### EXAMPLE 2
@@ -41,6 +42,7 @@ Gets OS patch installs for the device with id 1.
 ```powershell
 Get-NinjaOneDeviceOSPatchInstalls -deviceId 1 -status 'FAILED' -installedAfter (Get-Date 2022/01/01)
 ```
+
 
 Gets OS patch installs for the device with id 1 where the patch failed to install after 2022-01-01.
 

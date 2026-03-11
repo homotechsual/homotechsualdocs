@@ -16,7 +16,7 @@ Creates a checklist template.
 ## SYNTAX
 
 ```powershell
-New-NinjaOneChecklistTemplate [-template] <Object> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+New-NinjaOneChecklistTemplate [[-template] <Object>] [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -32,6 +32,7 @@ Creates a new checklist template via the NinjaOne v2 API.
 New-NinjaOneChecklistTemplate -template @{ name='Onboarding'; tasks=@( @{ name = 'Step1' } ) }
 ```
 
+
 Creates a checklist template.
 
 ### EXAMPLE 2
@@ -39,26 +40,27 @@ Creates a checklist template.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-	@{
-		name = "string"
-		description = @{
-			text = "string"
-			html = "string"
-		}
-		tasks = @(
-			@{
-				position = 0
-				name = "string"
-				description = @{
-				}
-			}
-		)
-		required = $false
-	}
+    @{
+        description = @{
+            text = "string"
+            html = "string"
+        }
+        required = $false
+        tasks = @(
+            @{
+                position = 0
+                description = @{
+                }
+                name = "string"
+            }
+        )
+        name = "string"
+    }
 )
 PS> New-NinjaOneChecklistTemplate -template $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 
@@ -66,17 +68,17 @@ Full request example (auto-generated).
 
 ### -template
 
-\{\{ Fill template Description \}\}
+The checklist template object to create.		[Parameter(Mandatory, Position=0, ValueFromPipelineByPropertyName)]
 
 ```yaml
 Type: Object
 Parameter Sets: (All)
 Aliases: body
 
-Required: True
+Required: False
 Position: 1
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 

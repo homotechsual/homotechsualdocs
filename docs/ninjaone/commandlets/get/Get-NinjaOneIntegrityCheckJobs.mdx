@@ -35,6 +35,7 @@ Retrieves backup integrity check jobs from the NinjaOne v2 API.
 Get-NinjaOneIntegrityCheckJobs
 ```
 
+
 Gets all backup integrity check jobs.
 
 ### EXAMPLE 2
@@ -42,6 +43,7 @@ Gets all backup integrity check jobs.
 ```powershell
 Get-NinjaOneIntegrityCheckJobs -status 'RUNNING'
 ```
+
 
 Gets all backup integrity check jobs with a status of 'RUNNING'.
 
@@ -51,6 +53,7 @@ Gets all backup integrity check jobs with a status of 'RUNNING'.
 Get-NinjaOneIntegrityCheckJobs -status 'RUNNING', 'COMPLETED'
 ```
 
+
 Gets all backup integrity check jobs with a status of 'RUNNING' or 'COMPLETED'.
 
 ### EXAMPLE 4
@@ -58,6 +61,7 @@ Gets all backup integrity check jobs with a status of 'RUNNING' or 'COMPLETED'.
 ```powershell
 Get-NinjaOneIntegrityCheckJobs -statusFilter 'status = RUNNING'
 ```
+
 
 Gets all backup integrity check jobs with a status of 'RUNNING'.
 
@@ -67,6 +71,7 @@ Gets all backup integrity check jobs with a status of 'RUNNING'.
 Get-NinjaOneIntegrityCheckJobs -statusFilter 'status in (RUNNING, COMPLETED)'
 ```
 
+
 Gets all backup integrity check jobs with a status of 'RUNNING' or 'COMPLETED'.
 
 ### EXAMPLE 6
@@ -74,6 +79,7 @@ Gets all backup integrity check jobs with a status of 'RUNNING' or 'COMPLETED'.
 ```powershell
 Get-NinjaOneIntegrityCheckJobs -planType 'IMAGE'
 ```
+
 
 Gets all backup integrity check jobs with a plan type of 'IMAGE'.
 
@@ -83,6 +89,7 @@ Gets all backup integrity check jobs with a plan type of 'IMAGE'.
 Get-NinjaOneIntegrityCheckJobs -planType 'IMAGE', 'FILE_FOLDER'
 ```
 
+
 Gets all backup integrity check jobs with a plan type of 'IMAGE' or 'FILE_FOLDER'.
 
 ### EXAMPLE 8
@@ -90,6 +97,7 @@ Gets all backup integrity check jobs with a plan type of 'IMAGE' or 'FILE_FOLDER
 ```powershell
 Get-NinjaOneIntegrityCheckJobs -planTypeFilter 'planType = IMAGE'
 ```
+
 
 Gets all backup integrity check jobs with a plan type of 'IMAGE'.
 
@@ -99,6 +107,7 @@ Gets all backup integrity check jobs with a plan type of 'IMAGE'.
 Get-NinjaOneIntegrityCheckJobs -planTypeFilter 'planType in (IMAGE, FILE_FOLDER)'
 ```
 
+
 Gets all backup integrity check jobs with a plan type of 'IMAGE' or 'FILE_FOLDER'.
 
 ### EXAMPLE 10
@@ -106,6 +115,7 @@ Gets all backup integrity check jobs with a plan type of 'IMAGE' or 'FILE_FOLDER
 ```powershell
 Get-NinjaOneIntegrityCheckJobs -startTimeBetween (Get-Date).AddDays(-1), (Get-Date)
 ```
+
 
 Gets all backup integrity check jobs with a start time between 24 hours ago and now.
 
@@ -115,6 +125,7 @@ Gets all backup integrity check jobs with a start time between 24 hours ago and 
 Get-NinjaOneIntegrityCheckJobs -startTimeAfter (Get-Date).AddDays(-1)
 ```
 
+
 Gets all backup integrity check jobs with a start time after 24 hours ago.
 
 ### EXAMPLE 12
@@ -122,6 +133,7 @@ Gets all backup integrity check jobs with a start time after 24 hours ago.
 ```powershell
 Get-NinjaOneIntegrityCheckJobs -startTimeFilter 'startTime between(2024-01-01T00:00:00.000Z,2024-01-02T00:00:00.000Z)'
 ```
+
 
 Gets all backup integrity check jobs with a start time between 2024-01-01T00:00:00.000Z and 2024-01-02T00:00:00.000Z.
 
@@ -131,6 +143,7 @@ Gets all backup integrity check jobs with a start time between 2024-01-01T00:00:
 Get-NinjaOneIntegrityCheckJobs -startTimeFilter 'startTime after 2024-01-01T00:00:00.000Z'
 ```
 
+
 Gets all backup integrity check jobs with a start time after 2024-01-01T00:00:00.000Z.
 
 ### EXAMPLE 14
@@ -138,6 +151,7 @@ Gets all backup integrity check jobs with a start time after 2024-01-01T00:00:00
 ```powershell
 Get-NinjaOneIntegrityCheckJobs -deviceFilter all
 ```
+
 
 Gets all backup integrity check jobs for the all devices.
 Includes active and deleted devices.

@@ -40,14 +40,15 @@ Sets policy assignment for node role(s) for an organisation using the NinjaOne v
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-	@{
-		nodeRoleId = 0
-		policyId = 0
-	}
+    @{
+        nodeRoleId = 0
+        policyId = 0
+    }
 )
 PS> Set-NinjaOneOrganisationPolicies -organisationId 1 -organisationId $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 
@@ -56,6 +57,7 @@ Full request example (auto-generated).
 ```powershell
 Set-NinjaOneOrganisationPolicies -Identity 123 -Property 'Value'
 ```
+
 
 Updates the specified resource.
 

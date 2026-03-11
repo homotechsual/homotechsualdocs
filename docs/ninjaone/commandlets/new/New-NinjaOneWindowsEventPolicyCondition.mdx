@@ -30,50 +30,51 @@ Create a new windows event policy condition using the NinjaOne v2 API.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	enabled = $false
-	displayName = "string"
-	severity = "NONE"
-	priority = "NONE"
-	channels = @(
-		0
-	)
-	scripts = @(
-		@{
-			scriptId = 0
-			runAs = "SYSTEM"
-			scriptParam = "string"
-			scriptVariables = @(
-				@{
-					id = "string"
-					value = "string"
-				}
-			)
-		}
-	)
-	notificationAction = "NONE"
-	notifyOnReset = $false
-	resetThreshold = 0
-	source = "string"
-	eventIds = @(
-		0
-	)
-	text = @{
-		values = @(
-			"string"
-		)
-		condition = "CONTAINS"
-		include = "ALL"
-	}
-	occurrence = @{
-		enabled = $false
-		threshold = 0
-		duration = 0
-	}
+PS> $body = @{
+    resetThreshold = 0
+    channels = @(
+        0
+    )
+    source = "string"
+    severity = "NONE"
+    occurrence = @{
+        enabled = $false
+        duration = 0
+        threshold = 0
+    }
+    notificationAction = "NONE"
+    eventIds = @(
+        0
+    )
+    priority = "NONE"
+    scripts = @(
+        @{
+            runAs = "SYSTEM"
+            scriptId = 0
+            scriptParam = "string"
+            scriptVariables = @(
+                @{
+                    id = "string"
+                    value = "string"
+                }
+            )
+        }
+    )
+    notifyOnReset = $false
+    displayName = "string"
+    text = @{
+        values = @(
+            "string"
+        )
+        condition = "CONTAINS"
+        include = "ALL"
+    }
+    enabled = $false
 }
 PS> New-NinjaOneWindowsEventPolicyCondition -windowsEventPolicyCondition $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 

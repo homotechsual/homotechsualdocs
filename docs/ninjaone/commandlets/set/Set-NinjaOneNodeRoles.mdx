@@ -32,6 +32,7 @@ Updates node roles using the NinjaOne v2 API.
 Set-NinjaOneNodeRoles -nodeRoles @(@{ id = 1; name = 'Role A' })
 ```
 
+
 Updates node roles from the provided payload.
 
 ### EXAMPLE 2
@@ -39,16 +40,17 @@ Updates node roles from the provided payload.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-	@{
-		id = 0
-		name = "string"
-		description = "string"
-		icon = "string"
-	}
+    @{
+        icon = "string"
+        id = 0
+        description = "string"
+        name = "string"
+    }
 )
 PS> Set-NinjaOneNodeRoles -nodeRoles $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 

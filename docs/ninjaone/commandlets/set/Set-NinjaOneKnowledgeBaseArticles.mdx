@@ -32,6 +32,7 @@ Updates one of more knowledge base articles via the NinjaOne v2 API.
 Set-NinjaOneKnowledgeBaseArticles -articles @{ articles = @(@{ id=1; name='New' }) }
 ```
 
+
 Updates the specified KB articles.
 
 ### EXAMPLE 2
@@ -39,18 +40,19 @@ Updates the specified KB articles.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-	@{
-		id = 0
-		name = "string"
-		content = @{
-			html = "string"
-			text = "string"
-		}
-	}
+    @{
+        id = 0
+        content = @{
+            text = "string"
+            html = "string"
+        }
+        name = "string"
+    }
 )
 PS> Set-NinjaOneKnowledgeBaseArticles -articles $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 
@@ -58,7 +60,7 @@ Full request example (auto-generated).
 
 ### -articles
 
-\{\{ Fill articles Description \}\}
+The knowledge base articles object containing updates.
 
 ```yaml
 Type: Object

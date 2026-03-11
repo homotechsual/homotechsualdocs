@@ -33,6 +33,7 @@ Retrieves the operating systems from the NinjaOne v2 API.
 Get-NinjaOneOperatingSystems
 ```
 
+
 Gets all operating systems.
 
 ### EXAMPLE 2
@@ -40,6 +41,7 @@ Gets all operating systems.
 ```powershell
 Get-NinjaOneOperatingSystems -deviceFilter 'org = 1'
 ```
+
 
 Gets the operating systems for the organisation with id 1.
 
@@ -49,6 +51,7 @@ Gets the operating systems for the organisation with id 1.
 Get-NinjaOneOperatingSystems -timeStamp 1619712000
 ```
 
+
 Gets the operating systems with a monitoring timestamp at or after 1619712000.
 
 ### EXAMPLE 4
@@ -56,6 +59,7 @@ Gets the operating systems with a monitoring timestamp at or after 1619712000.
 ```powershell
 Get-NinjaOneOperatingSystems | Group-Object -Property 'name'
 ```
+
 
 Gets all operating systems grouped by the name property.
 

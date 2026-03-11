@@ -43,6 +43,7 @@ Retrieves the custom fields from the NinjaOne v2 API.
 Get-NinjaOneCustomFields
 ```
 
+
 Gets all custom field values for all devices.
 
 ### EXAMPLE 2
@@ -50,6 +51,7 @@ Gets all custom field values for all devices.
 ```powershell
 Get-NinjaOneCustomFields -deviceFilter 'org = 1'
 ```
+
 
 Gets all custom field values for all devices in the organisation with id 1.
 
@@ -59,6 +61,7 @@ Gets all custom field values for all devices in the organisation with id 1.
 Get-NinjaOneCustomFields -updatedAfter (Get-Date).AddDays(-1)
 ```
 
+
 Gets all custom field values for all devices updated in the last 24 hours.
 
 ### EXAMPLE 4
@@ -66,6 +69,7 @@ Gets all custom field values for all devices updated in the last 24 hours.
 ```powershell
 Get-NinjaOneCustomFields -updatedAfterUnixEpoch 1619712000000
 ```
+
 
 Gets all custom field values for all devices updated at or after Thu Apr 29 2021 16:00.
 
@@ -75,6 +79,7 @@ Gets all custom field values for all devices updated at or after Thu Apr 29 2021
 Get-NinjaOneCustomFields -fields 'hasBatteries', 'autopilotHwid'
 ```
 
+
 Gets the custom field values for the specified fields.
 
 ### EXAMPLE 6
@@ -82,6 +87,7 @@ Gets the custom field values for the specified fields.
 ```powershell
 Get-NinjaOneCustomFields -detailed
 ```
+
 
 Gets the detailed version of the custom field values.
 

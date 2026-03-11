@@ -32,6 +32,7 @@ Creates node roles using the NinjaOne v2 API.
 New-NinjaOneNodeRoles -nodeRoles @(@{ name = 'Role A' })
 ```
 
+
 Creates node roles from the provided payload.
 
 ### EXAMPLE 2
@@ -39,19 +40,20 @@ Creates node roles from the provided payload.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-	@{
-		nodeClass = "WINDOWS_SERVER"
-		nodeRoleParentName = "string"
-		nodeRoleParentId = 0
-		name = "string"
-		description = "string"
-		chassisType = "UNKNOWN"
-		icon = "string"
-	}
+    @{
+        nodeClass = "WINDOWS_SERVER"
+        description = "string"
+        nodeRoleParentName = "string"
+        icon = "string"
+        nodeRoleParentId = 0
+        chassisType = "UNKNOWN"
+        name = "string"
+    }
 )
 PS> New-NinjaOneNodeRoles -nodeRoles $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 

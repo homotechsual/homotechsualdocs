@@ -32,6 +32,7 @@ Create a ticket comment using the NinjaOne v2 API.
 New-NinjaOneTicketComment -ticketId 1 -comment @{ body = "Example"; public = $true }
 ```
 
+
 Creates a ticket comment on the specified ticket.
 
 ### EXAMPLE 2
@@ -39,12 +40,12 @@ Creates a ticket comment on the specified ticket.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $multipart = [System.Net.Http.MultipartFormDataContent]::new()
- PS> $comment = @{
-	public = $false
-	body = "string"
-	htmlBody = "string"
-	timeTracked = 0
-	duplicateInIncidents = $false
+PS> $comment = @{
+    public = $false
+    body = "string"
+    htmlBody = "string"
+    timeTracked = 0
+    duplicateInIncidents = $false
 }
 PS> $json = $comment | ConvertTo-Json -Depth 10
 PS> $stringContent = [System.Net.Http.StringContent]::new($json, [System.Text.Encoding]::UTF8, "application/json")
@@ -58,6 +59,7 @@ PS> $body = $multipart
 PS> New-NinjaOneTicketComment -ticketId 1 -comment $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 

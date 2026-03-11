@@ -33,6 +33,7 @@ Retrieves the software inventory from the NinjaOne v2 API.
 Get-NinjaOneSoftwareInventory
 ```
 
+
 Gets the software inventory.
 
 ### EXAMPLE 2
@@ -40,6 +41,7 @@ Gets the software inventory.
 ```powershell
 Get-NinjaOneSoftwareInventory -deviceFilter 'org = 1'
 ```
+
 
 Gets the software inventory for the organisation with id 1.
 
@@ -49,6 +51,7 @@ Gets the software inventory for the organisation with id 1.
 Get-NinjaOneSoftwareInventory -installedBefore (Get-Date)
 ```
 
+
 Gets the software inventory for software installed before the current date.
 
 ### EXAMPLE 4
@@ -56,6 +59,7 @@ Gets the software inventory for software installed before the current date.
 ```powershell
 Get-NinjaOneSoftwareInventory -installedBeforeUnixEpoch 1619712000
 ```
+
 
 Gets the software inventory for software installed before 1619712000.
 
@@ -65,6 +69,7 @@ Gets the software inventory for software installed before 1619712000.
 Get-NinjaOneSoftwareInventory -installedAfter (Get-Date).AddDays(-1)
 ```
 
+
 Gets the software inventory for software installed after the previous day.
 
 ### EXAMPLE 6
@@ -72,6 +77,7 @@ Gets the software inventory for software installed after the previous day.
 ```powershell
 Get-NinjaOneSoftwareInventory -installedAfterUnixEpoch 1619712000
 ```
+
 
 Gets the software inventory for software installed after 1619712000.
 

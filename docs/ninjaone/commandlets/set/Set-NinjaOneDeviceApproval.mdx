@@ -30,14 +30,15 @@ Sets the approval status of the specified device(s) using the NinjaOne v2 API.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	devices = @(
-		0
-	)
+PS> $body = @{
+    devices = @(
+        0
+    )
 }
 PS> Set-NinjaOneDeviceApproval -mode APPROVE -mode $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 
@@ -46,6 +47,7 @@ Full request example (auto-generated).
 ```powershell
 Set-NinjaOneDeviceApproval -Identity 123 -Property 'Value'
 ```
+
 
 Updates the specified resource.
 

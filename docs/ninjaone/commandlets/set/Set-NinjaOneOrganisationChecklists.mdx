@@ -32,6 +32,7 @@ Updates organisation checklists via the NinjaOne v2 API.
 Set-NinjaOneOrganisationChecklists -checklists @{ ... }
 ```
 
+
 Updates organisation checklists.
 
 ### EXAMPLE 2
@@ -39,33 +40,34 @@ Updates organisation checklists.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-	@{
-		checklistId = 0
-		name = "string"
-		description = @{
-			text = "string"
-			html = "string"
-		}
-		required = $false
-		dueDate = 0
-		assignedToUserId = 0
-		tasks = @(
-			@{
-				id = 0
-				position = 0
-				name = "string"
-				description = @{
-				}
-				assignedToUserId = 0
-				dueDate = 0
-				completed = $false
-			}
-		)
-	}
+    @{
+        required = $false
+        tasks = @(
+            @{
+                completed = $false
+                assignedToUserId = 0
+                position = 0
+                description = @{
+                    text = "string"
+                    html = "string"
+                }
+                id = 0
+                name = "string"
+                dueDate = 0
+            }
+        )
+        description = @{
+        }
+        checklistId = 0
+        assignedToUserId = 0
+        name = "string"
+        dueDate = 0
+    }
 )
 PS> Set-NinjaOneOrganisationChecklists -checklists $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 
@@ -73,7 +75,7 @@ Full request example (auto-generated).
 
 ### -checklists
 
-\{\{ Fill checklists Description \}\}
+The checklists object containing updates.
 
 ```yaml
 Type: Object

@@ -30,17 +30,18 @@ Updates a system contact via the NinjaOne v2 API.
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	firstName = "string"
-	lastName = "string"
-	email = "string"
-	jobTitle = "string"
-	organizationId = 0
-	phone = "string"
+PS> $body = @{
+    phone = "string"
+    firstName = "string"
+    organizationId = 0
+    jobTitle = "string"
+    email = "string"
+    lastName = "string"
 }
 PS> Set-NinjaOneContact -id 1 -contact $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 
@@ -49,6 +50,7 @@ Full request example (auto-generated).
 ```powershell
 Set-NinjaOneContact -Id 123 -contact @{ phone = '+3100000000' }
 ```
+
 
 Updates the system contact with Id 123.
 

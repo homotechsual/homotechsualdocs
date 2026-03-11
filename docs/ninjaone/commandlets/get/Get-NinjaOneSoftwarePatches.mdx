@@ -34,6 +34,7 @@ Retrieves the software patches from the NinjaOne v2 API.
 Get-NinjaOneSoftwarePatches
 ```
 
+
 Gets all software patches.
 
 ### EXAMPLE 2
@@ -41,6 +42,7 @@ Gets all software patches.
 ```powershell
 Get-NinjaOneSoftwarePatches -deviceFilter 'org = 1'
 ```
+
 
 Gets the software patches for the organisation with id 1.
 
@@ -50,6 +52,7 @@ Gets the software patches for the organisation with id 1.
 Get-NinjaOneSoftwarePatches -timeStamp 1619712000
 ```
 
+
 Gets the software patches with a monitoring timestamp at or after 1619712000.
 
 ### EXAMPLE 4
@@ -57,6 +60,7 @@ Gets the software patches with a monitoring timestamp at or after 1619712000.
 ```powershell
 Get-NinjaOneSoftwarePatches -status 'FAILED'
 ```
+
 
 Gets the software patches with a status of 'FAILED'.
 
@@ -66,6 +70,7 @@ Gets the software patches with a status of 'FAILED'.
 Get-NinjaOneSoftwarePatches -productIdentifier 23e4567-e89b-12d3-a456-426614174000
 ```
 
+
 Gets the software patches with a product identifier of '23e4567-e89b-12d3-a456-426614174000'.
 
 ### EXAMPLE 6
@@ -74,6 +79,7 @@ Gets the software patches with a product identifier of '23e4567-e89b-12d3-a456-4
 Get-NinjaOneSoftwarePatches -type 'PATCH'
 ```
 
+
 Gets the software patches with a type of 'PATCH'.
 
 ### EXAMPLE 7
@@ -81,6 +87,7 @@ Gets the software patches with a type of 'PATCH'.
 ```powershell
 Get-NinjaOneSoftwarePatches -impact 'OPTIONAL'
 ```
+
 
 Gets the software patches with an impact of 'OPTIONAL'.
 

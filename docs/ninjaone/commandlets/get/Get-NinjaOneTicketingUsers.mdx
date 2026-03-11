@@ -32,6 +32,7 @@ Retrieves lists of ticketing users  from the NinjaOne v2 API.
 Get-NinjaOneTicketingUsers
 ```
 
+
 Gets all ticketing users.
 Contacts, end users and technicians.
 
@@ -41,6 +42,7 @@ Contacts, end users and technicians.
 Get-NinjaOneTicketingUsers -anchorNaturalId 10
 ```
 
+
 Starts the list of users from the user with the natural id 10.
 
 ### EXAMPLE 3
@@ -48,6 +50,7 @@ Starts the list of users from the user with the natural id 10.
 ```powershell
 Get-NinjaOneTicketingUsers -clientId 1
 ```
+
 
 Gets all users for the organisation with id 1.
 
@@ -57,6 +60,7 @@ Gets all users for the organisation with id 1.
 Get-NinjaOneTicketingUsers -pageSize 10
 ```
 
+
 Limits the number of users returned to 10.
 
 ### EXAMPLE 5
@@ -65,6 +69,7 @@ Limits the number of users returned to 10.
 Get-NinjaOneTicketingUsers -searchCriteria 'mikey@homotechsual.dev'
 ```
 
+
 Searches for the user with the email address 'mikey@homotechsual.dev'.
 
 ### EXAMPLE 6
@@ -72,6 +77,7 @@ Searches for the user with the email address 'mikey@homotechsual.dev'.
 ```powershell
 Get-NinjaOneTicketingUsers -userType TECHNICIAN
 ```
+
 
 Gets all technician users.
 

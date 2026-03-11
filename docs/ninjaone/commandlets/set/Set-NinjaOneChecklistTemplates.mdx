@@ -16,8 +16,8 @@ Updates checklist templates.
 ## SYNTAX
 
 ```powershell
-Set-NinjaOneChecklistTemplates [-templates] <Object> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Set-NinjaOneChecklistTemplates [[-templates] <Object>] [-ProgressAction <ActionPreference>] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -32,6 +32,7 @@ Updates checklist templates via the NinjaOne v2 API.
 Set-NinjaOneChecklistTemplates -templates @{ templates = @(@{ id=1; name='New' }) }
 ```
 
+
 Updates the specified templates.
 
 ### EXAMPLE 2
@@ -39,27 +40,28 @@ Updates the specified templates.
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
 PS> $body = @(
-	@{
-		id = 0
-		name = "string"
-		description = @{
-			text = "string"
-			html = "string"
-		}
-		tasks = @(
-			@{
-				position = 0
-				name = "string"
-				description = @{
-				}
-			}
-		)
-		required = $false
-	}
+    @{
+        required = $false
+        id = 0
+        description = @{
+            text = "string"
+            html = "string"
+        }
+        tasks = @(
+            @{
+                position = 0
+                description = @{
+                }
+                name = "string"
+            }
+        )
+        name = "string"
+    }
 )
 PS> Set-NinjaOneChecklistTemplates -templates $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 
@@ -67,17 +69,17 @@ Full request example (auto-generated).
 
 ### -templates
 
-\{\{ Fill templates Description \}\}
+The checklist templates to update.		[Parameter(Mandatory, Position=0, ValueFromPipelineByPropertyName)]
 
 ```yaml
 Type: Object
 Parameter Sets: (All)
 Aliases: body
 
-Required: True
+Required: False
 Position: 1
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 

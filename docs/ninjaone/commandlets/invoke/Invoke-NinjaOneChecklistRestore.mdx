@@ -32,20 +32,22 @@ Restores archived checklists via the NinjaOne v2 API.
 Invoke-NinjaOneChecklistRestore -checklistsToRestore @{ checklistTemplateIds = @(1,2) }
 ```
 
+
 Restores the specified checklists.
 
 ### EXAMPLE 2
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	checklistTemplateIds = @(
-		0
-	)
+PS> $body = @{
+    checklistTemplateIds = @(
+        0
+    )
 }
 PS> Invoke-NinjaOneChecklistRestore -checklistsToRestore $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 
@@ -53,7 +55,7 @@ Full request example (auto-generated).
 
 ### -checklistsToRestore
 
-\{\{ Fill checklistsToRestore Description \}\}
+The checklist IDs to restore.
 
 ```yaml
 Type: Object

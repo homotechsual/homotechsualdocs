@@ -32,13 +32,14 @@ Adds one or more members to the specified user role via the NinjaOne v2 API.
 Add-NinjaOneUserRoleMembers -roleId 10 -members @{ userIds = @(1,2) }
 ```
 
+
 Adds users 1 and 2 to role 10.
 
 ## PARAMETERS
 
 ### -roleId
 
-\{\{ Fill roleId Description \}\}
+The user role Id to add members to.
 
 ```yaml
 Type: Int32
@@ -54,7 +55,7 @@ Accept wildcard characters: False
 
 ### -members
 
-\{\{ Fill members Description \}\}
+The members object containing user IDs to add to the role.
 
 ```yaml
 Type: Object

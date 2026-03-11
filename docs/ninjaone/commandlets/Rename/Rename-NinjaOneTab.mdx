@@ -32,20 +32,22 @@ Renames a custom tab via the NinjaOne v2 API.
 Rename-NinjaOneTab -rename @{ tabId = 5; name = 'New Name' }
 ```
 
+
 Renames tab 5.
 
 ### EXAMPLE 2
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	tabId = 0
-	name = "string"
-	description = "string"
+PS> $body = @{
+    description = "string"
+    tabId = 0
+    name = "string"
 }
 PS> Rename-NinjaOneTab -rename $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 

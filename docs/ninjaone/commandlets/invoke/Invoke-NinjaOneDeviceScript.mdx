@@ -19,14 +19,14 @@ Runs a script or built-in action against the given device.
 
 ```powershell
 Invoke-NinjaOneDeviceScript [-deviceId] <Int32> [-type] <String> [-actionUId] <Guid> [[-parameters] <String>]
- [[-runAs] <String>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [-runAs] <String> [-show] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### SCRIPT
 
 ```powershell
 Invoke-NinjaOneDeviceScript [-deviceId] <Int32> [-type] <String> [-scriptId] <Int32> [[-parameters] <String>]
- [[-runAs] <String>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [-runAs] <String> [-show] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -39,40 +39,55 @@ Runs a script or built-in action against a single device using the NinjaOne v2 A
 
 ```powershell
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
- PS> $body = @{
-	type = "ACTION"
-	id = 0
-	uid = "00000000-0000-0000-0000-000000000000"
-	parameters = "string"
-	runAs = "string"
+PS> $body = @{
+    runAs = "string"
+    type = "ACTION"
+    id = 0
+    uid = "00000000-0000-0000-0000-000000000000"
+    parameters = "string"
 }
 PS> Invoke-NinjaOneDeviceScript -deviceId 1 -deviceId $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
+
 
 Full request example (auto-generated).
 
 ### EXAMPLE 2
 
 ```powershell
-Invoke-NinjaOneDeviceScript -deviceId 1 -type 'SCRIPT' -scriptId 1
+Invoke-NinjaOneDeviceScript -deviceId 1 -type 'SCRIPT' -scriptId 1 -runAs 'system'
 ```
 
-Runs the script with id 1 against the device with id 1.
+
+Runs the script with id 1 against the device with id 1 with system-level permissions.
 
 ### EXAMPLE 3
 
 ```powershell
-Invoke-NinjaOneDeviceScript -deviceId 1 -type 'ACTION' -actionUId '00000000-0000-0000-0000-000000000000'
+Invoke-NinjaOneDeviceScript -deviceId 1 -type 'ACTION' -actionUId '00000000-0000-0000-0000-000000000000' -runAs 'system'
 ```
 
-Runs the built-in action with uid 00000000-0000-0000-0000-000000000000 against the device with id 1.
+
+Runs the built-in action with uid 00000000-0000-0000-0000-000000000000 against the device with id 1 with system-level permissions.
 
 ### EXAMPLE 4
 
 ```powershell
-
+Invoke-NinjaOneDeviceScript -deviceId 1 -type 'SCRIPT' -scriptId 1 -runAs 'loggedonuser'
 ```
+
+
+Runs the script with id 1 as the currently logged-on user on device 1.
+
+### EXAMPLE 5
+
+```powershell
+Invoke-NinjaOneDeviceScript -deviceId 1 -type 'SCRIPT' -scriptId 1 -runAs '26'
+```
+
+
+Runs the script with id 1 using the preferred credential with ID 26.
 
 ## PARAMETERS
 
@@ -160,17 +175,43 @@ Accept wildcard characters: False
 
 ### -runAs
 
-The credential/role identifier to use when running the script.
+The credential/role identifier to use when running the script or action.
+This parameter is case-sensitive and controls the permission level.
+Valid values are:
+- 'system': Run with system-level permissions (maps to general.system)
+- 'SR_MAC_SCRIPT': Run with system-level permissions on macOS (maps to general.system)
+- 'SR_LINUX_SCRIPT': Run with system-level permissions on Linux (maps to general.system)
+- 'loggedonuser': Run as the currently logged-on user (maps to editor.credentials.currentLoggedOnUser)
+- 'SR_LOCAL_ADMINISTRATOR': Run as local administrator (maps to editor.credentials.preferredWindowsLocalAdmin)
+- 'SR_DOMAIN_ADMINISTRATOR': Run as domain administrator (maps to editor.credentials.preferredWindowsDomainAdmin)
+- A credential ID as a string (e.g., '26'): Run using a specific user credential from your account.
+You can find credential IDs in the NinjaOne UI under Account &gt; Credentials (maps to editor.credentials.preferredCredential)
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: 5
 Default value: None
 Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -show
+
+Show the status code returned from the API.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -182,8 +223,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### A powershell object containing the response.
+### System.Void
 
+### This commandlet returns no output by default. A success message will be written to the information stream if the API returns a 204 success code. Use `-InformationAction Continue` to see this message. Use the `-show` switch to return the HTTP status code.
 ## NOTES
 
 ## RELATED LINKS

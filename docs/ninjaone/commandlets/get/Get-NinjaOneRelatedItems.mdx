@@ -47,6 +47,7 @@ Retrieves related items related to a given entity or entity type from the NinjaO
 Get-NinjaOneRelatedItems -all
 ```
 
+
 Gets all related items.
 
 ### EXAMPLE 2
@@ -54,6 +55,7 @@ Gets all related items.
 ```powershell
 Get-NinjaOneRelatedItems -relatedTo -entityType 'organization'
 ```
+
 
 Gets all items which have a relation to an organization.
 
@@ -63,6 +65,7 @@ Gets all items which have a relation to an organization.
 Get-NinjaOneRelatedItems -relatedTo -entityType 'organization' -entityId 1
 ```
 
+
 Gets all items which have a relation to the organization with id 1.
 
 ### EXAMPLE 4
@@ -71,6 +74,7 @@ Gets all items which have a relation to the organization with id 1.
 Get-NinjaOneRelatedItems -relatedFrom -entityType 'organization'
 ```
 
+
 Gets all items which have a relation from an organization.
 
 ### EXAMPLE 5
@@ -78,6 +82,7 @@ Gets all items which have a relation from an organization.
 ```powershell
 Get-NinjaOneRelatedItems -relatedFrom -entityType 'organization' -entityId 1
 ```
+
 
 Gets all items which have a relation from the organization with id 1.
 

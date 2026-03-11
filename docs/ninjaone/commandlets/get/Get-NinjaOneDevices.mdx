@@ -48,6 +48,7 @@ Retrieves devices from the NinjaOne v2 API.
 Get-NinjaOneDevices
 ```
 
+
 Gets all devices.
 
 ### EXAMPLE 2
@@ -55,6 +56,7 @@ Gets all devices.
 ```powershell
 Get-NinjaOneDevices -deviceId 1
 ```
+
 
 Gets the device with id 1.
 
@@ -64,6 +66,7 @@ Gets the device with id 1.
 Get-NinjaOneDevices -organisationId 1
 ```
 
+
 Gets all devices for the organisation with id 1.
 
 ### EXAMPLE 4
@@ -71,6 +74,7 @@ Gets all devices for the organisation with id 1.
 ```powershell
 Get-NinjaOneDevices -deviceFilter 'status eq APPROVED'
 ```
+
 
 Gets all approved devices.
 
@@ -80,6 +84,7 @@ Gets all approved devices.
 Get-NinjaOneDevices -deviceFilter 'class in (WINDOWS_WORKSTATION,MAC,LINUX_WORKSTATION)'
 ```
 
+
 Gets all WINDOWS_WORKSTATION, MAC or LINUX_WORKSTATION devices.
 
 ### EXAMPLE 6
@@ -87,6 +92,7 @@ Gets all WINDOWS_WORKSTATION, MAC or LINUX_WORKSTATION devices.
 ```powershell
 Get-NinjaOneDevices -deviceFilter 'class eq WINDOWS_WORKSTATION AND online'
 ```
+
 
 Gets all online WINDOWS_WORKSTATION devices.
 
