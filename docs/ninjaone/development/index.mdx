@@ -176,6 +176,15 @@ pwsh -File .\DevOps\Build\build.ps1 -TaskNames generateShortNamesMapping,updateH
 - The build script accepts `-SemVer` to set a specific version during build.
 - Publishing and release packaging are handled via CI and build tasks.
 
+## Documentation
+
+Comprehensive guides for development workflows:
+
+- **[Quality Gates & Code Standards](quality-gates.mdx)** - PSScriptAnalyzer custom rules, parameter documentation requirements, and suppression patterns
+- **[Help Generation Deep Dive](help-generation-detailed.mdx)** - Comment-based help pipeline, phases, and `.mdx` documentation generation
+- **[Styling & Conventions](styling-conventions.mdx)** - Naming conventions, code style, and design patterns
+- **[Troubleshooting Guide](troubleshooting.mdx)** - Solutions for common build, test, and runtime issues
+
 ## PR Checklist
 
 - Run `bootstrap.ps1` after pulling new dependencies.
@@ -184,9 +193,9 @@ pwsh -File .\DevOps\Build\build.ps1 -TaskNames generateShortNamesMapping,updateH
 - Run `run-pssa.ps1` to validate style and quality rules.
 - Update comment-based help and docs if you touched public functions.
 - Confirm `CHANGELOG.md` is updated when appropriate.
+- Review [Styling & Conventions](styling-conventions.mdx) for code standards.
+- Review [Quality Gates & Code Standards](quality-gates.mdx) for parameter documentation.
 
-## Troubleshooting
+## Need Help?
 
-- If tests cannot find a module output folder, run `build.ps1 -TaskNames build` first.
-- If ScriptAnalyzer fails on new rules, confirm `PSScriptAnalyzerSettings.psd1` is up to date.
-- If help generation fails, ensure required modules from `RequiredModules.psd1` are installed.
+See the **[Troubleshooting Guide](troubleshooting.mdx)** for solutions to common issues.

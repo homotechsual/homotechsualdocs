@@ -1,0 +1,518 @@
+---
+title: Troubleshooting Guide
+---
+
+Comprehensive troubleshooting for common NinjaOne development issues.
+
+## Build & Environment
+
+### "Build failed: Some packages failed to restore"
+
+**Symptoms**: Build halts during the restore phase with NuGet errors.
+
+**Solution**:
+
+```powershell
+# Clear NuGet cache
+rm -r $HOME\.nuget\packages -Force
+
+# Reinstall dependencies
+pwsh -File .\DevOps\Build\bootstrap.ps1 -Force
+
+# Retry build
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames build
+```
+
+### "Build failed: Cannot find C# project binaries"
+
+**Symptoms**: 
+```
+Build output DLLs are in use. Processes: pwsh(...) -> ...MetadataAttribute.dll
+```
+
+**Cause**: PowerShell still has the DLL loaded from a previous session.
+
+**Solution**:
+
+```powershell
+# Unload the module
+if (Get-Module NinjaOne) { Remove-Module NinjaOne -Force }
+
+# Restart the terminal or PowerShell process
+exit
+# Then reopen and retry
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames build
+```
+
+**Prevention**: Always unload and close VS Code terminals before rebuilding.
+
+### "Bootstrap failed: Required module 'X' not found"
+
+**Symptoms**:
+```
+The specified module 'Alt3.Docusaurus.Powershell' was not found.
+```
+
+**Solution**:
+
+```powershell
+# Check RequiredModules.psd1
+Get-Content .\DevOps\Build\RequiredModules.psd1
+
+# Force reinstall
+pwsh -File .\DevOps\Build\bootstrap.ps1 -Force
+
+# Install manually if needed
+Install-Module Alt3.Docusaurus.Powershell -Force
+```
+
+### "Cannot import NinjaOne module: Missing dependency"
+
+**Symptoms**:
+```
+Import-Module : The specified module 'PowerShellYaml' was not found.
+```
+
+**Solution**:
+
+```powershell
+# Verify bootstrap was run
+pwsh -File .\DevOps\Build\bootstrap.ps1 -Verbose
+
+# Check installed modules
+Get-Module -ListAvailable | Where-Object Name -in 'PowerShellYaml', 'Pester', 'PSScriptAnalyzer'
+
+# Install missing module
+Install-Module PowerShellYaml -AllowClobber
+```
+
+## Testing & Quality
+
+### "Tests failed: Object reference not set to an instance"
+
+**Symptoms**: Pester tests crash with null reference errors.
+
+**Cause**: Test scaffold not properly initialized.
+
+**Solution**:
+
+```powershell
+# Rebuild module first
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames build
+
+# Run tests with verbose output
+pwsh -File .\DevOps\Quality\test.ps1 -Verbose
+
+# Check specific test file
+pwsh -File .\Tests\NinjaOne.Core.Tests.ps1
+```
+
+### "PSScriptAnalyzer found violations but run-pssa.ps1 shows 0"
+
+**Symptoms**: 
+- Running `run-pssa.ps1` shows 0 violations
+- Running individual file scan shows violations
+- Directory scan shows 0 violations
+
+**Cause**: PSScriptAnalyzer requires `-Recurse` flag for directory scanning. The `run-pssa.ps1` script uses `Get-ChildItem -Recurse | Invoke-ScriptAnalyzer` which works correctly.
+
+**Solution - Verify script is working**:
+
+```powershell
+# Run the analyzer script (uses correct recursive approach)
+pwsh -File .\DevOps\Quality\run-pssa.ps1
+
+# If you're running Invoke-ScriptAnalyzer manually, use -Recurse:
+Invoke-ScriptAnalyzer -Path .\Source -Recurse -Settings .\PSScriptAnalyzerSettings.psd1
+
+# NOT this (misses subdirectories):
+Invoke-ScriptAnalyzer -Path .\Source -Settings .\PSScriptAnalyzerSettings.psd1
+```
+
+### "PSMissingParameterInlineComment violations after adding suppression"
+
+**Symptoms**: Function still reports violation after adding suppression attribute.
+
+**Cause**: 
+- Suppression in wrong location
+- Wrong rule name in attribute
+- Incorrect indentation
+
+**Solution**:
+
+```powershell
+# 1. Verify rule name (copy exact spelling)
+# Rule: PSMissingParameterInlineComment
+
+# 2. Check indentation (attribute directly before function, no blank lines)
+# ❌ Wrong:
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSMissingParameterInlineComment', '', Justification = 'Internal use.')]
+
+function MyFunction {  # ← Blank line between attribute and function
+
+# ✅ Correct:
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSMissingParameterInlineComment', '', Justification = 'Internal use.')]
+function MyFunction {
+
+# 3. For nested functions, each needs individual suppression
+function Outer {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSMissingParameterInlineComment', '', Justification = 'Nested helper.')]
+    function Inner {
+        param($x)
+    }
+}
+
+# After adding suppression, clear the module and rescan:
+Remove-Module NinjaOne -Force
+pwsh -File .\DevOps\Quality\run-pssa.ps1
+```
+
+### "Tests pass locally but fail in CI"
+
+**Possible causes**:
+
+1. **Module not loaded in CI**:
+   ```powershell
+   # Ensure output exists
+   pwsh -File .\DevOps\Build\build.ps1 -TaskNames build
+   ```
+
+2. **Different PowerShell version**:
+   ```powershell
+   # Check required version
+   Get-Content .\NinjaOne.psd1 | Select-String PowerShellVersion
+   
+   # Test with that version
+   pwsh -Version 7.0  # or specify version
+   pwsh -File .\DevOps\Quality\test.ps1
+   ```
+
+3. **Missing environment variables**:
+   - CI may need `NINJA_API_URL`, `NINJA_CLIENT_ID`, etc.
+   - Check GitHub Actions workflow files in `.github/workflows/`
+
+4. **API connectivity**:
+   - Local tests may mock API; CI needs real credentials
+   - Verify test authentication setup
+
+## Help & Documentation
+
+### "Docs generation creates empty markdown files"
+
+**Symptoms**: Generated `.mdx` files exist but contain no content.
+
+**Cause**: Help wasn't applied to functions or comment blocks are malformed.
+
+**Solution**:
+
+```powershell
+# Regenerate help from scratch
+pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase All
+
+# Verify function has help
+Get-Help Get-NinjaOneDevice -Full
+
+# If help is empty, check comment block:
+Get-Content .\Source\Public\Devices\Get-NinjaOneDevice.ps1 | Select-String "<#" -Context 20
+```
+
+### "Help shows placeholder text in parameter descriptions"
+
+**Symptoms**: Generated docs contain incomplete parameter documentation like `Fill parameter Description`.
+
+**Cause**: Comment block has incomplete `.PARAMETER` sections with placeholder text.
+
+**Solution**:
+
+```powershell
+# Find problem functions
+Select-String 'Fill.*Description' .\Source\Public\*.ps1 -Recurse
+
+# Edit the file and replace placeholders with real descriptions
+# Example:
+# .PARAMETER deviceId
+#     Fill deviceId Description
+#
+# Should be:
+# .PARAMETER deviceId
+#     The device ID to retrieve
+
+# After fixes, regenerate:
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames publishDocs
+```
+
+### "Full request examples not generating"
+
+**Symptoms**: No examples between `# FULL REQUEST EXAMPLE` markers.
+
+**Cause**: 
+- OpenAPI YAML not accessible
+- Command doesn't match API endpoint
+- Schema is complex/unsupported
+
+**Solution**:
+
+```powershell
+# Test with verbose output
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1 -Verbose
+
+# Verify YAML accessibility
+$YamlPath = "C:\NinjaRMM-API-v2.yaml"
+Test-Path $YamlPath
+
+# Try specific endpoint
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1 `
+    -YamlPath $YamlPath `
+    -CommandName "New-NinjaOneEndUser" `
+    -Verbose
+
+# Check API schema for endpoint
+Get-Content $YamlPath | Select-String "/v2/user/end-users" -Context 5
+```
+
+## Import & Runtime
+
+### "Cannot import NinjaOne: 'Module' does not contain '0' member"
+
+**Symptoms**: 
+```
+And additional PositionalParameter member is needed for property-based object construction.
+```
+
+**Cause**: Module output structure incorrect or version mismatch.
+
+**Solution**:
+
+```powershell
+# Verify module exists
+Get-ChildItem .\Output\NinjaOne
+ls -la .\Output\NinjaOne\2.x.x\NinjaOne.psd1
+
+# Try direct import with error details
+Import-Module .\Output\NinjaOne\2.x.x\NinjaOne.psd1 -Verbose
+
+# If it fails, rebuild:
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames clean,build
+
+# Check manifest syntax
+Test-ModuleManifest .\Output\NinjaOne\2.x.x\NinjaOne.psd1
+```
+
+### "Function doesn't appear after Import-Module"
+
+**Symptoms**: Imported module with functions but `Get-Command` doesn't show them.
+
+**Cause**: Functions not exported in manifest.
+
+**Solution**:
+
+```powershell
+# Check what's exported
+Get-module NinjaOne | Select-Object -ExpandProperty ExportedFunctions
+
+# Should include function names:
+# CommandName
+# Get-NinjaOneDevice
+# Set-NinjaOneDeviceName
+
+# If empty or incomplete, rebuild:
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames updateManifest,build
+
+# Or check manifest directly
+Select-String "FunctionsToExport" .\Source\NinjaOne.psd1
+```
+
+### "API authentication fails at runtime"
+
+**Symptoms**:
+```
+Invoke-NinjaOnePreFlightCheck: Authentication required but credentials not set.
+```
+
+**Solution**:
+
+```powershell
+# Set credentials
+Set-NinjaOneSecrets -ClientId "your-id" -ClientSecret "your-secret" -Scope 'All'
+
+# Verify they're stored
+Get-NinjaOneSecrets
+
+# Quick test
+Test-NinjaOneEndpointSupport -Endpoint '/v2/organisation'
+
+# If still fails, check token:
+$token = (Get-NinjaOneSecrets).Access_Token
+if (-not $token) { "No token found" }
+else { "Token present, expires: $(Get-TokenExpiry)" }
+```
+
+## Git & Workflows
+
+### "Pre-commit hook fails silently"
+
+**Symptoms**: Git commit blocked but no error message.
+
+**Cause**: Pre-commit hook in `.git/hooks/pre-commit` has an issue.
+
+**Solution**:
+
+```powershell
+# Check hook exists and is executable
+Get-Content .\.git\hooks\pre-commit
+
+# Run it manually to see errors
+. .\.git\hooks\pre-commit
+
+# Or disable temporarily for testing:
+Remove-Item .\.git\hooks\pre-commit -Force
+
+# Reinstall hooks
+pwsh -File .\DevOps\Install-GitHooks.ps1
+```
+
+### "PR against main is rejected in CI"
+
+**Symptoms**: 
+```
+This repository enforces PRs against 'develop' only.
+```
+
+**Solution**: 
+
+```powershell
+# Check current branch
+git branch
+
+# Switch to develop
+git checkout develop
+git pull origin develop
+
+# Cherry-pick or reapply your changes
+git cherry-pick <commit>
+
+# Or reset and rebase from scratch
+git reset --hard origin/main
+git checkout develop
+# Reapply changes manually
+```
+
+## Performance
+
+### "Full build takes too long"
+
+**Symptoms**: Build takes >5 minutes for no obvious reason.
+
+**Common causes**:
+1. Help generation with large API schema download
+2. Full test suite with many Pester tests
+3. Documentation regeneration for all functions
+
+**Solutions**:
+
+```powershell
+# Build without tests
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames build
+
+# Test without ScriptAnalyzer
+pwsh -File .\DevOps\Quality\test.ps1 -SkipScriptAnalyzer
+
+# Update docs only (skip build)
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames publishDocs
+
+# Regenerate help for specific function only:
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1 `
+    -CommandName "Specific-Function"
+```
+
+### "Module loads slowly > 30 seconds"
+
+**Solution**:
+
+```powershell
+# Profile module load
+Measure-Command { Import-Module NinjaOne } | Select-Object TotalSeconds
+
+# If slow, check for:
+1. Lots of format files: Get-ChildItem .\Output\NinjaOne\*.ps1xml
+2. Heavy initialization: Get-Content .\Source\Initialisation.ps1
+3. Many nested modules: Get-ChildItem .\Output\NinjaOne\*
+
+# Remove unnecessary files and rebuild:
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames clean,build
+```
+
+## Debugging Tips
+
+### Enable verbose output
+
+Most scripts support `-Verbose`:
+
+```powershell
+pwsh -File .\DevOps\Build\build.ps1 -Verbose
+pwsh -File .\DevOps\Quality\test.ps1 -Verbose
+pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase All -Verbose
+```
+
+### Check logs
+
+Build output is often logged:
+
+```powershell
+# Check for log files
+Get-ChildItem .build\logs -Recurse
+
+# Recent errors
+Get-EventLog Application | Where-Object Source -eq PowerShell | tail -20
+```
+
+### Verify dependencies
+
+```powershell
+# List required modules from config
+Get-Content .\DevOps\Build\RequiredModules.psd1
+
+# Check which are installed
+$modules = (Get-Content .\DevOps\Build\RequiredModules.psd1).Modules
+foreach ($mod in $modules) {
+    $installed = Get-Module $mod -ListAvailable
+    if ($installed) { "✓ $mod" } else { "✗ $mod" }
+}
+```
+
+### Isolate the problem
+
+```powershell
+# Run individual build phases
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames clean
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames build
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames updateManifest
+
+# Run individual test files
+pwsh -File .\Tests\NinjaOne.Core.Tests.ps1
+pwsh -File .\Tests\NinjaOne.Help.Tests.ps1
+pwsh -File .\Tests\NinjaOne.Schema.Tests.ps1
+```
+
+## Getting Help
+
+If troubleshooting steps don't work:
+
+1. **Check CHANGELOG.md** for known issues in your version
+2. **Search GitHub Issues** - may be a known problem: https://github.com/homotechsual/NinjaOne/issues
+3. **Ask in Discord**:
+   - [Homotechsual Discord](https://discord.gg/NrCjh5ht7K) - development questions
+   - [NinjaOne Discord](https://discord.gg/NinjaOne) - API/module usage
+4. **Enable debug logging**:
+   ```powershell
+   $DebugPreference = 'Continue'
+   $VerbosePreference = 'Continue'
+   # Run command
+   ```
+
+## See Also
+
+- [Development Workflow](index.mdx)
+- [Quality Gates & Code Standards](quality-gates.mdx)
+- [Help Generation Deep Dive](help-generation-detailed.mdx)
+- [Styling & Conventions](styling-conventions.mdx)
