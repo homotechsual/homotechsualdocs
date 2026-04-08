@@ -375,6 +375,9 @@ const config = {
       onBrokenMarkdownLinks: 'warn',
     },
   },
+  future: {
+    faster: true,
+  }
 };
 
 module.exports = config;
