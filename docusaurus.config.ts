@@ -377,6 +377,9 @@ const config = {
   },
   future: {
     faster: true,
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+    }
   }
 };
 
