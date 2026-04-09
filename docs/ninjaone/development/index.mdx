@@ -1,5 +1,6 @@
 ---
-title: Development
+title: Overview
+sidebar_position: 1
 ---
 
 This page documents development workflows for the NinjaOne PowerShell module.
@@ -174,16 +175,28 @@ pwsh -File .\DevOps\Build\build.ps1 -TaskNames generateShortNamesMapping,updateH
 ## Release and Versioning
 
 - The build script accepts `-SemVer` to set a specific version during build.
-- Publishing and release packaging are handled via CI and build tasks.
+- Update `CHANGELOG.md` and `Source/NinjaOne.psd1` together for releases.
+- Stable releases are promoted by merging `develop` into `main` and tagging the merge commit.
+- Stable `vX.Y.Z` tags must be cut from commits reachable from `main`.
+- Preview tags such as `-alpha`, `-beta`, and `-rc` must be reachable from `develop`.
 
-## Documentation
+## Delivery Workflow Summary
 
-Comprehensive guides for development workflows:
+1. Develop and validate changes on `develop`.
+2. Run `bootstrap`, `build`, `test`, and `run-pssa` locally.
+3. If public cmdlets changed, regenerate help and docs output.
+4. Merge the release-prep PR from `develop` into `main`.
+5. Create the release tag and let the CI/release workflows publish the module, release notes, and docs.
 
-- **[Quality Gates & Code Standards](quality-gates.mdx)** - PSScriptAnalyzer custom rules, parameter documentation requirements, and suppression patterns
-- **[Help Generation Deep Dive](help-generation-detailed.mdx)** - Comment-based help pipeline, phases, and `.mdx` documentation generation
-- **[Styling & Conventions](styling-conventions.mdx)** - Naming conventions, code style, and design patterns
-- **[Troubleshooting Guide](troubleshooting.mdx)** - Solutions for common build, test, and runtime issues
+## Development Docs
+
+Additional development pages are handled by the Docusaurus sidebar, including:
+
+- `Quality Gates & Code Standards`
+- `Help Generation Deep Dive`
+- `Styling & Conventions`
+- `Troubleshooting Guide`
+- `Delivery & Release Process`
 
 ## PR Checklist
 

@@ -5,7 +5,7 @@
   },
   "collapsed": true,
   "collapsible": true,
-  "position": 0.1,
+  "position": 0.5,
   "label": "Add Data",
   "customProps": {
     "description": "This category contains commands for adding or appending data, objects, settings and more."
