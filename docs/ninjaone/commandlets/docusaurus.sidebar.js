@@ -80,6 +80,7 @@ module.exports = [
     'commandlets/Get/Get-NinjaOneOrganisationChecklists',
     'commandlets/Get/Get-NinjaOneOrganisationChecklistSignedURLs',
     'commandlets/Get/Get-NinjaOneOrganisationCustomFields',
+    'commandlets/Get/Get-NinjaOneOrganisationDevices',
     'commandlets/Get/Get-NinjaOneOrganisationDocuments',
     'commandlets/Get/Get-NinjaOneOrganisationDocumentSignedURLs',
     'commandlets/Get/Get-NinjaOneOrganisationEndUsers',
