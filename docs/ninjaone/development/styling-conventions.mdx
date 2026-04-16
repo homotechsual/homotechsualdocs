@@ -28,7 +28,7 @@ GetNinjaOneDevice      # No hyphens (not PowerShell style)
 
 **Rules**:
 - Use **Approved Verbs** from PowerShell's official list (`Get-Verb`)
-- Approved verbs for NinjaOne context: `Get`, `Set`, `New`, `Remove`, `Invoke`, `Enable`, `Disable`, `Test`, `Update`, `Restore`, `Backup`
+- Approved verbs for NinjaOne context: `Add`, `Connect`, `Find`, `Get`,`Invoke`, `Merge`, `Move`, `New`, `Remove`, `Rename`, `Reset`, `Restart`, `Restore`, `Set`, `Start`, `Update`. Additional verbs may be considered if they fit the action and are approved by the team.
 - Always include the module prefix: `NinjaOne`
 - Separate with hyphens: `Verb-NounNoun`
 
@@ -145,8 +145,6 @@ Standard layout for NinjaOne functions:
     Brief description.
 .DESCRIPTION
     Detailed description.
-.PARAMETER deviceId
-    The device ID.
 .EXAMPLE
     Get-NinjaOneDevice -deviceId 123
 .OUTPUTS
@@ -158,7 +156,8 @@ function Get-NinjaOneDevice {
     param(
         [Parameter(Mandatory, ValueFromPipeline, ValueFromPipelineByPropertyName)]
         [ValidateNotNullOrEmpty()]
-        [string]$deviceId   # The device ID to retrieve
+        # The device ID to retrieve
+        [string]$deviceId
     )
 
     begin {
@@ -219,30 +218,35 @@ if ($device.status -eq 'Active') { Write-Verbose "Device is active" } elseif ($d
 
 ### String Formatting
 
-Prefer backticks or string interpolation over concatenation:
+Prefer single quoted strings with the -f operator over string interpolation or concatenation in all cases.
 
 ```powershell
-# Good - string interpolation
-$message = "Device $deviceId not found"
-$uri = "https://api.ninjarmm.com/v2/devices/$deviceId/details"
-
-# Good - multiline (backticks)
-$message = `
-    "Processing device $deviceId " +
-    "in organisation $organisationId"
+# Good - clear formatting
+$message = "Device {0} not found" -f $deviceId
+$uri = "https://api.ninjarmm.com/v2/devices/{0}/details?filter={1}" -f $deviceId, $filter
 
 # Avoid - hard to read concatenation
 $message = "Device " + $deviceId + " not found"
 
 # Avoid - mixed styles
 $uri = "https://api.ninjarmm.com/v2/devices/" + $deviceId + "/details?filter=" + $filter
+
+# Avoid - interpolation (less clear for complex strings)
+$message = "Device $deviceId not found"
+
+# Avoid - multiline with interpolation (hard to read)
+$message = @"
+    Device $deviceId not found.
+    
+    Please check the ID and try again.
+"@
 ```
 
 **Rules**:
-- Use `"string with $variable"` for interpolation
-- Use `@" ... "@` for multiline strings
-- Use `+` for complex expressions only
-- Avoid excessive concatenation
+- Use `'string {0}' -f $value`.
+- Use `-f` for all string formatting for consistency and readability.
+- Avoid string concatenation with `+` for clarity.
+- Avoid string interpolation for complex strings or when multiple variables are involved.
 
 ### Collections
 
@@ -374,14 +378,18 @@ For functions that filter or retrieve collections:
 # Good - logical parameters
 param(
     [ValidateSet('Active', 'Inactive', 'Archived')]
-    [string]$status,          # Filter by status
+    # Filter by status
+    [string]$status,
 
     [ValidateRange(1, 1000)]
-    [int]$limit = 100,        # Limit results
+    # Limit results
+    [int]$limit = 100,
 
-    [int]$offset = 0,         # Pagination offset
+    # Pagination offset
+    [int]$offset = 0,
 
-    [string]$filter           # OData filter expression
+    # OData filter expression
+    [string]$filter
 )
 
 # Bad - too many optional numeric parameters
@@ -415,7 +423,8 @@ function Get-NinjaOneDevice {
     #>
     param(
         [Parameter(Mandatory)]
-        [string]$deviceId       # The device ID to retrieve  # ← Also in generated docs
+        # The device ID to retrieve  # ← Also in generated docs
+        [string]$deviceId
     )
 }
 
@@ -436,7 +445,7 @@ Always write code as if documentation will be auto-generated—because it will b
 Before submitting, verify:
 - [ ] Function names follow `Verb-NounNoun` pattern
 - [ ] Parameter names use camelCase
-- [ ] All parameters have descriptions (inline comment or .PARAMETER)
+- [ ] All parameters have descriptions using inline comments.
 - [ ] Return type specified with `[OutputType()]`
 - [ ] Comment-based help complete (SYNOPSIS, DESCRIPTION, examples)
 - [ ] Error handling uses try/catch with `$PSCmdlet.ThrowTerminatingError()`
