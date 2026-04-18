@@ -10,7 +10,7 @@ This page documents the quality gates and code standards enforced in the NinjaOn
 Code quality is maintained through:
 - **PSScriptAnalyzer** - Static analysis rules from the PSScriptAnalyzer module
 - **Custom Rules** - Project-specific rules that enforce module conventions
-- **Parameter Documentation** - Inline descriptions for public and internal function parameters
+- **Parameter Documentation** - Inline comment descriptions emitted as the `PSMissingParameterInlineComment` diagnostic
 - **Help Documentation** - Comment-based help for all public functions
 
 ## Running Quality Checks
@@ -37,15 +37,32 @@ The analyzer uses `PSScriptAnalyzerSettings.psd1` and excludes:
 - `Modules` - Third-party bundled modules
 - `test-rules.ps1` - Test helper for PSSA itself
 
+The repo lint entrypoints also split rule scope deliberately:
+- Full settings are applied to `Source\Public`
+- Non-public files are analyzed with a reduced settings object
+
+This is how the repo currently enforces public-surface conventions such as camelCase parameter names without forcing the same rule across every test and helper script.
+
 ## Custom Rules
 
 Custom rules are defined in `CustomRules/` and loaded automatically by the test and analysis scripts.
 
-### PSMissingParameterInlineComment
+Common custom rules currently enforced by the repo include:
 
-**Rule**: All parameters in public functions must have inline descriptions.
+| Diagnostic ID | Implemented By | Scope in repo linting | Purpose |
+|------|----------|---------|---------|
+| `PSMissingParameterInlineComment` | `Measure-MissingParameterDescription` | scanned files unless suppressed | Requires a comment line immediately before each parameter |
+| `PSRequiredCommentBasedHelp` | `Measure-RequiredCommentBasedHelp` | scanned files | Requires comment-based help; public functions also need `.DESCRIPTION` and `.EXAMPLE` |
+| `PSCommentBasedHelpEmptySection` | `Measure-EmptyCommentBasedHelpSections` | scanned files | Flags empty CBH sections |
+| `PSUseCamelCaseParameterName` | `Measure-RequireCamelCaseParameterName` | `Source\Public` in repo lint entrypoints | Enforces camelCase parameter names on exported cmdlets |
+| `PSAvoidSelfReferentialParameterAlias` | `Measure-AvoidSelfReferentialParameterAlias` | `Source\Public` | Flags aliases that duplicate the parameter name |
+| `PSUseProperTypeAcceleratorCasing` | `Measure-RequireProperTypeAcceleratorCasing` | `Source\Public` | Enforces canonical casing for type accelerators |
 
-**Purpose**: Ensures comprehensive documentation for API consumers. These descriptions are extracted during help generation and appear in the generated `.mdx` documentation files.
+### Measure-MissingParameterDescription (`PSMissingParameterInlineComment`)
+
+**Rule**: Parameters in analyzed functions must have a comment line immediately before the parameter declaration unless that diagnostic is suppressed.
+
+**Purpose**: Ensures parameters are described close to the declaration site and keeps generated help grounded in the source.
 
 **Example - Bad**:
 
@@ -68,20 +85,20 @@ function Get-NinjaOneDevice {
     param(
         [Parameter(Mandatory)]
         [ValidateNotNullOrEmpty()]
-		# The device ID to retrieve information for.
+        # The device ID to retrieve information for.
         [string]$deviceId,
-		# Optional filter expression see the filters documentation for more information.      
+        # Optional filter expression. See the filters documentation for more information.
         [string]$filter
     )
 ```
 
-**For Public Functions**: 
-- **Required** - All parameters must have inline descriptions
-- These automatically appear in generated documentation
+**For Public Functions**:
+- Required in normal repo linting.
+- These comments should sit immediately before the parameter, not after it.
 
 **For Internal Functions**:
-- Parameters can be suppressed if descriptions aren't needed
-- Use suppression attributes (see below)
+- The diagnostic still exists when those files are analyzed.
+- Internal/dev/test scripts often suppress it explicitly when full parameter prose would add noise.
 
 ## Suppressing Rules
 
@@ -165,7 +182,8 @@ For the full list, see `PSScriptAnalyzerSettings.psd1`.
 ```powershell
 param(
     [Parameter(Mandatory)]
-    [string]$deviceId           # Device identifier
+    # Device identifier
+    [string]$deviceId
 )
 ```
 
@@ -176,15 +194,19 @@ param(
     [Parameter(Mandatory, ValueFromPipeline)]
     [ValidateNotNullOrEmpty()]
     [Alias('DeviceID', 'ID')]
-    [object[]]$device,          # Device object(s) to retrieve information for
+    # Device object(s) to retrieve information for
+    [object[]]$device,
 
     [Parameter(ValueFromPipelineByPropertyName)]
     [ValidateSet('Active', 'Inactive', 'Archived')]
-    [string]$status = 'Active', # Filter by device status; defaults to Active
+    # Filter by device status; defaults to Active
+    [string]$status = 'Active',
 
-    [switch]$includeDetails,    # Include detailed device information
+    # Include detailed device information
+    [switch]$includeDetails,
     
-    [int]$pageSize = 100        # Results per page; defaults to 100
+    # Results per page; defaults to 100
+    [int]$pageSize = 100
 )
 ```
 
@@ -199,10 +221,10 @@ param(
 
 Before submitting a PR with new or modified public functions:
 
-- [ ] All parameters have inline descriptions (comments after parameter)
+- [ ] All parameters have inline descriptions (comment line immediately before the parameter)
 - [ ] Descriptions follow the style guide above
 - [ ] Comment-based help is present and accurate
-- [ ] `.PARAMETER` sections match parameter descriptions
+- [ ] Any hand-written `.PARAMETER` sections are still accurate if present
 - [ ] `PSScriptAnalyzer` passes without warnings
 - [ ] No placeholder text in generated docs (e.g., `Fill parameter Description`)
 
@@ -228,14 +250,14 @@ Invoke-ScriptAnalyzer -Path .\Source
 Invoke-ScriptAnalyzer -Path .\Source -Recurse
 ```
 
-The `run-pssa.ps1` script uses `Get-ChildItem -Recurse | Invoke-ScriptAnalyzer`, which correctly processes all files.
+The `run-pssa.ps1` script scans files recursively and applies the public-only rules through a split-settings approach.
 
 ### "Rule doesn't apply to my function"
 
 Verify the rule scope:
-- `PSMissingParameterInlineComment` applies to **all** functions (public, private, internal)
-- Exceptions are handled through suppression attributes
-- If suppressing, use a clear justification explaining why the rule doesn't apply
+- `PSMissingParameterInlineComment` can appear anywhere the analyzer scans unless it is suppressed
+- `PSUseCamelCaseParameterName`, `PSAvoidSelfReferentialParameterAlias`, and `PSUseProperTypeAcceleratorCasing` are intentionally enforced on `Source\Public` in the repo lint entrypoints
+- If suppressing, use a clear justification explaining why the diagnostic should not apply
 
 ### "Suppression attribute isn't working"
 

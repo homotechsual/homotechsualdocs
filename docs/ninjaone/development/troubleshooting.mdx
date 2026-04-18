@@ -17,12 +17,14 @@ Comprehensive troubleshooting for common NinjaOne development issues.
 # Clear NuGet cache
 rm -r $HOME\.nuget\packages -Force
 
-# Reinstall dependencies
-pwsh -File .\DevOps\Build\bootstrap.ps1 -Force
+# Rerun bootstrap
+pwsh -File .\DevOps\Build\bootstrap.ps1
 
 # Retry build
 pwsh -File .\DevOps\Build\build.ps1 -TaskNames build
 ```
+
+`bootstrap.ps1` currently accepts `-Force`, but the flag does not change module reinstall behavior. If a specific dependency is still missing, reinstall that module explicitly from `DevOps\Build\RequiredModules.psd1`.
 
 ### "Build failed: Cannot find C# project binaries"
 
@@ -60,8 +62,8 @@ The specified module 'Pester' was not found.
 # Check RequiredModules.psd1
 Get-Content .\DevOps\Build\RequiredModules.psd1
 
-# Force reinstall all required modules
-pwsh -File .\DevOps\Build\bootstrap.ps1 -Force
+# Rerun bootstrap
+pwsh -File .\DevOps\Build\bootstrap.ps1
 
 # Install a specific missing module manually if needed
 Install-Module Pester -Force
@@ -143,6 +145,8 @@ Invoke-ScriptAnalyzer -Path .\Source -Settings .\PSScriptAnalyzerSettings.psd1
 - Wrong rule name in attribute
 - Incorrect indentation
 
+The diagnostic name to suppress is still `PSMissingParameterInlineComment`, even though the custom rule implementation is `Measure-MissingParameterDescription`.
+
 **Solution**:
 
 ```powershell
@@ -218,8 +222,8 @@ CI runs the full sequence — bootstrap, C# build, module build, then tests — 
 **Solution**:
 
 ```powershell
-# Regenerate help from scratch
-pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase All
+# Rebuild generated docs from source help
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames generateShortNamesMapping,updateHelp
 
 # Verify function has help
 Get-Help Get-NinjaOneDevice -Full
@@ -232,7 +236,7 @@ Get-Content .\Source\Public\Devices\Get-NinjaOneDevice.ps1 | Select-String "<#" 
 
 **Symptoms**: Generated docs contain incomplete parameter documentation like `Fill parameter Description`.
 
-**Cause**: Comment block has incomplete `.PARAMETER` sections with placeholder text.
+**Cause**: Source help content or inline parameter descriptions are stale or incomplete.
 
 **Solution**:
 
@@ -240,17 +244,10 @@ Get-Content .\Source\Public\Devices\Get-NinjaOneDevice.ps1 | Select-String "<#" 
 # Find problem functions
 Select-String 'Fill.*Description' .\Source\Public\*.ps1 -Recurse
 
-# Edit the file and replace placeholders with real descriptions
-# Example:
-# .PARAMETER deviceId
-#     Fill deviceId Description
-#
-# Should be:
-# .PARAMETER deviceId
-#     The device ID to retrieve
+# Fix the source help and inline parameter comments, then regenerate docs
 
 # After fixes, regenerate:
-pwsh -File .\DevOps\Build\build.ps1 -TaskNames publishDocs
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames generateShortNamesMapping,updateHelp,publishDocs
 ```
 
 ### "Full request examples not generating"

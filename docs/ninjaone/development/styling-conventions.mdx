@@ -55,7 +55,7 @@ param(
 ```
 
 **Rules**:
-- Start with lowercase (except switches which are descriptors)
+- Start with lowercase for all parameters, including switches
 - Use camelCase for multi-word parameters
 - Avoid underscores; use overlapping words or abbreviations
 - Switches should be descriptive: `$includeInactive`, `$skipValidation`, not `$i` or `$s`
@@ -190,7 +190,7 @@ function Get-NinjaOneDevice {
 4. `param()` block with inline parameter descriptions
 5. `begin { }`, `process { }`, `end { }` sections (if needed)
 6. Use `try/catch` for error handling
-7. Throw terminating errors with `$PSCmdlet.ThrowTerminatingError()`
+7. Use the surrounding codebase pattern for fatal errors (`throw` or `$PSCmdlet.ThrowTerminatingError(...)`)
 
 ### Conditionals
 
@@ -218,21 +218,21 @@ if ($device.status -eq 'Active') { Write-Verbose "Device is active" } elseif ($d
 
 ### String Formatting
 
-Prefer single quoted strings with the -f operator over string interpolation or concatenation in all cases.
+Prefer readable string formatting and avoid noisy concatenation. The repo contains both `-f` formatting and interpolation already, so follow nearby code and keep the result easy to scan.
 
 ```powershell
 # Good - clear formatting
 $message = "Device {0} not found" -f $deviceId
 $uri = "https://api.ninjarmm.com/v2/devices/{0}/details?filter={1}" -f $deviceId, $filter
 
+# Also acceptable when it matches surrounding code and stays readable
+$message = "Device $deviceId not found"
+
 # Avoid - hard to read concatenation
 $message = "Device " + $deviceId + " not found"
 
 # Avoid - mixed styles
 $uri = "https://api.ninjarmm.com/v2/devices/" + $deviceId + "/details?filter=" + $filter
-
-# Avoid - interpolation (less clear for complex strings)
-$message = "Device $deviceId not found"
 
 # Avoid - multiline with interpolation (hard to read)
 $message = @"
@@ -243,10 +243,10 @@ $message = @"
 ```
 
 **Rules**:
-- Use `'string {0}' -f $value`.
-- Use `-f` for all string formatting for consistency and readability.
+- Prefer `-f` when formatting gets complex.
+- Short interpolation is fine when it is the clearest option and matches nearby code.
 - Avoid string concatenation with `+` for clarity.
-- Avoid string interpolation for complex strings or when multiple variables are involved.
+- Avoid hard-to-read interpolation in large or multiline strings.
 
 ### Collections
 
@@ -303,7 +303,7 @@ catch {
 **Rules**:
 - Catch specific exceptions when possible
 - Log/write error before returning early
-- Use `$PSCmdlet.ThrowTerminatingError($_)` for fatal errors
+- Use `throw` or `$PSCmdlet.ThrowTerminatingError(...)` consistently with the surrounding code path
 - Include `$_` or `$_.Exception.Message` in error output
 
 ## API Design Patterns
@@ -315,7 +315,8 @@ catch {
 ```powershell
 param(
     [Parameter(Mandatory)]
-    [string]$deviceId   # Always required
+    # Always required
+    [string]$deviceId
 )
 ```
 
@@ -324,7 +325,8 @@ param(
 ```powershell
 param(
     [Parameter(ValueFromPipeline, ValueFromPipelineByPropertyName)]
-    [object]$device    # Accept device objects from pipeline
+    # Accept device objects from pipeline
+    [object]$device
 )
 ```
 
@@ -445,10 +447,10 @@ Always write code as if documentation will be auto-generated—because it will b
 Before submitting, verify:
 - [ ] Function names follow `Verb-NounNoun` pattern
 - [ ] Parameter names use camelCase
-- [ ] All parameters have descriptions using inline comments.
+- [ ] All parameters have descriptions using a comment line immediately before the parameter.
 - [ ] Return type specified with `[OutputType()]`
 - [ ] Comment-based help complete (SYNOPSIS, DESCRIPTION, examples)
-- [ ] Error handling uses try/catch with `$PSCmdlet.ThrowTerminatingError()`
+- [ ] Error handling follows the established pattern in nearby code
 - [ ] No PSScriptAnalyzer violations
 - [ ] Code passes style checks in test suite
 

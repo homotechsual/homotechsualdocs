@@ -45,11 +45,14 @@ Bootstrap installs required modules, prioritizes bundled modules, and configures
 pwsh -File .\DevOps\Build\bootstrap.ps1
 ```
 
-If you need to force reinstalling dependencies:
+If bootstrap does not recover your local environment, rerun it and then reinstall the specific missing module from `DevOps\Build\RequiredModules.psd1`.
 
 ```powershell
-pwsh -File .\DevOps\Build\bootstrap.ps1 -Force
+pwsh -File .\DevOps\Build\bootstrap.ps1
+Install-Module Pester -Force
 ```
+
+`bootstrap.ps1` currently accepts `-Force`, but the flag does not change reinstall behavior.
 
 ## Build
 
@@ -70,7 +73,17 @@ Build only:
 pwsh -File .\DevOps\Build\build.ps1 -TaskNames build
 ```
 
-Default full build (clean, build, update manifest, publish help/docs, push):
+The current default task list is:
+
+- `clean`
+- `build`
+- `updateManifest`
+- `publish`
+- `updateHelp`
+- `generateShortNamesMapping`
+- `push`
+
+For normal local development, prefer explicit task lists rather than invoking the default, because the default path includes publish and push-oriented tasks.
 
 ```powershell
 pwsh -File .\DevOps\Build\build.ps1
@@ -78,7 +91,7 @@ pwsh -File .\DevOps\Build\build.ps1
 
 ## Tests
 
-Tests run with Pester 5.x. By default, the test script also runs ScriptAnalyzer.
+Tests run with Pester 5.x. By default, `test.ps1` runs the selected Pester suites and then performs a direct `Invoke-ScriptAnalyzer` pass against the module under test.
 
 ```powershell
 pwsh -File .\DevOps\Quality\test.ps1
@@ -98,11 +111,13 @@ Run the standalone analyzer pass (uses PSScriptAnalyzerSettings.psd1):
 pwsh -File .\DevOps\Quality\run-pssa.ps1
 ```
 
-The analyzer excludes `CustomRules`, `output`, `Modules`, and `test-rules.ps1`.
+The standalone analyzer wrapper excludes `CustomRules`, `output`, `Modules`, and `test-rules.ps1`.
+
+In normal repo linting, full settings are applied to `Source\Public`, and reduced settings are applied elsewhere. Public-surface rules such as camelCase parameter enforcement are intentionally scoped to exported cmdlets.
 
 ## Help Generation
 
-The help orchestration script runs in phases:
+The help orchestration script exposes these phases:
 
 - `Generate`
 - `ApplyPublic`
@@ -110,7 +125,14 @@ The help orchestration script runs in phases:
 - `ApplyPrivate`
 - `All`
 
-Run all phases:
+Current state:
+
+- `Generate` creates the inventory/database of functions needing help.
+- `ApplyPublic` in the orchestrator prints next-step guidance rather than modifying files itself.
+- `Verify` in the orchestrator prints the suggested validation command.
+- Actual help insertion is handled by the dedicated helper scripts under `DevOps\Help`.
+
+Run the orchestrator inventory/preview flow:
 
 ```powershell
 pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase All
@@ -171,6 +193,8 @@ Regenerate the short name map and update docs output:
 ```powershell
 pwsh -File .\DevOps\Build\build.ps1 -TaskNames generateShortNamesMapping,updateHelp,publishDocs
 ```
+
+`updateHelp` writes the canonical local `.mdx` output to `docs\NinjaOne\commandlets`. `publishDocs` then copies that generated output to `.build\docs` for downstream publishing automation.
 
 ## Release and Versioning
 

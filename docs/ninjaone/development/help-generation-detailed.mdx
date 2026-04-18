@@ -8,15 +8,17 @@ This page documents the comment-based help generation pipeline, which transforms
 ## Overview
 
 Help generation is a multi-phase process that:
-1. Generates structured help from comment blocks
-2. Applies generated help to public functions
-3. Verifies documentation completeness
-4. Applies private function help for internal reference
-5. Publishes final `.mdx` files
+1. Inventories functions that still need help
+2. Applies or regenerates comment-based help with the dedicated helper scripts
+3. Validates help coverage with ScriptAnalyzer
+4. Regenerates `.mdx` documentation from the source help
+5. Optionally exports generated docs for downstream publishing workflows
 
 The pipeline is coordinated by `Orchestrate-HelpGeneration.ps1`.
 
 For local development, documentation generation ends at `updateHelp`. The `publishDocs` step is a CI/export step that copies already-generated docs into `.build\docs` for downstream publishing automation.
+
+The important distinction in the current repo is that the orchestrator is not a full end-to-end executor. It is best treated as an inventory and guidance entrypoint, while the actual file-writing work is performed by the dedicated scripts in `DevOps\Help`.
 
 ## Phases
 
@@ -79,20 +81,19 @@ pwsh -File .\DevOps\Help\Generate-CommentBasedHelp.ps1
 
 ### Phase: ApplyPublic
 
-**File**: `Apply-GeneratedHelpToFunctions.ps1`
+**Files**: `Apply-CommentBasedHelpToFunctions.ps1`, `Apply-GeneratedHelpToFunctions.ps1`
 
-Applies the generated help to public functions by injecting it into the module manifest.
+Applies generated or regenerated help blocks to source files.
 
 **What it does**:
-- Takes output from Generate phase
-- Updates `NinjaOne.psd1` manifest with help content
-- Ensures `.Get-Help` returns structured data
-- Validates module will load with new help
+- `Apply-CommentBasedHelpToFunctions.ps1` scans files, generates help for functions missing it, inserts blocks, and validates syntax
+- `Apply-GeneratedHelpToFunctions.ps1` uses the generated help database and applies help to specific named functions
+- `Orchestrate-HelpGeneration.ps1 -Phase ApplyPublic` currently prints next-step guidance and does not perform the writes itself
 
 **Run individually**:
 
 ```powershell
-pwsh -File .\DevOps\Help\Apply-GeneratedHelpToFunctions.ps1
+pwsh -File .\DevOps\Help\Apply-CommentBasedHelpToFunctions.ps1 -SourcePath .\Source\Public
 ```
 
 ### Phase: Verify
@@ -103,10 +104,10 @@ Validates that all public functions have complete help documentation.
 
 **Checks**:
 - All public functions have SYNOPSIS
-- All functions have DESCRIPTION
-- All parameters documented with `.PARAMETER`
+- Public functions have DESCRIPTION
+- Parameter documentation is present in source comments and/or retained help content
 - At least one `.EXAMPLE` present
-- `.OUTPUTS` section present
+- `.OUTPUTS` section present when the help block includes one
 
 **What passes verification**:
 
@@ -135,7 +136,9 @@ Validates that all public functions have complete help documentation.
 #>
 ```
 
-### Phase: ApplyPrivate
+`Orchestrate-HelpGeneration.ps1 -Phase Verify` currently prints the suggested validation command rather than running a full write-and-verify cycle itself.
+
+### Private Function Help
 
 **File**: `Apply-PrivateFunctionHelp.ps1`
 
@@ -151,6 +154,8 @@ Generates and applies help for private functions (used internally, not exported)
 ```powershell
 pwsh -File .\DevOps\Help\Apply-PrivateFunctionHelp.ps1
 ```
+
+Use the standalone helper directly for private help application. The current orchestrator script advertises an `ApplyPrivate` phase, but its main execution path does not currently wire that phase in.
 
 ## Full Request Example Generation
 
@@ -216,28 +221,40 @@ pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1 -CommandName New-Ninja
 
 ## Running the Pipeline
 
-### Full Pipeline
+### Current Orchestrator Flow
 
-Run all phases in sequence:
+Run the orchestrator when you want the inventory plus the printed next steps:
 
 ```powershell
 pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase All
 ```
 
-### Individual Phases
+Today, `-Phase All` is best read as:
+
+- generate the missing-help inventory
+- preview the public-apply next step
+- print the verification command
+
+### Recommended Working Flow
 
 ```powershell
-# Generate structured help
+# 1. Generate inventory / review missing help
 pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase Generate
 
-# Apply to public functions
-pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase ApplyPublic
+# 2. Apply help to public functions
+pwsh -File .\DevOps\Help\Apply-CommentBasedHelpToFunctions.ps1 -SourcePath .\Source\Public
 
-# Verify completeness
-pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase Verify
+# 3. Apply help to private functions if needed
+pwsh -File .\DevOps\Help\Apply-PrivateFunctionHelp.ps1
 
-# Apply to private functions
-pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase ApplyPrivate
+# 4. Regenerate request examples when body schemas changed
+pwsh -File .\DevOps\Help\Generate-FullRequestExamples.ps1
+
+# 5. Rebuild generated docs
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames generateShortNamesMapping,updateHelp
+
+# 6. Validate with the repo analyzer wrapper
+pwsh -File .\DevOps\Quality\run-pssa.ps1
 ```
 
 ### After Help Updates
@@ -262,13 +279,21 @@ pwsh -File .\DevOps\Build\build.ps1 -TaskNames publishDocs
 
 ## .mdx Documentation Generation
 
-After help content is finalized, it's converted to Markdown:
+After help content is finalized, `updateHelp` writes the generated command docs into the repo:
+
+```powershell
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames updateHelp
+```
+
+**Canonical local output**: `docs\NinjaOne\commandlets\`
+
+If you also need the export artifact used by publishing automation, run:
 
 ```powershell
 pwsh -File .\DevOps\Build\build.ps1 -TaskNames publishDocs
 ```
 
-**Output location**: `.build/docs/docs/ninjaone/commandlets/`
+**Export output**: `.build/docs/docs/ninjaone/commandlets/`
 
 Each public function generates one `.mdx` file with:
 - Function signature
@@ -294,14 +319,19 @@ pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase Generate
 pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase ApplyPublic
 ```
 
-These phases are sequential and each depends on outputs from the previous phase.
+Treat the orchestrator as inventory plus guidance. If a real write step fails, run the underlying helper script directly so you can see the actual parser or file-write failure.
 
 ### "Verify phase reports missing documentation"
 
-Run verification with verbose output:
+Use the repo analyzer wrapper, or run the specific help rule directly:
 
 ```powershell
-pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase Verify -Verbose
+pwsh -File .\DevOps\Quality\run-pssa.ps1
+
+# Or target the help rule directly
+Get-ChildItem -Path . -Recurse -File -Include *.ps1,*.psm1,*.psd1 |
+    Where-Object { $_.FullName -notmatch '\\output\\' -and $_.FullName -notmatch '\\HelpGeneration\\' } |
+    Invoke-ScriptAnalyzer -Settings .\PSScriptAnalyzerSettings.psd1 -IncludeRule PSRequiredCommentBasedHelp
 ```
 
 Add missing sections to function comment blocks:
@@ -339,24 +369,12 @@ pwsh -File .\DevOps\Build\build.ps1 -TaskNames publishDocs
 
 ### "Fill parameter Description appears in generated docs"
 
-This indicates the `.PARAMETER` section is incomplete in the comment block. Generated help may contain placeholder text like `Fill deviceId Description` when parameter descriptions are missing.
-
-**Bad**:
-```powershell
-.PARAMETER deviceId
-    {{Fill deviceId Description}}
-```
-
-**Good**:
-```powershell
-.PARAMETER deviceId
-    The device ID to retrieve
-```
+This indicates stale or incomplete help content. In this repo, the first place to check is the source function's inline parameter comments and comment-based help block.
 
 Regenerate docs after fixing:
 
 ```powershell
-pwsh -File .\DevOps\Build\build.ps1 -TaskNames publishDocs
+pwsh -File .\DevOps\Build\build.ps1 -TaskNames generateShortNamesMapping,updateHelp,publishDocs
 ```
 
 ### "Get-Help returns incomplete information"
@@ -376,7 +394,7 @@ If still incomplete, regenerate and reapply:
 
 ```powershell
 pwsh -File .\DevOps\Help\Orchestrate-HelpGeneration.ps1 -Phase All
-pwsh -File .\DevOps\Help\Apply-GeneratedHelpToFunctions.ps1
+pwsh -File .\DevOps\Help\Apply-CommentBasedHelpToFunctions.ps1 -SourcePath .\Source\Public
 ```
 
 ## Comment Block Best Practices
