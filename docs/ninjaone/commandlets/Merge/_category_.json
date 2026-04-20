@@ -1,14 +1,14 @@
 {
-  "collapsed": true,
+  "customProps": {
+    "description": "This category contains commands for merging data, objects, settings and more."
+  },
   "label": "Merge Data",
   "link": {
     "type": "generated-index",
     "title": "Merge Data"
   },
+  "collapsed": true,
   "className": "category-merge",
-  "collapsible": true,
-  "customProps": {
-    "description": "This category contains commands for merging data, objects, settings and more."
-  },
-  "position": 0.6
+  "position": 0.6,
+  "collapsible": true
 }
