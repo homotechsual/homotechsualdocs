@@ -19,6 +19,7 @@
 
 # Misc
 .DS_Store
+.wrangler/
 .env.local
 .env.development.local
 .env.test.local

@@ -1,0 +1,115 @@
+# Publish
+
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - synchronize
+  pull_request_target:
+    types:
+      - opened
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+  pull-requests: write
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ${{ matrix.os }}
+    if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false) }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [22]
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref }}
+      cancel-in-progress: true
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
+          fetch-depth: 0
+
+      - name: Remove built-in Yarn
+        run: npm uninstall -g yarn
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node }}
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --check-cache
+
+      - name: Build website
+        run: yarn build
+
+      - name: Deploy Worker assets
+        id: cloudflare-worker-deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create commit comment
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        uses: peter-evans/commit-comment@v4
+        with:
+          body: |
+            ### Successfully deployed to Cloudflare Workers
+            | Item | Value |
+            | --- | --- |
+            | Latest commit | ${{ github.event.pull_request.head.sha || github.sha }} |
+            | Latest deploy log | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
+            | Worker URL | ${{ steps.cloudflare-worker-deploy.outputs.deployment-url }} |
+
+      - name: Create PR comment
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            ### Successfully deployed to Cloudflare Workers
+            | Item | Value |
+            | --- | --- |
+            | Latest commit | ${{ github.event.pull_request.head.sha || github.sha }} |
+            | Latest deploy log | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
+            | Worker URL | ${{ steps.cloudflare-worker-deploy.outputs.deployment-url }} |
+
+  comment:
+    name: Comment
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request_target' && github.event.action == 'opened' && github.event.pull_request.head.repo.fork == true }}
+
+    steps:
+      - name: Create PR comment
+        run: |
+          cat <<'EOF' > comment.md
+          # Deployments do not run for forked pull requests
+
+          This pull request originates from a fork. For security reasons, this workflow does not build or deploy forked pull requests because deployment requires repository secrets.
+
+          If you need a preview deployment, open a branch in the main repository or have a maintainer cherry-pick the changes into a trusted branch.
+          EOF
+
+          gh pr comment ${{ github.event.number }} -R ${{ github.repository }} -F comment.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
