@@ -16,7 +16,7 @@ Creates an asset relationship.
 ## SYNTAX
 
 ```powershell
-New-NinjaOneAssetRelationship [-AssetRelationship] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
+New-NinjaOneAssetRelationship [-assetRelationship] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Creates a new asset relationship using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneAssetRelationship -AssetRelationship @{ entityId = 1; relEntityId = 2 }
+New-NinjaOneAssetRelationship -assetRelationship @{ entityId = 1; relEntityId = 2 }
 ```
 
 
@@ -37,7 +37,7 @@ Creates an asset relationship.
 
 ## PARAMETERS
 
-### -AssetRelationship
+### -assetRelationship
 
 Asset relationship payload per API schema.
 

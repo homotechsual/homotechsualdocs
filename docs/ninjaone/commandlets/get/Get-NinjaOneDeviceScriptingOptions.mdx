@@ -16,7 +16,7 @@ Gets device scripting options from the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Get-NinjaOneDeviceScriptingOptions [-deviceId] <Int32> [[-LanguageTag] <String>] [-Categories] [-Scripts]
+Get-NinjaOneDeviceScriptingOptions [-deviceId] <Int32> [[-languageTag] <String>] [-categories] [-scripts]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
@@ -38,7 +38,7 @@ Gets the device scripting options for the device with id 1.
 ### EXAMPLE 2
 
 ```powershell
-Get-NinjaOneDeviceScriptingOptions -deviceId 1 -Scripts
+Get-NinjaOneDeviceScriptingOptions -deviceId 1 -scripts
 ```
 
 
@@ -47,7 +47,7 @@ Gets the scripts for the device with id 1.
 ### EXAMPLE 3
 
 ```powershell
-Get-NinjaOneDeviceScriptingOptions -deviceId 1 -Categories
+Get-NinjaOneDeviceScriptingOptions -deviceId 1 -categories
 ```
 
 
@@ -71,7 +71,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -LanguageTag
+### -languageTag
 
 Built in scripts / job names should be returned in the specified language.
 
@@ -87,7 +87,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Categories
+### -categories
 
 Return the categories list only.
 
@@ -103,7 +103,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Scripts
+### -scripts
 
 Return the scripts list only.
 

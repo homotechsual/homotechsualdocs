@@ -16,7 +16,7 @@ Create a new Ticket Board sort object.
 ## SYNTAX
 
 ```powershell
-New-NinjaOneTicketBoardSort [-Field] <String> [-Direction] <String> [-ProgressAction <ActionPreference>]
+New-NinjaOneTicketBoardSort [-field] <String> [-direction] <String> [-ProgressAction <ActionPreference>]
  [<CommonParameters>]
 ```
 
@@ -29,12 +29,12 @@ Creates a sort object for ticket board queries with validation.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneTicketBoardSort -Field 'created' -Direction 'asc'
+New-NinjaOneTicketBoardSort -field 'created' -direction 'asc'
 ```
 
 ## PARAMETERS
 
-### -Field
+### -field
 
 The field to sort by.
 
@@ -50,7 +50,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Direction
+### -direction
 
 The sort direction.
 

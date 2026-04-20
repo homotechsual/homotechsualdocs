@@ -24,7 +24,7 @@ Get-NinjaOneAssetRelationships [-ProgressAction <ActionPreference>] [<CommonPara
 ### ByEntity
 
 ```powershell
-Get-NinjaOneAssetRelationships -EntityType <String> -EntityId <Int32> [-ProgressAction <ActionPreference>]
+Get-NinjaOneAssetRelationships -entityType <String> -entityId <Int32> [-ProgressAction <ActionPreference>]
  [<CommonParameters>]
 ```
 
@@ -46,7 +46,7 @@ Gets all available asset relationships.
 ### EXAMPLE 2
 
 ```powershell
-Get-NinjaOneAssetRelationships -EntityType DEVICE -EntityId 1
+Get-NinjaOneAssetRelationships -entityType DEVICE -entityId 1
 ```
 
 
@@ -54,7 +54,7 @@ Gets asset relationships for the specified entity.
 
 ## PARAMETERS
 
-### -EntityType
+### -entityType
 
 The related entity type.
 
@@ -70,7 +70,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -EntityId
+### -entityId
 
 The related entity ID.
 

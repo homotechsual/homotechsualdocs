@@ -18,7 +18,7 @@ Gets tickets from the NinjaOne API.
 ### Single
 
 ```powershell
-Get-NinjaOneTickets [-ticketId] <Int32> [-ParseDateTime] [-ProgressAction <ActionPreference>]
+Get-NinjaOneTickets [-ticketId] <Int32> [-parseDateTime] [-ProgressAction <ActionPreference>]
  [<CommonParameters>]
 ```
 
@@ -27,7 +27,7 @@ Get-NinjaOneTickets [-ticketId] <Int32> [-ParseDateTime] [-ProgressAction <Actio
 ```powershell
 Get-NinjaOneTickets [-boardId] <String> [[-sort] <NinjaOneTicketBoardSort[]>]
  [[-filters] <NinjaOneTicketBoardFilter[]>] [[-lastCursorId] <String>] [[-pageSize] <Int32>]
- [[-searchCriteria] <String>] [[-includeColumns] <String[]>] [-includeMetadata] [-ParseDateTime]
+ [[-searchCriteria] <String>] [[-includeColumns] <String[]>] [-includeMetadata] [-parseDateTime]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
@@ -212,7 +212,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ParseDateTime
+### -parseDateTime
 
 Parse date/time values in the response.
 

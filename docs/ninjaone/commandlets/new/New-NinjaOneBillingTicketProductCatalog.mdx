@@ -16,7 +16,7 @@ Creates a catalog billing ticket product.
 ## SYNTAX
 
 ```powershell
-New-NinjaOneBillingTicketProductCatalog [-TicketProduct] <Object> [-ProgressAction <ActionPreference>]
+New-NinjaOneBillingTicketProductCatalog [-ticketProduct] <Object> [-ProgressAction <ActionPreference>]
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Creates a catalog billing ticket product using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneBillingTicketProductCatalog -TicketProduct @{ ticketId = 1 }
+New-NinjaOneBillingTicketProductCatalog -ticketProduct @{ ticketId = 1 }
 ```
 
 
@@ -37,7 +37,7 @@ Creates a catalog billing ticket product.
 
 ## PARAMETERS
 
-### -TicketProduct
+### -ticketProduct
 
 Ticket product payload per API schema.
 

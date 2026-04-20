@@ -16,7 +16,7 @@ Updates end user device access.
 ## SYNTAX
 
 ```powershell
-Set-NinjaOneEndUserDeviceAccess [-Id] <Int32> [-DeviceAccess] <Object> [-ProgressAction <ActionPreference>]
+Set-NinjaOneEndUserDeviceAccess [-id] <Int32> [-deviceAccess] <Object> [-ProgressAction <ActionPreference>]
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Updates device access settings for an end user using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneEndUserDeviceAccess -Id 101 -DeviceAccess @{ canRemote = $true }
+Set-NinjaOneEndUserDeviceAccess -id 101 -deviceAccess @{ canRemote = $true }
 ```
 
 
@@ -37,7 +37,7 @@ Updates device access settings for end user 101.
 
 ## PARAMETERS
 
-### -Id
+### -id
 
 The end user ID.
 
@@ -53,7 +53,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -DeviceAccess
+### -deviceAccess
 
 The device access payload per API schema.
 

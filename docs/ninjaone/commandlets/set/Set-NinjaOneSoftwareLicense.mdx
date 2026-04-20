@@ -16,7 +16,7 @@ Updates a software license.
 ## SYNTAX
 
 ```powershell
-Set-NinjaOneSoftwareLicense [-LicenseId] <Int32> [-License] <Object> [-ProgressAction <ActionPreference>]
+Set-NinjaOneSoftwareLicense [-licenseId] <Int32> [-license] <Object> [-ProgressAction <ActionPreference>]
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Updates an existing software license via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneSoftwareLicense -LicenseId 1 -License @{ name = 'Microsoft Office 365' }
+Set-NinjaOneSoftwareLicense -licenseId 1 -license @{ name = 'Microsoft Office 365' }
 ```
 
 
@@ -84,7 +84,7 @@ PS> $body = @{
     }
     name = "string"
 }
-PS> Set-NinjaOneSoftwareLicense -LicenseId 1 -License $body
+PS> Set-NinjaOneSoftwareLicense -licenseId 1 -license $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
 
@@ -93,7 +93,7 @@ Full request example (auto-generated).
 
 ## PARAMETERS
 
-### -LicenseId
+### -licenseId
 
 The ID of the software license to update
 
@@ -109,7 +109,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -License
+### -license
 
 Software license update payload per API schema
 

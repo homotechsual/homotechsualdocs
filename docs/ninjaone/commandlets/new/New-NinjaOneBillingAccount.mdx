@@ -16,7 +16,7 @@ Creates a billing account.
 ## SYNTAX
 
 ```powershell
-New-NinjaOneBillingAccount [-BillingAccount] <Object> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+New-NinjaOneBillingAccount [-billingAccount] <Object> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Creates a new billing account using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneBillingAccount -BillingAccount @{ name = 'Managed Services' }
+New-NinjaOneBillingAccount -billingAccount @{ name = 'Managed Services' }
 ```
 
 
@@ -37,7 +37,7 @@ Creates a billing account.
 
 ## PARAMETERS
 
-### -BillingAccount
+### -billingAccount
 
 Billing account payload per API schema.
 

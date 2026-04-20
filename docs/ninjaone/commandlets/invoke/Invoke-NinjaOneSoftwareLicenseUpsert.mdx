@@ -16,7 +16,7 @@ Creates or updates a software license.
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneSoftwareLicenseUpsert [-License] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
+Invoke-NinjaOneSoftwareLicenseUpsert [-license] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Creates or updates a software license via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneSoftwareLicenseUpsert -License @{ name = 'Microsoft Office'; description = 'Office 365' }
+Invoke-NinjaOneSoftwareLicenseUpsert -license @{ name = 'Microsoft Office'; description = 'Office 365' }
 ```
 
 
@@ -68,7 +68,7 @@ PS> $body = @{
     name = "string"
     publisherName = "string"
 }
-PS> Invoke-NinjaOneSoftwareLicenseUpsert -License $body
+PS> Invoke-NinjaOneSoftwareLicenseUpsert -license $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
 
@@ -77,7 +77,7 @@ Full request example (auto-generated).
 
 ## PARAMETERS
 
-### -License
+### -license
 
 Software license configuration per API schema
 

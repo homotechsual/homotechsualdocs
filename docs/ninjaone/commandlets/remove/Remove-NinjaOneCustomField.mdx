@@ -16,7 +16,7 @@ Deletes a custom field by field name.
 ## SYNTAX
 
 ```powershell
-Remove-NinjaOneCustomField [-FieldName] <String> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+Remove-NinjaOneCustomField [-fieldName] <String> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Deletes an existing custom field identified by its unique field name via the Nin
 ### EXAMPLE 1
 
 ```powershell
-Remove-NinjaOneCustomField -FieldName 'department'
+Remove-NinjaOneCustomField -fieldName 'department'
 ```
 
 
@@ -37,7 +37,7 @@ Deletes the custom field named 'department'.
 
 ## PARAMETERS
 
-### -FieldName
+### -fieldName
 
 The field name of the custom field to delete
 

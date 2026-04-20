@@ -18,7 +18,7 @@ Gets organisation documents from the NinjaOne API.
 ### Single Organisation
 
 ```powershell
-Get-NinjaOneOrganisationDocuments [-organisationId] <Int32> [-ParseDateTime]
+Get-NinjaOneOrganisationDocuments [-organisationId] <Int32> [-parseDateTime]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
@@ -26,7 +26,7 @@ Get-NinjaOneOrganisationDocuments [-organisationId] <Int32> [-ParseDateTime]
 
 ```powershell
 Get-NinjaOneOrganisationDocuments [[-documentName] <String>] [[-groupBy] <String>]
- [[-organisationIds] <String>] [[-templateIds] <String>] [[-templateName] <String>] [-ParseDateTime]
+ [[-organisationIds] <String>] [[-templateIds] <String>] [[-templateName] <String>] [-parseDateTime]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
@@ -145,7 +145,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -ParseDateTime
+### -parseDateTime
 
 Parse date/time values in the response.
 

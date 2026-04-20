@@ -16,7 +16,7 @@ Performs bulk operations on custom fields.
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneCustomFieldsBulk [-Operation] <String> [-CustomFields <Object>] [-FieldNames <String[]>]
+Invoke-NinjaOneCustomFieldsBulk [-operation] <String> [-customFields <Object>] [-fieldNames <String[]>]
  [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Performs bulk create, update, or delete operations on custom fields via the Ninj
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneCustomFieldsBulk -Operation 'create' -CustomFields @( @{ name = 'Field1' }, @{ name = 'Field2' } )
+Invoke-NinjaOneCustomFieldsBulk -operation 'create' -customFields @( @{ name = 'Field1' }, @{ name = 'Field2' } )
 ```
 
 
@@ -37,7 +37,7 @@ Creates multiple custom fields in a single request.
 
 ## PARAMETERS
 
-### -Operation
+### -operation
 
 Operation type: 'create', 'update', or 'delete'
 
@@ -53,7 +53,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -CustomFields
+### -customFields
 
 Custom fields payload per API schema
 
@@ -69,7 +69,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -FieldNames
+### -fieldNames
 
 Field names for delete operation
 

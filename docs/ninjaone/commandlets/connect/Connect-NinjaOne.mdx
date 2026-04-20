@@ -18,42 +18,42 @@ Creates a new connection to a NinjaOne instance.
 ### Authorisation Code (Default)
 
 ```powershell
-Connect-NinjaOne [-UseWebAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
- [-Scopes <String[]>] [-RedirectURL <Uri>] [-Port <Int32>] [-ShowTokens] [-UseSecretManagement]
- [-VaultName <String>] [-WriteToSecretVault] [-ParseDateTimes] [-ProgressAction <ActionPreference>]
+Connect-NinjaOne [-useWebAuth] -instance <String> -clientId <String> -clientSecret <String>
+ [-scopes <String[]>] [-redirectURL <Uri>] [-port <Int32>] [-showTokens] [-useSecretManagement]
+ [-vaultName <String>] [-writeToSecretVault] [-parseDateTimes] [-ProgressAction <ActionPreference>]
  [<CommonParameters>]
 ```
 
 ### Secret Vault Write
 
 ```powershell
-Connect-NinjaOne [-UseWebAuth] [-UseTokenAuth] [-UseClientAuth] -Instance <String> -ClientId <String>
- -ClientSecret <String> [-Scopes <String[]>] [-RedirectURL <Uri>] [-Port <Int32>] [-RefreshToken <String>]
- [-UseSecretManagement] -VaultName <String> [-WriteToSecretVault] [-SecretPrefix <String>] [-ParseDateTimes]
+Connect-NinjaOne [-useWebAuth] [-useTokenAuth] [-useClientAuth] -instance <String> -clientId <String>
+ -clientSecret <String> [-scopes <String[]>] [-redirectURL <Uri>] [-port <Int32>] [-refreshToken <String>]
+ [-useSecretManagement] -vaultName <String> [-writeToSecretVault] [-secretPrefix <String>] [-parseDateTimes]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Token Authentication
 
 ```powershell
-Connect-NinjaOne [-UseTokenAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
- [-Scopes <String[]>] [-RefreshToken <String>] [-ShowTokens] [-UseSecretManagement] [-VaultName <String>]
- [-WriteToSecretVault] [-ParseDateTimes] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Connect-NinjaOne [-useTokenAuth] -instance <String> -clientId <String> -clientSecret <String>
+ [-scopes <String[]>] [-refreshToken <String>] [-showTokens] [-useSecretManagement] [-vaultName <String>]
+ [-writeToSecretVault] [-parseDateTimes] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Client Credentials
 
 ```powershell
-Connect-NinjaOne [-UseClientAuth] -Instance <String> -ClientId <String> -ClientSecret <String>
- [-Scopes <String[]>] [-ShowTokens] [-UseSecretManagement] [-VaultName <String>] [-WriteToSecretVault]
- [-ParseDateTimes] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Connect-NinjaOne [-useClientAuth] -instance <String> -clientId <String> -clientSecret <String>
+ [-scopes <String[]>] [-showTokens] [-useSecretManagement] [-vaultName <String>] [-writeToSecretVault]
+ [-parseDateTimes] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Secret Vault Read
 
 ```powershell
-Connect-NinjaOne [-UseSecretManagement] -VaultName <String> [-WriteToSecretVault] [-ReadFromSecretVault]
- [-SecretPrefix <String>] [-ParseDateTimes] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Connect-NinjaOne [-useSecretManagement] -vaultName <String> [-writeToSecretVault] [-readFromSecretVault]
+ [-secretPrefix <String>] [-parseDateTimes] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -65,7 +65,7 @@ Creates a new connection to a NinjaOne instance and stores this in a PowerShell 
 ### EXAMPLE 1
 
 ```powershell
-Connect-NinjaOne -Instance 'eu' -ClientId 'AAaaA1aaAaAA-aaAaaA11a1A-aA' -ClientSecret '00Z00zzZzzzZzZzZzZzZZZ0zZ0zzZ_0zzz0zZZzzZz0Z0ZZZzz0z0Z' -UseClientAuth
+Connect-NinjaOne -instance 'eu' -clientId 'AAaaA1aaAaAA-aaAaaA11a1A-aA' -clientSecret '00Z00zzZzzzZzZzZzZzZZZ0zZ0zzZ_0zzz0zZZzzZz0Z0ZZZzz0z0Z' -useClientAuth
 ```
 
 
@@ -74,7 +74,7 @@ This logs into NinjaOne using the client credentials flow.
 ### EXAMPLE 2
 
 ```powershell
-Connect-NinjaOne -Instance 'eu' -ClientId 'AAaaA1aaAaAA-aaAaaA11a1A-aA' -ClientSecret '00Z00zzZzzzZzZzZzZzZZZ0zZ0zzZ_0zzz0zZZzzZz0Z0ZZZzz0z0Z' -Port 9090 -UseWebAuth
+Connect-NinjaOne -instance 'eu' -clientId 'AAaaA1aaAaAA-aaAaaA11a1A-aA' -clientSecret '00Z00zzZzzzZzZzZzZzZZZ0zZ0zzZ_0zzz0zZZzzZz0Z0ZZZzz0z0Z' -Port 9090 -useWebAuth
 ```
 
 
@@ -83,7 +83,7 @@ This logs into NinjaOne using the authorization code flow.
 ### EXAMPLE 3
 
 ```powershell
-Connect-NinjaOne -Instance 'eu' -ClientId 'AAaaA1aaAaAA-aaAaaA11a1A-aA' -ClientSecret '00Z00zzZzzzZzZzZzZzZZZ0zZ0zzZ_0zzz0zZZzzZz0Z0ZZZzz0z0Z' -RefreshToken 'a1a11a11-aa11-11a1-a111-a1a111aaa111.11AaaAaaa11aA-AA1aaaAAA111aAaaaaA1AAAA1_AAa' -UseTokenAuth
+Connect-NinjaOne -instance 'eu' -clientId 'AAaaA1aaAaAA-aaAaaA11a1A-aA' -clientSecret '00Z00zzZzzzZzZzZzZzZZZ0zZ0zzZ_0zzz0zZZzzZz0Z0ZZZzz0z0Z' -refreshToken 'a1a11a11-aa11-11a1-a111-a1a111aaa111.11AaaAaaa11aA-AA1aaaAAA111aAaaaaA1AAAA1_AAa' -useTokenAuth
 ```
 
 
@@ -92,7 +92,7 @@ This logs into NinjaOne using the refresh token flow.
 ### EXAMPLE 4
 
 ```powershell
-Connect-NinjaOne -UseSecretManagement -VaultName 'NinjaOneVault' -WriteToSecretVault -Instance 'eu' -ClientId 'AAaaA1aaAaAA-aaAaaA11a1A-aA' -ClientSecret '00Z00zzZzzzZzZzZzZzZZZ0zZ0zzZ_0zzz0zZZzzZz0Z0ZZZzz0z0Z' -UseClientAuth
+Connect-NinjaOne -useSecretManagement -vaultName 'NinjaOneVault' -writeToSecretVault -instance 'eu' -clientId 'AAaaA1aaAaAA-aaAaaA11a1A-aA' -clientSecret '00Z00zzZzzzZzZzZzZzZZZ0zZ0zzZ_0zzz0zZZzzZz0Z0ZZZzz0z0Z' -useClientAuth
 ```
 
 
@@ -101,7 +101,7 @@ This logs into NinjaOne using the client credentials flow and writes the connect
 ### EXAMPLE 5
 
 ```powershell
-Connect-NinjaOne -UseSecretManagement -VaultName 'NinjaOneVault' -ReadFromSecretVault
+Connect-NinjaOne -useSecretManagement -vaultName 'NinjaOneVault' -readFromSecretVault
 ```
 
 
@@ -109,7 +109,7 @@ This reads the connection information from the secret vault.
 
 ## PARAMETERS
 
-### -UseWebAuth
+### -useWebAuth
 
 Use the "Authorisation Code" flow with your web browser.
 
@@ -137,7 +137,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -UseTokenAuth
+### -useTokenAuth
 
 Use the "Token Authentication" flow - useful if you already have a refresh token.
 
@@ -165,7 +165,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -UseClientAuth
+### -useClientAuth
 
 Use the "Client Credentials" flow - useful if you already have a client ID and secret.
 
@@ -193,7 +193,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Instance
+### -instance
 
 The NinjaOne instance to connect to.
 Choose from 'eu', 'oc' or 'us'.
@@ -210,7 +210,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ClientId
+### -clientId
 
 The Client Id for the application configured in NinjaOne.
 
@@ -226,7 +226,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ClientSecret
+### -clientSecret
 
 The Client Secret for the application configured in NinjaOne.
 
@@ -242,7 +242,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Scopes
+### -scopes
 
 The API scopes to request, if this isn't passed the scope is assumed to be "all".
 Pass a string or array of strings.
@@ -260,7 +260,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -RedirectURL
+### -redirectURL
 
 The redirect URI to use.
 If not set defaults to 'http://localhost'.
@@ -279,7 +279,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Port
+### -port
 
 The port to use for the redirect URI.
 Must match with the configuration set in NinjaOne.
@@ -297,7 +297,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -RefreshToken
+### -refreshToken
 
 The refresh token to use for "Token Authentication" flow.
 
@@ -313,7 +313,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ShowTokens
+### -showTokens
 
 Output the tokens - useful when using "Authorisation Code" flow - to use with "Token Authentication" flow.
 
@@ -329,7 +329,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -UseSecretManagement
+### -useSecretManagement
 
 Use the secret management module to retrieve credentials and store tokens.
 Check the docs on setting up the secret management module at https://docs.homotechsual.dev/common/secretmanagement.
@@ -358,7 +358,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -VaultName
+### -vaultName
 
 The name of the secret vault to use.
 
@@ -386,7 +386,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -WriteToSecretVault
+### -writeToSecretVault
 
 Write updated credentials to secret management vault.
 
@@ -414,7 +414,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ReadFromSecretVault
+### -readFromSecretVault
 
 Read the authentication information from secret management vault.
 
@@ -430,7 +430,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SecretPrefix
+### -secretPrefix
 
 The prefix to add to the name of the secrets stored in the secret vault.
 
@@ -446,7 +446,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ParseDateTimes
+### -parseDateTimes
 
 Automatically parse date/time values in API responses.
 

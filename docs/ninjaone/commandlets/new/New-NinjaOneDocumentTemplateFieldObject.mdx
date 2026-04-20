@@ -18,16 +18,16 @@ Create a new Document Template Field object.
 ### Field
 
 ```powershell
-New-NinjaOneDocumentTemplateFieldObject [-Label] <String> [-Name] <String> [[-Description] <String>]
- [-Type] <String> [[-TechnicianPermission] <String>] [[-ScriptPermission] <String>] [[-APIPermission] <String>]
- [[-DefaultValue] <String>] [[-Options] <Object[]>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+New-NinjaOneDocumentTemplateFieldObject [-label] <String> [-name] <String> [[-description] <String>]
+ [-type] <String> [[-technicianPermission] <String>] [[-scriptPermission] <String>] [[-apiPermission] <String>]
+ [[-defaultValue] <String>] [[-options] <Object[]>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### UIElement
 
 ```powershell
-New-NinjaOneDocumentTemplateFieldObject [-ElementName] <String> [[-ElementValue] <String>]
- [-ElementType] <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
+New-NinjaOneDocumentTemplateFieldObject [-elementName] <String> [[-elementValue] <String>]
+ [-elementType] <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -48,7 +48,7 @@ Creates a new resource with the specified properties.
 
 ## PARAMETERS
 
-### -Label
+### -label
 
 The human readable label for the field.
 
@@ -64,7 +64,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Name
+### -name
 
 The machine readable name for the field.
 This is an immutable value.
@@ -81,7 +81,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Description
+### -description
 
 The description of the field.
 
@@ -97,7 +97,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Type
+### -type
 
 The type of the field.
 
@@ -113,7 +113,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TechnicianPermission
+### -technicianPermission
 
 The technician permissions for the field.
 
@@ -129,7 +129,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ScriptPermission
+### -scriptPermission
 
 The script permissions for the field.
 
@@ -145,7 +145,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -APIPermission
+### -apiPermission
 
 The API permissions for the field.
 
@@ -161,7 +161,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -DefaultValue
+### -defaultValue
 
 The default value for the field.
 
@@ -177,7 +177,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Options
+### -options
 
 The field options (a.k.a the field content).
 
@@ -193,7 +193,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ElementName
+### -elementName
 
 When creating a UI element (e.g a title, separator or description box) this is the machine readable name of the UI element.
 
@@ -209,7 +209,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ElementValue
+### -elementValue
 
 When creating a UI element (e.g a title, separator or description box) this is the value of the UI element.
 
@@ -225,7 +225,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ElementType
+### -elementType
 
 When creating a UI element (e.g a title, separator or description box) this is the type of the UI element.
 

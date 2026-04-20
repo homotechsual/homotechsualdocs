@@ -16,7 +16,7 @@ Sets the bandwidth throttle for a device.
 ## SYNTAX
 
 ```powershell
-Set-NinjaOneBackupBandwidthThrottle [-ThrottleSetting] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
+Set-NinjaOneBackupBandwidthThrottle [-throttleSetting] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Sets the bandwidth throttle for a device via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneBackupBandwidthThrottle -ThrottleSetting @{ deviceId = 1; bandwidthLimit = 5242880 }
+Set-NinjaOneBackupBandwidthThrottle -throttleSetting @{ deviceId = 1; bandwidthLimit = 5242880 }
 ```
 
 
@@ -58,7 +58,7 @@ PS> $body = @{
     }
     deviceId = 0
 }
-PS> Set-NinjaOneBackupBandwidthThrottle -ThrottleSetting $body
+PS> Set-NinjaOneBackupBandwidthThrottle -throttleSetting $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
 
@@ -67,7 +67,7 @@ Full request example (auto-generated).
 
 ## PARAMETERS
 
-### -ThrottleSetting
+### -throttleSetting
 
 Bandwidth throttle setting payload per API schema
 
