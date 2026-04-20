@@ -16,7 +16,7 @@ Creates a new software license.
 ## SYNTAX
 
 ```powershell
-New-NinjaOneSoftwareLicense [-License] <Object> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+New-NinjaOneSoftwareLicense [-license] <Object> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Creates a new software license via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneSoftwareLicense -License @{ name = 'Microsoft Office'; description = 'Office 365 subscriptions' }
+New-NinjaOneSoftwareLicense -license @{ name = 'Microsoft Office'; description = 'Office 365 subscriptions' }
 ```
 
 
@@ -84,7 +84,7 @@ PS> $body = @{
     }
     name = "string"
 }
-PS> New-NinjaOneSoftwareLicense -License $body
+PS> New-NinjaOneSoftwareLicense -license $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
 
@@ -93,7 +93,7 @@ Full request example (auto-generated).
 
 ## PARAMETERS
 
-### -License
+### -license
 
 Software license configuration per API schema
 

@@ -16,7 +16,7 @@ Sends a request to the NinjaOne API.
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneRequest [-Method] <String> [-Uri] <String> [[-Body] <String>] [-Raw] [-ParseDateTime]
+Invoke-NinjaOneRequest [-method] <String> [-uri] <String> [[-body] <String>] [-raw] [-parseDateTime]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Wrapper function to send web requests to the NinjaOne API.
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneRequest -Method 'GET' -Uri 'https://eu.ninjarmm.com/v2/activities'
+Invoke-NinjaOneRequest -method 'GET' -uri 'https://eu.ninjarmm.com/v2/activities'
 ```
 
 
@@ -38,7 +38,7 @@ Make a GET request to the activities resource.
 ### EXAMPLE 2
 
 ```powershell
-Invoke-NinjaOneRequest -Method 'GET' -Uri 'https://eu.ninjarmm.com/v2/activities' -ParseDateTime
+Invoke-NinjaOneRequest -method 'GET' -uri 'https://eu.ninjarmm.com/v2/activities' -parseDateTime
 ```
 
 
@@ -47,7 +47,7 @@ Parse ISO 8601 and Unix epoch values in the response to [DateTime].
 ### EXAMPLE 3
 
 ```powershell
-Invoke-NinjaOneRequest -Method 'GET' -Uri 'https://eu.ninjarmm.com/v2/activities' -ParseDateTime
+Invoke-NinjaOneRequest -method 'GET' -uri 'https://eu.ninjarmm.com/v2/activities' -parseDateTime
 ```
 
 
@@ -55,7 +55,7 @@ Make a GET request and convert ISO 8601 or Unix epoch values to [DateTime].
 
 ## PARAMETERS
 
-### -Method
+### -method
 
 HTTP method to use.
 
@@ -71,7 +71,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -Uri
+### -uri
 
 The URI to send the request to.
 
@@ -87,7 +87,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -Body
+### -body
 
 The body of the request.
 
@@ -103,7 +103,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Raw
+### -raw
 
 Return the raw response - don't convert from JSON.
 
@@ -119,7 +119,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ParseDateTime
+### -parseDateTime
 
 Convert ISO 8601 or Unix epoch values in JSON responses to [DateTime].
 

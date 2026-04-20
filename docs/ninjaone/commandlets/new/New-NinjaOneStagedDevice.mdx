@@ -16,7 +16,7 @@ Creates a staged device.
 ## SYNTAX
 
 ```powershell
-New-NinjaOneStagedDevice [-StagedDevice] <Object> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+New-NinjaOneStagedDevice [-stagedDevice] <Object> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Creates a staged device via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneStagedDevice -StagedDevice @{ deviceIdentifier = 'DEVICE-001'; organizationId = 1 }
+New-NinjaOneStagedDevice -stagedDevice @{ deviceIdentifier = 'DEVICE-001'; organizationId = 1 }
 ```
 
 
@@ -55,7 +55,7 @@ PS> $body = @{
     itamAssetPurchaseAmount = 0
     name = "string"
 }
-PS> New-NinjaOneStagedDevice -StagedDevice $body
+PS> New-NinjaOneStagedDevice -stagedDevice $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
 
@@ -64,7 +64,7 @@ Full request example (auto-generated).
 
 ## PARAMETERS
 
-### -StagedDevice
+### -stagedDevice
 
 Staged device configuration per API schema
 

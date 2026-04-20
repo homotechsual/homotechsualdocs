@@ -16,7 +16,7 @@ Unarchives billing invoices.
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneBillingInvoicesUnarchive [-Request] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
+Invoke-NinjaOneBillingInvoicesUnarchive [-request] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Unarchives one or more billing invoices using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneBillingInvoicesUnarchive -Request @{ invoiceIds = @(1,2) }
+Invoke-NinjaOneBillingInvoicesUnarchive -request @{ invoiceIds = @(1,2) }
 ```
 
 
@@ -37,7 +37,7 @@ Unarchives the specified billing invoices.
 
 ## PARAMETERS
 
-### -Request
+### -request
 
 Unarchive request payload per API schema.
 

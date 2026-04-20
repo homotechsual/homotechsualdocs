@@ -19,13 +19,13 @@ Gets devices from the NinjaOne API.
 
 ```powershell
 Get-NinjaOneDevices [[-deviceFilter] <String>] [[-pageSize] <Int32>] [[-after] <Int32>] [-detailed]
- [[-expand] <String[]>] [-ParseDateTime] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [[-expand] <String[]>] [-parseDateTime] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
 
 ```powershell
-Get-NinjaOneDevices [-deviceId] <Int32> [-ParseDateTime] [-ProgressAction <ActionPreference>]
+Get-NinjaOneDevices [-deviceId] <Int32> [-parseDateTime] [-ProgressAction <ActionPreference>]
  [<CommonParameters>]
 ```
 
@@ -33,7 +33,7 @@ Get-NinjaOneDevices [-deviceId] <Int32> [-ParseDateTime] [-ProgressAction <Actio
 
 ```powershell
 Get-NinjaOneDevices [[-pageSize] <Int32>] [[-after] <Int32>] [-organisationId] <Int32> [[-expand] <String[]>]
- [-ParseDateTime] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [-parseDateTime] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -211,7 +211,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ParseDateTime
+### -parseDateTime
 
 Parse date/time values in the response.
 

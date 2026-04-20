@@ -16,7 +16,7 @@ Exports billing invoices.
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneBillingInvoicesExport [-Request] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
+Invoke-NinjaOneBillingInvoicesExport [-request] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Exports one or more billing invoices using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneBillingInvoicesExport -Request @{ invoiceIds = @(1,2) }
+Invoke-NinjaOneBillingInvoicesExport -request @{ invoiceIds = @(1,2) }
 ```
 
 
@@ -37,7 +37,7 @@ Exports the specified billing invoices.
 
 ## PARAMETERS
 
-### -Request
+### -request
 
 Export request payload per API schema.
 

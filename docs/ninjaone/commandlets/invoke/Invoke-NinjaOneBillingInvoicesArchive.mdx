@@ -16,7 +16,7 @@ Archives billing invoices.
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneBillingInvoicesArchive [-Request] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
+Invoke-NinjaOneBillingInvoicesArchive [-request] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Archives one or more billing invoices using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneBillingInvoicesArchive -Request @{ invoiceIds = @(1,2) }
+Invoke-NinjaOneBillingInvoicesArchive -request @{ invoiceIds = @(1,2) }
 ```
 
 
@@ -37,7 +37,7 @@ Archives the specified billing invoices.
 
 ## PARAMETERS
 
-### -Request
+### -request
 
 Archive request payload per API schema.
 

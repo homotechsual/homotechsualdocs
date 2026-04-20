@@ -16,7 +16,7 @@ Updates a billing ticket time entry.
 ## SYNTAX
 
 ```powershell
-Set-NinjaOneBillingTicketTimeEntry [-TimeEntryId] <Int32> [-TimeEntry] <Object>
+Set-NinjaOneBillingTicketTimeEntry [-timeEntryId] <Int32> [-timeEntry] <Object>
  [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Updates a billing ticket time entry using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneBillingTicketTimeEntry -TimeEntryId 1 -TimeEntry @{ billable = $true }
+Set-NinjaOneBillingTicketTimeEntry -timeEntryId 1 -timeEntry @{ billable = $true }
 ```
 
 
@@ -37,7 +37,7 @@ Updates billing ticket time entry 1.
 
 ## PARAMETERS
 
-### -TimeEntryId
+### -timeEntryId
 
 Time entry ID.
 
@@ -53,7 +53,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -TimeEntry
+### -timeEntry
 
 Time entry payload per API schema.
 

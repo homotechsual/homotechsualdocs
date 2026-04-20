@@ -16,7 +16,7 @@ Creates an asset relationship type.
 ## SYNTAX
 
 ```powershell
-New-NinjaOneAssetRelationshipType [-RelationshipType] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
+New-NinjaOneAssetRelationshipType [-relationshipType] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Creates a new asset relationship type using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneAssetRelationshipType -RelationshipType @{ name = 'Depends On' }
+New-NinjaOneAssetRelationshipType -relationshipType @{ name = 'Depends On' }
 ```
 
 
@@ -37,7 +37,7 @@ Creates an asset relationship type.
 
 ## PARAMETERS
 
-### -RelationshipType
+### -relationshipType
 
 Asset relationship type payload per API schema.
 

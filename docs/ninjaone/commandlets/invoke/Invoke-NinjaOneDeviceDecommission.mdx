@@ -16,7 +16,7 @@ Decommissions a device.
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneDeviceDecommission [-DeviceId] <Int32> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+Invoke-NinjaOneDeviceDecommission [-deviceId] <Int32> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Decommissions a device via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneDeviceDecommission -DeviceId 1
+Invoke-NinjaOneDeviceDecommission -deviceId 1
 ```
 
 
@@ -37,7 +37,7 @@ Decommissions the device with ID 1.
 
 ## PARAMETERS
 
-### -DeviceId
+### -deviceId
 
 The ID of the device to decommission
 

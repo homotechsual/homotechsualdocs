@@ -16,7 +16,7 @@ Creates a billing agreement.
 ## SYNTAX
 
 ```powershell
-New-NinjaOneBillingAgreement [-BillingAgreement] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
+New-NinjaOneBillingAgreement [-billingAgreement] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Creates a new billing agreement using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneBillingAgreement -BillingAgreement @{ name = 'Premium Support' }
+New-NinjaOneBillingAgreement -billingAgreement @{ name = 'Premium Support' }
 ```
 
 
@@ -37,7 +37,7 @@ Creates a billing agreement.
 
 ## PARAMETERS
 
-### -BillingAgreement
+### -billingAgreement
 
 Billing agreement payload per API schema.
 

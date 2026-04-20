@@ -16,7 +16,7 @@ Sets device Owner.
 ## SYNTAX
 
 ```powershell
-Set-NinjaOneDeviceOwner [-deviceId] <Int32> [-OwnerId] <String> [-ProgressAction <ActionPreference>] [-WhatIf]
+Set-NinjaOneDeviceOwner [-deviceId] <Int32> [-ownerId] <String> [-ProgressAction <ActionPreference>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Sets device Owner using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Set-NinjaOneDeviceOwner -deviceId 123 -OwnerId 'owner-uid-123'
+Set-NinjaOneDeviceOwner -deviceId 123 -ownerId 'owner-uid-123'
 ```
 
 
@@ -53,7 +53,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -OwnerId
+### -ownerId
 
 The device information body object.
 

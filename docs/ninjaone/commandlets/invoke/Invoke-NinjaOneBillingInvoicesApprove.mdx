@@ -16,7 +16,7 @@ Approves billing invoices.
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneBillingInvoicesApprove [-Request] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
+Invoke-NinjaOneBillingInvoicesApprove [-request] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ Approves one or more billing invoices using the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneBillingInvoicesApprove -Request @{ invoiceIds = @(1,2) }
+Invoke-NinjaOneBillingInvoicesApprove -request @{ invoiceIds = @(1,2) }
 ```
 
 
@@ -37,7 +37,7 @@ Approves the specified billing invoices.
 
 ## PARAMETERS
 
-### -Request
+### -request
 
 Approval request payload per API schema.
 

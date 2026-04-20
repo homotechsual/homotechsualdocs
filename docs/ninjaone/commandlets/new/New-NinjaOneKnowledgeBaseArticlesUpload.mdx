@@ -16,8 +16,8 @@ Uploads knowledge base articles.
 ## SYNTAX
 
 ```powershell
-New-NinjaOneKnowledgeBaseArticlesUpload [-OrganizationId] <Int32> [[-FolderId] <Int32>]
- [[-FolderPath] <String>] [-FilePath] <String[]> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+New-NinjaOneKnowledgeBaseArticlesUpload [-organizationId] <Int32> [[-folderId] <Int32>]
+ [[-folderPath] <String>] [-filePath] <String[]> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -30,7 +30,7 @@ Uploads one or more knowledge base articles via the NinjaOne v2 API.
 ### EXAMPLE 1
 
 ```powershell
-New-NinjaOneKnowledgeBaseArticlesUpload -OrganizationId 1 -FilePath 'C:\articles.zip'
+New-NinjaOneKnowledgeBaseArticlesUpload -organizationId 1 -FilePath 'C:\articles.zip'
 ```
 
 
@@ -57,7 +57,7 @@ PS> $fileContent = [System.Net.Http.StreamContent]::new($fileStream)
 PS> $fileContent.Headers.ContentType = [System.Net.Http.Headers.MediaTypeHeaderValue]::Parse("application/octet-stream")
 PS> $multipart.Add($fileContent, "files", [System.IO.Path]::GetFileName($filePath))
 PS> $body = $multipart
-PS> New-NinjaOneKnowledgeBaseArticlesUpload -OrganizationId $body
+PS> New-NinjaOneKnowledgeBaseArticlesUpload -organizationId $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
 
@@ -85,7 +85,7 @@ PS> $json = $organizationId | ConvertTo-Json -Depth 10
 PS> $stringContent = [System.Net.Http.StringContent]::new($json, [System.Text.Encoding]::UTF8, "application/json")
 PS> $multipart.Add($stringContent, "organizationId")
 PS> $body = $multipart
-PS> New-NinjaOneKnowledgeBaseArticlesUpload -OrganizationId $body
+PS> New-NinjaOneKnowledgeBaseArticlesUpload -organizationId $body
 # FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
 ```
 
@@ -94,7 +94,7 @@ Full request example (auto-generated).
 
 ## PARAMETERS
 
-### -OrganizationId
+### -organizationId
 
 Organization ID
 
@@ -110,7 +110,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -FolderId
+### -folderId
 
 Folder ID
 
@@ -126,7 +126,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -FolderPath
+### -folderPath
 
 Folder Path
 
@@ -142,7 +142,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -FilePath
+### -filePath
 
 File path(s) to upload
 
