@@ -6,8 +6,6 @@
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
-    "cf:deploy": "npx wrangler deploy",
-    "cf:dev": "npx wrangler dev",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -46,8 +44,7 @@
     "eslint": "^10.2.0",
     "eslint-plugin-mdx": "3.7.0",
     "eslint-plugin-react": "7.37.5",
-    "remark-code-snippets": "^1.1.0",
-    "wrangler": "^4.84.0"
+    "remark-code-snippets": "^1.1.0"
   },
   "resolutions": {
     "@easyops-cn/docusaurus-search-local/@docusaurus/plugin-content-docs": "3.9.2"

@@ -2,39 +2,61 @@
 
 name: Publish
 
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push event, but only for main branch
   push:
     branches:
       - main
+  # Triggers the workflow on pull request event, but only for pull request from not forked repo
   pull_request:
     types:
       - opened
       - synchronize
+  # Triggers the workflow on pull request event, but only for pull request opened or pull request labeled with "🚀request-deploy" (from forked repo)
+  # pull_request is not allowed to use secrets, so we use pull_request_target instead (in forked repos)
   pull_request_target:
     types:
+      # When a created pull request from forked repo, it will be comment 'Should deploy to add label'
       - opened
+      # When a labeled '🚀request-deploy' pull request from forked repo, it will be deploy to Cloudflare Pages
+      - labeled
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 permissions:
-  contents: read
+  # default contents: read & write (in forked repos, only read)
+  contents: write
+  # default deployments: read & write (in forked repos, only read)
   deployments: write
+  # default pull-requests: read & write (in forked repos, only read)
   pull-requests: write
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  # Deploy
   deploy:
     name: Deploy
     runs-on: ${{ matrix.os }}
-    permissions:
-      contents: write
-      deployments: write
-      pull-requests: write
-    if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false) }}
+    # push event in main branch
+    # workflow_dispatch event
+    # pull_request event from not forked repo
+    # pull_request_target event with label "🚀request-deploy" from forked repo
+    if: ${{
+      github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false) ||
+      (github.event_name == 'pull_request_target' &&
+      github.event.action == 'labeled' &&
+      github.event.pull_request.head.repo.fork == true &&
+      contains(github.event.label.name, '🚀request-deploy'))
+      }}
 
     strategy:
       matrix:
         os: [ubuntu-latest]
         node: [22]
-
+    # Cancel previous runs that are not completed yet
     concurrency:
       group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref }}
       cancel-in-progress: true
@@ -57,7 +79,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
-          cache: yarn
+          cache: 'yarn'
 
       - name: Install dependencies
         run: yarn install --check-cache
@@ -65,14 +87,13 @@ jobs:
       - name: Build website
         run: yarn build
 
-      - name: Deploy Worker assets
-        id: cloudflare-worker-deploy
+      - name: Publish to Cloudflare Pages
+        id: cloudflare-pages-deploy
         uses: cloudflare/wrangler-action@v3
         with:
-          wranglerVersion: 4.84.0
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: deploy
+          command: 'pages deploy build --project-name=homotechsualdocs'
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create commit comment
@@ -80,39 +101,57 @@ jobs:
         uses: peter-evans/commit-comment@v4
         with:
           body: |
-            ### Successfully deployed to Cloudflare Workers
-            | Item | Value |
-            | --- | --- |
-            | Latest commit | ${{ github.event.pull_request.head.sha || github.sha }} |
-            | Latest deploy log | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
-            | Worker URL | ${{ steps.cloudflare-worker-deploy.outputs.deployment-url }} |
+            ### ⚡ Successfully deployed to Cloudflare Pages!
+            | <span aria-hidden="true">🔨</span> **Latest commit** | ${{ github.event.pull_request.head.sha || github.sha }} |
+            | <span aria-hidden="true">🔍</span> **Latest deploy log** | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
+            | <span aria-hidden="true">😎</span> **Deploy preview URL** | [${{ steps.cloudflare-pages-deploy.outputs.deployment-url }}](${{ steps.cloudflare-pages-deploy.outputs.deployment-url }}) |
+            | <span aria-hidden="true">🌳</span> **Environment** | ${{ steps.cloudflare-pages-deploy.outputs.pages-environment }} |
 
       - name: Create PR comment
-        if: ${{ github.event_name == 'pull_request' }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'pull_request_target' }}
         uses: mshick/add-pr-comment@v2
         with:
           message: |
-            ### Successfully deployed to Cloudflare Workers
-            | Item | Value |
-            | --- | --- |
-            | Latest commit | ${{ github.event.pull_request.head.sha || github.sha }} |
-            | Latest deploy log | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
-            | Worker URL | ${{ steps.cloudflare-worker-deploy.outputs.deployment-url }} |
+            ### ⚡ Successfully deployed to Cloudflare Pages!
+            | <span aria-hidden="true">🔨</span> **Latest commit** | ${{ github.event.pull_request.head.sha || github.sha }} |
+            | <span aria-hidden="true">🔍</span> **Latest deploy log** | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
+            | <span aria-hidden="true">😎</span> **Deploy preview URL** | [${{ steps.cloudflare-pages-deploy.outputs.deployment-url }}](${{ steps.cloudflare-pages-deploy.outputs.deployment-url }}) |
+            | <span aria-hidden="true">🌳</span> **Environment** | ${{ steps.cloudflare-pages-deploy.outputs.pages-environment }} |
 
+      - name: Remove label
+        if: ${{ github.event_name == 'pull_request_target' && contains(github.event.label.name, '🚀request-deploy') }}
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.removeLabel({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: ['🚀request-deploy']
+            })
+
+  # Comment on PR from the fork
   comment:
     name: Comment
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request_target' && github.event.action == 'opened' && github.event.pull_request.head.repo.fork == true }}
+
+    # pull_request_target opened event from forked repo
+    if: ${{
+      github.event_name == 'pull_request_target' &&
+      github.event.action == 'opened' &&
+      github.event.pull_request.head.repo.fork == true
+      }}
 
     steps:
       - name: Create PR comment
         run: |
-          cat <<'EOF' > comment.md
-          # Deployments do not run for forked pull requests
+          cat << EOF > comment.md
+          # ⚠️ Deployments require the '🚀request-deploy' label
 
-          This pull request originates from a fork. For security reasons, this workflow does not build or deploy forked pull requests because deployment requires repository secrets.
-
-          If you need a preview deployment, open a branch in the main repository or have a maintainer cherry-pick the changes into a trusted branch.
+          This repository is a forked repository. For security reasons, deployments from forked repositories are not automatic.
+          
+          To request a deployment, add the '🚀request-deploy' label to this pull request. (Only some members can add labels).
           EOF
 
           gh pr comment ${{ github.event.number }} -R ${{ github.repository }} -F comment.md

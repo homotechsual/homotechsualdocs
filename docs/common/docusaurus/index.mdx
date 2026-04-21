@@ -6,7 +6,7 @@ tags:
   - about
 ---
 
-This site is built using [Docusaurus](https://docusaurus.io/) and deployed through a Cloudflare Worker that serves the generated static assets.
+This site is built using [Docusaurus](https://docusaurus.io/), built using CloudFlare Workers and deployed to CloudFlare Pages.
 
 The deployed version of the site includes a mixture of generated documentation and manually written documentation. Generated documentation is updated directly from the relevant source code repositories, while manually written documentation is updated by editing the Markdown files in the `docs` directory of this repository. Generated source files are indicated with an admonition at the top of the page.
 
@@ -14,7 +14,7 @@ The deployed version of the site includes a mixture of generated documentation a
 
 The generated documentation is built using a Microsoft Azure DevOps pipeline. The pipeline is triggered by any changes to the source code and triggers a custom build script which utilises a mixture of custom PowerShell and the `Alt.Docusaurus.PowerShell` PowerShell module to build the documentation into a format that can be consumed by Docusaurus.
 
-The pipeline then commits the generated documentation to the `docs` directory of this repository, which is then built and deployed through GitHub Actions to Cloudflare Workers.
+The pipeline then commits the generated documentation to the `docs` directory of this repository, which is then deployed to CloudFlare Pages.
 
 ## Docusaurus-compatible Markdown generation script
 
