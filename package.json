@@ -23,7 +23,7 @@
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
     "@fortawesome/free-brands-svg-icons": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
-    "@fortawesome/react-fontawesome": "^3.3.0",
+    "@fortawesome/react-fontawesome": "^3.3.1",
     "@iconify/react": "^6.0.2",
     "@mdx-js/react": "^3.1.1",
     "@octokit/core": "^7.0.6",
@@ -33,15 +33,15 @@
     "docusaurus-plugin-sass": "^0.2.6",
     "faster": "^3.5.1",
     "prism-react-renderer": "^2.4.1",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
     "remark-grid-tables": "^2.2.2",
     "sass": "^1.99.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.10.0",
     "@docusaurus/tsconfig": "^3.10.0",
-    "eslint": "^10.2.0",
+    "eslint": "^10.2.1",
     "eslint-plugin-mdx": "3.7.0",
     "eslint-plugin-react": "7.37.5",
     "remark-code-snippets": "^1.1.0"
