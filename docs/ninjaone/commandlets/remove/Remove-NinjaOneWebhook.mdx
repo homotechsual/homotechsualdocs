@@ -16,12 +16,14 @@ Removes webhook configuration for the current application/API client.
 ## SYNTAX
 
 ```powershell
-Remove-NinjaOneWebhook [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-NinjaOneWebhook [[-webhookId] <String>] [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
 Removes webhook configuration for the current application/API client using the NinjaOne v2 API.
+Some instances may expose an id-based delete route; provide -webhookId to target that route.
 
 ## EXAMPLES
 
@@ -34,7 +36,32 @@ Remove-NinjaOneWebhook
 
 Removes the webhook configuration.
 
+### EXAMPLE 2
+
+```powershell
+Remove-NinjaOneWebhook -webhookId '123'
+```
+
+
+Removes a specific webhook using the id-based route.
+
 ## PARAMETERS
+
+### -webhookId
+
+Optional webhook id for instances that require an id-based delete route.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: id
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
 
 ### -WhatIf
 
