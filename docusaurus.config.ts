@@ -3,6 +3,7 @@
 // Rebuild trigger: 2026-02-22
 
 import { themes as prismThemes } from 'prism-react-renderer';
+import type { PluginOptions as LLMPluginOptions } from '@signalwire/docusaurus-plugin-llms-txt';
 
 const lightCodeTheme = prismThemes.oneLight;
 const darkCodeTheme = prismThemes.oneDark;
@@ -347,7 +348,22 @@ const config = {
           ...commonDocsPluginConfig
         },
       ],
+      [
+        '@signalwire/docusaurus-plugin-llms-txt',
+        {
+        llmsTxt: {
+          enableLlmsFullTxt: true,
+          includeBlog: false,
+          includePages: true,
+          includeDocs: true,
+          siteTitle: 'Homotechsual Documentation',
+          siteDescription: 'Documentation for various homotechsual projects, including the HaloAPI and NinjaOne PowerShell modules as well as useful API documentation for some MSP focussed tools...',
+          autoSectionDepth: 2,
+        }
+      } satisfies LLMPluginOptions
+
     ],
+  ],
   themes: [
     [
       require.resolve('@docusaurus/theme-mermaid'),
