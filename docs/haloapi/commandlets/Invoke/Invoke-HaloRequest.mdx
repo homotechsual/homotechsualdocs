@@ -15,16 +15,68 @@ Sends a request to the Halo API.
 
 ## SYNTAX
 
+### WebRequestParams
+
 ```powershell
-Invoke-HaloRequest [[-WebRequestParams] <Hashtable>] [-RawResult] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+Invoke-HaloRequest -WebRequestParams <Hashtable> [-ExpandProperty <String>] [-RawResult]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
+```
+
+### RequestParameters
+
+```powershell
+Invoke-HaloRequest -Method <String> [-Uri <String>] [-Fragment <String>] [-Headers <Hashtable>]
+ [-Body <Object>] [-ContentType <String>] [-ExpandProperty <String>] [-RawResult]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
 Wrapper function to send web requests to the Halo API.
 
+Supports the legacy hashtable request format used internally by the module,
+as well as a direct parameter set for clearer public use.
+
+When using -Fragment, slashless values are treated as Halo API fragments and
+are automatically prefixed with /api/.
+
 ## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+Invoke-HaloRequest -WebRequestParams @{ Method = 'GET'; Uri = 'https://example.halo/api/customtable' }
+```
+
+
+Uses the legacy request hashtable.
+
+### EXAMPLE 2
+
+```powershell
+Invoke-HaloRequest -Method 'POST' -Uri 'https://example.halo/api/customtable' -Body $Payload
+```
+
+
+Uses the direct parameter set for a POST request with an explicit absolute URI.
+
+### EXAMPLE 3
+
+```powershell
+Invoke-HaloRequest -Method 'GET' -Fragment 'tickets'
+```
+
+
+Resolves a slashless fragment to /api/tickets before sending the request.
+
+### EXAMPLE 4
+
+```powershell
+Invoke-HaloRequest -Method 'GET' -Fragment 'tickets' -ExpandProperty 'tickets'
+```
+
+
+Returns only the tickets property from the JSON response.
 
 ## PARAMETERS
 
@@ -34,11 +86,125 @@ Hashtable containing the web request parameters.
 
 ```yaml
 Type: Hashtable
+Parameter Sets: WebRequestParams
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Method
+
+HTTP method for the request.
+
+```yaml
+Type: String
+Parameter Sets: RequestParameters
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Uri
+
+Absolute URI for the request.
+
+```yaml
+Type: String
+Parameter Sets: RequestParameters
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Fragment
+
+Fragment path to resolve against the Halo base URL.
+Slashless fragments are
+automatically prefixed with /api/.
+
+```yaml
+Type: String
+Parameter Sets: RequestParameters
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Headers
+
+Request headers to merge with the Halo auth headers.
+
+```yaml
+Type: Hashtable
+Parameter Sets: RequestParameters
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Body
+
+Request body.
+
+```yaml
+Type: Object
+Parameter Sets: RequestParameters
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ContentType
+
+Content type for the request.
+
+```yaml
+Type: String
+Parameter Sets: RequestParameters
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ExpandProperty
+
+Returns the value of a property from the JSON response, such as tickets.
+
+```yaml
+Type: String
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 1
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -46,7 +212,7 @@ Accept wildcard characters: False
 
 ### -RawResult
 
-Returns the Raw result.
+Returns the raw web response.
 Useful for file downloads.
 
 ```yaml

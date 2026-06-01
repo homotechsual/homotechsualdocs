@@ -21,18 +21,19 @@ Gets tickets from the Halo API.
 Get-HaloTicket [-Paginate] [-PageSize <Int32>] [-PageNo <Int32>] [-Order <String>] [-OrderDesc] [-TicketIDOnly]
  [-ViewID <Int32>] [-ColumnsID <Int32>] [-IncludeColumns] [-IncludeSLAActionDate] [-IncludeSLATimer]
  [-IncludeTimeTaken] [-IncludeSupplier] [-IncludeRelease1] [-IncludeRelease2] [-IncludeRelease3]
- [-IncludeChildIDs] [-IncludeNextActivityDate] [-TicketAreaID <Int32>] [-ListID <Int32>] [-AgentID <Int32>]
- [-StatusID <Int32>] [-RequestTypeID <Int32>] [-SupplierID <Int32>] [-ClientID <Int32>] [-Site <Int32>]
- [-UserName <String>] [-UserID <Int32>] [-ReleaseID <Int32>] [-AssetID <Int32>] [-ITILRequestTypeID <Int32>]
- [-OpenOnly] [-ClosedOnly] [-UnlinkedOnly] [-ContractID <Int32>] [-WithAttachments] [-Team <Int32[]>]
- [-Agent <Int32[]>] [-Status <Int32[]>] [-RequestType <Int32[]>] [-ITILRequestType <Int32[]>]
- [-Category1 <Int32[]>] [-Category2 <Int32[]>] [-Category3 <Int32[]>] [-Category4 <Int32[]>] [-SLA <Int32[]>]
- [-Priority <Int32[]>] [-Products <Int32[]>] [-Flagged <Int32[]>] [-ExcludeThese <Int32[]>] [-Search <String>]
- [-SearchActions] [-DateSearch <String>] [-StartDate <String>] [-EndDate <String>] [-SearchUserName <String>]
- [-SearchSummary <String>] [-SearchDetails <String>] [-SearchReportedBy <String>] [-SearchVersion <String>]
- [-SearchRelease1 <String>] [-SearchRelease2 <String>] [-SearchRelease3 <String>] [-SearchReleaseNote <String>]
- [-SearchInventoryNumber <String>] [-SearchOppContactName <String>] [-SearchOppCompanyName <String>]
- [-FullObjects] [-Deleted] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [-IncludeChildIDs] [-IncludeNextActivityDate] [-ExcludeSLA] [-TicketAreaID <Int32>] [-ListID <Int32>]
+ [-AgentID <Int32>] [-StatusID <Int32>] [-RequestTypeID <Int32>] [-SupplierID <Int32>] [-ClientID <Int32>]
+ [-Site <Int32>] [-UserName <String>] [-UserID <Int32>] [-ReleaseID <Int32>] [-AssetID <Int32>]
+ [-ITILRequestTypeID <Int32>] [-OpenOnly] [-ClosedOnly] [-UnlinkedOnly] [-ContractID <Int32>]
+ [-WithAttachments] [-Team <Int32[]>] [-Agent <Int32[]>] [-Status <Int32[]>] [-RequestType <Int32[]>]
+ [-ITILRequestType <Int32[]>] [-Category1 <Int32[]>] [-Category2 <Int32[]>] [-Category3 <Int32[]>]
+ [-Category4 <Int32[]>] [-SLA <Int32[]>] [-Priority <Int32[]>] [-Products <Int32[]>] [-Flagged <Int32[]>]
+ [-ExcludeThese <Int32[]>] [-Search <String>] [-SearchActions] [-DateSearch <String>] [-StartDate <String>]
+ [-EndDate <String>] [-SearchUserName <String>] [-SearchSummary <String>] [-SearchDetails <String>]
+ [-SearchReportedBy <String>] [-SearchVersion <String>] [-SearchRelease1 <String>] [-SearchRelease2 <String>]
+ [-SearchRelease3 <String>] [-SearchReleaseNote <String>] [-SearchInventoryNumber <String>]
+ [-SearchOppContactName <String>] [-SearchOppCompanyName <String>] [-FullObjects] [-Deleted]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Single
@@ -341,6 +342,22 @@ Accept wildcard characters: False
 ### -IncludeNextActivityDate
 
 Include next activity date in the results.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Multi
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ExcludeSLA
+
+Exclude SLA calculations in the results.
 
 ```yaml
 Type: SwitchParameter
