@@ -47,3 +47,11 @@
   height: 100%;
   --ifm-button-padding-horizontal: 1rem;
 }
+
+.featureCategory {
+  margin-bottom: 2rem;
+}
+
+.categoryTitle {
+  margin-bottom: 1.5rem;
+}

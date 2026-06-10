@@ -113,7 +113,19 @@ const config = {
                 label: 'MSGraphMail',
                 docsPluginId: 'msgraphmail',
               }
-            ],  
+            ],
+          },
+          {
+            label: 'Tools',
+            position: 'left',
+            items: [
+              {
+                type: 'doc',
+                docId: 'index',
+                label: 'Screengrabber',
+                docsPluginId: 'screengrabber',
+              },
+            ],
           },
           {
             label: 'Other Docs',
@@ -171,6 +183,11 @@ const config = {
               {
                 to: 'https://github.com/homotechsual/NinjaOne',
                 label: 'NinjaOne',
+                target: '_blank',
+              },
+              {
+                to: 'https://github.com/homotechsual/screengrabber',
+                label: 'Screengrabber',
                 target: '_blank',
               },
               {
@@ -336,6 +353,16 @@ const config = {
           routeBasePath: 'modules/msgraphmail',
           sidebarPath: require.resolve('./msgraphmailsidebar.js'),
           
+        },
+      ],
+      [
+        '@docusaurus/plugin-content-docs',
+        {
+          id: 'screengrabber',
+          path: 'docs/screengrabber',
+          routeBasePath: 'tools/screengrabber',
+          sidebarPath: require.resolve('./screengrabbersidebar.js'),
+          ...commonDocsPluginConfig
         },
       ],
       [

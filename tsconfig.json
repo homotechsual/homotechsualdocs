@@ -3,6 +3,7 @@
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "types": ["@docusaurus/module-type-aliases"],
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "ignoreDeprecations": "6.0"
   },
 }
