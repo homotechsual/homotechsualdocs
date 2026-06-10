@@ -1,0 +1,63 @@
+---
+title: Overview
+hide_title: true
+sidebar_position: 0
+slug: /
+---
+
+[![Homotechsual Discord](https://img.shields.io/discord/1075421628424523816?style=for-the-badge&logo=discord&logoColor=white&label=Homotechsual%20Discord)](https://discord.gg/NrCjh5ht7K)
+[![GitHub](https://img.shields.io/badge/GitHub-homotechsual%2Fscreengrabber-blue?style=for-the-badge&logo=github)](https://github.com/homotechsual/screengrabber)
+[![License](https://img.shields.io/github/license/homotechsual/screengrabber?style=for-the-badge)](https://mit.license.homotechsual.dev/)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/homotechsual/screengrabber/deploy.yml?style=for-the-badge&label=Deploy)](https://github.com/homotechsual/screengrabber/actions/workflows/deploy.yml)
+
+## About
+
+Screengrabber is a self-hosted REST API service that uses [Microsoft Edge](https://www.microsoft.com/en-us/edge) via [Playwright](https://playwright.dev/) to capture screenshots of web pages. It supports configurable viewport sizes, aspect ratios, zoom levels, output formats, and Redis-backed caching.
+
+## Quick Start
+
+Make a `GET` request with the target URL as the first path segment. All other path segments are optional and control the screenshot appearance.
+
+```http
+GET /{url}/{size}/{aspectRatio}/{zoom}/_modifiers?format=jpeg HTTP/1.1
+X-Api-Key: your-api-key
+```
+
+For example, to capture a 1024×1024 screenshot of `https://example.com`:
+
+```
+https://screengrabber.example.com/https%3A%2F%2Fexample.com/large
+```
+
+## Authentication
+
+If `API_KEYS` is configured, every request must include an `X-Api-Key` header. The service returns `401 Unauthorized` for missing or invalid keys.
+
+```http
+X-Api-Key: your-api-key
+```
+
+If `API_KEYS` is empty (the default), no authentication is required.
+
+## Self-Hosting
+
+Screengrabber ships as a Docker image. The simplest way to run it is with `docker compose`.
+
+```yaml
+services:
+  screengrabber:
+    image: ghcr.io/homotechsual/screengrabber:latest
+    ports:
+      - "8080:8080"
+    environment:
+      REDIS_CONNECTION: redis:6379
+      API_KEYS: changeme
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+```
+
+See the [Configuration](./configuration) reference for a full list of environment variables.

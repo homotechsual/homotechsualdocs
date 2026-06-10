@@ -1,0 +1,92 @@
+---
+title: Endpoint Reference
+sidebar_position: 1
+---
+
+## GET /{url}/...
+
+Captures a screenshot of the given URL and returns the image bytes. All path segments after the URL are optional and may appear in any order.
+
+```
+GET /{url}/{size}/{aspectRatio}/{zoom}/_modifiers
+```
+
+| Segment | Type | Description |
+|---|---|---|
+| `url` | required | The target URL, **URL-encoded**. Must begin with `http` or `https`. |
+| `size` | optional | Viewport width preset. One of `small`, `medium`, `large`, `opengraph`. Default: `small`. |
+| `aspectRatio` | optional | Viewport height ratio. One of `1:1`, `9:16`. Default: `1:1`. |
+| `zoom` | optional | Device scale factor. One of `bigger` (1.4×), `smaller` (0.71×). Default: `1.0×`. |
+| `_modifiers` | optional | A path segment starting with `_` containing one or more modifier tokens separated by `_`. |
+
+### Query Parameters
+
+| Parameter | Values | Default | Description |
+|---|---|---|---|
+| `format` | `jpeg` | — | Output format. Omit for PNG. |
+
+### Modifier Tokens
+
+Modifier tokens are combined into a single path segment prefixed with `_`. Multiple tokens are separated by `_`:
+
+```
+/_wait:2_timeout:8_width:800
+```
+
+| Token | Values | Default | Description |
+|---|---|---|---|
+| `wait:N` | `0`, `1`, `2` | `1` | Playwright wait strategy: `0` = `DOMContentLoaded`, `1` = `Load`, `2` = `NetworkIdle`. |
+| `timeout:N` | `3`–`9` | `6` | Navigation timeout in seconds. Values outside the range are clamped. |
+| `width:N` | any positive integer | — | Resize the output image to this width in pixels, preserving aspect ratio. |
+
+### Viewport Sizes
+
+The viewport dimensions used for the browser context are determined by the `size` and `aspectRatio` combination:
+
+| Size | `1:1` | `9:16` |
+|---|---|---|
+| `small` | 375 × 375 | 375 × 667 |
+| `medium` | 650 × 650 | 650 × 1156 |
+| `large` | 1024 × 1024 | 1024 × 1024 |
+| `opengraph` | 1200 × 630 | 1200 × 630 |
+
+### Responses
+
+| Status | Description |
+|---|---|
+| `200 OK` | Screenshot image bytes (`image/png` or `image/jpeg`). |
+| `400 Bad Request` | Missing or invalid URL. |
+| `401 Unauthorized` | Missing or invalid `X-Api-Key` header. |
+| `504 Gateway Timeout` | Playwright navigation timed out. |
+
+### Examples
+
+Capture `https://example.com` as a default small PNG (375 × 375):
+
+```
+GET /https%3A%2F%2Fexample.com
+```
+
+Large square PNG (1024 × 1024):
+
+```
+GET /https%3A%2F%2Fexample.com/large
+```
+
+Open Graph JPEG (1200 × 630):
+
+```
+GET /https%3A%2F%2Fexample.com/opengraph?format=jpeg
+```
+
+Medium portrait PNG (650 × 1156) with `NetworkIdle` wait and an 8-second timeout:
+
+```
+GET /https%3A%2F%2Fexample.com/medium/9:16/_wait:2_timeout:8
+```
+
+Small PNG resized to 400 px wide:
+
+```
+GET /https%3A%2F%2Fexample.com/small/_width:400
+```

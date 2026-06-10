@@ -1,0 +1,55 @@
+---
+title: Configuration
+sidebar_position: 2
+---
+
+Screengrabber is configured entirely through environment variables. In Docker Compose these go in the `environment` block; in a `.env` file they are picked up automatically.
+
+## Environment Variables
+
+| Variable | Default | Description |
+|---|---|---|
+| `REDIS_CONNECTION` | `localhost:6379` | StackExchange.Redis connection string for the screenshot cache. |
+| `API_KEYS` | *(empty)* | Comma-separated list of valid API keys. When empty, authentication is disabled. |
+| `SCREENSHOT_CACHE_TTL_HOURS` | `24` | How long cached screenshots are retained in Redis, in hours. |
+| `SCREENSHOT_CONCURRENCY` | `4` | Maximum number of simultaneous Playwright page captures. |
+
+## Redis
+
+Screengrabber uses Redis as a read-through cache. If the Redis connection fails at request time, the failure is surfaced as a warning and the screenshot is captured fresh — the service degrades gracefully rather than returning an error.
+
+If you don't need caching, you can still run the service without Redis by pointing `REDIS_CONNECTION` at a Redis instance that may or may not be available.
+
+## API Keys
+
+`API_KEYS` accepts a comma-separated list. Whitespace around each key is trimmed. To rotate keys, update the list and restart the container — the keys are read once at startup.
+
+```bash
+API_KEYS=key-one,key-two,key-three
+```
+
+If you leave `API_KEYS` empty the service accepts all requests without authentication, which is suitable for air-gapped or trusted-network deployments.
+
+## Concurrency
+
+`SCREENSHOT_CONCURRENCY` controls how many browser page contexts can run in parallel. Each concurrent capture uses a separate Playwright page inside a single long-lived Edge browser instance. Increase this for higher throughput at the cost of more memory; the right value depends on your host's available RAM.
+
+## Example docker-compose.yml
+
+```yaml
+services:
+  screengrabber:
+    image: ghcr.io/homotechsual/screengrabber:latest
+    restart: unless-stopped
+    environment:
+      REDIS_CONNECTION: redis:6379
+      API_KEYS: ${API_KEYS}
+      SCREENSHOT_CACHE_TTL_HOURS: 24
+      SCREENSHOT_CONCURRENCY: 4
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+```
