@@ -25,6 +25,11 @@ The repository includes a `Caddyfile` that Caddy reads at startup. It uses an en
 
 ```caddyfile
 {$SCREENGRABBER_DOMAIN} {
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+    }
     reverse_proxy screengrabber-api:8080
 }
 ```
@@ -103,6 +108,11 @@ networks:
 
 ```caddyfile
 screenshots.example.com {
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+    }
     reverse_proxy screengrabber-api:8080
 }
 ```
@@ -162,6 +172,11 @@ The `proxy` external network is not needed. Remove the `networks` blocks from `d
 
 ```caddyfile
 screenshots.example.com {
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+    }
     reverse_proxy localhost:8080
 }
 ```
