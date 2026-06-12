@@ -41,23 +41,4 @@ If `API_KEYS` is empty (the default), no authentication is required.
 
 ## Self-Hosting
 
-Screengrabber ships as a Docker image. The simplest way to run it is with `docker compose`.
-
-```yaml
-services:
-  screengrabber:
-    image: ghcr.io/homotechsual/screengrabber:latest
-    ports:
-      - "8080:8080"
-    environment:
-      REDIS_CONNECTION: redis:6379
-      API_KEYS: changeme
-    depends_on:
-      - redis
-
-  redis:
-    image: redis:7-alpine
-    restart: unless-stopped
-```
-
-See the [Configuration](./configuration) reference for a full list of environment variables.
+Screengrabber ships as a Docker image and supports three deployment modes — standalone with a bundled Caddy reverse proxy, proxied behind an existing Dockerised reverse proxy, or proxied behind a host-level proxy such as Nginx or Apache. See [Deployment](./deployment) for full setup instructions.
