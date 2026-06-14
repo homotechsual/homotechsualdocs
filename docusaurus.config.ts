@@ -251,6 +251,19 @@ const config = {
             ],
           },
           {
+            title: 'Legal',
+            items: [
+              {
+                to: './bots/terms',
+                label: 'Discord Bot Terms of Service',
+              },
+              {
+                to: './bots/privacypolicy',
+                label: 'Discord Bot Privacy Policy',
+              }
+            ],
+          },
+          {
             title: 'Other Useful Blogs',
             items: [
               {
