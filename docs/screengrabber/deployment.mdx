@@ -187,7 +187,7 @@ screenshots.example.com {
 server {
     listen 443 ssl;
     server_name screenshots.example.com;
-    # ssl_certificate and ssl_certificate_key omitted — configure per your setup
+    # ssl_certificate and ssl_certificate_key omitted  configure as required for your setup
 
     location / {
         proxy_pass http://localhost:8080;
@@ -207,6 +207,12 @@ API_KEYS=your-key-here
 SCREENSHOT_CACHE_TTL_HOURS=24
 SCREENSHOT_CONCURRENCY=4
 ```
+
+:::tip[Creating your `.env` file from GitHub Actions secrets]
+
+In this repository, in the [`.github/workflows/deploy.yml` file](../.github/workflows/deploy.yml), you can find the secrets used for deployment and the workflow steps that create this when this project is deployed via SSH using GitHub Actions.
+
+:::
 
 Then start the stack:
 
