@@ -1,0 +1,223 @@
+---
+title: Deployment
+sidebar_position: 3
+---
+
+Screengrabber supports three deployment modes. Choose the one that matches your infrastructure.
+
+| | Standalone | Proxied (Docker) | Proxied (host) |
+|---|---|---|---|
+| Caddy included? | Yes | No | No |
+| Compose file | `docker-compose.standalone.yml` | `docker-compose.yml` | `docker-compose.yml` + port override |
+| When to use | Fresh install, no existing proxy | Existing Dockerised reverse proxy | Existing host-level proxy (Nginx, Apache, etc.) |
+
+## Standalone
+
+Use this when you are running Screengrabber on a host with no existing reverse proxy. Caddy is bundled in the stack and handles TLS automatically.
+
+**Prerequisites:**
+- A DNS A record for your domain pointing at the host
+- Ports 80 and 443 open on the host
+
+### Caddyfile
+
+The repository includes a `Caddyfile` that Caddy reads at startup. It uses an environment variable for the domain so no manual editing is needed:
+
+```caddyfile
+{$SCREENGRABBER_DOMAIN} {
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+    }
+    reverse_proxy screengrabber-api:8080
+}
+```
+
+Caddy obtains and renews HTTPS certificates automatically via ACME. No manual TLS configuration is required.
+
+### Starting the stack
+
+Create a `.env` file alongside `docker-compose.standalone.yml`:
+
+```bash
+SCREENGRABBER_DOMAIN=screenshots.example.com
+SCREENGRABBER_IMAGE=ghcr.io/homotechsual/screengrabber:latest
+API_KEYS=your-key-here
+SCREENSHOT_CACHE_TTL_HOURS=24
+SCREENSHOT_CONCURRENCY=4
+```
+
+Then start the stack:
+
+```bash
+docker compose -f docker-compose.standalone.yml up -d
+```
+
+:::note
+`screengrabber-caddy-data` and `screengrabber-caddy-config` are named volumes used by Caddy. Do not delete `screengrabber-caddy-data` — it persists the TLS certificate and Caddy will need to re-request one if it is removed. `screengrabber-caddy-config` is a config cache and can be safely deleted if needed.
+:::
+
+## Proxied (Docker)
+
+Use this when an existing reverse proxy container (Caddy, Traefik, Nginx Proxy Manager, etc.) is already running in Docker and handling TLS for your host.
+
+**Concept:** Screengrabber joins a shared external Docker network so the upstream proxy container can reach `screengrabber-api` by name.
+
+### Create the shared network
+
+Run this once on the host:
+
+```bash
+docker network create proxy
+```
+
+The network name `proxy` is the default used in `docker-compose.yml`. If your existing setup uses a different name, update both the service-level `networks` list and the top-level `networks` block in `docker-compose.yml` to match:
+
+```yaml
+services:
+  api:
+    networks:
+      - default
+      - your-network-name    # changed from proxy
+
+networks:
+  your-network-name:
+    external: true
+```
+
+### Wire up your upstream proxy
+
+Add the shared network to your existing proxy's compose service and update your proxy configuration.
+
+**Compose entry for your proxy container:**
+
+```yaml
+services:
+  caddy:                          # or traefik, nginx, etc.
+    networks:
+      - default
+      - proxy                     # the shared network
+
+networks:
+  proxy:
+    external: true
+```
+
+**Caddy virtual host example:**
+
+```caddyfile
+screenshots.example.com {
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+    }
+    reverse_proxy screengrabber-api:8080
+}
+```
+
+For other proxies, add `screengrabber-api:8080` as an upstream using your proxy's equivalent directive.
+
+### Start Screengrabber
+
+Create a `.env` file alongside `docker-compose.yml`:
+
+```bash
+SCREENGRABBER_IMAGE=ghcr.io/homotechsual/screengrabber:latest
+API_KEYS=your-key-here
+SCREENSHOT_CACHE_TTL_HOURS=24
+SCREENSHOT_CONCURRENCY=4
+```
+
+Then start the stack:
+
+```bash
+docker compose up -d
+```
+
+## Proxied (host)
+
+Use this when Nginx, Apache, Caddy, or similar is running directly on the host — not in Docker.
+
+### Expose the API port
+
+Edit `docker-compose.yml` in your Screengrabber directory to add a port binding and remove the `proxy` network:
+
+The default `docker-compose.yml` does not publish any ports. Add a port binding to the `api` service so the host-level proxy can reach it. Binding to `127.0.0.1` keeps the port off the public network:
+
+```yaml
+services:
+  api:
+    ports:
+      - "127.0.0.1:8080:8080"
+```
+
+The `proxy` external network is not needed. Remove the `networks` blocks from `docker-compose.yml`:
+
+```yaml
+# Remove these blocks entirely:
+# networks:
+#   - default
+#   - proxy
+#
+# networks:
+#   proxy:
+#     external: true
+```
+
+### Configure your proxy
+
+**Caddy:**
+
+```caddyfile
+screenshots.example.com {
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+    }
+    reverse_proxy localhost:8080
+}
+```
+
+**Nginx:**
+
+```nginx
+server {
+    listen 443 ssl;
+    server_name screenshots.example.com;
+    # ssl_certificate and ssl_certificate_key omitted  configure as required for your setup
+
+    location / {
+        proxy_pass http://localhost:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+
+### Start Screengrabber
+
+Create a `.env` file alongside `docker-compose.yml`:
+
+```bash
+SCREENGRABBER_IMAGE=ghcr.io/homotechsual/screengrabber:latest
+API_KEYS=your-key-here
+SCREENSHOT_CACHE_TTL_HOURS=24
+SCREENSHOT_CONCURRENCY=4
+```
+
+:::tip[Creating your `.env` file from GitHub Actions secrets]
+
+In this repository, in the [`.github/workflows/deploy.yml` file](https://github.com/homotechsual/screengrabber/blob/main/.github/workflows/deploy.yml), you can find the secrets used for deployment and the workflow steps that create this when this project is deployed via SSH using GitHub Actions.
+
+:::
+
+Then start the stack:
+
+```bash
+docker compose up -d
+```
+
+See the [Configuration](./configuration) reference for a full list of environment variables.

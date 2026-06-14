@@ -16,19 +16,19 @@ Screengrabber is configured entirely through environment variables. In Docker Co
 
 ## Redis
 
-Screengrabber uses Redis as a read-through cache. If the Redis connection fails at request time, the failure is surfaced as a warning and the screenshot is captured fresh — the service degrades gracefully rather than returning an error.
+Screengrabber uses Redis as a read-through cache. If the Redis connection fails at request time, the failure is surfaced as a warning and the screenshot is captured fresh, the service degrades gracefully rather than returning an error.
 
-If you don't need caching, you can still run the service without Redis by pointing `REDIS_CONNECTION` at a Redis instance that may or may not be available.
+This architecture choice means that if you don't need caching, you can still run the service without Redis by pointing `REDIS_CONNECTION` at a Redis instance that may or may not be available.
 
 ## API Keys
 
-`API_KEYS` accepts a comma-separated list. Whitespace around each key is trimmed. To rotate keys, update the list and restart the container — the keys are read once at startup.
+`API_KEYS` accepts a comma-separated list. Whitespace around each key is trimmed. To rotate keys, update the list and restart the container. The keys are read once at startup.
 
 ```bash
 API_KEYS=key-one,key-two,key-three
 ```
 
-If you leave `API_KEYS` empty the service accepts all requests without authentication, which is suitable for air-gapped or trusted-network deployments.
+If you leave `API_KEYS` empty the service accepts all requests without authentication, which is suitable for air-gapped, trusted-network deployments, if you're using a reverse proxy with authentication, if you have a firewall that restricts access, or if you don't care about who can use the service.
 
 ## Concurrency
 

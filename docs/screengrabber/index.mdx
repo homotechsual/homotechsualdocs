@@ -7,7 +7,7 @@ slug: /
 
 [![Homotechsual Discord](https://img.shields.io/discord/1075421628424523816?style=for-the-badge&logo=discord&logoColor=white&label=Homotechsual%20Discord)](https://discord.gg/NrCjh5ht7K)
 [![GitHub](https://img.shields.io/badge/GitHub-homotechsual%2Fscreengrabber-blue?style=for-the-badge&logo=github)](https://github.com/homotechsual/screengrabber)
-[![License](https://img.shields.io/github/license/homotechsual/screengrabber?style=for-the-badge)](https://mit.license.homotechsual.dev/)
+[![License](https://img.shields.io/github/license/homotechsual/screengrabber?style=for-the-badge)](https://apache.license.homotechsual.dev/)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/homotechsual/screengrabber/deploy.yml?style=for-the-badge&label=Deploy)](https://github.com/homotechsual/screengrabber/actions/workflows/deploy.yml)
 
 ## About
@@ -41,23 +41,8 @@ If `API_KEYS` is empty (the default), no authentication is required.
 
 ## Self-Hosting
 
-Screengrabber ships as a Docker image. The simplest way to run it is with `docker compose`.
+Screengrabber ships as a Docker image and supports three deployment modes.
 
-```yaml
-services:
-  screengrabber:
-    image: ghcr.io/homotechsual/screengrabber:latest
-    ports:
-      - "8080:8080"
-    environment:
-      REDIS_CONNECTION: redis:6379
-      API_KEYS: changeme
-    depends_on:
-      - redis
-
-  redis:
-    image: redis:7-alpine
-    restart: unless-stopped
-```
-
-See the [Configuration](./configuration) reference for a full list of environment variables.
+* standalone with a bundled Caddy reverse proxy,
+* proxied behind an existing Dockerised reverse proxy, or
+* proxied behind a host-level proxy such as Nginx or Apache. See [Deployment](./deployment) for full setup instructions.
