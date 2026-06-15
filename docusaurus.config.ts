@@ -3,7 +3,6 @@
 // Rebuild trigger: 2026-02-22
 
 import { themes as prismThemes } from 'prism-react-renderer';
-import type { PluginOptions as LLMPluginOptions } from '@signalwire/docusaurus-plugin-llms-txt';
 
 const lightCodeTheme = prismThemes.oneLight;
 const darkCodeTheme = prismThemes.oneDark;
@@ -234,7 +233,11 @@ const config = {
               {
                 to: 'https://discord.gg/CwM6xtNzVD',
                 label: 'Homotechsual Discord',
-              }
+              },
+              {
+                to: 'https://docusaurus.io/',
+                label: 'Docusaurus',
+              },
             ],
           },
           {
@@ -373,7 +376,7 @@ const config = {
           path: 'docs/msgraphmail',
           routeBasePath: 'modules/msgraphmail',
           sidebarPath: require.resolve('./msgraphmailsidebar.js'),
-          
+          ...commonDocsPluginConfig
         },
       ],
       [
@@ -408,8 +411,7 @@ const config = {
           siteDescription: 'Documentation for various homotechsual projects, including the HaloAPI and NinjaOne PowerShell modules as well as useful API documentation for some MSP focussed tools...',
           autoSectionDepth: 2,
         }
-      } satisfies LLMPluginOptions
-
+      },
     ],
   ],
   themes: [
