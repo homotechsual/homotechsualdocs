@@ -230,6 +230,10 @@ const config = {
               {
                 to: 'https://discord.halopsa.community/',
                 label: 'HaloPSA Community Discord',
+              },
+              {
+                to: 'https://discord.gg/CwM6xtNzVD',
+                label: 'Homotechsual Discord',
               }
             ],
           },
@@ -247,6 +251,10 @@ const config = {
               {
                 to: 'https://tech.lgbt/@homotechsual',
                 label: 'Mastodon',
+              },
+              {
+                to: 'https://discord.gg/CwM6xtNzVD',
+                label: 'Discord',
               }
             ],
           },
