@@ -1,6 +1,6 @@
 ---
-id: vulnerability-management
-title: Vulnerability Management
+id: tab-global-order
+title: Tab Global Order
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -11,64 +11,38 @@ This page has been generated from the NinjaOne PowerShell module source. To make
 
 ## SYNOPSIS
 
-Uploads data for a vulnerability scan group.
+Updates the order of custom tabs globally.
 
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneVulnerabilityScanGroupUpload [-scanGroupId] <Int32> [-upload] <Object>
- [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-NinjaOneTabGlobalOrder [-order] <Object> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Uploads data for a specified vulnerability scan group via the NinjaOne v2 API.
+Updates the order of globally available custom tabs via the NinjaOne v2 API.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneVulnerabilityScanGroupUpload -scanGroupId 5 -upload @{ ... }
+Set-NinjaOneTabGlobalOrder -order @(
+    @{ tabId = 1; order = 1 },
+    @{ tabId = 2; order = 2 }
+)
 ```
 
 
-Uploads content to scan group 5.
-
-### EXAMPLE 2
-
-```powershell
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
-PS> $multipart = [System.Net.Http.MultipartFormDataContent]::new()
-PS> $body = $multipart
-PS> Invoke-NinjaOneVulnerabilityScanGroupUpload -upload $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
-
-
-Full request example (auto-generated).
+Sets the global tabs order.
 
 ## PARAMETERS
 
-### -scanGroupId
+### -order
 
-The vulnerability scan group Id to upload data for.
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases: scan_group_id, scan-group-id
-
-Required: True
-Position: 1
-Default value: 0
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -upload
-
-The upload data object.
+Array payload specifying the tab ordering.
 
 ```yaml
 Type: Object
@@ -76,7 +50,7 @@ Parameter Sets: (All)
 Aliases: body
 
 Required: True
-Position: 2
+Position: 1
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
@@ -123,10 +97,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### A PowerShell object containing the response.
+### Updated order data per API.
 
 ## NOTES
 
 ## RELATED LINKS
 
-[https://docs.homotechsual.dev/modules/ninjaone/commandlets/Invoke/vulnerability-scangroup-upload](https://docs.homotechsual.dev/modules/ninjaone/commandlets/Invoke/vulnerability-scangroup-upload)
+[https://docs.homotechsual.dev/modules/ninjaone/commandlets/Set/tab-global-order](https://docs.homotechsual.dev/modules/ninjaone/commandlets/Set/tab-global-order)

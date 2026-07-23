@@ -1,6 +1,6 @@
 ---
-id: vulnerability-management
-title: Vulnerability Management
+id: user-role-permissions
+title: User Role Permissions
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -11,53 +11,40 @@ This page has been generated from the NinjaOne PowerShell module source. To make
 
 ## SYNOPSIS
 
-Uploads data for a vulnerability scan group.
+Updates organization permissions for a user role.
 
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneVulnerabilityScanGroupUpload [-scanGroupId] <Int32> [-upload] <Object>
+Set-NinjaOneUserRoleOrganizationPermissions [-roleId] <Int32> [-permissions] <Object>
  [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Uploads data for a specified vulnerability scan group via the NinjaOne v2 API.
+Updates organization permissions for the specified user role via the NinjaOne v2 API.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneVulnerabilityScanGroupUpload -scanGroupId 5 -upload @{ ... }
+Set-NinjaOneUserRoleOrganizationPermissions -roleId 10 -permissions @{ allowAll = $true }
 ```
 
 
-Uploads content to scan group 5.
-
-### EXAMPLE 2
-
-```powershell
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
-PS> $multipart = [System.Net.Http.MultipartFormDataContent]::new()
-PS> $body = $multipart
-PS> Invoke-NinjaOneVulnerabilityScanGroupUpload -upload $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
-
-
-Full request example (auto-generated).
+Updates organization permissions for role 10.
 
 ## PARAMETERS
 
-### -scanGroupId
+### -roleId
 
-The vulnerability scan group Id to upload data for.
+The user role ID to update permissions for.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: scan_group_id, scan-group-id
+Aliases:
 
 Required: True
 Position: 1
@@ -66,9 +53,9 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -upload
+### -permissions
 
-The upload data object.
+The organization permissions payload.
 
 ```yaml
 Type: Object
@@ -129,4 +116,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://docs.homotechsual.dev/modules/ninjaone/commandlets/Invoke/vulnerability-scangroup-upload](https://docs.homotechsual.dev/modules/ninjaone/commandlets/Invoke/vulnerability-scangroup-upload)
+[https://docs.homotechsual.dev/modules/ninjaone/commandlets/Set/userrole-organizationpermissions](https://docs.homotechsual.dev/modules/ninjaone/commandlets/Set/userrole-organizationpermissions)

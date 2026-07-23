@@ -1,6 +1,6 @@
 ---
-id: vulnerability-management
-title: Vulnerability Management
+id: software-license-assignments
+title: Software License Assignments
 hide_title: false
 hide_table_of_contents: false
 ---
@@ -11,64 +11,35 @@ This page has been generated from the NinjaOne PowerShell module source. To make
 
 ## SYNOPSIS
 
-Uploads data for a vulnerability scan group.
+Updates last-usage data for software license assignments.
 
 ## SYNTAX
 
 ```powershell
-Invoke-NinjaOneVulnerabilityScanGroupUpload [-scanGroupId] <Int32> [-upload] <Object>
+Set-NinjaOneSoftwareLicenseAssignmentsLastUsage [-assignmentUsage] <Object>
  [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Uploads data for a specified vulnerability scan group via the NinjaOne v2 API.
+Updates software license assignment last-usage data via the NinjaOne v2 API.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
 ```powershell
-Invoke-NinjaOneVulnerabilityScanGroupUpload -scanGroupId 5 -upload @{ ... }
+Set-NinjaOneSoftwareLicenseAssignmentsLastUsage -assignmentUsage @{ assignments = @() }
 ```
 
 
-Uploads content to scan group 5.
-
-### EXAMPLE 2
-
-```powershell
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - BEGIN
-PS> $multipart = [System.Net.Http.MultipartFormDataContent]::new()
-PS> $body = $multipart
-PS> Invoke-NinjaOneVulnerabilityScanGroupUpload -upload $body
-# FULL REQUEST EXAMPLE (AUTO-GENERATED) - END
-```
-
-
-Full request example (auto-generated).
+Updates software license assignment last-usage data.
 
 ## PARAMETERS
 
-### -scanGroupId
+### -assignmentUsage
 
-The vulnerability scan group Id to upload data for.
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases: scan_group_id, scan-group-id
-
-Required: True
-Position: 1
-Default value: 0
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -upload
-
-The upload data object.
+The payload containing software license assignment last-usage updates.
 
 ```yaml
 Type: Object
@@ -76,7 +47,7 @@ Parameter Sets: (All)
 Aliases: body
 
 Required: True
-Position: 2
+Position: 1
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
@@ -129,4 +100,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://docs.homotechsual.dev/modules/ninjaone/commandlets/Invoke/vulnerability-scangroup-upload](https://docs.homotechsual.dev/modules/ninjaone/commandlets/Invoke/vulnerability-scangroup-upload)
+[https://docs.homotechsual.dev/modules/ninjaone/commandlets/Set/softwarelicenseassignments-lastusage](https://docs.homotechsual.dev/modules/ninjaone/commandlets/Set/softwarelicenseassignments-lastusage)
