@@ -5,6 +5,16 @@ sidebar_position: 3
 
 Screengrabber supports three deployment modes. Choose the one that matches your infrastructure.
 
+## Image Tags and Release Channels
+
+Use `SCREENGRABBER_IMAGE` to choose the rollout channel:
+
+- `homotechsual/screengrabber:latest` for stable releases.
+- `homotechsual/screengrabber:edge` for pre-release/main-branch builds.
+- `homotechsual/screengrabber:1.0.0` (or `1.0`, `1`) for pinned semver releases.
+
+Equivalent GHCR image names are available under `ghcr.io/homotechsual/screengrabber`.
+
 | | Standalone | Proxied (Docker) | Proxied (host) |
 |---|---|---|---|
 | Caddy included? | Yes | No | No |

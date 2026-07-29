@@ -50,3 +50,19 @@ Screengrabber ships as a Docker image and supports three deployment modes.
 * standalone with a bundled Caddy reverse proxy,
 * proxied behind an existing Dockerised reverse proxy, or
 * proxied behind a host-level proxy such as Nginx or Apache. See [Deployment](./deployment) for full setup instructions.
+
+## Docker Quick Start (single container)
+
+If you already have Redis and only want to run the API container directly:
+
+```bash
+docker run -d --name screengrabber-api \
+	-p 8080:8080 \
+	-e REDIS_CONNECTION=host.docker.internal:6379 \
+	-e SCREENSHOT_CACHE_TTL_HOURS=24 \
+	-e SCREENSHOT_CONCURRENCY=4 \
+	-e API_KEYS=your-key-here \
+	homotechsual/screengrabber:latest
+```
+
+Use Docker Compose for production setups and when running bundled Redis.
