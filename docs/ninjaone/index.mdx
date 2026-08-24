@@ -17,6 +17,12 @@ slug: /
 [![Stable Release](https://img.shields.io/powershellgallery/v/NinjaOne?label=Stable+Release&style=for-the-badge)](https://www.powershellgallery.com/packages/NinjaOne/)
 [![Preview Release](https://img.shields.io/powershellgallery/v/NinjaOne?label=Preview+Release&include_prereleases&style=for-the-badge)](https://www.powershellgallery.com/packages/NinjaOne/)
 
+:::warning[2.9.0 Pagination Changes]
+
+The 2.9.0 release of the NinjaOne PowerShell module introduces automatic pagination for GET endpoints with a documented continuation token. This includes cursor, activity, `after`, and ticketing anchor pagination. If you want to opt out of this behaviour for a specific call, supply `-PageSize` for that endpoint; the module will return only the requested page. The valid page-size range is endpoint-specific, so check the individual cmdlet help for the supported range on that API call. The custom-fields schema endpoint currently returns the single page defined by the API contract because its response does not include a continuation token.
+
+:::
+
 ## About
 
 This module is a PowerShell wrapper for the [NinjaOne API](https://eu.ninjarmm.com/apidocs-beta). It is designed to make it easy to interact with the NinjaOne API from PowerShell.

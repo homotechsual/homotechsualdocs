@@ -1,14 +1,14 @@
 {
-  "position": 0.6,
-  "collapsible": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Rename Data"
+  },
+  "className": "category-rename",
+  "label": "Rename Data",
   "customProps": {
     "description": "This category contains commands for renaming data, objects, settings and more."
   },
-  "className": "category-rename",
-  "link": {
-    "title": "Rename Data",
-    "type": "generated-index"
-  },
-  "label": "Rename Data",
-  "collapsed": true
+  "collapsed": true,
+  "collapsible": true,
+  "position": 0.6
 }
