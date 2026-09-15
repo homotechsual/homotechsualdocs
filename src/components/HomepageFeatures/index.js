@@ -30,7 +30,9 @@ const CategoryList = [
         psgallery: {
           href: 'https://www.powershellgallery.com/packages/HaloAPI'
         },
-        npmPackage: false
+        npmPackage: false,
+        nugetPackage: false,
+        dockerHub: false
       },
       {
         title: 'MSGraphMail',
@@ -51,7 +53,9 @@ const CategoryList = [
         psgallery: {
           href: 'https://www.powershellgallery.com/packages/MSGraphMail'
         },
-        npmPackage: false
+        npmPackage: false,
+        nugetPackage: false,
+        dockerHub: false
       },
       {
         title: 'NinjaOne',
@@ -72,7 +76,9 @@ const CategoryList = [
         psgallery: {
           href: 'https://www.powershellgallery.com/packages/NinjaOne'
         },
-        npmPackage: false
+        npmPackage: false,
+        nugetPackage: false,
+        dockerHub: false
       },
       /*{
         title: 'NinjaGet',
@@ -91,7 +97,8 @@ const CategoryList = [
           owner: 'homotechsual'
         },
         psgallery: false,
-        npmPackage: false
+        npmPackage: false,
+        nugetPackage: false
       },*/
     ]
   },
@@ -117,7 +124,9 @@ const CategoryList = [
         psgallery: false,
         npmPackage: {
           href: 'https://www.npmjs.com/package/@homotechsual/docusaurus-plugin-showcase'
-        }
+        },
+        nugetPackage: false,
+        dockerHub: false
       },
       {
         title: 'Docusaurus Plugin FAQ',
@@ -127,7 +136,7 @@ const CategoryList = [
           </>
         ),
         link: {
-          href: 'https://faq.docusaurus.homotechsual.dev',
+          href: 'https://faqs.docusaurus.homotechsual.dev',
           label: 'Documentation',
         },
         github: {
@@ -138,7 +147,9 @@ const CategoryList = [
         psgallery: false,
         npmPackage: {
           href: 'https://www.npmjs.com/package/@homotechsual/docusaurus-plugin-faq'
-        }
+        },
+        nugetPackage: false,
+        dockerHub: false
       },
       {
         title: 'Docusaurus Plugin Plausible',
@@ -159,13 +170,38 @@ const CategoryList = [
         psgallery: false,
         npmPackage: {
           href: 'https://www.npmjs.com/package/@homotechsual/docusaurus-plugin-plausible'
-        }
+        },
+        nugetPackage: false,
+        dockerHub: false
       },
     ]
   },
   {
     title: 'Other Projects',
     features: [
+      {
+        title: 'BusyBar.NET',
+        description: (
+          <>
+          BusyBar .NET — A typed .NET 10 client library wrapping the BUSY Bar device's HTTP API, covering local/USB/LAN and cloud (api.busy.app) transports with full request/response models for display, audio, timers, smart home, and system control.
+          </>
+        ),
+        link: {
+          href: 'https://busybar-dotnet.homotechsual.dev',
+          label: 'Documentation',
+        },
+        github: {
+          href: 'https://github.com/homotechsual/busybar-dotnet',
+          repo: 'busybar-dotnet',
+          owner: 'homotechsual'
+        },
+        psgallery: false,
+        npmPackage: false,
+        nugetPackage: {
+          name: 'BusyBar'
+        },
+        dockerHub: false
+      },
       {
         title: 'ScreenGrabber',
         description: (
@@ -183,13 +219,48 @@ const CategoryList = [
           owner: 'homotechsual'
         },
         psgallery: false,
-        npmPackage: false
+        npmPackage: false,
+        nugetPackage: false,
+        dockerHub: {
+          href: 'https://hub.docker.com/r/homotechsual/screengrabber'
+        }
       },
     ]
   }
 ];
 
-function Feature({title, description, link, github, psgallery, npmPackage}) {
+function getNugetPackageHref(nugetPackage) {
+  if (!nugetPackage) {
+    return null;
+  }
+
+  if (nugetPackage.href && nugetPackage.href.length > 0) {
+    return nugetPackage.href;
+  }
+
+  if (nugetPackage.name && nugetPackage.name.length > 0) {
+    return `https://www.nuget.org/packages/${encodeURIComponent(nugetPackage.name)}`;
+  }
+
+  return null;
+}
+
+function getDockerHubHref(dockerHub) {
+  if (!dockerHub) {
+    return null;
+  }
+
+  if (dockerHub.href && dockerHub.href.length > 0) {
+    return dockerHub.href;
+  }
+
+  return null;
+}
+
+function Feature({title, description, link, github, psgallery, npmPackage, nugetPackage, dockerHub}) {
+  const nugetHref = getNugetPackageHref(nugetPackage);
+  const dockerHubHref = getDockerHubHref(dockerHub);
+
   return (
     <div className={clsx('col col--4 margin-bottom--lg')}>
       <div className={clsx('card', styles.feature)}>
@@ -218,6 +289,16 @@ function Feature({title, description, link, github, psgallery, npmPackage}) {
           {npmPackage && npmPackage.href && npmPackage.href.length > 0 && (
             <a href={npmPackage.href} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}>
               <NpmSvg className="icon--npm" role="img" />
+            </a>
+          )}
+          {nugetHref && (
+            <a href={nugetHref} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}>
+              NuGet
+            </a>
+          )}
+          {dockerHubHref && (
+            <a href={dockerHubHref} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}>
+              Docker
             </a>
           )}
         </div>
