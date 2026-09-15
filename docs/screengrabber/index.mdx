@@ -8,7 +8,12 @@ slug: /
 [![Homotechsual Discord](https://img.shields.io/discord/1075421628424523816?style=for-the-badge&logo=discord&logoColor=white&label=Homotechsual%20Discord)](https://discord.gg/NrCjh5ht7K)
 [![GitHub](https://img.shields.io/badge/GitHub-homotechsual%2Fscreengrabber-blue?style=for-the-badge&logo=github)](https://github.com/homotechsual/screengrabber)
 [![License](https://img.shields.io/github/license/homotechsual/screengrabber?style=for-the-badge)](https://apache.license.homotechsual.dev/)
-[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/homotechsual/screengrabber/deploy.yml?style=for-the-badge&label=Deploy)](https://github.com/homotechsual/screengrabber/actions/workflows/deploy.yml)
+[![Tests](https://img.shields.io/github/actions/workflow/status/homotechsual/screengrabber/ci.yml?branch=main&style=for-the-badge&label=Tests)](https://github.com/homotechsual/screengrabber/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/codecov/c/github/homotechsual/screengrabber?style=for-the-badge&label=Coverage)](https://codecov.io/gh/homotechsual/screengrabber)
+[![GHCR](https://img.shields.io/github/v/release/homotechsual/screengrabber?display_name=tag&sort=semver&style=for-the-badge&label=GHCR&logo=github)](https://ghcr.io/homotechsual/screengrabber)
+[![Docker Hub Version](https://img.shields.io/docker/v/homotechsual/screengrabber?sort=semver&style=for-the-badge&label=Docker%20Hub)](https://hub.docker.com/r/homotechsual/screengrabber)
+[![Docker Pulls](https://img.shields.io/docker/pulls/homotechsual/screengrabber?style=for-the-badge&label=Pulls)](https://hub.docker.com/r/homotechsual/screengrabber)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/homotechsual/screengrabber/deploy.yml?style=for-the-badge&label=Deploy)](https://github.com/homotechsual/screengrabber/actions/workflows/deploy.yml)
 
 ## About
 
@@ -46,3 +51,19 @@ Screengrabber ships as a Docker image and supports three deployment modes.
 * standalone with a bundled Caddy reverse proxy,
 * proxied behind an existing Dockerised reverse proxy, or
 * proxied behind a host-level proxy such as Nginx or Apache. See [Deployment](./deployment) for full setup instructions.
+
+## Docker Quick Start (single container)
+
+If you already have Redis and only want to run the API container directly:
+
+```bash
+docker run -d --name screengrabber-api \
+	-p 8080:8080 \
+	-e REDIS_CONNECTION=host.docker.internal:6379 \
+	-e SCREENSHOT_CACHE_TTL_HOURS=24 \
+	-e SCREENSHOT_CONCURRENCY=4 \
+	-e API_KEYS=your-key-here \
+	homotechsual/screengrabber:latest
+```
+
+Use Docker Compose for production setups and when running bundled Redis.

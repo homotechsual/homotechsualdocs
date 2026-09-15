@@ -16,9 +16,9 @@ Creates a new connection to a Halo instance.
 ## SYNTAX
 
 ```powershell
-Connect-HaloAPI -URL <Uri> -ClientID <String> -ClientSecret <String> [-Scopes <String[]>] [-Tenant <String>]
- [-AdditionalHeaders <Hashtable>] [-UseKeyVault <Boolean>] [-SecretName <String>] [-VaultName <String>]
- [-SaveToKeyVault <Boolean>] [-Identity <String>] [-MaxRetries <Int32>] [-NoConfirm]
+Connect-HaloAPI [-URL <Uri>] [-ClientID <String>] [-ClientSecret <String>] [-Scopes <String[]>]
+ [-Tenant <String>] [-AdditionalHeaders <Hashtable>] [-UseKeyVault <Boolean>] [-SecretName <String>]
+ [-VaultName <String>] [-SaveToKeyVault <Boolean>] [-UseManagedIdentity] [-MaxRetries <Int32>] [-NoConfirm]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
@@ -40,13 +40,14 @@ This logs into Halo using the Client Credentials authorisation flow and saves th
 ### -URL
 
 The URL of the Halo instance to connect to.
+Not required if UseKeyVault is set to $true.
 
 ```yaml
 Type: Uri
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -56,13 +57,14 @@ Accept wildcard characters: False
 ### -ClientID
 
 The Client ID for the application configured in Halo.
+Not required if UseKeyVault is set to $true.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -72,13 +74,14 @@ Accept wildcard characters: False
 ### -ClientSecret
 
 The Client Secret for the application configured in Halo.
+Not required if UseKeyVault is set to $true.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -201,18 +204,18 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Identity
+### -UseManagedIdentity
 
-The object ID of the Managed Identity or Service Principal.
+When set to $true, uses a Managed Identity to connect to Azure Key Vault instead of interactive login.
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
