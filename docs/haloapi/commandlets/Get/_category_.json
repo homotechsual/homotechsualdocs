@@ -1,14 +1,14 @@
 {
+  "customProps": {
+    "description": "This category contains commands for retrieving information from services, this may include data, objects, settings and more."
+  },
+  "label": "Retrieve Information",
   "link": {
     "type": "generated-index",
     "title": "Retrieve Information"
   },
   "className": "category-get",
-  "label": "Retrieve Information",
-  "collapsed": true,
-  "customProps": {
-    "description": "This category contains commands for retrieving information from services, this may include data, objects, settings and more."
-  },
+  "collapsible": true,
   "position": 0.3,
-  "collapsible": true
+  "collapsed": true
 }
