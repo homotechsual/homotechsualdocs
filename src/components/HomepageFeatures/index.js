@@ -180,6 +180,29 @@ const CategoryList = [
     title: 'Other Projects',
     features: [
       {
+        title: 'DotMARC',
+        description: (
+          <>
+            dotMARC is a self-hosted DMARC (Domain-based Message Authentication, Reporting & Conformance) aggregate report analyser. Point every client domain at one mailbox, and see authentication posture across all of them from a single dashboard.
+          </>
+        ),
+        link: {
+          href: 'https://dotmarc.app',
+          label: 'Documentation',
+        },
+        github: {
+          href: 'https://github.com/homotechsual/dotmarc',
+          repo: 'dotmarc',
+          owner: 'homotechsual'
+        },
+        psgallery: false,
+        npmPackage: false,
+        nugetPackage: false,
+        dockerHub: {
+          href: 'https://hub.docker.com/r/homotechsual/dotmarc'
+        }
+      },
+      {
         title: 'BusyBar.NET',
         description: (
           <>
