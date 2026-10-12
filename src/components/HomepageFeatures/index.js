@@ -23,7 +23,7 @@ const CategoryList = [
         ),
         link: {
           href: '/modules/haloapi',
-          label: 'Documentation',
+          label: 'Docs',
         },
         github: {
           href: 'https://github.com/homotechsual/haloapi',
@@ -46,7 +46,7 @@ const CategoryList = [
         ),
         link: {
           href: '/modules/msgraphmail',
-          label: 'Documentation',
+          label: 'Docs',
         },
         github: {
           href: 'https://github.com/homotechsual/msgraphmail',
@@ -69,7 +69,7 @@ const CategoryList = [
         ),
         link: {
           href: '/modules/ninjaone',
-          label: 'Documentation',
+          label: 'Docs',
         },
         github: {
           href: 'https://github.com/homotechsual/ninjaone',
@@ -92,7 +92,7 @@ const CategoryList = [
         ),
         link: {
           href: '/tools/ninjaget',
-          label: 'Documentation',
+          label: 'Docs',
         },
         github: {
           href: 'https://github.com/homotechsual/ninjaget',
@@ -117,7 +117,7 @@ const CategoryList = [
         ),
         link: {
           href: 'https://showcase.docusaurus.homotechsual.dev',
-          label: 'Documentation',
+          label: 'Docs',
         },
         github: {
           href: 'https://github.com/homotechsual/docusaurus-plugin-showcase',
@@ -140,7 +140,7 @@ const CategoryList = [
         ),
         link: {
           href: 'https://faqs.docusaurus.homotechsual.dev',
-          label: 'Documentation',
+          label: 'Docs',
         },
         github: {
           href: 'https://github.com/homotechsual/docusaurus-plugin-faq',
@@ -163,7 +163,7 @@ const CategoryList = [
         ),
         link: {
           href: 'https://plausible.docusaurus.homotechsual.dev',
-          label: 'Documentation',
+          label: 'Docs',
         },
         github: {
           href: 'https://github.com/homotechsual/docusaurus-plugin-plausible',
@@ -191,7 +191,7 @@ const CategoryList = [
         ),
         link: {
           href: 'https://dotmarc.app',
-          label: 'Documentation',
+          label: 'Docs',
         },
         github: {
           href: 'https://github.com/homotechsual/dotmarc',
@@ -209,12 +209,12 @@ const CategoryList = [
         title: 'BusyBar.NET',
         description: (
           <>
-          BusyBar .NET — A typed .NET 10 client library wrapping the BUSY Bar device's HTTP API, covering local/USB/LAN and cloud (api.busy.app) transports with full request/response models for display, audio, timers, smart home, and system control.
+          BusyBar .NET - A typed .NET 10 client library wrapping the BUSY Bar device's HTTP API, covering local/USB/LAN and cloud (api.busy.app) transports with full request/response models for display, audio, timers, smart home, and system control.
           </>
         ),
         link: {
           href: 'https://busybar-dotnet.homotechsual.dev',
-          label: 'Documentation',
+          label: 'Docs',
         },
         github: {
           href: 'https://github.com/homotechsual/busybar-dotnet',
@@ -237,7 +237,7 @@ const CategoryList = [
         ),
         link: {
           href: 'tools/screengrabber',
-          label: 'Documentation',
+          label: 'Docs',
         },
         github: {
           href: 'https://github.com/homotechsual/screengrabber',
@@ -299,34 +299,52 @@ function Feature({title, description, link, github, psgallery, npmPackage, nuget
         <div className={clsx('text--center card__footer padding-horiz--md')}>
           {link && link.href && link.href.length > 0 && (
             <a href={link.href} className="button button--primary margin-horiz--xs">
-              {link.label}
+              {link.label || 'Docs'}
             </a>
           )}
           {github && github.href && github.href.length > 0 && (
-            <a href={github.href} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}>
+            <a
+              href={github.href}
+              className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}
+              aria-label="GitHub"
+              title="GitHub">
               <GitHubSvg className="icon--github" role="img" />
             </a>
           )}
           {psgallery && psgallery.href && psgallery.href.length > 0 && (
-            <a href={psgallery.href} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}>
+            <a
+              href={psgallery.href}
+              className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}
+              aria-label="PowerShell Gallery"
+              title="PowerShell Gallery">
               <PSGallerySvg className="icon--psgallery" role="img" />
             </a>
           )}
           {npmPackage && npmPackage.href && npmPackage.href.length > 0 && (
-            <a href={npmPackage.href} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}>
+            <a
+              href={npmPackage.href}
+              className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}
+              aria-label="npm"
+              title="npm">
               <NpmSvg className="icon--npm" role="img" />
             </a>
           )}
           {nugetHref && (
-            <a href={nugetHref} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}>
-              <NugetSvg className={styles.brandIcon} aria-hidden="true" />
-              NuGet
+            <a
+              href={nugetHref}
+              className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}
+              aria-label="NuGet"
+              title="NuGet">
+              <NugetSvg className="icon--nuget" role="img" />
             </a>
           )}
           {dockerHubHref && (
-            <a href={dockerHubHref} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}>
-              <FontAwesomeIcon icon={faDocker} className={styles.brandIcon} aria-hidden="true" />
-              Docker
+            <a
+              href={dockerHubHref}
+              className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}
+              aria-label="Docker Hub"
+              title="Docker Hub">
+              <FontAwesomeIcon icon={faDocker} className="icon--docker" />
             </a>
           )}
         </div>

@@ -48,11 +48,10 @@
   --ifm-button-padding-horizontal: 1rem;
 }
 
-.brandIcon {
-  width: 1em;
-  height: 1em;
-  margin-right: 0.4rem;
-  flex-shrink: 0;
+.iconbutton svg {
+  height: 16px;
+  width: auto;
+  max-width: 26px;
 }
 
 .featureCategory {
