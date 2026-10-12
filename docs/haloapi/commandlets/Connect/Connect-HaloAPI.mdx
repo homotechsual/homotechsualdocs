@@ -15,11 +15,21 @@ Creates a new connection to a Halo instance.
 
 ## SYNTAX
 
+### Client Credentials (Default)
+
 ```powershell
 Connect-HaloAPI [-URL <Uri>] [-ClientID <String>] [-ClientSecret <String>] [-Scopes <String[]>]
  [-Tenant <String>] [-AdditionalHeaders <Hashtable>] [-UseKeyVault <Boolean>] [-SecretName <String>]
  [-VaultName <String>] [-SaveToKeyVault <Boolean>] [-UseManagedIdentity] [-MaxRetries <Int32>] [-NoConfirm]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
+```
+
+### Authorisation Code
+
+```powershell
+Connect-HaloAPI -URL <Uri> -ClientID <String> [-Scopes <String[]>] [-Tenant <String>] [-Interactive]
+ [-RedirectURI <Uri>] [-LoginTimeout <Int32>] [-AdditionalHeaders <Hashtable>] [-MaxRetries <Int32>]
+ [-NoConfirm] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -35,6 +45,13 @@ Connect-HaloAPI -URL "https://example.halopsa.com" -ClientId "c9534241-dde9-4d04
 This logs into Halo using the Client Credentials authorisation flow and saves the secrets to the specified Azure Key Vault for future use.
 ```
 
+### EXAMPLE 2
+
+```powershell
+Connect-HaloAPI -URL "https://example.halopsa.com" -ClientId "c9534241-dde9-4d04-9d45-32b1fbff22ed" -Tenant "demo" -Interactive
+This opens a browser to sign in to Halo with your own agent account using the Authorisation Code flow with PKCE. No client secret is needed: create the API application in Halo with the "Authorisation Code (Native Application)" authentication method and add "http://localhost:8400/" as a redirect URI. Requests then run with the signed-in agent's permissions and the token is refreshed automatically.
+```
+
 ## PARAMETERS
 
 ### -URL
@@ -44,10 +61,22 @@ Not required if UseKeyVault is set to $true.
 
 ```yaml
 Type: Uri
-Parameter Sets: (All)
+Parameter Sets: Client Credentials
 Aliases:
 
 Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+```yaml
+Type: Uri
+Parameter Sets: Authorisation Code
+Aliases:
+
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -61,10 +90,22 @@ Not required if UseKeyVault is set to $true.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Client Credentials
 Aliases:
 
 Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+```yaml
+Type: String
+Parameter Sets: Authorisation Code
+Aliases:
+
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -78,7 +119,7 @@ Not required if UseKeyVault is set to $true.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Client Credentials
 Aliases:
 
 Required: False
@@ -122,6 +163,55 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Interactive
+
+Sign in through the browser with your own Halo agent account (Authorisation Code flow with PKCE) instead of using a client secret.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Authorisation Code
+Aliases:
+
+Required: True
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -RedirectURI
+
+The redirect URI configured on the Halo API application.
+A temporary local listener is started on this address to receive the sign-in response.
+
+```yaml
+Type: Uri
+Parameter Sets: Authorisation Code
+Aliases:
+
+Required: False
+Position: Named
+Default value: Http://localhost:8400/
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LoginTimeout
+
+How long to wait, in seconds, for the browser sign-in to complete.
+
+```yaml
+Type: Int32
+Parameter Sets: Authorisation Code
+Aliases:
+
+Required: False
+Position: Named
+Default value: 300
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -AdditionalHeaders
 
 Hashtable containing additional parameters to be sent with each request.
@@ -145,7 +235,7 @@ If $false, use parameters passed to function.
 
 ```yaml
 Type: Boolean
-Parameter Sets: (All)
+Parameter Sets: Client Credentials
 Aliases:
 
 Required: False
@@ -161,7 +251,7 @@ The name of the secret in the Azure Key Vault.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Client Credentials
 Aliases:
 
 Required: False
@@ -177,7 +267,7 @@ The name of the Azure Key Vault.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Client Credentials
 Aliases:
 
 Required: False
@@ -194,7 +284,7 @@ If $false or not specified, do not save parameters.
 
 ```yaml
 Type: Boolean
-Parameter Sets: (All)
+Parameter Sets: Client Credentials
 Aliases:
 
 Required: False
@@ -210,7 +300,7 @@ When set to $true, uses a Managed Identity to connect to Azure Key Vault instead
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: Client Credentials
 Aliases:
 
 Required: False

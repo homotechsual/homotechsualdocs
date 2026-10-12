@@ -3,12 +3,12 @@
     "type": "generated-index",
     "title": "Retrieve Information"
   },
-  "className": "category-get",
   "label": "Retrieve Information",
-  "collapsed": true,
   "customProps": {
     "description": "This category contains commands for retrieving information from services, this may include data, objects, settings and more."
   },
-  "position": 0.3,
-  "collapsible": true
+  "collapsed": true,
+  "collapsible": true,
+  "className": "category-get",
+  "position": 0.3
 }
