@@ -1,10 +1,13 @@
 import React from 'react';
 import clsx from 'clsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDocker } from '@fortawesome/free-brands-svg-icons';
 import styles from './styles.module.css';
 
 const GitHubSvg = require('@site/static/img/GitHub.svg').default
 const PSGallerySvg = require('@site/static/img/PowerShell.svg').default
 const NpmSvg = require('@site/static/img/NPM.svg').default
+const NugetSvg = require('@site/static/img/NuGet.svg').default
 
 const CategoryList = [
   {
@@ -316,11 +319,13 @@ function Feature({title, description, link, github, psgallery, npmPackage, nuget
           )}
           {nugetHref && (
             <a href={nugetHref} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}>
+              <NugetSvg className={styles.brandIcon} aria-hidden="true" />
               NuGet
             </a>
           )}
           {dockerHubHref && (
             <a href={dockerHubHref} className={clsx('button button--outline button--primary margin-horiz--xs', styles.iconbutton)}>
+              <FontAwesomeIcon icon={faDocker} className={styles.brandIcon} aria-hidden="true" />
               Docker
             </a>
           )}

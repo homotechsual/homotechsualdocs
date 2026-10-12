@@ -119,12 +119,10 @@ const config = {
             position: 'left',
             items: [
               {
-                type: 'default',
                 href: 'https://dotmarc.app',
                 label: 'DotMARC',
               },
               {
-                type: 'default',
                 href: 'https://busybar-dotnet.homotechsual.dev',
                 label: 'BusyBar .NET',
               },
