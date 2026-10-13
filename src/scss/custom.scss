@@ -209,6 +209,42 @@ table p {
   align-content: center;
 }
 
+.navbar__logo--responsive {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1359px) {
+  .navbar__logo--responsive {
+    height: 44px;
+    width: 44px;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .navbar__inner {
+    .sponsorship-link,
+    .github-link {
+      .navbar__action-label {
+        display: none;
+      }
+
+      &::before {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 996px) {
+  .navbar__inner .sponsorship-link {
+    display: none;
+  }
+}
+
 /* Details */
 
 details {
@@ -474,14 +510,15 @@ html[data-theme='dark'] .alert--release {
   border-bottom: 1px dashed var(--ifm-color-emphasis-300);
 }
 
-div[class^="announcementBar"] {
-  svg {
-    vertical-align: text-bottom;
+.theme-announcement-bar {
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    vertical-align: baseline;
   }
-  svg.icon--mastodon {
-    margin-right: 0.25rem;
-  }
-  svg.icon--github {
-    margin-right: 0.25rem;
+
+  a svg {
+    flex-shrink: 0;
   }
 }

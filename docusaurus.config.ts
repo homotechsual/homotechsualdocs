@@ -166,7 +166,9 @@ const config = {
           },*/
           {
             to: 'https://github.com/sponsors/homotechsual/',
-            label: 'Sponsor',
+            html: '<span class="navbar__action-label">Sponsor</span>',
+            'aria-label': 'Sponsor',
+            title: 'Sponsor',
             position: 'right',
             target: '_blank',
             className: 'sponsorship-link',
@@ -174,12 +176,29 @@ const config = {
           {
             type: 'dropdown',
             position: 'right',
-            label: 'GitHub',
+            html: '<span class="navbar__action-label">GitHub</span>',
+            'aria-label': 'GitHub',
+            title: 'GitHub',
             className: 'github-link',
             items: [
               {
+                to: 'https://github.com/homotechsual/BusyBar-dotnet',
+                label: 'BusyBar .NET',
+                target: '_blank',
+              },
+              {
+                to: 'https://github.com/homotechsual/DotMARC',
+                label: 'DotMARC',
+                target: '_blank',
+              },
+              {
                 to: 'https://github.com/homotechsual/HaloAPI',
                 label: 'HaloAPI',
+                target: '_blank',
+              },
+              {
+                to: 'https://github.com/homotechsual/macOS-MDM-Profiles',
+                label: 'macOS MDM Profiles',
                 target: '_blank',
               },
               {
@@ -195,11 +214,6 @@ const config = {
               {
                 to: 'https://github.com/homotechsual/screengrabber',
                 label: 'Screengrabber',
-                target: '_blank',
-              },
-              {
-                to: 'https://github.com/homotechsual/macOS-MDM-Profiles',
-                label: 'macOS MDM Profiles',
                 target: '_blank',
               },
             ],

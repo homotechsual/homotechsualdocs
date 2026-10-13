@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve">
+
+  
+  <defs id="defs87833"/>
+  <linearGradient id="3d_gradient2-logo-fd6a581c-faf2-435c-8866-64ab7e0e4855" x1="30%" y1="120%" x2="-10%" y2="30%" spreadMethod="pad">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="1" id="stop87810"/>
+    <stop offset="100%" stop-color="#000000" stop-opacity="1" id="stop87812"/>
+  </linearGradient>
+  <linearGradient id="3d_gradient3-logo-fd6a581c-faf2-435c-8866-64ab7e0e4855" x1="30%" y1="120%" x2="-10%" y2="30%" spreadMethod="pad" gradientTransform="rotate(-30)">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="1" id="stop87815"/>
+    <stop offset="50%" stop-color="#cccccc" stop-opacity="1" id="stop87817"/>
+    <stop offset="100%" stop-color="#000000" stop-opacity="1" id="stop87819"/>
+  </linearGradient>
+  <path style="font-style:normal;font-weight:normal;font-size:medium;line-height:1;font-family:'Brandmark Sans 24 Spectrum';font-variant-ligatures:normal;text-align:center;text-anchor:middle;fill:#fcfcfc;stroke:#fcfcfc;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:2" id="path11" stroke-miterlimit="2" d="m 100.00002,78.589014 c -22.467916,0 -40.747384,18.279632 -40.747384,40.747546 h 24.90933 c 0,-8.73288 7.105176,-15.83808 15.838074,-15.83808 8.73291,0 15.83808,7.10518 15.83808,15.83808 v 40.66343 h 24.90933 v -40.66343 c -5e-5,-22.467914 -18.27951,-40.747546 -40.74743,-40.747546 z" class="c1"/>
+  <rect style="font-style:normal;font-weight:normal;font-size:medium;line-height:1;font-family:'Brandmark Sans 24 Spectrum';font-variant-ligatures:normal;text-align:center;text-anchor:middle;fill:#e3594f;stroke:#e3594f;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:2" id="rect13" stroke-miterlimit="2" height="119.99998" width="24.90933" class="c3" y="39.999996" x="59.252571"/>
+  <path style="font-style:normal;font-weight:normal;font-size:medium;line-height:1;font-family:'Brandmark Sans 24 Spectrum';font-variant-ligatures:normal;text-align:center;text-anchor:middle;fill:#efaaa5;stroke:#efaaa5;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:2" id="path15" stroke-miterlimit="2" d="M 84.161896,119.33656 V 81.793723 c -14.62364,6.192636 -24.90933,20.689127 -24.90933,37.542837" class="c2"/>
+
+</svg>
