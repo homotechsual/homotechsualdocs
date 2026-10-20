@@ -1,0 +1,103 @@
+---
+id: global-custom-fields
+title: Global Custom Fields
+hide_title: false
+hide_table_of_contents: false
+---
+
+:::powershell[Generated Cmdlet Help]
+This page has been generated from the NinjaOne PowerShell module source. To make changes please edit the appropriate PowerShell source file.
+:::
+
+## SYNOPSIS
+
+Updates global custom field values.
+
+## SYNTAX
+
+```powershell
+Set-NinjaOneGlobalCustomFields [-globalCustomFields] <Object> [-ProgressAction <ActionPreference>] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
+```
+
+## DESCRIPTION
+
+Updates system-wide custom field values using the NinjaOne v2 API.
+
+## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+Set-NinjaOneGlobalCustomFields -globalCustomFields @{ region = 'Europe' }
+```
+
+
+Updates the global region custom field value.
+
+## PARAMETERS
+
+### -globalCustomFields
+
+The global custom field values to update.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases: customFields, body
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -WhatIf
+
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+### An information message when the update succeeds.
+
+## NOTES
+
+## RELATED LINKS
+
+[https://docs.homotechsual.dev/modules/ninjaone/commandlets/Set/globalcustomfields](https://docs.homotechsual.dev/modules/ninjaone/commandlets/Set/globalcustomfields)

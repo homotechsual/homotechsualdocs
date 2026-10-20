@@ -15,14 +15,24 @@ Gets a knowledge base article from the NinjaOne API.
 
 ## SYNTAX
 
+### Download (Default)
+
 ```powershell
 Get-NinjaOneKnowledgeBaseArticle [-articleId] <Int32> [-signedUrls] [-ProgressAction <ActionPreference>]
  [<CommonParameters>]
 ```
 
+### Details
+
+```powershell
+Get-NinjaOneKnowledgeBaseArticle [-articleId] <Int32> [-details] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
+```
+
 ## DESCRIPTION
 
-Retrieves a knowledge base article from the NinjaOne v2 API.
+Downloads a knowledge base article from the NinjaOne v2 API by default.
+Use -details to retrieve the article object or -signedUrls to retrieve signed URLs.
 
 ## EXAMPLES
 
@@ -34,6 +44,15 @@ Get-NinjaOneKnowledgeBaseArticle -articleId 1
 
 
 Gets the knowledge base article with id 1.
+
+### EXAMPLE 2
+
+```powershell
+Get-NinjaOneKnowledgeBaseArticle -articleId 1 -details
+```
+
+
+Gets the article object for the knowledge base article with id 1.
 
 ## PARAMETERS
 
@@ -59,13 +78,29 @@ Get a map of content ids and their corresponding signed urls.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: Download
 Aliases:
 
 Required: False
 Position: Named
 Default value: False
 Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
+### -details
+
+Get the article object instead of downloading its content.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Details
+Aliases:
+
+Required: True
+Position: Named
+Default value: False
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
