@@ -44,6 +44,12 @@ documentation belongs under `docs\Printix` and must use `.mdx`, not `.md`.
 
 ## GitHub Actions
 
+Workflows use Node 24-based actions: `actions/checkout@v7`,
+`actions/upload-artifact@v7` and `actions/download-artifact@v8` on GitHub-hosted
+`windows-latest` runners. Artifact uploads retain their default archive format;
+downloads retain the default failure on digest mismatch. Do not disable integrity
+checks or force an older action onto a newer runtime instead of upgrading it.
+
 | Workflow | Trigger | Behaviour |
 | --- | --- | --- |
 | CI | Pull requests, pushes to main/develop, manual | Static analysis, offline tests, MDX generation, build, packaged tests, module and docs artifacts |
