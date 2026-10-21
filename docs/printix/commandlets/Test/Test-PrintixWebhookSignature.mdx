@@ -1,0 +1,125 @@
+---
+title: Test-PrintixWebhookSignature
+hide_title: false
+hide_table_of_contents: false
+---
+
+:::powershell[Generated Cmdlet Help]
+This page is generated from the Printix module. Edit the corresponding PowerShell source to update it.
+:::
+
+## SYNOPSIS
+Verifies a Printix webhook signature and emitted timestamp.
+
+## SYNTAX
+
+```powershell
+Test-PrintixWebhookSignature [-Body] <Byte[]> [-Signature] <String> [-SharedSecret] <SecureString[]>
+ [[-Now] <DateTimeOffset>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+```
+
+## DESCRIPTION
+Computes HMAC-SHA512 over the exact UTF-8 request body using each shared secret.
+Returns false for a signature mismatch or expired event, and throws on malformed input.
+Uses constant-time comparison.
+Does not host an HTTP endpoint.
+
+## EXAMPLES
+
+### EXAMPLE 1
+```powershell
+Test-PrintixWebhookSignature -Body $bodyBytes -Signature $signatureHeader -SharedSecret $secret
+```
+
+## PARAMETERS
+
+### -Body
+The unmodified UTF-8 request body bytes.
+
+```yaml
+Type: Byte[]
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Signature
+A hexadecimal X-Printix-Signature-1 or X-Printix-Signature-2 header value.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SharedSecret
+One or both webhook shared secrets, interpreted as UTF-8 text.
+
+```yaml
+Type: SecureString[]
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Now
+The comparison time.
+Defaults to UTC now.
+
+```yaml
+Type: DateTimeOffset
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
+Default value: [DateTimeOffset]::UtcNow
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+Controls progress-record handling. Available in PowerShell 7.4 and later.
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+### System.Boolean
+## NOTES
+
+## RELATED LINKS
+
+[https://printix.github.io/#_webhooks](https://printix.github.io/#_webhooks)
+

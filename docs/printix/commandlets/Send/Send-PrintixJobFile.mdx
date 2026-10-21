@@ -1,0 +1,142 @@
+---
+title: Send-PrintixJobFile
+hide_title: false
+hide_table_of_contents: false
+---
+
+:::powershell[Generated Cmdlet Help]
+This page is generated from the Printix module. Edit the corresponding PowerShell source to update it.
+:::
+
+## SYNOPSIS
+Uploads a document to a cloud storage link returned by Printix.
+
+## SYNTAX
+
+```powershell
+Send-PrintixJobFile [-UploadLink] <Object> [-Path] <String> [[-ContentType] <String>]
+ [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+## DESCRIPTION
+Uses the upload link's URL and provider headers without a Printix bearer token.
+Does not complete the job; call Complete-PrintixJobUpload after all uploads succeed.
+Required application type: none for this storage request.
+Uses a signed upload link
+from an authorized submission; never send a Printix access token to cloud storage.
+
+## EXAMPLES
+
+### EXAMPLE 1
+```powershell
+$job.uploadLinks | Send-PrintixJobFile -Path '.\report.pdf'
+```
+
+## PARAMETERS
+
+### -UploadLink
+An entry from the submission response's uploadLinks array.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Path
+The local file to upload.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ContentType
+The document MIME type.
+Defaults to application/pdf unless supplied by the upload link.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: Application/pdf
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+Controls progress-record handling. Available in PowerShell 7.4 and later.
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+### System.Void
+## NOTES
+
+## RELATED LINKS
+
+[https://printix.github.io/#_upload_a_file](https://printix.github.io/#_upload_a_file)
+

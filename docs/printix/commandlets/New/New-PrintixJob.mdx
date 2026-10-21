@@ -1,0 +1,362 @@
+---
+title: New-PrintixJob
+hide_title: false
+hide_table_of_contents: false
+---
+
+:::powershell[Generated Cmdlet Help]
+This page is generated from the Printix module. Edit the corresponding PowerShell source to update it.
+:::
+
+## SYNOPSIS
+Creates a print job using either documented submission version.
+
+## SYNTAX
+
+### Modern (Default)
+```powershell
+New-PrintixJob [-TenantId <String>] -PrinterId <String> -QueueId <String> -Title <String> [-User <String>]
+ [-PDL <String>] [-ReleaseImmediately <Boolean>] [-Color <Boolean>] [-Duplex <String>]
+ [-PageOrientation <String>] [-Copies <Int32>] [-MediaSize <String>] [-Scaling <String>]
+ [-UserMappingKey <String>] [-UserMappingValue <String>] [-ProgressAction <ActionPreference>] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
+```
+
+### Legacy
+```powershell
+New-PrintixJob [-TenantId <String>] -PrinterId <String> -QueueId <String> -Title <String> [-User <String>]
+ [-PDL <String>] -LegacyTicket <Hashtable> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
+```
+
+## DESCRIPTION
+Returns the complete submission response, including uploadLinks and uploadCompleted.
+Creation alone does not upload or print a document.
+Version 1.1 is the default.
+Required application type: Cloud Print API or Card registration (API terminology).
+Requires Printix Premium.
+
+## EXAMPLES
+
+### EXAMPLE 1
+```powershell
+New-PrintixJob -PrinterId $printerId -QueueId $queueId -Title 'Monthly report' -Duplex LONG_EDGE -ReleaseImmediately $false
+```
+
+### EXAMPLE 2
+```powershell
+New-PrintixJob -PrinterId $printerId -QueueId $queueId -Title 'Legacy document' -LegacyTicket $ticket
+```
+
+## PARAMETERS
+
+### -TenantId
+The tenant ID, or the connection default.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PrinterId
+The physical printer ID from the queue's HAL link.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -QueueId
+The print queue ID from the queue's HAL link.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Title
+The title of the job.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -User
+The redirector username.
+Cannot be combined with user mapping.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PDL
+The document language for non-PDF files.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ReleaseImmediately
+Whether to print after upload completion.
+Defaults to the service setting (true).
+
+```yaml
+Type: Boolean
+Parameter Sets: Modern
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Color
+Whether to print in color.
+Defaults to false.
+
+```yaml
+Type: Boolean
+Parameter Sets: Modern
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Duplex
+The duplex setting.
+Defaults to NONE.
+
+```yaml
+Type: String
+Parameter Sets: Modern
+Aliases:
+
+Required: False
+Position: Named
+Default value: NONE
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PageOrientation
+The page orientation.
+Defaults to AUTO.
+
+```yaml
+Type: String
+Parameter Sets: Modern
+Aliases:
+
+Required: False
+Position: Named
+Default value: AUTO
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Copies
+The number of copies.
+Defaults to one.
+
+```yaml
+Type: Int32
+Parameter Sets: Modern
+Aliases:
+
+Required: False
+Position: Named
+Default value: 1
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -MediaSize
+A documented paper size.
+Defaults to A4.
+
+```yaml
+Type: String
+Parameter Sets: Modern
+Aliases:
+
+Required: False
+Position: Named
+Default value: A4
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Scaling
+The scaling setting.
+Defaults to NOSCALE.
+
+```yaml
+Type: String
+Parameter Sets: Modern
+Aliases:
+
+Required: False
+Position: Named
+Default value: NOSCALE
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -UserMappingKey
+The user attribute used to assign ownership.
+Requires UserMappingValue.
+
+```yaml
+Type: String
+Parameter Sets: Modern
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -UserMappingValue
+The value to match for UserMappingKey.
+
+```yaml
+Type: String
+Parameter Sets: Modern
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LegacyTicket
+An original-version printer ticket object.
+Mutually exclusive with modern settings.
+
+```yaml
+Type: Hashtable
+Parameter Sets: Legacy
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+Controls progress-record handling. Available in PowerShell 7.4 and later.
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+### System.Object
+## NOTES
+
+## RELATED LINKS
+
+[https://printix.github.io/#_new_submit_method](https://printix.github.io/#_new_submit_method)
+

@@ -1,0 +1,170 @@
+---
+title: API coverage and application types
+sidebar_position: 1
+---
+
+# API coverage
+
+Mapped against the [Printix Cloud Print API](https://printix.github.io/), including the 2026-06-15 documentation update.
+Paths below are relative to `https://api.printix.net/cloudprint`. `{TenantId}` defaults to the connection's selected tenant.
+The separate [Partner API guide](./partner-api.mdx) covers partner-managed tenant
+operations using `PrintixPartner` commands and independently issued credentials.
+
+| Command | Method | Resource | API reference |
+| --- | --- | --- | --- |
+| `Get-PrintixRoot` | GET | `(root)` | [Reference](https://printix.github.io/#_root_request) |
+| `Get-PrintixPrintQueues` | GET | `tenants/{TenantId}/printers` | [Reference](https://printix.github.io/#_list_print_queues) |
+| `Get-PrintixPrinter` | GET | `tenants/{TenantId}/printers/{PrinterId}/queues/{QueueId}` | [Reference](https://printix.github.io/#_get_printer_properties) |
+| `Get-PrintixJobs` | GET | `tenants/{TenantId}/jobs` | [Reference](https://printix.github.io/#_retrieve_jobs) |
+| `Get-PrintixPrintQueueJobs` | GET | `tenants/{TenantId}/printers/{PrinterId}/queues/{QueueId}/jobs` | [Reference](https://printix.github.io/#_retrieve_jobs) |
+| `Get-PrintixJob` | GET | `tenants/{TenantId}/jobs/{JobId}` | [Reference](https://printix.github.io/#_retrieve_a_single_job) |
+| `Remove-PrintixJob` | POST | `tenants/{TenantId}/jobs/{JobId}/delete` | [Reference](https://printix.github.io/#_delete_a_single_job) |
+| `Complete-PrintixJobUpload` | POST | `tenants/{TenantId}/jobs/{JobId}/completeUpload` | [Reference](https://printix.github.io/#_complete_upload) |
+| `Set-PrintixJobOwner` | POST | `tenants/{TenantId}/jobs/{JobId}/changeOwner` | [Reference](https://printix.github.io/#_change_owner) |
+| `New-PrintixUser` | POST | `tenants/{TenantId}/users/create` | [Reference](https://printix.github.io/#_create_user) |
+| `Get-PrintixUser` | GET | `tenants/{TenantId}/users/{UserId}` | [Reference](https://printix.github.io/#_find_user_by_id) |
+| `Get-PrintixUsers` | GET | `tenants/{TenantId}/users` | [Reference](https://printix.github.io/#_list_users) |
+| `Remove-PrintixUser` | POST | `tenants/{TenantId}/users/{UserId}/delete` | [Reference](https://printix.github.io/#_delete_user) |
+| `New-PrintixUserIdCode` | POST | `tenants/{TenantId}/users/{UserId}/idCode` | [Reference](https://printix.github.io/#_generate_id_code) |
+| `New-PrintixGroup` | POST | `tenants/{TenantId}/groups` | [Reference](https://printix.github.io/#_create_group) |
+| `Get-PrintixGroups` | GET | `tenants/{TenantId}/groups` | [Reference](https://printix.github.io/#_listing_and_searching_groups) |
+| `Get-PrintixGroup` | GET | `tenants/{TenantId}/groups/{GroupId}` | [Reference](https://printix.github.io/#_fetch_group_details) |
+| `Remove-PrintixGroup` | DELETE | `tenants/{TenantId}/groups/{GroupId}` | [Reference](https://printix.github.io/#_delete_group) |
+| `Register-PrintixCard` | POST | `tenants/{TenantId}/users/{UserId}/cards` | [Reference](https://printix.github.io/#_register_card) |
+| `Get-PrintixCard` | GET | `tenants/{TenantId}/cards/{CardId}` | [Reference](https://printix.github.io/#_search_for_card) |
+| `Remove-PrintixCard` | DELETE | `tenants/{TenantId}/cards/{CardId}` | [Reference](https://printix.github.io/#_delete_card) |
+| `New-PrintixSite` | POST | `tenants/{TenantId}/sites` | [Reference](https://printix.github.io/#_create_site) |
+| `Get-PrintixSite` | GET | `tenants/{TenantId}/sites/{SiteId}` | [Reference](https://printix.github.io/#_retrieve_site) |
+| `Set-PrintixSite` | PUT | `tenants/{TenantId}/sites/{SiteId}` | [Reference](https://printix.github.io/#_update_site) |
+| `Remove-PrintixSite` | DELETE | `tenants/{TenantId}/sites/{SiteId}` | [Reference](https://printix.github.io/#_delete_site) |
+| `Get-PrintixSites` | GET | `tenants/{TenantId}/sites` | [Reference](https://printix.github.io/#_query_sites) |
+| `New-PrintixNetwork` | POST | `tenants/{TenantId}/networks` | [Reference](https://printix.github.io/#_create_network) |
+| `Get-PrintixNetwork` | GET | `tenants/{TenantId}/networks/{NetworkId}` | [Reference](https://printix.github.io/#_retrieve_network) |
+| `Set-PrintixNetwork` | PUT | `tenants/{TenantId}/networks/{NetworkId}` | [Reference](https://printix.github.io/#_update_network) |
+| `Remove-PrintixNetwork` | DELETE | `tenants/{TenantId}/networks/{NetworkId}` | [Reference](https://printix.github.io/#_delete_network) |
+| `Get-PrintixNetworks` | GET | `tenants/{TenantId}/networks` | [Reference](https://printix.github.io/#_query_networks) |
+| `New-PrintixSnmpConfiguration` | POST | `tenants/{TenantId}/snmp` | [Reference](https://printix.github.io/#_create_snmp_configuration) |
+| `Get-PrintixSnmpConfiguration` | GET | `tenants/{TenantId}/snmp/{SnmpId}` | [Reference](https://printix.github.io/#_retrieve_snmp_configuration) |
+| `Set-PrintixSnmpConfiguration` | PUT | `tenants/{TenantId}/snmp/{SnmpId}` | [Reference](https://printix.github.io/#_update_snmp_configuration) |
+| `Remove-PrintixSnmpConfiguration` | DELETE | `tenants/{TenantId}/snmp/{SnmpId}` | [Reference](https://printix.github.io/#_delete_snmp_configuration) |
+| `Get-PrintixSnmpConfigurations` | GET | `tenants/{TenantId}/snmp` | [Reference](https://printix.github.io/#_query_snmp_configurations) |
+| `Get-PrintixWorkstation` | GET | `tenants/{TenantId}/workstations/{WorkstationId}` | [Reference](https://printix.github.io/#_retrieve_workstation) |
+| `Get-PrintixWorkstations` | GET | `tenants/{TenantId}/workstations` | [Reference](https://printix.github.io/#_query_workstations) |
+| `New-PrintixJob` | POST | `tenants/{TenantId}/printers/{PrinterId}/queues/{QueueId}/submit` | [Both submission versions](https://printix.github.io/#_submit_a_job) |
+| `Send-PrintixJobFile` | PUT | Upload URL supplied by the submission response | [File upload](https://printix.github.io/#_upload_a_file) |
+
+## Output and paging
+
+Read commands extract resource properties where the API uses a wrapper (`users`, `job`, `printers`, and so on).
+Site, network, SNMP and workstation detail endpoints already return the resource directly.
+Mutation commands retain the full response, including job upload links. Use `-Raw` on read commands to retain HAL links, paging information and other metadata.
+Collection commands return one page by default. `-All` follows HAL `next` links sequentially. `-Page` is zero-based; `-PageSize` is passed to the service.
+`Get-PrintixRoot` returns tenant links rather than inventing an undocumented tenant-list endpoint.
+`Get-PrintixUsers` explicitly requests both `USER` and `GUEST_USER` by default, overriding the API's guest-only default. Pass `-Role` to filter to specific user types; `-All` still controls pagination independently.
+
+## Body fields
+
+Create and update commands expose documented body fields as named parameters. Only explicitly bound fields are serialized, preserving `false`, empty arrays and zero where permitted.
+Update operations use PUT, not PATCH; consult Printix for any server-side replacement/default semantics before omitting existing field values.
+SecureString parameters are converted only for transmission. Service responses may contain user passwords, PINs and card data; handle those outputs as sensitive.
+The upstream SNMP documentation spells the 256-bit privacy option `ASE256`; the module deliberately preserves that wire value.
+
+## Submission
+
+`New-PrintixJob` defaults to version 1.1 with named print settings. Use `-LegacyTicket` for the original ticket schema without a version header.
+Upload every returned `uploadLinks` entry using `Send-PrintixJobFile`, then call `Complete-PrintixJobUpload` or follow the response's `uploadCompleted` link.
+Cloud storage calls never receive the Printix bearer token. No command automatically retries a failed submission or other mutation except on HTTP 429, which Printix documents as performing no work.
+
+## Application permissions
+
+:::warning[Application types are not scopes]
+
+Each Printix application has **one mutually exclusive type**. These are not OAuth
+scopes that can be combined on a single application or token. You cannot mix Cloud
+Print API, Card manager, Go registration, Workstation monitoring and User manager
+types in one application. An integration spanning types needs separate applications
+and credential sets.
+
+The module holds **one active Cloud Print connection**. Call `Connect-Printix` with the
+appropriate credentials before changing to operations that require another type.
+Reconnecting replaces the previous connection; token renewal does not change its type.
+Successful authentication or user listing does not grant access to other endpoints.
+The [Partner API connection](./partner-api.mdx) is separate and does not replace
+this Cloud Print connection.
+
+:::
+
+### Required types by operation
+
+The requirements below preserve the [API reference's terminology](https://printix.github.io/).
+An **or** means alternative accepted types, not scopes to select together.
+"Not stated" means the endpoint documentation does not specify a Premium prerequisite;
+it is not a guarantee about licensing.
+
+| Commands | Required application type | Printix Premium |
+| --- | --- | --- |
+| `Get-PrintixRoot` | Any application type | Not stated |
+| `Get-PrintixPrintQueues`, `Get-PrintixPrinter` | Cloud Print API or Card registration (API term) | Required |
+| `New-PrintixJob` (both versions), `Get-PrintixJobs`, `Get-PrintixPrintQueueJobs`, `Get-PrintixJob`, `Remove-PrintixJob`, `Complete-PrintixJobUpload`, `Set-PrintixJobOwner` | Cloud Print API or Card registration (API term) | Required |
+| `New-PrintixUser -Role USER` | User manager only | Required |
+| `New-PrintixUser -Role GUEST_USER` | User manager, Cloud Print API or Card registration (API term) | Required |
+| `Get-PrintixUsers`, `Remove-PrintixUser` | User manager, Cloud Print API or Card registration (API term) | Required |
+| `Get-PrintixUser` | Card registration (API term) | Required |
+| `New-PrintixUserIdCode` | Card registration (API term), **not User manager** | Not stated |
+| `Register-PrintixCard`, `Remove-PrintixCard` | Card manager | Not stated |
+| `Get-PrintixCard` | Card registration (API term) | Not stated |
+| `New-PrintixGroup`, `Get-PrintixGroup`, `Get-PrintixGroups`, `Remove-PrintixGroup` | Cloud Print API | Not stated |
+| `New-PrintixSite`, `Get-PrintixSite`, `Get-PrintixSites`, `Set-PrintixSite`, `Remove-PrintixSite` | Cloud Print API | Required |
+| `New-PrintixNetwork`, `Get-PrintixNetwork`, `Get-PrintixNetworks`, `Set-PrintixNetwork`, `Remove-PrintixNetwork` | Cloud Print API | Required |
+| `New-PrintixSnmpConfiguration`, `Get-PrintixSnmpConfiguration`, `Get-PrintixSnmpConfigurations`, `Set-PrintixSnmpConfiguration`, `Remove-PrintixSnmpConfiguration` | Cloud Print API | Required |
+| `Get-PrintixWorkstation`, `Get-PrintixWorkstations` | Workstation monitoring only | Not stated |
+| `Send-PrintixJobFile` | No Printix authentication; uses the signed storage URL from a successful submission | Not applicable |
+
+`Invoke-PrintixRequest` inherits the requirement of the endpoint being called.
+`Connect-Printix` obtains a token for the supplied application's type;
+`Disconnect-Printix` and `Test-PrintixWebhookSignature` do not call protected API endpoints.
+The documented user-delete operation deletes guest users.
+
+### Card registration versus Card manager
+
+The Administrator dialog supplied with this project lists **Cloud Print API**,
+**Card manager**, **Go registration**, **Workstation monitoring** and **User manager**.
+The API reference instead says **Card registration** for ID-code generation, single-user
+lookup, card lookup and several other endpoints, but **Card manager** for card
+registration and deletion.
+
+This terminology is inconsistent. This reference deliberately retains the API's
+per-endpoint labels rather than inventing a scope or assuming Go registration is
+Card registration. Confirm the matching card application's capabilities in your
+tenant (or with Printix support). Generating an ID code with the appropriate card
+application was verified in the reported tenant after User manager returned `FORBIDDEN`.
+
+### Switching applications and troubleshooting
+
+For example, listing users and then monitoring workstations requires switching
+from Cloud Print API (or another accepted user-list type) to Workstation monitoring:
+
+```powershell
+Connect-Printix -ClientId $cloudPrintClientId -ClientSecret $cloudPrintSecret -TenantId $tenantId
+Get-PrintixUsers -All
+
+Connect-Printix -ClientId $workstationClientId -ClientSecret $workstationSecret -TenantId $tenantId
+Get-PrintixWorkstations -All
+```
+
+Both secrets above must be SecureString values. Reconnect again before returning
+to an operation that needs the first application's type.
+
+On `FORBIDDEN`, check the current application's type against the matrix first,
+then check the tenant and licensing. User manager is not sufficient for ID-code
+generation, and Cloud Print API is not sufficient for workstation monitoring.
+If the correct application still fails, retain `printix-errorId` and the response
+timestamp for Printix support. Do not share client secrets or bearer tokens.
+
+API credentials are incompatible with the tenant-wide 'All users must print securely' configuration; use group-based secure printing as documented by Printix.
+
+## Webhooks
+
+Webhook registration is performed in Printix Administrator; no management endpoint is documented.
+`Test-PrintixWebhookSignature` checks HMAC-SHA512 over the exact received UTF-8 body and enforces a 15-minute emitted-time window.
+It accepts either configured shared secret to support key rotation. The caller supplies one incoming signature header value at a time and must send the webhook HTTP response itself.

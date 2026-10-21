@@ -1,0 +1,202 @@
+---
+title: New-PrintixPartnerTenant
+hide_title: false
+hide_table_of_contents: false
+---
+
+:::powershell[Generated Cmdlet Help]
+This page is generated from the Printix module. Edit the corresponding PowerShell source to update it.
+:::
+
+## SYNOPSIS
+Creates a partner-managed Printix tenant.
+
+## SYNTAX
+
+### NoInitialUser (Default)
+```powershell
+New-PrintixPartnerTenant [-PartnerId <String>] -TenantName <String> -TenantDomain <String>
+ [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### InitialUser
+```powershell
+New-PrintixPartnerTenant [-PartnerId <String>] -TenantName <String> -TenantDomain <String>
+ -InitialUserEmail <String> -InitialUserName <String> [-CreateInitialUserAsAdmin]
+ [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+## DESCRIPTION
+Required application type: partner API credentials issued by Printix.
+Returns the full created tenant resource and embedded billing information.
+Without an initial user, no users are created and the partner must invite them.
+Initial users who have never signed in may need to reset their password.
+
+## EXAMPLES
+
+### EXAMPLE 1
+```powershell
+New-PrintixPartnerTenant -TenantName 'Acme Co.' -TenantDomain acme
+```
+
+### EXAMPLE 2
+```powershell
+New-PrintixPartnerTenant -TenantName 'Acme Co.' -TenantDomain acme -InitialUserEmail admin@acme.example -InitialUserName 'Alex Admin' -CreateInitialUserAsAdmin
+```
+
+## PARAMETERS
+
+### -PartnerId
+The partner ID, defaulting to the partner connection's ID.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TenantName
+The display name, up to 100 characters.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TenantDomain
+The subdomain prefix, using only lowercase ASCII letters, digits and dashes.
+For acme.printix.net, supply acme, not the full domain.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -InitialUserEmail
+The initial user's email and login name.
+Requires InitialUserName.
+
+```yaml
+Type: String
+Parameter Sets: InitialUser
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -InitialUserName
+The initial user's name.
+Requires InitialUserEmail.
+
+```yaml
+Type: String
+Parameter Sets: InitialUser
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -CreateInitialUserAsAdmin
+Create the initial user as an administrator.
+Defaults to false.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: InitialUser
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+Controls progress-record handling. Available in PowerShell 7.4 and later.
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+### System.Object
+## NOTES
+
+## RELATED LINKS
+
+[https://printix.github.io/partner-api/#_create_new_tenant](https://printix.github.io/partner-api/#_create_new_tenant)
+

@@ -1,0 +1,114 @@
+---
+title: Connect-Printix
+hide_title: false
+hide_table_of_contents: false
+---
+
+:::powershell[Generated Cmdlet Help]
+This page is generated from the Printix module. Edit the corresponding PowerShell source to update it.
+:::
+
+## SYNOPSIS
+Connects to the Printix Cloud Print API using OAuth client credentials.
+
+## SYNTAX
+
+```powershell
+Connect-Printix [-ClientId] <String> [-ClientSecret] <SecureString> [[-TenantId] <String>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
+```
+
+## DESCRIPTION
+Obtains an access token and retains credentials in module memory for renewal.
+A new connection replaces the previous connection.
+Credentials are never written to disk.
+Printix application types are mutually exclusive, not combinable OAuth scopes.
+Each application has one type; use separate applications and credentials for operations
+that require different types.
+Reconnect to switch the active Cloud Print connection.
+The Partner API uses a separate connection managed by Connect-PrintixPartner.
+Successful authentication does not authorize every endpoint.
+
+## EXAMPLES
+
+### EXAMPLE 1
+```powershell
+Connect-Printix -ClientId $clientId -ClientSecret (Read-Host 'Client secret' -AsSecureString) -TenantId $tenantId
+```
+
+## PARAMETERS
+
+### -ClientId
+The application client ID from Printix Administrator.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ClientSecret
+The application secret as a SecureString.
+
+```yaml
+Type: SecureString
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TenantId
+Optional default tenant ID for subsequent commands.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+Controls progress-record handling. Available in PowerShell 7.4 and later.
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+### System.Void
+## NOTES
+
+## RELATED LINKS
+
+[https://printix.github.io/#_authentication](https://printix.github.io/#_authentication)
+

@@ -1,0 +1,117 @@
+---
+title: Documentation and help generation
+sidebar_position: 2
+---
+
+# Documentation and help generation
+
+## Sources of truth
+
+All published documentation uses **MDX** under `docs\Printix`. The root README is
+a short repository landing page; the docs overview contains installation,
+connection examples and application-type guidance.
+
+| Content | Edit here |
+| --- | --- |
+| Command synopsis, parameters, examples and notes | Comment-based help in `Source\Public` |
+| Generated command reference | Regenerate `docs\Printix\commandlets`; do not hand-edit |
+| Overview, API coverage and Partner guide | Corresponding authored `.mdx` page |
+| Contributor and publishing guides | `docs\Printix\development` |
+
+When updating a badge or installation example, check both the README and docs
+overview. Their license links differ because the overview is published in another
+repository.
+
+## Generate command help
+
+```powershell
+.\DevOps\Build\bootstrap.ps1
+.\DevOps\Help\Update-Help.ps1
+```
+
+The generator imports the source module and uses platyPS to write temporary
+Markdown into `.artifacts\HelpMarkdown`. It then:
+
+1. Rejects unresolved platyPS placeholders, with a compatibility replacement for
+   the newer `ProgressAction` common parameter.
+1. Replaces platyPS metadata with Docusaurus frontmatter and a generated-help notice.
+1. Adds PowerShell language labels to unlabelled fenced code blocks.
+1. Escapes JSX-sensitive braces and angle brackets in prose while preserving
+   inline and fenced code.
+1. Places each command's `.mdx` page under its public-source category.
+1. Removes processed staging Markdown and legacy flat command Markdown files.
+
+Inspect the resulting diff. The generator is not a general cleanup tool for all
+orphaned MDX: when removing or moving a command, review and remove its old generated
+page explicitly. Source-module export and manifest changes must agree before
+regenerating.
+
+## MDX conventions
+
+Use YAML frontmatter with a title and `sidebar_position` for authored guides.
+Use relative `.mdx` links between local pages, and language-labelled code fences.
+Keep literal JSX-sensitive text inside inline code or escape it in prose.
+
+The helper converts generated help, not authored guides: an unescaped brace or
+angle bracket in a hand-written page can still break the site's MDX build.
+PowerShell tests and help generation do not replace a Docusaurus build in the
+documentation repository.
+
+## What each sync publishes
+
+| Workflow | Source | Destination inside homotechsualdocs |
+| --- | --- | --- |
+| Sync Development Documentation, automatic | Exact successful develop-push CI artifact | `docs/printix/development` and `docs/printix/index.mdx` |
+| Sync Development Documentation, manual | Current develop checkout | Same development/overview paths |
+| Publish Documentation, automatic | Exact successful Publish artifact | Complete `docs/printix` MDX tree |
+| Publish Documentation, manual | Current main with freshly generated help | Complete `docs/printix` MDX tree |
+
+Development sync does not update command help, API coverage or the Partner guide.
+An overview change linking to a new release-only page can therefore create a
+temporary broken site link; coordinate publishing those changes.
+
+The helper removes stale `.md` and `.mdx` files only within the selected target
+tree, removes a legacy overview `.md` during development sync, and preserves other
+modules and existing assets. Full sync rejects non-MDX source files; symbolic links
+and junctions are rejected. Image publishing is not implemented.
+
+A full release sync includes the development guides from the release artifact.
+If develop contains newer guides, a later release sync can replace them with the
+release snapshot. A subsequent development sync restores develop's guides.
+
+## Manual dry-run and publishing
+
+The workflow definitions must be present on main. Start manual runs on main even
+when synchronizing develop content:
+
+```powershell
+gh workflow run sync-development-docs.yml --ref main -f dry_run=true
+gh run list --workflow sync-development-docs.yml --limit 5
+```
+
+After inspecting the run, repeat with `dry_run=false` to push. A dry-run still
+needs the docs token and may need environment approval: it checks out the
+destination and prepares a local commit but does not push it.
+
+For a full docs-only refresh from current main:
+
+```powershell
+gh workflow run publish-docs.yml --ref main -f dry_run=true
+```
+
+Repeat with `dry_run=false` only when ready to publish all current main docs.
+This workflow does not publish the PowerShell module.
+
+Manual full publishing is not a replay of a selected release artifact. To retry
+the exact artifact from an automatic release-docs run, rerun that docs workflow
+while its upstream artifact is still available rather than launching a manual
+refresh against newer main.
+
+Both Printix docs workflows serialize through `printix-docs`. This does not lock
+the destination against pushes by NinjaOne, HaloAPI or people. A non-fast-forward
+push fails explicitly; inspect the competing changes and rerun instead of forcing
+the destination branch.
+
+The destination repository owns the Docusaurus build and site deployment. A
+successful sync proves the documentation commit was pushed, not that the site
+build or deployment succeeded.
