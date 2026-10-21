@@ -1,0 +1,109 @@
+---
+title: Get-PrintixPartnerTenants
+hide_title: false
+hide_table_of_contents: false
+---
+
+:::powershell[Generated Cmdlet Help]
+This page is generated from the Printix module. Edit the corresponding PowerShell source to update it.
+:::
+
+## SYNOPSIS
+Lists tenants managed by a Printix partner.
+
+## SYNTAX
+
+```powershell
+Get-PrintixPartnerTenants [[-PartnerId] <String>] [-IncludeInactive] [-Raw]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
+```
+
+## DESCRIPTION
+Required application type: partner API credentials issued by Printix.
+Returns active tenants unless IncludeInactive is supplied.
+The Partner API documents no pagination parameters for this operation.
+
+## EXAMPLES
+
+### EXAMPLE 1
+```powershell
+Get-PrintixPartnerTenants -IncludeInactive
+```
+
+## PARAMETERS
+
+### -PartnerId
+The partner ID.
+Defaults to the partner selected by Connect-PrintixPartner.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -IncludeInactive
+Include deactivated and deleted tenants.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Raw
+Return the full HAL document rather than its tenants array.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+Controls progress-record handling. Available in PowerShell 7.4 and later.
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+### System.Object
+## NOTES
+
+## RELATED LINKS
+
+[https://printix.github.io/partner-api/#_list_tenants](https://printix.github.io/partner-api/#_list_tenants)
+

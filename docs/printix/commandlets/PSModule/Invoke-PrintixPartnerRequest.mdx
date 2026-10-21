@@ -1,0 +1,188 @@
+---
+title: Invoke-PrintixPartnerRequest
+hide_title: false
+hide_table_of_contents: false
+---
+
+:::powershell[Generated Cmdlet Help]
+This page is generated from the Printix module. Edit the corresponding PowerShell source to update it.
+:::
+
+## SYNOPSIS
+Sends an authenticated request to the production Partner API.
+
+## SYNTAX
+
+```powershell
+Invoke-PrintixPartnerRequest [-Resource] <String> [[-Method] <String>] [[-Query] <Hashtable>]
+ [[-Body] <Object>] [[-Headers] <Hashtable>] [[-ResponseProperty] <String>] [-Raw] [[-MaxRetryCount] <Int32>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
+```
+
+## DESCRIPTION
+Required application type: partner API credentials issued by Printix.
+Uses the separate partner connection and application/hal+json responses.
+Only HTTPS links under api.printix.net/public/partners are accepted.
+HTTP 429 retries respect Retry-After when supplied, otherwise use backoff.
+
+## EXAMPLES
+
+### EXAMPLE 1
+```powershell
+Invoke-PrintixPartnerRequest -Resource $tenant._links.'px:billing-info'.href
+```
+
+## PARAMETERS
+
+### -Resource
+A path relative to public/partners, or an absolute Partner API HAL link.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Method
+The HTTP method, defaulting to GET.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: GET
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Query
+Query parameters, including the documented include-inactive or embed fields.
+
+```yaml
+Type: Hashtable
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: @{}
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Body
+An object to serialize as JSON, or JSON text.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Headers
+Additional headers.
+Authorization cannot be overridden.
+
+```yaml
+Type: Hashtable
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 5
+Default value: @{}
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ResponseProperty
+The response field to emit.
+Defaults to returning the complete document.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 6
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Raw
+Return the complete response even when ResponseProperty is specified.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -MaxRetryCount
+The maximum number of HTTP 429 retries.
+Other failures terminate.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 7
+Default value: 5
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+Controls progress-record handling. Available in PowerShell 7.4 and later.
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+### System.Object
+## NOTES
+
+## RELATED LINKS
+
+[https://printix.github.io/partner-api/](https://printix.github.io/partner-api/)
+

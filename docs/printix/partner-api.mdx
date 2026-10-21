@@ -1,0 +1,154 @@
+---
+title: Partner API
+sidebar_position: 2
+---
+
+# Partner API
+
+The module includes all four operations documented by the
+[Printix Partner API](https://printix.github.io/partner-api/).
+All partner commands use the `PrintixPartner` noun prefix, keeping them distinct
+from tenant-level Cloud Print commands.
+
+## Credentials and connection
+
+Partner credentials are **not** one of the tenant application types selected in
+Printix Administrator. Obtain a partner ID, client ID and client secret directly
+from Printix. A Cloud Print API, User manager or other tenant application's
+credentials do not automatically grant Partner API access.
+
+Store the partner secret separately in your organization's approved key vault or
+secrets manager. This example uses an already registered SecretManagement vault;
+follow the [secrets and key vaults guide](./secrets.mdx) to prepare it first.
+
+```powershell
+Import-Module Microsoft.PowerShell.SecretManagement -ErrorAction Stop
+
+$ConnectPrintixPartnerParams = @{
+    ClientId = 'your-partner-client-id'
+    ClientSecret = Get-Secret -Name 'Printix-Partner-ClientSecret' -Vault 'OrganizationVault' -ErrorAction Stop
+    PartnerId = 'your-partner-id'
+    ErrorAction = 'Stop'
+}
+
+if ($ConnectPrintixPartnerParams.ClientSecret -isnot [securestring]) {
+    throw 'The vault secret must be a string secret returned as SecureString.'
+}
+
+Connect-PrintixPartner @ConnectPrintixPartnerParams
+Remove-Variable ConnectPrintixPartnerParams
+```
+
+The hashtable uses PowerShell splatting; the client secret is passed directly as
+a `SecureString`, without `-AsPlainText`. Restrict access to partner credentials
+independently from tenant credentials because they enable partner-level operations.
+Removing the hashtable does not disconnect the module.
+
+The module maintains **one Cloud Print connection and one independent partner
+connection**. Connecting or disconnecting one does not replace or clear the other.
+Cloud Print application types remain mutually exclusive within the Cloud Print
+connection; partner credentials do not combine or bypass those types.
+
+Partner tokens and credentials are held only in memory. Expiring partner access
+tokens are renewed using the returned refresh token, including rotated refresh
+tokens. If the service does not issue a refresh token, renewal uses client
+credentials. Authentication and refresh errors terminate; they are not silently
+replaced with another identity or grant.
+
+This implementation targets **production**: `https://auth.printix.net/oauth/token`
+and `https://api.printix.net/public/partners`. The upstream document mentions a
+test authentication host but does not specify a corresponding test API base URL;
+test-environment routing is not exposed by this module.
+
+See [Connect-PrintixPartner](./commandlets/PSModule/Connect-PrintixPartner.mdx).
+
+## Endpoint coverage
+
+Paths are relative to `https://api.printix.net/public/partners`.
+`PartnerId` defaults to the value passed to `Connect-PrintixPartner`; each endpoint
+can override it explicitly with `-PartnerId`. Tenant IDs are explicitly supplied
+and are not borrowed from the Cloud Print connection.
+
+| Command | Method | Resource | Options |
+| --- | --- | --- | --- |
+| [Get-PrintixPartnerTenants](./commandlets/Get/Get-PrintixPartnerTenants.mdx) | GET | `{PartnerId}/tenants` | `-IncludeInactive`, `-Raw` |
+| [New-PrintixPartnerTenant](./commandlets/New/New-PrintixPartnerTenant.mdx) | POST | `{PartnerId}/tenants` | Tenant name/domain, optional initial user |
+| [Get-PrintixPartnerTenant](./commandlets/Get/Get-PrintixPartnerTenant.mdx) | GET | `{PartnerId}/tenants/{TenantId}` | `-EmbedBillingInfo` |
+| [Get-PrintixPartnerTenantBillingInfo](./commandlets/Get/Get-PrintixPartnerTenantBillingInfo.mdx) | GET | `{PartnerId}/tenants/{TenantId}/billing-info` | Current/previous periods and license count when returned |
+
+Tenant listing extracts the `tenants` array by default; `-Raw` retains the complete
+HAL document and its links. Other operations return their complete resource,
+including HAL links and any embedded billing information.
+
+The Partner API documents **no paging parameters** for tenant listing. These
+commands do not invent `-All`, `-Page` or `-PageSize` parameters.
+
+## Examples
+
+### List active and inactive tenants
+
+```powershell
+Get-PrintixPartnerTenants
+Get-PrintixPartnerTenants -IncludeInactive
+```
+
+`-IncludeInactive` sends `include-inactive=true` and includes deactivated and
+deleted tenants. Without it, the module explicitly requests active tenants only.
+
+### Inspect a tenant and its billing
+
+```powershell
+$tenant = Get-PrintixPartnerTenant -TenantId $tenantId -EmbedBillingInfo
+$tenant._embedded.billing_info
+
+Get-PrintixPartnerTenantBillingInfo -TenantId $tenantId
+```
+
+Billing fields retain their documented names, including `current_billing_period`,
+`previous_billing_period` and `current_user_licenses` when present.
+
+### Create a tenant
+
+```powershell
+New-PrintixPartnerTenant -TenantName 'Acme Co.' -TenantDomain acme -WhatIf
+
+New-PrintixPartnerTenant -TenantName 'Acme Co.' -TenantDomain acme `
+    -InitialUserEmail admin@acme.example -InitialUserName 'Alex Admin' `
+    -CreateInitialUserAsAdmin
+```
+
+The tenant display name has a 100-character limit. `TenantDomain` is the prefix
+(`acme`), not the full `acme.printix.net` hostname, and permits only lowercase
+ASCII letters, digits and dashes.
+
+If initial-user fields are omitted, no initial user is created. Supplying an
+initial user requires both email and name. Administrator creation defaults to
+false unless `-CreateInitialUserAsAdmin` is supplied. New users may need a
+password reset before their first sign-in.
+
+Tenant creation supports `-WhatIf` and `-Confirm`. A failed creation is not
+automatically repeated except for HTTP 429, using bounded rate-limit retries.
+There are no documented tenant update or delete operations in this Partner API.
+
+### Follow a Partner API HAL link
+
+```powershell
+Invoke-PrintixPartnerRequest -Resource $tenant._links.'px:billing-info'.href
+```
+
+[Invoke-PrintixPartnerRequest](./commandlets/PSModule/Invoke-PrintixPartnerRequest.mdx)
+accepts relative partner paths or absolute Partner API links. It uses the partner
+token and `Accept: application/hal+json`. Cloud Print and Partner API requests
+reject each other's paths; off-origin links and HTTP redirects cannot receive
+the module's bearer tokens.
+
+On HTTP 429, partner requests use the Printix retry-delay header if present, or
+standard `Retry-After`, otherwise exponential backoff with jitter. No shared
+Cloud Print rate-limit budget is assumed for the Partner API.
+
+```powershell
+Disconnect-PrintixPartner
+```
+
+This clears only the partner connection. `Disconnect-Printix` clears only the
+Cloud Print connection.
