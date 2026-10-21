@@ -82,6 +82,29 @@ const CategoryList = [
         nugetPackage: false,
         dockerHub: false
       },
+      {
+        title: 'Printix',
+        description: (
+          <>
+            A PowerShell module for interacting with the Printix APIs. Including the Printix Partner API.
+          </>
+        ),
+        link: {
+          href: '/modules/printix',
+          label: 'Docs',
+        },
+        github: {
+          href: 'https://github.com/homotechsual/printix',
+          repo: 'printix',
+          owner: 'homotechsual'
+        },
+        psgallery: {
+          href: 'https://www.powershellgallery.com/packages/Printix'
+        },
+        npmPackage: false,
+        nugetPackage: false,
+        dockerHub: false
+      }
       /*{
         title: 'NinjaGet',
         description: (
