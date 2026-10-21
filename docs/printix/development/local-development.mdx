@@ -1,0 +1,127 @@
+---
+title: Local development and quality gates
+sidebar_position: 1
+---
+
+# Local development and quality gates
+
+## Prerequisites
+
+Use PowerShell 7 or later from the repository root. Windows PowerShell 5.1 is not
+supported. Git is needed for contribution and release work; GitHub CLI (`gh`) is
+useful for inspecting Actions runs but is not a module runtime dependency.
+
+Bootstrap installs missing development modules from PSGallery into the current
+user scope, using the exact versions in `DevOps\Build\RequiredModules.psd1`:
+
+| Tool | Pinned version | Purpose |
+| --- | --- | --- |
+| ModuleBuilder | 3.2.18 | Produce the versioned distributable |
+| Pester | 6.2.0 | Run offline regression tests |
+| PSScriptAnalyzer | 1.25.0 | Analyze source and development scripts |
+| platyPS | 0.14.2 | Generate command help before MDX conversion |
+
+```powershell
+.\DevOps\Build\bootstrap.ps1
+```
+
+Bootstrap does not install Git hooks, authenticate to Printix, publish packages,
+or configure GitHub secrets. There are no runtime module dependencies.
+
+## Repository layout
+
+| Path | Responsibility |
+| --- | --- |
+| `Source\Printix.psd1` | Version, metadata and explicit public exports |
+| `Source\Printix.psm1` | Source loader for initialization, private and public functions |
+| `Source\Initialisation.ps1` | Module state and cryptography initialization |
+| `Source\Public` | Exported commands grouped by category |
+| `Source\Private` | Shared transport, authentication and serialization helpers |
+| `Tests` | Pester regression tests, including docs sync and release gates |
+| `DevOps\Build` | Bootstrap, packaging and release validation |
+| `DevOps\Quality` | Static analysis and test runners |
+| `DevOps\Help` | Help generation and scoped documentation synchronization |
+| `docs\Printix` | Authored MDX guides and generated command reference |
+| `Output\Printix` | Built versioned module; not the source of truth |
+| `.artifacts` | Local test results and temporary help staging |
+| `.github\workflows` | CI, Gallery/release publishing and the two docs workflows |
+
+## Validate a change
+
+Run this sequence before submitting a change affecting code or command help:
+
+```powershell
+.\DevOps\Help\Update-Help.ps1
+.\DevOps\Quality\test.ps1
+.\DevOps\Build\build.ps1
+.\DevOps\Quality\test.ps1 -UseBuiltModule -SkipScriptAnalyzer
+```
+
+The first test invocation analyzes `Source` and `DevOps`, then runs all Pester
+tests against the source manifest. The second test invocation verifies the
+packaged module; analysis is skipped because the source was already checked.
+Results are written to `.artifacts\TestResults.xml` and replaced by subsequent runs.
+
+The test runner removes loaded Printix versions before selecting the source or
+built manifest. This prevents a previously imported version from hiding packaging
+or module-scope failures.
+
+For a focused regression during implementation:
+
+```powershell
+Import-Module Pester -RequiredVersion 6.2.0
+Invoke-Pester -Path .\Tests\Printix.DocsPublishing.Tests.ps1
+```
+
+Use the project test runner for final source/packaged validation. A direct Pester
+invocation does not automatically perform the analyzer pass or select a built
+module.
+
+Run analysis alone with:
+
+```powershell
+.\DevOps\Quality\run-pssa.ps1
+```
+
+All API tests are mocked. Passing them does not establish that live tenant
+permissions, licensing, printer behaviour or partner credentials work.
+
+## Build tasks
+
+The default build task is **build only**. It never publishes or pushes.
+
+| Task | Behaviour |
+| --- | --- |
+| `build` | Build with ModuleBuilder, validate the built manifest, copy license, README and changelog into the package |
+| `test` | Run the quality runner against the built module |
+| `updateHelp` | Generate command-reference MDX from source help |
+| `publish` | Publish an existing build to PSGallery; requires `-NuGetApiKey` |
+
+```powershell
+.\DevOps\Build\build.ps1 -TaskNames build, test
+```
+
+The output directory includes the source manifest's version. A manifest version
+change therefore requires a fresh build before testing with `-UseBuiltModule`.
+There are no NinjaOne-style `clean`, `push` or `publishDocs` tasks here.
+Prefer the GitHub release workflow over local publishing so validation and
+artifact provenance remain visible.
+
+## Adding or changing a command
+
+1. Verify the documented HTTP method, path, payload, response relation and required
+   Printix application type. Do not infer endpoint support from authentication success.
+1. Search for an existing wrapper and reuse shared request, query and body helpers.
+   Partner commands must retain the `PrintixPartner` prefix and separate connection.
+1. Put the public function under the appropriate `Source\Public` category and add
+   it to `FunctionsToExport` in the source manifest.
+1. Document parameters, examples, output and required application type in
+   comment-based help. Mutations must preserve `SupportsShouldProcess` behaviour.
+1. Add mocked tests for wire-format details, errors and relevant edge cases.
+   Keep credentials, tenant responses and live API calls out of test fixtures.
+1. Regenerate help and update the overview, API coverage or Partner guide where
+   the public contract changes.
+1. Test both source and built modules, and review the generated MDX diff.
+
+Keep Cloud Print and Partner tokens isolated. Authenticated requests must retain
+origin/path restrictions; signed storage uploads must not receive API bearer tokens.

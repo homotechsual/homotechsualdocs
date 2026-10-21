@@ -1,0 +1,118 @@
+---
+title: Development and publishing troubleshooting
+sidebar_position: 3
+---
+
+# Development and publishing troubleshooting
+
+## Development sync was skipped
+
+Inspect the upstream run, not just the branch shown on the downstream
+`workflow_run` entry. The downstream workflow runs from the default branch;
+the guard checks `github.event.workflow_run.head_branch` from the upstream CI run.
+
+```powershell
+gh run list --workflow ci.yml --limit 10
+gh run list --workflow sync-development-docs.yml --limit 10
+gh run view RUN_ID
+```
+
+Replace `RUN_ID` with the numeric run ID. Automatic development sync requires:
+
+- Successful **CI**, not a failed or cancelled run.
+- A **push** event, not a pull request or manually dispatched CI run.
+- Upstream branch **develop**, not main.
+- The same source repository, not a fork.
+
+A main push skipping development sync is expected. To sync without another
+develop push, use the manual docs workflow on main; it reads develop.
+Full release-docs publishing follows **Publish**, not ordinary main CI.
+
+## Workflow does not appear or uses old tooling
+
+Merge the workflow and publishing-helper changes into main. `workflow_run`
+listeners must exist on the default branch, and both publishers deliberately
+check out their tooling from main. Pushing helper changes only to develop will
+not change the publishing implementation.
+
+If a manual development sync cannot check out develop, confirm the branch exists
+on origin. Manual runs launched from another branch are skipped by design.
+
+## Documentation artifact cannot be downloaded
+
+The upstream CI or Publish run must have uploaded an artifact named `module-docs`.
+The docs publisher downloads from that exact run ID, not the latest successful
+run or a locally generated folder.
+
+Inspect upstream build/help-generation/upload failures first. Expired or deleted
+artifacts cannot be recovered by rerunning only the downloader. For current docs,
+use the manual docs workflow; it does not require a Gallery publication.
+For a historical release, retain the release context rather than substituting
+newer main content silently.
+
+## Environment approval or token failure
+
+Pending environment approval is not a skipped job. Check the **Documentation**
+or **PSGallery** environment's reviewers and deployment-branch restrictions.
+The docs workflow executes from main even when its upstream source is develop.
+Tag-based Gallery runs also need to be permitted by the PSGallery environment.
+
+`DOCS_REPO_TOKEN` needs contents read/write access to
+`homotechsual/homotechsualdocs`. Confirm any organization approval and expiration.
+The destination's branch rules must permit direct pushes by that token;
+the workflow does not bypass rules or open a PR automatically.
+
+Do not print tokens or put them into troubleshooting commands, commits or issue
+reports. A no-change run does not exercise a real push, so it does not prove that
+the token can write.
+
+## Sync rejects the source
+
+The source root and development subtree each need `index.mdx` for development
+sync. Full sync accepts MDX documents only. Check for legacy `.md`, unexpected
+assets, symbolic links or junctions before rerunning.
+
+Do not work around validation by broadening deletion paths. The helper owns only
+the selected Printix documentation tree and intentionally preserves other modules.
+
+## Sync succeeded but the website did not change
+
+Check whether the run was a dry-run or reported no changes. If it pushed, inspect
+the destination repository's commit and site build/deployment.
+
+For a failed site build, inspect MDX syntax, relative links, the Printix docs
+plugin and sidebar. A newly linked release-only page may not exist yet if only
+development docs were synced.
+
+## Local validation failures
+
+| Symptom | Next step |
+| --- | --- |
+| A development module cannot be imported | Run bootstrap and compare installed versions with `RequiredModules.psd1` |
+| Built manifest not found | Build after the latest source manifest version change |
+| Pester sees the wrong Printix version | Use the project test runner, which unloads existing versions and selects the intended manifest |
+| Unresolved help placeholders | Complete the source comment-based help, then regenerate |
+| ScriptAnalyzer failure | Run `run-pssa.ps1` and fix the reported source/development script diagnostics |
+| Generated MDX does not reflect a change | Edit source help, not generated output, and regenerate from the current checkout |
+
+For support, include the command, PowerShell version, tool versions, relevant
+redacted output and Actions run link. Do not include API credentials or sensitive
+Printix user responses.
+
+## Recovering a partial release
+
+1. Inspect which Publish job failed: build, Gallery publication or GitHub release.
+1. If validation failed before publication, fix and validate the source before
+   retrying a release.
+1. If Gallery already contains that version, do not rerun its publishing job.
+   Gallery versions are immutable.
+1. If only the GitHub release job failed, resolve its cause and rerun that job.
+1. If only docs publishing failed, rerun the separate docs workflow while its
+   artifact is available, or deliberately use a current-main manual docs refresh.
+
+The full Publish workflow must conclude successfully before automatic release
+docs sync runs. A failed GitHub release job can therefore prevent docs sync even
+when Gallery publication succeeded.
+
+Do not delete or move an already published release tag to bypass version checks.
+Use a new version for subsequent package changes.

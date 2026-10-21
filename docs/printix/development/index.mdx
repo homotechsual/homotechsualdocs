@@ -1,9 +1,33 @@
 ---
-title: Development
+title: Overview
 sidebar_position: 3
 ---
 
 # Development and publishing
+
+## Contributor guides
+
+- [Local development and quality gates](./local-development.mdx): repository layout,
+  pinned tools, source versus packaged tests, and adding commands.
+- [Documentation and help generation](./documentation.mdx): MDX ownership, generated
+  command help, sync boundaries, and manual publishing.
+- [Troubleshooting](./troubleshooting.mdx): skipped workflows, artifact failures,
+  permissions, local tooling, and release recovery.
+
+## Branch and contribution workflow
+
+Target feature and documentation pull requests at **develop**. CI validates pull
+requests but does not publish their documentation. After merging to develop, the
+successful push CI run triggers development-docs sync.
+
+Promote reviewed changes from develop into main through a release PR. Main's
+ruleset requires approval and resolved review threads, blocks force pushes, and
+includes CodeQL and Copilot review rules. These rules are separate from the CI
+workflow; a green CI run does not by itself satisfy every branch rule.
+
+Changes to `workflow_run` publishing tooling must reach main before they take
+effect. Developing a new workflow only on develop does not install it on GitHub's
+default branch.
 
 ## Local validation
 
@@ -37,6 +61,29 @@ from main. Both docs workflows share a concurrency group to serialize pushes.
 Artifacts used by automated docs publishing are downloaded from the exact successful
 upstream run. The publishing tooling is checked out from main, not from the artifact.
 Documentation is scoped to `docs/printix`; other modules and assets are preserved.
+
+### Comparison with NinjaOne
+
+Both modules separate development-guide sync from release documentation publishing,
+push into the same documentation repository's main branch, and use
+`DOCS_REPO_TOKEN`. Both automatically update the module overview with development
+guides while leaving released command help unchanged on develop pushes.
+
+Printix intentionally differs in the following details:
+
+| Area | Printix behaviour |
+| --- | --- |
+| Automatic development source | The exact successful CI run's `module-docs` artifact, rather than checking out its source commit |
+| Publishing tooling | Always checked out from main, with same-repository and successful-push checks before automatic sync |
+| Manual runs | Started on main; development sync reads develop, full docs publishing regenerates main; both default to dry-run |
+| Release publishing | Follows successful Publish runs, including manual publication from main; NinjaOne's automatic docs publisher is tag-based |
+| Manual release recovery | Regenerates current main, rather than selecting a historical run ID and tag |
+| Copy boundaries | Development guide tree plus overview, or the full MDX tree for releases; no image-asset copying |
+| Concurrent pushes | The two Printix docs workflows share a concurrency group; other modules' workflows are not serialized by it |
+
+Printix currently has no docs image directory. Adding images requires extending the
+sync helper and tests first: full-tree sync rejects non-MDX source files. Do not
+assume NinjaOne's optional image sync is available here.
 
 ## Secrets and environments
 
@@ -98,3 +145,7 @@ will fail rather than silently pretending to publish.
 The docs workflow must exist on the default branch for `workflow_run` events.
 If Gallery publishing succeeds but a later release/docs step fails, rerun only the
 failed job where possible; do not republish an already published Gallery version.
+
+For a docs-only change, do not bump or republish the Gallery version just to
+refresh the site. Development guides and overview can sync from develop; a manual
+full docs run can regenerate main without publishing the module.
