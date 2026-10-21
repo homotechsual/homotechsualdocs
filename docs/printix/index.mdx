@@ -13,6 +13,8 @@ slug: /
 Printix is a PowerShell wrapper for the [Printix Cloud Print API](https://printix.github.io/).
 It covers print queues and jobs, users and ID codes, groups, cards, sites,
 networks, SNMP configurations and workstation monitoring.
+It also covers partner-managed tenant listing, creation, tenant details and
+billing information through the [Partner API](./partner-api.mdx).
 
 Requires **PowerShell 7.0 or later**; Windows PowerShell 5.1 is not supported.
 There are no runtime PowerShell module dependencies. This is an independent
@@ -25,8 +27,10 @@ has exactly one type. Workflows spanning types need separate applications and
 credentials; there is no single application type that grants all documented API operations.
 
 For example, **User manager cannot generate ID codes**, and **Cloud Print API
-cannot monitor workstations**. The module has one active connection:
+cannot monitor workstations**. The module has one active Cloud Print connection:
 reconnect using the appropriate application's credentials before switching types.
+The separate Partner API connection uses credentials issued directly by Printix
+and does not replace the active Cloud Print connection.
 See the [application permissions matrix](./api-coverage.mdx#application-permissions)
 for each command's requirements and the Card registration/Card manager naming discrepancy.
 
@@ -42,10 +46,20 @@ I strongly suggest you let Printix know how completely and entirely ridiculous t
 
 ## Installing
 
-This initial version is available from the source checkout; it has not yet been
-published to the PowerShell Gallery.
+Run the following in **PowerShell 7 or later** to install from
+[PowerShell Gallery](https://www.powershellgallery.com/packages/Printix) for the
+current user. Administrator privileges are not required:
 
-From the project root:
+```powershell
+Install-Module -Name Printix -Repository PSGallery -Scope CurrentUser
+Import-Module Printix
+```
+
+Review and accept PowerShell's repository trust prompt if shown.
+
+### Installing from source
+
+For development, import the module directly from the project root:
 
 ```powershell
 Import-Module .\Source\Printix.psd1
@@ -63,8 +77,18 @@ Bootstrap installs development tools; it is not required to use the source modul
 
 ## Updating
 
-After updating your checkout or rebuilding the module, reload it in existing
-sessions and reconnect:
+For an installation made with `Install-Module`, install the latest Gallery version:
+
+```powershell
+Update-Module -Name Printix
+```
+
+Updating does not replace a version already loaded in a PowerShell session.
+Start a new PowerShell session, run `Import-Module Printix`, and reconnect.
+Connections and credentials are not retained between sessions.
+
+For source-checkout installations, update your checkout or rebuild instead.
+Reload the source module in existing sessions and reconnect:
 
 ```powershell
 Remove-Module Printix
@@ -109,7 +133,7 @@ Get-PrintixUsers -All
 Get-PrintixUsers -Role USER -All
 ```
 
-User listing includes normal and guest users by default. Collection commands
+User listing includes normal and guest users by default. Cloud Print collection commands
 return one page unless `-All` is supplied. Use `-Raw` to retain the HAL document,
 including links and paging metadata. `-TenantId` overrides the connection default.
 
@@ -142,6 +166,9 @@ See [New-PrintixJob](./commandlets/New/New-PrintixJob.mdx) and the
 [endpoint reference](./api-coverage.mdx) for both submission versions.
 
 ## Output and troubleshooting
+
+For build, release, docs-publishing and PowerShell Gallery setup, see the
+[development and publishing guide](./development/index.mdx).
 
 Use `Get-Help <command> -Full` for local help and `-Verbose` for diagnostic output.
 Remote mutations and uploads support `-WhatIf` and `-Confirm`.

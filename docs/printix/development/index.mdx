@@ -1,0 +1,100 @@
+---
+title: Development
+sidebar_position: 3
+---
+
+# Development and publishing
+
+## Local validation
+
+```powershell
+.\DevOps\Build\bootstrap.ps1
+.\DevOps\Help\Update-Help.ps1
+.\DevOps\Quality\test.ps1
+.\DevOps\Build\build.ps1
+.\DevOps\Quality\test.ps1 -UseBuiltModule -SkipScriptAnalyzer
+```
+
+Edit command help in the PowerShell source, then regenerate MDX. All published
+documentation belongs under `docs\Printix` and must use `.mdx`, not `.md`.
+
+## GitHub Actions
+
+| Workflow | Trigger | Behaviour |
+| --- | --- | --- |
+| CI | Pull requests, pushes to main/develop, manual | Static analysis, offline tests, MDX generation, build, packaged tests, module and docs artifacts |
+| Publish | Push a `v*` tag, or manual from main | Validate version and main ancestry, generate docs, test and build, publish to Gallery; tagged runs create a GitHub release with a ZIP |
+| Publish Documentation | Successful Publish, or manual from main | Sync the complete verified MDX artifact into `homotechsual/homotechsualdocs` on main |
+| Sync Development Documentation | Successful develop-push CI, or manual from main | Sync the development guide and module overview from develop, preserving released command help |
+
+Release docs sync the complete `docs/printix` document tree. Develop-push CI syncs
+`docs/printix/development` and `docs/printix/index.mdx`, leaving released command help intact.
+Pull-request runs never push documentation or receive cross-repository credentials.
+Manual docs runs default to dry-run; disable `dry_run` to push.
+Manual development sync reads the develop branch while using publishing tooling
+from main. Both docs workflows share a concurrency group to serialize pushes.
+
+Artifacts used by automated docs publishing are downloaded from the exact successful
+upstream run. The publishing tooling is checked out from main, not from the artifact.
+Documentation is scoped to `docs/printix`; other modules and assets are preserved.
+
+## Secrets and environments
+
+| Secret | Where | Required access |
+| --- | --- | --- |
+| `PSGALLERY_API_KEY` | PSGallery environment | Gallery push new or update packages, restricted to Printix |
+| `DOCS_REPO_TOKEN` | Documentation environment, or repository/organization secret | Contents read/write on homotechsual/homotechsualdocs |
+| `GITHUB_TOKEN` | Automatically supplied | Job-scoped artifact reads and GitHub release writes |
+
+Create the **PSGallery** and **Documentation** environments and optionally configure
+required reviewers. The docs repository must permit the token to push to main;
+if its rules require PRs, direct sync will fail explicitly rather than bypassing them.
+The destination site's Printix docs plugin and sidebar must be configured.
+The module repository does not need deployment credentials for the docs site's host:
+the destination repository owns its site build/deployment.
+
+No live Printix credentials are required in CI. All API tests are mocked.
+
+## First PowerShell Gallery publication
+
+PowerShell Gallery does not require creating a GitHub-style package namespace.
+The manifest's module name is the Gallery package ID: **Printix**. The first
+successful publication of an available name establishes the publishing account as
+an owner. An API key name pattern is an authorization restriction, not a name reservation.
+
+1. Sign into PowerShell Gallery, create/verify the publishing account and check
+   that the Printix package name is available.
+1. Create an API key with **Push new or update packages**, an expiry, and the
+   name/glob pattern **Printix** for the first publication.
+1. Store it as `PSGALLERY_API_KEY` in the PSGallery GitHub environment.
+1. Review the manifest version and metadata, then merge the release commit to main.
+1. Run Publish manually from main for a first publication, or push its matching
+   stable version tag to run publishing and create a GitHub release.
+
+API key creation is documented in
+[Microsoft's Gallery API key guide](https://learn.microsoft.com/en-us/powershell/gallery/how-to/managing-profile/creating-apikeys).
+Copy the key when creating it; the value cannot be retrieved later. Rotate the
+GitHub secret before the key expires. Additional package owners can be managed
+after the package exists.
+
+## Releasing a new version
+
+1. Set `ModuleVersion` in the source manifest to the new, unpublished version.
+1. Update the changelog, regenerate help and run local validation.
+1. Merge to main.
+1. Create a tag matching the manifest, for example:
+
+```powershell
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+Only stable version tags matching the manifest are supported by this release
+workflow. Prerelease tags are rejected explicitly. The release commit must be
+reachable from main. Gallery package versions are immutable: increment the version
+for subsequent publications; rerunning a successful publish with the same version
+will fail rather than silently pretending to publish.
+
+The docs workflow must exist on the default branch for `workflow_run` events.
+If Gallery publishing succeeds but a later release/docs step fails, rerun only the
+failed job where possible; do not republish an already published Gallery version.
