@@ -1,0 +1,157 @@
+---
+title: Overview
+hide_title: true
+sidebar_position: 0
+slug: /
+---
+
+[![Homotechsual Discord](https://img.shields.io/discord/1075421628424523816?style=for-the-badge&logo=discord&logoColor=white&label=Homotechsual%20Discord)](https://discord.gg/NrCjh5ht7K)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/homotechsual?style=for-the-badge)](https://github.com/sponsors/homotechsual/)
+
+## About
+
+Printix is a PowerShell wrapper for the [Printix Cloud Print API](https://printix.github.io/).
+It covers print queues and jobs, users and ID codes, groups, cards, sites,
+networks, SNMP configurations and workstation monitoring.
+
+Requires **PowerShell 7.0 or later**; Windows PowerShell 5.1 is not supported.
+There are no runtime PowerShell module dependencies. This is an independent
+MIT-licensed module, not an official Printix or Tungsten Automation product.
+
+:::warning[Application types are mutually exclusive]
+
+Printix application types are **not combinable OAuth scopes**. Each application
+has exactly one type. Workflows spanning types need separate applications and
+credentials; there is no single application type that grants all documented API operations.
+
+For example, **User manager cannot generate ID codes**, and **Cloud Print API
+cannot monitor workstations**. The module has one active connection:
+reconnect using the appropriate application's credentials before switching types.
+See the [application permissions matrix](./api-coverage.mdx#application-permissions)
+for each command's requirements and the Card registration/Card manager naming discrepancy.
+
+:::
+
+:::note[Costs / Licensing]
+
+Each OAuth application registered in Printix is billed as a full / active user by Printix. This combined with the above means that creating multiple applications for different types can increase your licensing costs.
+
+I strongly suggest you let Printix know how completely and entirely ridiculous this API model is, loudly and often!
+
+:::
+
+## Installing
+
+This initial version is available from the source checkout; it has not yet been
+published to the PowerShell Gallery.
+
+From the project root:
+
+```powershell
+Import-Module .\Source\Printix.psd1
+```
+
+To build and import the versioned distribution instead:
+
+```powershell
+.\DevOps\Build\bootstrap.ps1
+.\DevOps\Build\build.ps1
+Import-Module .\Output\Printix\0.1.0\Printix.psd1
+```
+
+Bootstrap installs development tools; it is not required to use the source module.
+
+## Updating
+
+After updating your checkout or rebuilding the module, reload it in existing
+sessions and reconnect:
+
+```powershell
+Remove-Module Printix
+Import-Module .\Source\Printix.psd1
+```
+
+## Getting Started
+
+### Creating an application in Printix
+
+1. Open the **Applications** page in Printix Administrator and create an application.
+1. Give it a descriptive name and select the **one type** required by your workflow.
+1. Review the licensing terms shown in the dialog before accepting and creating it.
+1. Store the client ID and secret securely. Do not embed secrets in scripts or shell history.
+1. Create separate applications for operations requiring different types.
+
+The Administrator UI lists Cloud Print API, Card manager, Go registration,
+Workstation monitoring and User manager. The API documentation uses the additional
+label "Card registration"; see the [terminology note](./api-coverage.mdx#card-registration-versus-card-manager).
+
+### Connecting to Printix
+
+For print operations and user listing, use a Cloud Print API application:
+
+```powershell
+$secret = Read-Host 'Cloud Print API client secret' -AsSecureString
+Connect-Printix -ClientId $clientId -ClientSecret $secret -TenantId $tenantId
+Get-PrintixRoot
+```
+
+OAuth client credentials and access tokens are retained in module memory only;
+expiring tokens are renewed automatically. Authentication success does not
+mean the application can access every endpoint.
+
+See [Connect-Printix](./commandlets/PSModule/Connect-Printix.mdx).
+
+### Running a command
+
+```powershell
+Get-PrintixPrintQueues -All
+Get-PrintixUsers -All
+Get-PrintixUsers -Role USER -All
+```
+
+User listing includes normal and guest users by default. Collection commands
+return one page unless `-All` is supplied. Use `-Raw` to retain the HAL document,
+including links and paging metadata. `-TenantId` overrides the connection default.
+
+Workstation monitoring needs another application and connection:
+
+```powershell
+$monitoringSecret = Read-Host 'Workstation monitoring client secret' -AsSecureString
+Connect-Printix -ClientId $monitoringClientId -ClientSecret $monitoringSecret -TenantId $tenantId
+Get-PrintixWorkstations -All
+```
+
+Reconnect with Cloud Print API credentials before returning to print operations.
+
+### Printing a document
+
+After connecting with an authorized print application's credentials, obtain
+printer and queue IDs from the queue's HAL links, then:
+
+```powershell
+$submission = New-PrintixJob -PrinterId $printerId -QueueId $queueId -Title 'Report'
+$submission.uploadLinks | Send-PrintixJobFile -Path '.\report.pdf'
+Invoke-PrintixRequest -Resource $submission._links.uploadCompleted.href -Method POST
+```
+
+Submission, storage upload and upload completion are separate steps. Cloud storage
+must never receive the Printix bearer token. To defer printing, create the job
+with `-ReleaseImmediately $false`.
+
+See [New-PrintixJob](./commandlets/New/New-PrintixJob.mdx) and the
+[endpoint reference](./api-coverage.mdx) for both submission versions.
+
+## Output and troubleshooting
+
+Use `Get-Help <command> -Full` for local help and `-Verbose` for diagnostic output.
+Remote mutations and uploads support `-WhatIf` and `-Confirm`.
+Printix shares a rate limit across endpoints; the module retries throttled
+requests using the server's delay. Other failures are surfaced rather than hidden.
+
+For `FORBIDDEN`, check the application's type, selected tenant and licensing first.
+Retain the response's `printix-errorId` and timestamp if Printix support is needed.
+Responses may include sensitive user information; redact logs before sharing.
+
+```powershell
+Disconnect-Printix
+```

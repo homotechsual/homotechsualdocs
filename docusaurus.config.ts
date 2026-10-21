@@ -103,14 +103,20 @@ const config = {
               {
                 type: 'doc',
                 docId: 'index',
+                label: 'MSGraphMail',
+                docsPluginId: 'msgraphmail',
+              },
+              {
+                type: 'doc',
+                docId: 'index',
                 label: 'NinjaOne',
                 docsPluginId: 'ninjaone',
               },
               {
                 type: 'doc',
                 docId: 'index',
-                label: 'MSGraphMail',
-                docsPluginId: 'msgraphmail',
+                label: 'Printix',
+                docsPluginId: 'printix'
               }
             ],
           },
@@ -210,6 +216,11 @@ const config = {
                 to: 'https://github.com/homotechsual/NinjaOne',
                 label: 'NinjaOne',
                 target: '_blank',
+              },
+              {
+                to: 'https://github.com/homotechsual/Printix',
+                label: 'Printix',
+                target: '_blank'
               },
               {
                 to: 'https://github.com/homotechsual/screengrabber',
@@ -398,6 +409,16 @@ const config = {
           path: 'docs/msgraphmail',
           routeBasePath: 'modules/msgraphmail',
           sidebarPath: require.resolve('./msgraphmailsidebar.js'),
+          ...commonDocsPluginConfig
+        },
+      ],
+      [
+        '@docusaurus/plugin-content-docs',
+        {
+          id: 'printix',
+          path: 'docs/printix',
+          routeBasePath: 'modules/printix',
+          sidebarPath: require.resolve('./printixsidebar.js'),
           ...commonDocsPluginConfig
         },
       ],
