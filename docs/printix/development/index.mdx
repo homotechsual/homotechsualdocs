@@ -55,10 +55,10 @@ checks or force an older action onto a newer runtime instead of upgrading it.
 | CI | Pull requests, pushes to main/develop, manual | Static analysis, offline tests, MDX generation, build, packaged tests, module and docs artifacts |
 | Publish | Push a `v*` tag, or manual from main | Validate version and main ancestry, generate docs, test and build, publish to Gallery; tagged runs create a GitHub release with a ZIP |
 | Publish Documentation | Successful Publish, or manual from main | Sync the complete verified MDX artifact into `homotechsual/homotechsualdocs` on main |
-| Sync Development Documentation | Successful develop-push CI, or manual from main | Sync the development guide and module overview from develop, preserving released command help |
+| Sync Development Documentation | Successful develop-push CI, or manual from main | Sync development guides, examples and module overview from develop, preserving released command help |
 
 Release docs sync the complete `docs/printix` document tree. Develop-push CI syncs
-`docs/printix/development` and `docs/printix/index.mdx`, leaving released command help intact.
+`docs/printix/development`, `docs/printix/examples` and `docs/printix/index.mdx`, leaving released command help intact.
 Pull-request runs never push documentation or receive cross-repository credentials.
 Manual docs runs default to dry-run; disable `dry_run` to push.
 Manual development sync reads the develop branch while using publishing tooling
@@ -84,7 +84,7 @@ Printix intentionally differs in the following details:
 | Manual runs | Started on main; development sync reads develop, full docs publishing regenerates main; both default to dry-run |
 | Release publishing | Follows successful Publish runs, including manual publication from main; NinjaOne's automatic docs publisher is tag-based |
 | Manual release recovery | Regenerates current main, rather than selecting a historical run ID and tag |
-| Copy boundaries | Development guide tree plus overview, or the full MDX tree for releases; no image-asset copying |
+| Copy boundaries | Development guides and examples plus overview, or the full MDX tree for releases; no image-asset copying |
 | Concurrent pushes | The two Printix docs workflows share a concurrency group; other modules' workflows are not serialized by it |
 
 Printix currently has no docs image directory. Adding images requires extending the
@@ -153,5 +153,5 @@ If Gallery publishing succeeds but a later release/docs step fails, rerun only t
 failed job where possible; do not republish an already published Gallery version.
 
 For a docs-only change, do not bump or republish the Gallery version just to
-refresh the site. Development guides and overview can sync from develop; a manual
+refresh the site. Development guides, examples and overview can sync from develop; a manual
 full docs run can regenerate main without publishing the module.

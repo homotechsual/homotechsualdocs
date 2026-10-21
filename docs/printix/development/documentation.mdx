@@ -61,12 +61,15 @@ documentation repository.
 
 | Workflow | Source | Destination inside homotechsualdocs |
 | --- | --- | --- |
-| Sync Development Documentation, automatic | Exact successful develop-push CI artifact | `docs/printix/development` and `docs/printix/index.mdx` |
-| Sync Development Documentation, manual | Current develop checkout | Same development/overview paths |
+| Sync Development Documentation, automatic | Exact successful develop-push CI artifact | `docs/printix/development`, `docs/printix/examples` and `docs/printix/index.mdx` |
+| Sync Development Documentation, manual | Current develop checkout | Same development/examples/overview paths |
 | Publish Documentation, automatic | Exact successful Publish artifact | Complete `docs/printix` MDX tree |
 | Publish Documentation, manual | Current main with freshly generated help | Complete `docs/printix` MDX tree |
 
 Development sync does not update command help, API coverage or the Partner guide.
+Examples sync recursively, including removal of obsolete MDX pages while preserving
+assets. If an older source snapshot has no examples folder, existing destination
+examples are left unchanged; a present examples folder must contain `index.mdx`.
 An overview change linking to a new release-only page can therefore create a
 temporary broken site link; coordinate publishing those changes.
 
