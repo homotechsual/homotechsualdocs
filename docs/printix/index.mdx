@@ -108,7 +108,8 @@ Import-Module .\Source\Printix.psd1
 1. Open the **Applications** page in Printix Administrator and create an application.
 1. Give it a descriptive name and select the **one type** required by your workflow.
 1. Review the licensing terms shown in the dialog before accepting and creating it.
-1. Store the client ID and secret securely. Do not embed secrets in scripts or shell history.
+1. Store the client secret in your organization's approved key vault or secrets
+   manager. Do not embed secrets in scripts, configuration files or shell history.
 1. Create separate applications for operations requiring different types.
 
 The Administrator UI lists Cloud Print API, Card manager, Go registration,
@@ -117,17 +118,45 @@ label "Card registration"; see the [terminology note](./api-coverage.mdx#card-re
 
 ### Connecting to Printix
 
-For print operations and user listing, use a Cloud Print API application:
+For print operations and user listing, use a Cloud Print API application. Like
+the NinjaOne examples, build a parameter hashtable and pass it using
+[splatting](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_splatting).
+Printix uses client credentials, not NinjaOne's interactive authorization-code flow.
+
+**Recommended:** retrieve the client secret from a key vault or secrets manager.
+This example assumes Microsoft.PowerShell.SecretManagement and your approved
+vault extension are installed, and a vault is already registered locally as
+`OrganizationVault`. Replace the IDs, vault name and secret name for your environment.
+See [secrets and key vaults](./secrets.mdx) for prerequisites and automation guidance.
 
 ```powershell
-$secret = Read-Host 'Cloud Print API client secret' -AsSecureString
-Connect-Printix -ClientId $clientId -ClientSecret $secret -TenantId $tenantId
+Import-Module Microsoft.PowerShell.SecretManagement -ErrorAction Stop
+
+$ConnectPrintixParams = @{
+    ClientId = 'your-cloud-print-client-id'
+    ClientSecret = Get-Secret -Name 'Printix-CloudPrint-ClientSecret' -Vault 'OrganizationVault' -ErrorAction Stop
+    TenantId = 'your-tenant-id'
+    ErrorAction = 'Stop'
+}
+
+if ($ConnectPrintixParams.ClientSecret -isnot [securestring]) {
+    throw 'The vault secret must be a string secret returned as SecureString.'
+}
+
+Connect-Printix @ConnectPrintixParams
+Remove-Variable ConnectPrintixParams
 Get-PrintixRoot
 ```
 
+Do not use `Get-Secret -AsPlainText` for `ClientSecret`: the connection parameter
+accepts a `SecureString` directly. The vault modules are optional example tooling,
+not Printix runtime dependencies. For a one-off interactive session, a secure prompt
+is an alternative; see the [secrets guide](./secrets.mdx#interactive-alternative).
+
 OAuth client credentials and access tokens are retained in module memory only;
 expiring tokens are renewed automatically. Authentication success does not
-mean the application can access every endpoint.
+mean the application can access every endpoint. Removing the parameter hashtable
+does not clear the module's active connection; use `Disconnect-Printix` when finished.
 
 See [Connect-Printix](./commandlets/PSModule/Connect-Printix.mdx).
 
@@ -146,8 +175,14 @@ including links and paging metadata. `-TenantId` overrides the connection defaul
 Workstation monitoring needs another application and connection:
 
 ```powershell
-$monitoringSecret = Read-Host 'Workstation monitoring client secret' -AsSecureString
-Connect-Printix -ClientId $monitoringClientId -ClientSecret $monitoringSecret -TenantId $tenantId
+$ConnectMonitoringParams = @{
+    ClientId = 'your-workstation-monitoring-client-id'
+    ClientSecret = Get-Secret -Name 'Printix-WorkstationMonitoring-ClientSecret' -Vault 'OrganizationVault' -ErrorAction Stop
+    TenantId = 'your-tenant-id'
+    ErrorAction = 'Stop'
+}
+Connect-Printix @ConnectMonitoringParams
+Remove-Variable ConnectMonitoringParams
 Get-PrintixWorkstations -All
 ```
 
