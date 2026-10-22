@@ -1,14 +1,14 @@
 {
-  "className": "category-add",
-  "customProps": {
-    "description": "This category contains commands for adding or appending data, objects, settings and more."
-  },
-  "collapsible": true,
+  "collapsed": true,
   "label": "Add Data",
   "link": {
     "title": "Add Data",
     "type": "generated-index"
   },
-  "collapsed": true,
+  "collapsible": true,
+  "className": "category-add",
+  "customProps": {
+    "description": "This category contains commands for adding or appending data, objects, settings and more."
+  },
   "position": 0.5
 }

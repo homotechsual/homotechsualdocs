@@ -1,14 +1,14 @@
 {
-  "className": "category-start",
-  "customProps": {
-    "description": "This category contains commands for starting services, processes and more."
-  },
-  "collapsible": true,
+  "collapsed": true,
   "label": "Start Services",
   "link": {
     "title": "Start Services",
     "type": "generated-index"
   },
-  "collapsed": true,
+  "collapsible": true,
+  "className": "category-start",
+  "customProps": {
+    "description": "This category contains commands for starting services, processes and more."
+  },
   "position": 0.5
 }

@@ -22,7 +22,9 @@ Get-NinjaOneLocations [[-pageSize] <Int32>] [[-after] <Int32>] [[-organisationId
 
 ## DESCRIPTION
 
-Retrieves locations from the NinjaOne v2 API.
+Retrieves locations from the NinjaOne v2 API, automatically combining pages from the global
+locations endpoint.
+Page size controls each request, not the total number of locations returned.
 
 ## EXAMPLES
 
@@ -38,13 +40,22 @@ Gets all locations.
 ### EXAMPLE 2
 
 ```powershell
+Get-NinjaOneLocations -pageSize 1000
+```
+
+
+Gets all locations using requests of up to 1000 locations per page.
+
+### EXAMPLE 3
+
+```powershell
 Get-NinjaOneLocations -after 1
 ```
 
 
 Gets all locations after location id 1.
 
-### EXAMPLE 3
+### EXAMPLE 4
 
 ```powershell
 Get-NinjaOneLocations -organisationId 1
@@ -57,7 +68,8 @@ Gets all locations for the organisation with id 1.
 
 ### -pageSize
 
-Number of results per page.
+Number of results requested per page.
+Values above 1000 are capped at 1000 with a warning.
 
 ```yaml
 Type: Int32
