@@ -468,7 +468,7 @@ const config = {
       },
     ],
     [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
+      '@easyops-cn/docusaurus-search-local',
       {
         indexDocs: true,
         indexBlog: false,
