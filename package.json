@@ -14,12 +14,12 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
+    "@docsense/indexer": "0.1.0",
     "@docusaurus/core": "^3.10.2",
     "@docusaurus/faster": "^3.10.2",
     "@docusaurus/plugin-client-redirects": "^3.10.2",
     "@docusaurus/preset-classic": "^3.10.2",
     "@docusaurus/theme-mermaid": "^3.10.2",
-    "@easyops-cn/docusaurus-search-local": "^0.55.3",
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
     "@fortawesome/free-brands-svg-icons": "^7.3.1",
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
@@ -29,7 +29,9 @@
     "@octokit/core": "^7.0.8",
     "@signalwire/docusaurus-plugin-llms-txt": "^2.0.0-alpha.7",
     "@types/react": "^19.3.0",
+    "cheerio": "^1.2.0",
     "clsx": "^2.1.1",
+    "docusaurus-plugin-docsense": "0.1.0",
     "docusaurus-plugin-plausible": "^0.0.5",
     "docusaurus-plugin-sass": "^0.2.7",
     "faster": "^3.5.1",
@@ -46,9 +48,6 @@
     "eslint-plugin-mdx": "3.8.1",
     "eslint-plugin-react": "7.37.5",
     "remark-code-snippets": "^1.1.0"
-  },
-  "resolutions": {
-    "@easyops-cn/docusaurus-search-local/@docusaurus/plugin-content-docs": "3.9.2"
   },
   "browserslist": {
     "production": [

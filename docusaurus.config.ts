@@ -375,6 +375,7 @@ const config = {
       },
     }),
     plugins: [
+      './plugins/docsense.cjs',
       require.resolve('docusaurus-plugin-sass'),
       [
         require.resolve('docusaurus-plugin-plausible'),
@@ -466,16 +467,6 @@ const config = {
           dark: 'forest',
         },
       },
-    ],
-    [
-      '@easyops-cn/docusaurus-search-local',
-      {
-        indexDocs: true,
-        indexBlog: false,
-        indexPages: true,
-        language: "en",
-        hashed: true
-      }
     ],
   ],
   markdown: {
